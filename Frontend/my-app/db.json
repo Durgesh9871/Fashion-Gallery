@@ -1,0 +1,30 @@
+{
+  "Products": [
+    {
+      "id": 1,
+      "name": "T-Shirt",
+      "brand": "Legend",
+      "image": "",
+      "others": [],
+      "color": "",
+      "price": "",
+      "gender": "Men"
+    },
+    {
+      "id": 1,
+      "name": "Shirt",
+      "brand": "Voyager",
+      "image": "https://eddiebauer.scene7.com/is/image/EddieBauer/D0340611_217C1?$328V1$",
+      "others": [
+        "https://eddiebauer.scene7.com/is/image/EddieBauer/D0340611_217C1?$328V1$",
+        "https://eddiebauer.scene7.com/is/image/EddieBauer/D0340611_375C1?$328V1$",
+        "https://eddiebauer.scene7.com/is/image/EddieBauer/D0340611_677C1?$328V1$",
+        "https://eddiebauer.scene7.com/is/image/EddieBauer/D0340611_300C1?$328V1$",
+        "https://eddiebauer.scene7.com/is/image/EddieBauer/D0340611_615C1?$328V1$"
+      ],
+      "color": "red",
+      "price": "$54.99",
+      "gender": "Men"
+    }
+  ]
+}
