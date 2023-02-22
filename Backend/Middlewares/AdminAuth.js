@@ -5,7 +5,7 @@ const AdminAuth=(req,res,next)=>{
     if(token){
         const decode=jwt.verify(token,process.env.secretKey)
         if(decode){
-            -
+            
         }
     }
     const email=req.body.email
