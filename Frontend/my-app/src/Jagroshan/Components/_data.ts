@@ -94,3 +94,36 @@ export type ElementType<T extends ReadonlyArray<unknown>> =
 
 export type Product = ElementType<typeof products>;
 export type ProductImage = ElementType<typeof images>;
+
+export const cartData = [
+  {
+    id: '1',
+    price: 39.99,
+    currency: 'GBP',
+    name: 'Ferragamo',
+    description: 'Tan, 40mm',
+    quantity: 3,
+    imageUrl:
+      'https://eddiebauer.scene7.com/is/image/EddieBauer/D0340611_300C1?$328V1$',
+  },
+  {
+    id: '2',
+    price: 39.99,
+    currency: 'GBP',
+    name: 'Bamboo Tan',
+    description: 'Tan, 40mm',
+    quantity: 3,
+    imageUrl:
+      'https://eddiebauer.scene7.com/is/image/EddieBauer/D0340611_300C1?$328V1$',
+  },
+  {
+    id: '3',
+    price: 39.99,
+    currency: 'GBP',
+    name: 'Yeezy Sneakers',
+    description: 'Tan, 40mm',
+    quantity: 3,
+    imageUrl:
+      'https://eddiebauer.scene7.com/is/image/EddieBauer/D0340611_300C1?$328V1$',
+  },
+]
