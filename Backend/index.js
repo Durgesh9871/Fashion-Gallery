@@ -3,13 +3,11 @@ require('dotenv').config();
 const {connection} = require('./config/db');
 const {userRouter}=require('./routes/User.route');
 const cors=require('cors')
-const {record}=require('./middlewares/Logger.middleware')
 const app=express();
 
 // middlewares:-
 app.use(cors());
 app.use(express.json());
-app.use(record);
 app.use('/users',userRouter);
 
 

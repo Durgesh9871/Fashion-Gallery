@@ -90,6 +90,12 @@ userRouter.get('/logout',authenticate,async(req,res)=>{
     }catch(err){
         res.send(`Can't Logout :${err}`)
     }
+});
+
+
+//forgot password
+userRouter.get('/forgotPassword',async(req,res)=>{
+
 })
 
 module.exports={
