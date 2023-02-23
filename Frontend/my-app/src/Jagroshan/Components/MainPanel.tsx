@@ -10,7 +10,7 @@ export const MainPanel = () => {
       <Box
         // maxW="7xl"
         // mx="auto"
-        width={'100vw'}
+        // width={'100vw'}
         px={{ base: "4", md: "8", lg: "12" }}
         py={{ base: "6", md: "8", lg: "12" }}
         border="1px"

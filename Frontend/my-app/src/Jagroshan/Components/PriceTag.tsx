@@ -5,9 +5,6 @@ interface PriceTagProps {
   currency: string
   price: number
   salePrice?: number
-  rootProps?: StackProps
-  priceProps?: TextProps
-  salePriceProps?: TextProps
 }
 
 export type FormatPriceOptions = { locale?: string; currency?: string }
@@ -23,14 +20,14 @@ export function formatPrice(value: number, opts: { locale?: string; currency?: s
 }
 
 export const PriceTag = (props: PriceTagProps) => {
-  const { price, currency, salePrice, rootProps, priceProps, salePriceProps } = props
+  const { price, currency, salePrice } = props
   return (
-    <HStack spacing="1" {...rootProps}>
-      <Price isOnSale={!!salePrice} textProps={priceProps}>
+    <HStack spacing="1">
+      <Price isOnSale={!!salePrice}>
         {formatPrice(price, { currency })}
       </Price>
       {salePrice && (
-        <SalePrice {...salePriceProps}>{formatPrice(salePrice, { currency })}</SalePrice>
+        <SalePrice>{formatPrice(salePrice, { currency })}</SalePrice>
       )}
     </HStack>
   )
