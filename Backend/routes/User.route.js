@@ -59,7 +59,7 @@ userRouter.post("/login", async (req, res) => {
         const token = jwt.sign({ userID: user._id }, process.env.secretKey);
         const date = Date.now();
         const loginTime = new Date(date);
-        user.active = true;
+        user.isActive = true;
         user.loginTime = loginTime;
         user.save();
         res.send({ msg: "Login Successfull", token: token });
@@ -82,7 +82,7 @@ userRouter.get("/logout", authenticate, async (req, res) => {
       const date = Date.now();
       const logoutTime = new Date(date);
       user.logoutTime = logoutTime;
-      user.active = false;
+      user.isActive = false;
       user.save();
       console.log(user);
       res.send(`User of ID: ${user._id} has been successfully logout`);
