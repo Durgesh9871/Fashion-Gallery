@@ -8,7 +8,8 @@ const userSchema = mongoose.Schema({
   birthdate: String,
   mobileNo: Number,
   signUpTime: String,
-  active: Boolean,
+  isActive: Boolean,
+  isAdmin:Boolean,
   loginTime: String,
   logoutTime: String,
 });
