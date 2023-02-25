@@ -5,8 +5,8 @@ import { ProductPage } from './Jagroshan/Pages/ProductPage'
 const DisplayJavascript = () => {
   return (
     <div>
-      {/* <ProductPage/> */}
-      <CartPage/>
+      <ProductPage/>
+      {/* <CartPage/> */}
     </div>
   )
 }
