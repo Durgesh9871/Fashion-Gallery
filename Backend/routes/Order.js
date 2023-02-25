@@ -6,7 +6,7 @@ const OrderRouter = require("express").Router();
 
 //********************** CREATE   Logged User only ***************************
 
-OrderRouter.post("/",AddUserIdInCart, async (req, res) => {
+OrderRouter.post("/add",AddUserIdInCart, async (req, res) => {
     const userId=req.userId
   const newOrder = new OrderModel({...req.body,userId});
   try {
@@ -19,10 +19,11 @@ OrderRouter.post("/",AddUserIdInCart, async (req, res) => {
 
 // *************  UPDATE --> Only Admin has access*********************
 
-OrderRouter.patch("/:id", verifyTokenAndAdmin, async (req, res) => {
+OrderRouter.patch("/update/:id", verifyTokenAndAdmin, async (req, res) => {
+  console.log(req.params.id)
   try {
     const updatedOrder = await OrderModel.findByIdAndUpdate(
-      req.params.id,
+      {_id:req.params.id},
       {
         $set: req.body,
       },
@@ -35,7 +36,7 @@ OrderRouter.patch("/:id", verifyTokenAndAdmin, async (req, res) => {
 });
 
 //**************************  DELETE  Only Admin has access to preform  ****************************
-OrderRouter.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
+OrderRouter.delete("delete/:id", verifyTokenAndAdmin, async (req, res) => {
   try {
     await OrderModel.findByIdAndDelete(req.params.id);
     res.status(200).send("Order has been deleted...");
@@ -44,12 +45,15 @@ OrderRouter.delete("/:id", verifyTokenAndAdmin, async (req, res) => {
   }
 });
 
-//****************************** GET USER ORDERS  --> user can access **************************
+//****************************** GET USER ORDERS  --> user can access only own cart itmes **************************
 
-OrderRouter.get("/:userId", async (req, res) => {
+OrderRouter.get("/",AddUserIdInCart ,async (req, res) => {
+  console.log({userId:req.userId})
   try {
-    const orders = await OrderModel.find({ userId: req.params.userId });
-    res.status(200).send(orders);
+    const orders = await OrderModel.find({ userId: req.userId });
+   orders.length>0? res.status(200).send(orders):res.status(200).send({
+    msg:"You have nothing order so for"
+   })
   } catch (err) {
     res.status(500).send(err);
   }
@@ -57,7 +61,8 @@ OrderRouter.get("/:userId", async (req, res) => {
 
 // *******************************GET ALL  (Total order)-->  Only Admin has access to preform  ****************
 
-OrderRouter.get("/", verifyTokenAndAdmin, async (req, res) => {
+OrderRouter.get("/all", verifyTokenAndAdmin, async (req, res) => {
+
   try {
     const orders = await OrderModel.find();
     res.status(200).send(orders);
@@ -65,11 +70,6 @@ OrderRouter.get("/", verifyTokenAndAdmin, async (req, res) => {
     res.status(500).send(err);
   }
 });
-
-
-
-
-OrderRouter.get
 
 
 module.exports = {

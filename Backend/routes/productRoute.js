@@ -1,17 +1,11 @@
 const {ProductModel} = require("../Models/ProductsModel");
-const {
-  verifyToken,
-  verifyTokenAndAuthorization,
-} = require("../Middlewares/VerifyToken");
 const {verifyTokenAndAdmin}=require("../Middlewares/VerifyTokenAndAdmin")
-
 const ProductsRoute = require("express").Router();
 
 //CREATE ,  Only Admin Authorised middleware(verifyTokenAndAdmin)
 
 ProductsRoute.post("/add",verifyTokenAndAdmin, async (req, res) => {
   const newProduct = new ProductModel(req.body);
-
   try {
     const savedProduct = await newProduct.save();
     res.status(200).send(savedProduct);
@@ -40,6 +34,7 @@ ProductsRoute.patch("/update/:id",verifyTokenAndAdmin, async (req, res) => {
 });
 
 //DELETE   Only Admin Authorised, middleware(verifyTokenAndAdmin)
+
 ProductsRoute.delete("/delete/:id",verifyTokenAndAdmin, async (req, res) => {
   try {
     await ProductModel.findByIdAndDelete(req.params.id);
