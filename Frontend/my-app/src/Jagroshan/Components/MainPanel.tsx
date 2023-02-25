@@ -6,7 +6,7 @@ import { products } from "./_data";
 import axios from "axios";
 
 export const MainPanel = () => {
-  const [pro,setproducts]=React.useState(0)
+  const [pro,setproducts]=React.useState([])
   // console.log(products)
   // console.log(pro)
   // console.log(process.env.REACT_APP_URL)
@@ -26,7 +26,7 @@ export const MainPanel = () => {
         border="1px"
       >
         <ProductGrid>
-          {products.map((product:any) => (
+          {pro.map((product:any) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </ProductGrid>
