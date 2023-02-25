@@ -15,22 +15,33 @@ export const SidePanel = () => {
   return (
     <div>
       <VStack border={'1px'} alignItems={'start'} paddingX={'3'}>
-        <RadioGroup onChange={setValue} value={value}>
+        {/* <RadioGroup onChange={setValue} value={value}>
           <Text>Categories</Text>
           <VStack alignItems={'start'}>
-            <Radio value="1">First</Radio>
-            <Radio value="2">Second</Radio>
-            <Radio value="3">Third</Radio>
+            <Radio value="shirts">Shirt</Radio>
+            <Radio value="jacket">Jacket</Radio>
+            <Radio value="coatpant">Coat-Pant</Radio>
+            <Radio value="tshirts">T-Shirt</Radio>
           </VStack>
-        </RadioGroup>
-        <Text>Rating</Text>
-        <Checkbox>Checkbox</Checkbox>
-        <Checkbox>Checkbox</Checkbox>
+        </RadioGroup> */}
+
+        <Text>Categories</Text>
+        <Checkbox>Shirt</Checkbox>
+        <Checkbox>Jacket</Checkbox>
+        <Checkbox>Coat-Pant</Checkbox>
+        <Checkbox>T-Shirt</Checkbox>
 
         <Text>Price</Text>
         <Container flexDirection={"row"}>
           <PriceSlider setprice={setprice} />
         </Container>
+
+        <Text>Color</Text>
+        <Checkbox>Black</Checkbox>
+        <Checkbox>Blue</Checkbox>
+        <Checkbox>Grey</Checkbox>
+        <Checkbox>White</Checkbox>
+        <Checkbox>Red</Checkbox>
       </VStack>
     </div>
   );
