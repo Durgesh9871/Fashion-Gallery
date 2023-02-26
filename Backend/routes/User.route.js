@@ -31,7 +31,6 @@ userRouter.post("/register", async (req, res) => {
               name,
               email,
               gender,
-              isActive:false,
               password: hash,
               signUpTime,
             });

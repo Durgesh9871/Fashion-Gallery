@@ -1,7 +1,7 @@
-const {CartModel} = require("../Models/CartModel");
-const {activeCartModel}=require("../Models/activeCart.model")
-const {verifyTokenAndAdmin}=require("../Middlewares/VerifyTokenAndAdmin")
-const {AddUserIdInCart}=require("../Middlewares/AddUserIdInCart")
+const {CartModel} = require("../models/CartModel");
+const {activeCartModel}=require("../models/activeCart.model")
+const {verifyTokenAndAdmin}=require("../middlewares/VerifyTokenAndAdmin")
+const {AddUserIdInCart}=require("../middlewares/AddUserIdInCart")
 
 const Cartrouter = require("express").Router();
 

@@ -6,8 +6,8 @@ const userSchema = mongoose.Schema({
   password: { type: String, require: true },
   gender:String,
   signUpTime: String,
-  isActive: Boolean,
-  isAdmin:Boolean,
+  isActive: {type:Boolean,default:false},
+  isAdmin:{type:Boolean,default:false},
   loginTime: String,
   logoutTime: String,
 });

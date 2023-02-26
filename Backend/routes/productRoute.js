@@ -1,5 +1,5 @@
-const {ProductModel} = require("../Models/ProductsModel");
-const {verifyTokenAndAdmin}=require("../Middlewares/VerifyTokenAndAdmin")
+const {ProductModel} = require("../models/ProductsModel");
+const {verifyTokenAndAdmin}=require("../middlewares/VerifyTokenAndAdmin")
 const ProductsRoute = require("express").Router();
 
 //CREATE ,  Only Admin Authorised middleware(verifyTokenAndAdmin)

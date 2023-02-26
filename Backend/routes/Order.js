@@ -1,6 +1,6 @@
-const {OrderModel }= require("../Models/orderModel");
-const {verifyTokenAndAdmin,} = require("../Middlewares/VerifyTokenAndAdmin");
-const {AddUserIdInCart}=require("../Middlewares/AddUserIdInCart")
+const {OrderModel }= require("../models/orderModel");
+const {verifyTokenAndAdmin,} = require("../middlewares/VerifyTokenAndAdmin");
+const {AddUserIdInCart}=require("../middlewares/AddUserIdInCart")
 
 const OrderRouter = require("express").Router();
 
