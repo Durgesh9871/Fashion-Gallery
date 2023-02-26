@@ -1,0 +1,67 @@
+
+.productNavigationBar{
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    /* border: 1px solid yellow; */
+    /* padding: 6px 5px 5px 0px; */
+
+}
+.HomeHover , .modelHover{
+    color: #266de8;
+
+    
+}
+.HomeHover:hover , .modelHover:hover {
+    color:  #0e4bb4 ; 
+    
+}
+.horizontalRule{
+    color: #f0f1f2;
+   
+}
+
+ 
+
+/*  All product pages css----------------------------------------------------- */
+.AllProductPages:hover{
+   border-bottom: 1px solid  #0e4bb4;
+   margin-bottom: -1px;
+   
+}
+
+
+/*  Product single data ------------css --------- */
+
+.hoverProductDiv:hover{
+     transition: box-shadow .1s;
+    box-shadow: 0 0 11px rgba(33,33,33,.2);
+}
+
+/*  for hiding extra heading ---------------------------------- */
+.control{
+    --max-lines : 1 ; 
+
+     display: -webkit-box;
+     overflow: hidden;
+     -webkit-box-orient: vertical;
+     -webkit-line-clamp: var(--max-lines);
+}
+
+
+
+/*  responsive of filter div----------------------- */
+.hoverProductDiv{
+    margin: auto;
+}
+@media  (min-width: 300px) and (max-width: 480px)  {
+        .hoverFilterMainBox{
+            display: none;
+            
+        }
+        .hoverProductDiv{
+            margin-left: -45px;
+        }
+}
+/*  hiding filter div --------------------------------------------------- */
+
