@@ -14,7 +14,7 @@ export const ProductGrid = (props: SimpleGridProps) => {
 
   return (
     <SimpleGrid
-      border={'1px'}
+      border={'0px'}
       columns={columns}
       columnGap={{ base: '4', md: '6' }}
       rowGap={{ base: '8', md: '10' }}
