@@ -18,6 +18,7 @@ const AllRoutes = () => {
       <Route path="/addPageAdmin" element={<AddProduct />}></Route>
 
     </Routes>
+    
   )
 }
 
