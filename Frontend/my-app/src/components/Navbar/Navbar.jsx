@@ -5,7 +5,7 @@ import { useState } from "react";
 import Login from "../Login/Login";
 import Reg from "../Registration/Reg";
 
-const Navbar = () => {
+const NavbarTop = () => {
   // current user data
 
   const [page, setPage] = useState(false);
@@ -50,4 +50,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavbarTop;

@@ -5,6 +5,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./Mainhomepage.css"
 import MainNavbar from "../../Navbar/Navbar"
+import NavbarTop from '../../components/Navbar/Navbar';
 
 
 
@@ -306,7 +307,13 @@ const MainHomePage = () => {
      <Link to="/products">Product Page</Link>
      <Link to="/cart">Cart</Link>
       </Box>  */}
-      <MainNavbar />
+      {/* <Box>
+       <NavbarTop />
+       </Box> */}
+
+       <Box >
+      <MainNavbar  />
+      </Box>
 
       {/*  Main Code started from here ---------------------- */}
          
