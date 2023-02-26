@@ -20,7 +20,7 @@ const sendOtp = async (req, res, next) => {
       },
     });
 
-    const otp = otpGenerator.generate(6, {
+    const otp = otpGenerator.generate(4, {
       lowerCaseAlphabets: false,
       upperCaseAlphabets: false,
       specialChars: false,
@@ -40,24 +40,19 @@ const sendOtp = async (req, res, next) => {
         res.send(error);
       } else {
         console.log("Email sent: " + info.response);
-        req.session.sentOtp = otp;
-        req.session.email = email;
-        req.session.otpSentTime = Date.now();
-        // console.log(req.session);
+        res.status(200).send({sentOtp:otp,email,otpSentTime:Date.now()})
         next();
       }
     });
   } else {
-    res.send("Email is not registered");
+    res.status(404).send("Email is not registered");
   }
 };
 
 
 //verify otp
 const verifyOtp = async (req, res, next) => {
-  const { otp } = req.body;
-//   console.log(req.session);
-  const { email, sentOtp, otpSentTime } = req.session;
+  const { email,otp, sentOtp, otpSentTime } = req.body;
 
   if (email && sentOtp && otpSentTime) {
     const currentTime = Date.now();
@@ -66,11 +61,11 @@ const verifyOtp = async (req, res, next) => {
     if (otp === sentOtp && timeDiff <= 120000) {
       // OTP is valid for 2 minutes
       next();
-    } else {
-      res.send("Invalid OTP or OTP expired");
-    }
+    } else if(otp!==sentOtp){
+      res.status(401).send("Invalid OTP");
+    }else if(timeDiff>120000)res.send("OTP expired")
   } else {
-    res.send("OTP not sent yet");
+    res.status(400).send("OTP not sent yet");
   }
 };
 
@@ -93,14 +88,14 @@ const updatePassword = async (req, res) => {
           user.password = hash;
           await user.save();
         //   console.log(user);
-          res.send("Password updated successfully");
+          res.status(200).send("Password updated successfully");
         } else {
-          res.send({ err });
+          res.status(500).send({eroor: err });
         }
       }
     );
   } else {
-    res.send("User not found");
+    res.status(404).send("User not found");
   }
 };
 

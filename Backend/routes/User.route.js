@@ -14,11 +14,11 @@ const userRouter = express.Router();
 
 //register router
 userRouter.post("/register", async (req, res) => {
-  const { firstName, lastName, email, password, birthdate, mobileNo } =
+  const { name, email, password,gender } =
     req.body;
   try {
     const alreadyUser = await UserModel.findOne({ email });
-    if (alreadyUser) res.send("User already exist, please login");
+    if (alreadyUser) res.status(400).send("User already exist, please login");
     else {
       bcrypt.hash(
         password,
@@ -28,32 +28,43 @@ userRouter.post("/register", async (req, res) => {
             const date = Date.now();
             const signUpTime = new Date(date);
             const user = new UserModel({
-              firstName,
-              lastName,
+              name,
               email,
+              gender,
+              isActive:false,
               password: hash,
-              birthdate,
-              mobileNo,
               signUpTime,
             });
             await user.save();
-            res.send("Registered");
+            res.status(200).send("Registered");
           } else {
-            res.send(`Error Occurred while Registering: ${err}`);
+            res.status(500).send(err);
           }
         }
       );
     }
   } catch (err) {
-    res.send(`Error occurred while registering: ${err}`);
+    res.status(500).send(err);
   }
 });
 
 //login router
 userRouter.post("/login", async (req, res) => {
   const { email, password } = req.body;
+
+  // check if email and password are present in the request body
+  if (!email || !password) {
+    return res.status(400).send("Email and password are required");
+  }
+
   try {
     const user = await UserModel.findOne({ email });
+    
+    // check if user exists in the database
+    if (!user) {
+      return res.status(404).send("User not found");
+    }
+
     bcrypt.compare(password, user.password, (err, result) => {
       if (result) {
         const token = jwt.sign({ userID: user._id }, process.env.secretKey);
@@ -65,11 +76,12 @@ userRouter.post("/login", async (req, res) => {
         res.send({ msg: "Login Successfull", token: token });
         console.log(user);
       } else {
-        res.send(`Wrong Credentials: ${err}`);
+        res.status(401).send("Incorrect password");
       }
     });
+
   } catch (err) {
-    res.send(`Wrong Credentials: ${err}`);
+    res.status(500).send(err);
   }
 });
 
@@ -85,12 +97,12 @@ userRouter.get("/logout", authenticate, async (req, res) => {
       user.isActive = false;
       user.save();
       console.log(user);
-      res.send(`User of ID: ${user._id} has been successfully logout`);
+      res.status(200).send(`User of ID: ${user._id} has been successfully logout`);
     } else {
-      res.send(`Can't Logout :${err}`);
+      res.status(400).send(`Can't Logout :${err}`);
     }
   } catch (err) {
-    res.send(`Can't Logout :${err}`);
+    res.status(500).send(`Can't Logout :${err}`);
   }
 });
 
@@ -98,17 +110,17 @@ userRouter.get("/logout", authenticate, async (req, res) => {
 
 // Route for sending OTP
 userRouter.post("/sendOtp", sendOtp, (req, res) => {
-  res.send("OTP sent successfully");
+  
 });
 
 // Route for verifying OTP and allowing user to reset password
 userRouter.post("/verifyOtp", verifyOtp, (req, res) => {
-  res.send("OTP verified successfully");
+  res.status(200).send("OTP verified successfully");
 });
 
 // Route for updating new password
 userRouter.post("/updatePassword", updatePassword, (req, res) => {
-  res.send("Password updated successfully");
+  res.status(200).send("Password updated successfully");
 });
 
 module.exports = {
