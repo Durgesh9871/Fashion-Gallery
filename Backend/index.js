@@ -4,21 +4,10 @@ const { connection } = require("./config/db");
 const { userRouter } = require("./routes/User.route");
 const cors = require("cors");
 const app = express();
-const session = require("express-session");
 
 // middlewares:-
 app.use(cors());
 app.use(express.json());
-app.use(
-  session({
-    secret: process.env.secretKey,
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      secure: false,
-    },
-  })
-);
 
 app.use("/users", userRouter);
 
