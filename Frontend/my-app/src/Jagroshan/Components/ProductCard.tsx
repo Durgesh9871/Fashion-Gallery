@@ -13,23 +13,22 @@ import {
 } from '@chakra-ui/react'
 import { Rating } from './Rating'
 import { PriceTag } from './PriceTag'
-import { Product } from './_data'
+// import { Product } from './_data'
 
 interface Props {
-  product: Product
-  rootProps?: StackProps
+  product: any
 }
 
 export const ProductCard = (props: Props) => {
-  const { product, rootProps } = props
-  const { name, imageUrl, price, salePrice, rating } = product
+  const { product } = props
+  const { title, mainImage, realPrice, price, rating } = product
   return (
-    <Stack spacing={{ base: '4', md: '5' }} {...rootProps} border={'1px'}>
+    <Stack spacing={{ base: '4', md: '5' }} border={'1px'} justifyContent={'space-between'}>
       <Box position="relative">
         <AspectRatio ratio={4 / 5}>
           <Image
-            src={imageUrl}
-            alt={name}
+            src={mainImage}
+            alt={title}
             draggable="false"
             fallback={<Skeleton />}
             // borderRadius={{ base: 'md', md: 'xl' }}
@@ -39,9 +38,9 @@ export const ProductCard = (props: Props) => {
       <Stack>
         <Stack spacing="1">
           <Text fontWeight="medium" color={useColorModeValue('gray.700', 'gray.400')}>
-            {name}
+            {title}
           </Text>
-          <PriceTag price={price} salePrice={salePrice} currency="USD" />
+          <PriceTag price={realPrice} salePrice={price} currency="USD" />
         </Stack>
         <HStack>
           <Rating defaultValue={rating} size="sm" />

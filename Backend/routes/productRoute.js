@@ -1,17 +1,11 @@
 const {ProductModel} = require("../Models/ProductsModel");
-const {
-  verifyToken,
-  verifyTokenAndAuthorization,
-} = require("../Middleware/VerifyToken");
-const {verifyTokenAndAdmin}=require("../Middleware/VerifyTokenAndAdmin")
-
+const {verifyTokenAndAdmin}=require("../Middlewares/VerifyTokenAndAdmin")
 const ProductsRoute = require("express").Router();
 
 //CREATE ,  Only Admin Authorised middleware(verifyTokenAndAdmin)
 
-ProductsRoute.post("/add", async (req, res) => {
+ProductsRoute.post("/add",verifyTokenAndAdmin, async (req, res) => {
   const newProduct = new ProductModel(req.body);
-
   try {
     const savedProduct = await newProduct.save();
     res.status(200).send(savedProduct);
@@ -22,7 +16,7 @@ ProductsRoute.post("/add", async (req, res) => {
 
 //UPDATE, Only Admin Authorised, middleware(verifyTokenAndAdmin)
 
-ProductsRoute.patch("/update/:id", async (req, res) => {
+ProductsRoute.patch("/update/:id",verifyTokenAndAdmin, async (req, res) => {
     console.log(req.body)
     console.log(req.params.id)
   try {
@@ -40,7 +34,8 @@ ProductsRoute.patch("/update/:id", async (req, res) => {
 });
 
 //DELETE   Only Admin Authorised, middleware(verifyTokenAndAdmin)
-ProductsRoute.delete("/delete/:id", async (req, res) => {
+
+ProductsRoute.delete("/delete/:id",verifyTokenAndAdmin, async (req, res) => {
   try {
     await ProductModel.findByIdAndDelete(req.params.id);
     res.status(200).send("Product has been deleted...");
@@ -51,7 +46,7 @@ ProductsRoute.delete("/delete/:id", async (req, res) => {
 
 //GET , Product by id ,Anyone can access
 
-ProductsRoute.get("/:id", async (req, res) => {
+ProductsRoute.get("/:id", async (req, res) => { 
   console.log(req.params.id)
   try {
     const product = await ProductModel.findById(req.params.id);
@@ -67,7 +62,7 @@ ProductsRoute.get("/:id", async (req, res) => {
 ProductsRoute.get("/", async (req, res) => {
   const qNew = req.query.new;
   const qCategory = req.query.category;
-  console.log(qCategory)
+  console.log({qCategory})
   try {
     let products;
 
@@ -76,7 +71,7 @@ ProductsRoute.get("/", async (req, res) => {
     } else if (qCategory) {
       products = await ProductModel.find({
         categories:{
-          $in: [qCategory],
+          $in:[qCategory],
         },
       });
     } else {
