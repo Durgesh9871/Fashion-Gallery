@@ -218,32 +218,32 @@ import {
             {
               label: 'TOPS',
               subLabel:["T-Shirt","Shirt","Sweaters","Performance Top","Polos","Flannels","Shirt Jacket","Thirmals"],
-              href: '#',
+              href: '/products',
             },
             {
               label: 'Bottom',
               subLabel:["Jeans","Pants","Shorts","Lined Bottoms","Boxer","Pant & Shorts Guide","Denim Shop"],
-              href: '#',
+              href: '/products',
             },
             {
               label: 'OUTERWEAR',
               subLabel:["Jackets","Insulated","Rainwear","Parkas","Vets","Softshell & Wind Jackets","Pants","Baselayers"],
-              href: '#',
+              href: '/products',
             },
             {
               label: 'ACCESSORIES',
               subLabel:["Gloves","Hats","Belts","Beanies","Scarves","Sunglasses","Socks"],
-              href: '#',
+              href: '/products',
             },
             {
               label: 'FLEECE',
               subLabel:["Loungewear","","Sleep","Slippers","Blankets & Throws"],
-              href: '#',
+              href: '/products',
             },
             {
               label: 'FOOTWEAR',
               subLabel:["Casual","Hiking","Boots","Sandals"],
-              href: '#',
+              href: '/products',
             },
           ],
       },
