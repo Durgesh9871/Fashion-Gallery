@@ -19,7 +19,7 @@ export const getProducts=(objParams)=>(dispatch)=>{
     dispatch(getProductRequest())
     axios({
         method:'get',
-        url:`${process.env.REACT_APP_URL}/mens`,
+        url:`${process.env.REACT_APP_URL}/products`,
         params:objParams
     })
     .then((res)=>{
