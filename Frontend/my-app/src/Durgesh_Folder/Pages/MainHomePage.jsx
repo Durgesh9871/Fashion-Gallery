@@ -6,6 +6,7 @@ import "react-multi-carousel/lib/styles.css";
 import "./Mainhomepage.css"
 
 
+
 const MainHomePage = () => {
 
 
@@ -338,7 +339,7 @@ performance in unpredictable conditions.</Text>
             {/*  Sale Box started from here ------------------- */} 
 
             <Box  border="2px   red" height="auto"  textAlign="center" m="4%" >
-              <Img src='https://github.com/Durgesh9871/ReadmeImages/blob/main/Fashion_Gallery/Sale_fashion_Galeery.png?raw=true' m="auto"></Img>
+              {/* <Image src="../Images/sale" m="auto"></Image> */}
               <Button id="mensButtonHover" color="white" mt="14px" border="1px solid #333333"  backgroundColor="#333333" borderRadius="1px" p="0px 27px" >SHOP MEN</Button>
             </Box>
              
