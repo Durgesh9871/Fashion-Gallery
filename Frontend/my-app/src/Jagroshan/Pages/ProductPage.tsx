@@ -14,7 +14,7 @@ export const ProductPage = () => {
         
         <Box width={'80vw'}>
         <MainPanel/>
-        <Pagination/>
+        {/* <Pagination/> */}
         </Box>
       </HStack>
     </div>

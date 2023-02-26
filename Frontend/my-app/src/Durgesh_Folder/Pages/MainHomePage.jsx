@@ -301,6 +301,8 @@ const MainHomePage = () => {
       <Box border="2px solid red" width="100%" height="10vh" display="flex" justifyContent="space-evenly" >
      <Link to="/"> <Box>Home Page</Box> </Link>
      <Link to="/adminPage"> <Box>Admin Page</Box> </Link>
+     <Link to="/products">Product Page</Link>
+     <Link to="/cart">Cart</Link>
       </Box> 
 
       {/*  Main Code started from here ---------------------- */}
