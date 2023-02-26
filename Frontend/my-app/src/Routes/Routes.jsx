@@ -5,7 +5,7 @@ import { AddProduct } from '../Durgesh_Folder/Admin_Pages/AddProduct'
 import { CustomerPage } from '../Durgesh_Folder/Admin_Pages/customerPage'
 import { DeletePage } from '../Durgesh_Folder/Admin_Pages/DeletePage'
 import { MainAdminPage } from '../Durgesh_Folder/Pages/MainAdminPage'
-import { MainHomePage } from '../Durgesh_Folder/Pages/MainHomePage'
+import { MainHomePage } from '../Durgesh_Folder/Pages/MainHomePage' ; 
 
 
 const AllRoutes = () => {
@@ -18,7 +18,7 @@ const AllRoutes = () => {
       <Route path="/addPageAdmin" element={<AddProduct />}></Route>
 
     </Routes>
-    
+
   )
 }
 
