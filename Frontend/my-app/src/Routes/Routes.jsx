@@ -1,6 +1,7 @@
 
 import React from 'react'
 import {Routes , Route} from "react-router-dom"
+import { MainAdminPage } from '../Durgesh_Folder/Pages/MainAdminPage'
 import { MainHomePage } from '../Durgesh_Folder/Pages/MainHomePage'
 
 
