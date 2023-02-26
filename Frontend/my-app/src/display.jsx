@@ -7,6 +7,9 @@ const DisplayJavascript = () => {
     <div>
       <ProductPage/>
       {/* <CartPage/> */}
+
+
+      {/*  Durgesh -code--- */}
     </div>
   )
 }
