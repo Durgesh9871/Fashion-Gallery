@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./Mainhomepage.css"
+import MainNavbar from "../../Navbar/Navbar"
 
 
 
@@ -299,12 +300,13 @@ const MainHomePage = () => {
   return (
     <Box>
       {/* NavBar  ------- */}
-      <Box border="2px solid red" width="100%" height="10vh" display="flex" justifyContent="space-evenly" >
+      {/* <Box border="2px solid red" width="100%" height="10vh" display="flex" justifyContent="space-evenly" >
      <Link to="/"> <Box>Home Page</Box> </Link>
      <Link to="/adminPage"> <Box>Admin Page</Box> </Link>
      <Link to="/products">Product Page</Link>
      <Link to="/cart">Cart</Link>
-      </Box> 
+      </Box>  */}
+      <MainNavbar />
 
       {/*  Main Code started from here ---------------------- */}
          

@@ -20,7 +20,7 @@ import {
     ChevronRightIcon,
   } from '@chakra-ui/icons';
   
-  export default function M() {
+  export default function MainNavbar() {
     const { isOpen, onToggle } = useDisclosure();
   
     return (
@@ -68,6 +68,7 @@ import {
                   fontWeight={500}
                   color={linkColor}
                   borderBottomColor="green"
+                
                   _hover={{
                     textDecoration: 'none',
                     color: linkHoverColor,
@@ -99,7 +100,7 @@ import {
                  
                   >
                     {navItem.children.map((child) => (
-                      <DesktopSubNav key={child.label} {...child} />
+                      <DesktopSubNav key={child.label} {...child}  />
                     ))}
                   </Grid>
                 </PopoverContent>
@@ -116,7 +117,7 @@ import {
       <Box zIndex={"2"} w={["100%","100%","10vw","10vw"]}
       boxSizing='border-box'
       p={3}
-      shadow={"2xl"}
+      // shadow={"2xl"}
       // border={"1px solid"}
       >
         
