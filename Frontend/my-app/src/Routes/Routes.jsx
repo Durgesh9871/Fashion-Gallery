@@ -12,10 +12,10 @@ const AllRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<MainHomePage />}></Route>
-      <Route path="/adminPage" element={<MainAdminPage />}></Route>
+      {/* <Route path="/adminPage" element={<MainAdminPage />}></Route>
       <Route path="/customerPageAdmin" element={<CustomerPage />}></Route>
       <Route path="/deltePageAdmin" element={<DeletePage />}></Route>
-      <Route path="/addPageAdmin" element={<AddProduct />}></Route>
+      <Route path="/addPageAdmin" element={<AddProduct />}></Route> */}
 
     </Routes>
   )
