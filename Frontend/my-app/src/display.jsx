@@ -13,7 +13,7 @@ const DisplayJavascript = () => {
       {/* <Navbar/> */}
       {/* <CartPage/> */}
 
-
+    
       {/*  Durgesh -code--- */}
       <AllRoutes />
       
