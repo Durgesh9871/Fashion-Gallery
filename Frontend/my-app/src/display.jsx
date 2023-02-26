@@ -5,11 +5,12 @@ import { ProductPage } from './Jagroshan/Pages/ProductPage'
 const DisplayJavascript = () => {
   return (
     <div>
-      <ProductPage/>
+      {/* <ProductPage/> */}
       {/* <CartPage/> */}
 
 
       {/*  Durgesh -code--- */}
+      <AllRoutes />
     </div>
   )
 }
