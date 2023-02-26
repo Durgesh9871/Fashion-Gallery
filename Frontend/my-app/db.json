@@ -1,402 +1,650 @@
 {
-  "mens":[
-  {
-   "id": 1,
-   "rating": 3 , 
-"categories": "shirts",
-"title": "Men Regular Fit Solid Cut Away Collar Casual Shirt",
-"price": 399,
-"realPrice":600 , 
-"brand" :"CarbonnCloth" , 
-"description": "Carbonn Cloth presents to you a new range of stylish and cool new Shirts yet which are affordable for everyone .These comes in different sizes and colors, for everybody's taste",
-"color": "black",
-"discount": "42",
- "reviews" : ["Great Product" , "Value for money" ] , 
- "Images": [  {"imageFront":"https://rukminim1.flixcart.com/image/832/832/xif0q/shirt/g/3/w/s-crc-den-01-carbonn-cloth-original-imag3uyxer7hbwcj-bb.jpeg?q=70" } , {"imageFront":"https://rukminim1.flixcart.com/image/832/832/kpmy8i80/shirt/9/v/3/s-crc-den-01-carbonn-cloth-original-imag3uyx2crqr6me.jpeg?q=70"} ,{"imageFront":"https://rukminim1.flixcart.com/image/832/832/kpmy8i80/shirt/b/c/t/s-crc-den-01-carbonn-cloth-original-imag3uyxgrrxxyrq.jpeg?q=70"} ] , 
-
- "mainImage":"https://rukminim1.flixcart.com/image/832/832/xif0q/shirt/g/3/w/s-crc-den-01-carbonn-cloth-original-imag3uyxer7hbwcj-bb.jpeg?q=70"
-} ,
-
-{
-"id":2 ,
-"rating": 4  , 
-"categories": "shirts",
-"title": "Men Regular Fit Solid Cut Away Collar Casual Shirt",
-"price": 500 ,
-"realPrice":700 , 
-"brand" :"CarbonnCloth" , 
-"description": "This shirt is made from premium quality material. Durable quality with a stylish look makes it a must have on your shelves.",
-"color": "blue",
-"discount": "1",
-"reviews" : ["Great Product" , "Value for money" ] , 
-"Images": [  {"imageFront":"https://rukminim1.flixcart.com/image/832/832/xif0q/shirt/h/3/j/m-crc-den-01-carbonn-blue-original-imafv2h7g7bvgfdz-bb.jpeg?q=70" }
-, {"imageFront":"https://rukminim1.flixcart.com/image/832/832/ked56kw0-0/shirt/a/s/l/m-crc-den-01-carbonn-blue-original-imafv2h82unperfz.jpeg?q=70"} ,
-{"imageFront":"https://rukminim1.flixcart.com/image/832/832/ked56kw0-0/shirt/v/b/j/m-crc-den-01-carbonn-blue-original-imafv2h7zbhxnuna.jpeg?q=70"} ] , 
-
-"mainImage":"https://rukminim1.flixcart.com/image/832/832/xif0q/shirt/h/3/j/m-crc-den-01-carbonn-blue-original-imafv2h7g7bvgfdz-bb.jpeg?q=70"
-},
-
-{
-"id":3 ,
-"rating": 3 , 
-"categories": "shirts",
-"title": "Men Regular Fit Solid Cut Away Collar Casual Shirt",
-"price": 299,
-"realPrice":600 , 
-"brand" :"CarbonnCloth" , 
-"description": "This shirt is made from premium quality material. Durable quality with a stylish look makes it a must have on your shelves.",
-"color": "grey",
-"discount": "1",
-"reviews" : ["Great Product" , "Value for money" ] , 
-"Images": [  {"imageFront":"https://rukminim1.flixcart.com/image/832/832/xif0q/shirt/n/n/y/s-crc-den-01-carbonn-cloth-original-imag3uyxtxa2j5r2-bb.jpeg?q=70" }
-, {"imageFront":"https://rukminim1.flixcart.com/image/832/832/kpmy8i80/shirt/w/8/r/s-crc-den-01-carbonn-cloth-original-imag3uyx6k9jwjfa.jpeg?q=70"} ,
-{"imageFront":"https://rukminim1.flixcart.com/image/832/832/kpmy8i80/shirt/1/r/g/s-crc-den-01-carbonn-cloth-original-imag3uyx5m67cj3q.jpeg?q=70"} ] , 
-
-"mainImage":"https://rukminim1.flixcart.com/image/832/832/xif0q/shirt/n/n/y/s-crc-den-01-carbonn-cloth-original-imag3uyxtxa2j5r2-bb.jpeg?q=70"
-},
-
-{
-"id":4 ,
-"rating": 5  , 
-"categories": "shirts",
-"title": "Men Regular Fit Self Design Sports Shirt",
-"price": 499,
-"realPrice":790 , 
-"brand" :"CarbonnCloth" , 
-"description":"This shirt is made from premium quality material. Durable quality with a stylish look makes it a must have on your shelves.",
-"color": "black",
-"discount": "1",
-"reviews" : ["Great Product" , "Value for money" ] , 
-"Images": [  {"imageFront":"https://rukminim1.flixcart.com/image/832/832/xif0q/shirt/1/4/5/l-crc-ch-01-carbonn-cloth-original-imag3uyxrg7azzhh-bb.jpeg?q=70" }
-, {"imageFront":"https://rukminim1.flixcart.com/image/832/832/kpmy8i80/shirt/m/h/c/l-crc-ch-01-carbonn-cloth-original-imag3uyx5gkvdgtt.jpeg?q=70"} ,
-{"imageFront":"https://rukminim1.flixcart.com/image/832/832/kpmy8i80/shirt/2/g/u/l-crc-ch-01-carbonn-cloth-original-imag3uyxdvcq5zhp.jpeg?q=70"} ] , 
-
-"mainImage":"https://rukminim1.flixcart.com/image/832/832/xif0q/shirt/1/4/5/l-crc-ch-01-carbonn-cloth-original-imag3uyxrg7azzhh-bb.jpeg?q=70"
-},
-
-{
-"id":5 ,
-"rating": 3  , 
-"categories": "jacket",
-"title": "Men Full Sleeve Printed Hooded Sweatshirt",
-"price": 350,
-"realPrice":550 , 
-"brand" :"caveofcloths" , 
-"description": "88% premium cotton which is breathable and comfortable. No color fading. Minimal shrinkage with a guarantee that it will not lose the original shape and size. 2 times softer. 4 times stronger.",
-"color": "black",
-"discount": "1",
-"reviews" : ["Great Product" , "Value for money" ] , 
-"Images": [  {"imageFront":"https://rukminim1.flixcart.com/image/832/832/xif0q/sweatshirt/a/n/g/l-coc0149b-cave-of-cloths-original-imaghd7hbszcpuxq.jpeg?q=70" }
-, {"imageFront":"https://rukminim1.flixcart.com/image/832/832/xif0q/sweatshirt/u/t/l/l-coc0149b-cave-of-cloths-original-imaghd7hhnhvy23f.jpeg?q=70"} ,
-{"imageFront":"https://rukminim1.flixcart.com/image/832/832/xif0q/sweatshirt/3/h/x/m-coc0002hab-cave-of-cloths-original-imaggxa2vscjwvkn.jpeg?q=70"} ] , 
-
-"mainImage":"https://rukminim1.flixcart.com/image/832/832/xif0q/sweatshirt/a/n/g/l-coc0149b-cave-of-cloths-original-imaghd7hbszcpuxq.jpeg?q=70"
-},
-
-{
-"id":6 ,
-"rating": 2 , 
-"categories": "jacket",
-"title": "Men Full Sleeve Printed Hooded Sweatshirt",
-"price": 99,
-"realPrice":190 , 
-"brand" :"caveofcloths" , 
-"description": "88% premium cotton which is breathable and comfortable. No color fading. Minimal shrinkage with a guarantee that it will not lose the original shape and size. 2 times softer. 4 times stronger.",
-"color": "white",
-"discount": "1",
-"reviews" : ["Great Product" , "Value for money" ] , 
-"Images": [  {"imageFront":"https://rukminim1.flixcart.com/image/832/832/xif0q/sweatshirt/r/3/q/xxl-coc0151w-cave-of-cloths-original-imaghfheycshhm4s.jpeg?q=70" }
-, {"imageFront":"https://rukminim1.flixcart.com/image/832/832/xif0q/sweatshirt/4/1/s/l-coc0143haw-cave-of-cloths-original-imagh6gxfxxrkfmx.jpeg?q=70"} ,
-{"imageFront":"https://rukminim1.flixcart.com/image/832/832/xif0q/sweatshirt/i/n/p/xl-coc0151b-cave-of-cloths-original-imaghfh5nnudjezx.jpeg?q=70"} ] , 
-
-"mainImage":"https://rukminim1.flixcart.com/image/832/832/xif0q/sweatshirt/r/3/q/xxl-coc0151w-cave-of-cloths-original-imaghfheycshhm4s.jpeg?q=70"
-}, 
-
-{
-"id":7 ,
-"rating": 5  , 
-"categories": "coatpant",
-"title": "Unstitched Viscose Rayon Suit Fabric Solid",
-"price": 899,
-"realPrice":999 , 
-"brand" :"lorex" , 
-"description": "CAN USE IN 5 STYLES WITH FASHION, PANTS , WAISTCOAT, PANT-WAISTCOAT, 2 PIECE ,3PIECE",
-"color": "blue",
-"discount": "1",
-"reviews" : ["Great Product" , "Value for money" ] , 
-"Images": [  {"imageFront":"https://rukminim1.flixcart.com/image/832/832/l5h2xe80/fabric/c/e/b/no-3-m-unstitched-na-3pieceblacksuit-lorex-original-imagg4wzdrhzfvcn.jpeg?q=70" }
-, {"imageFront":"https://rukminim1.flixcart.com/image/832/832/xif0q/fabric/d/l/u/no-3-m-unstitched-na-3pieceblacksuit-lorex-original-imaghn7yzz3x6vu6.jpeg?q=70"} ,
-{"imageFront":"https://rukminim1.flixcart.com/image/832/832/xif0q/fabric/9/p/l/no-3-m-unstitched-na-3piece-lorex-original-imagkn5g2mq5nhxv.jpeg?q=70"} ] , 
-
-"mainImage":"https://rukminim1.flixcart.com/image/832/832/l5h2xe80/fabric/c/e/b/no-3-m-unstitched-na-3pieceblacksuit-lorex-original-imagg4wzdrhzfvcn.jpeg?q=70"
-},
-
-{
-"id":8 ,
-"rating": 5  , 
-"categories": "coatpant",
-"title": "Unstitched Viscose Rayon Suit Fabric Self Design",
-"price": 109,
-"realPrice":400 , 
-"brand" :"lorex" , 
-"description": "COMES IN CARDBOARD PACKING, GOOD FOR GIFTING ALSO, CAN USE BLAZER & PANTS SPERATELY AFTER STICHING",
-"color": "black",
-"discount": "1",
-"reviews" : ["Great Product" , "Value for money" ] , 
-"Images": [  {"imageFront":"https://rukminim1.flixcart.com/image/832/832/xif0q/fabric/k/p/n/no-2-m-unstitched-na-black-suit-fabric-lorex-original-imaghhy9uf3xpvmc.jpeg?q=70" }
-, {"imageFront":"https://rukminim1.flixcart.com/image/832/832/l4zxn680/fabric/2/x/b/no-1-m-unstitched-na-blackwaistcoat-lorex-original-imagfs5chvgnmjwz.jpeg?q=70"} ,
-{"imageFront":"https://rukminim1.flixcart.com/image/832/832/xif0q/fabric/q/d/h/no-1-70-m-unstitched-na-blacklycrauit-fabric-lorex-original-imagkd4krv6mhj8t.jpeg?q=70"} ] , 
-
-"mainImage":"https://rukminim1.flixcart.com/image/832/832/xif0q/fabric/k/p/n/no-2-m-unstitched-na-black-suit-fabric-lorex-original-imaghhy9uf3xpvmc.jpeg?q=70"
-},
-
-{
-"id":9 ,
-"rating": 4  , 
-"categories": "coatpant",
-"title": "Unstitched Polycotton Suit Fabric Solid",
-"price": 199,
-"realPrice":200 , 
-"brand" :"lorex" , 
-"description": "Lorex brands which deals in best quality of fabrics , we deals in finest quality of plain slub textured fabric for an ideal suit an MEN's FASHION DESIRE which comes in an3.00 meters pack contains 1.8meter for blazer or coat & 1.2 meters for pants or trouser.it is suitable for 6.5feet person & upto 42 size , content of fabric ( POLY VISCOSE ) which is best in the market with its smooth & shiny lusture and gives the soft feel after wearing, which is suitable in every season. color of the fabric is PURE BLACK which may Slightly Vary Due to Photographic Effect Lorex fabrics always gives u an stunning look and branded feeling, The Fabric is best for personal use as well as gifting in wedding , parties ,anniversary etc. with best human satisfaction.",
-"color": "black",
-"discount": "1",
-"reviews" : ["Great Product" , "Value for money" ] , 
-"Images": [  {"imageFront":"https://rukminim1.flixcart.com/image/832/832/l5fnhjk0/fabric/t/2/j/no-1-80-m-unstitched-na-blacksuitsb-lorex-original-imagg4a5vanbmwnx.jpeg?q=70" }
-, {"imageFront":"https://rukminim1.flixcart.com/image/832/832/l4zxn680/fabric/2/x/b/no-1-m-unstitched-na-blackwaistcoat-lorex-original-imagfs5chvgnmjwz.jpeg?q=70"} ,
-{"imageFront":"https://rukminim1.flixcart.com/image/832/832/l4zxn680/fabric/s/9/f/no-1-m-unstitched-na-blackwaistcoat-lorex-original-imagfs5cgsrs4szm.jpeg?q=70"} ] , 
-
-"mainImage":"https://rukminim1.flixcart.com/image/832/832/l5fnhjk0/fabric/t/2/j/no-1-80-m-unstitched-na-blacksuitsb-lorex-original-imagg4a5vanbmwnx.jpeg?q=70"
-},
-
-{
-"id":10 ,
-"rating": 5  , 
-"categories": "coatpant",
-"title": "Unstitched Viscose Rayon Suit Fabric Solid",
-"price": 500,
-"realPrice":600 , 
-"brand" :"lorex" , 
-"description": "Lorex brands which deals in best quality of fabrics , we deals in finest quality of plain slub textured fabric for an ideal suit an MEN's FASHION DESIRE which comes in an3.00 meters pack contains 1.8meter for blazer or coat & 1.2 meters for pants or trouser.it is suitable for 6.5feet person & upto 42 size , content of fabric ( POLY VISCOSE ) which is best in the market with its smooth & shiny lusture and gives the soft feel after wearing, which is suitable in every season. color of the fabric is SKY BLUE which may Slightly Vary Due to Photographic Effect Lorex fabrics always gives u an stunning look and branded feeling, The Fabric is best for personal use as well as gifting in wedding , parties ,anniversary etc. with best human satisfaction.",
-"color": "blue",
-"discount": "1",
-"reviews" : ["Great Product" , "Value for money" ] , 
-"Images": [  {"imageFront":"https://rukminim1.flixcart.com/image/832/832/l4oi4cw0/fabric/f/b/y/no-1-70-m-unstitched-na-sky-blue-suit-fabric-lorex-original-imagcum7tawzfpdx.jpeg?q=70" }
-, {"imageFront":"https://rukminim1.flixcart.com/image/832/832/xif0q/fabric/g/x/t/no-2-m-unstitched-na-sky-blue-suit-fabric-lorex-original-imagkrqqfuzzhdyp.jpeg?q=70"} ,
-{"imageFront":"https://rukminim1.flixcart.com/image/832/832/xif0q/fabric/u/f/p/no-2-m-unstitched-na-sky-blue-suit-fabric-lorex-original-imagkrqqwy2jxjzn.jpeg?q=70"} ] , 
-
-"mainImage":"https://rukminim1.flixcart.com/image/832/832/l4oi4cw0/fabric/f/b/y/no-1-70-m-unstitched-na-sky-blue-suit-fabric-lorex-original-imagcum7tawzfpdx.jpeg?q=70"
-},
-
-{
-"id":11 ,
-"rating": 3 , 
-"categories": "coatpant",
-"title": "Self Design Men Waistcoat",
-"price": 399,
-"realPrice":600 , 
-"brand" :"lorex" , 
-"description": "Premium jackets wear by bran LOREX in with ROYALE quality for rich class looks best for weddings and parties , read size chart before order :- Your Chest must be between 32-36 inches & Your waist must be between 28-32 inches . best for boys with age of 18-25, WITH DETAILED STICHING",
-"color": "blue",
-"discount": "1",
-"reviews" : ["Great Product" , "Value for money" ] , 
-"Images": [  {"imageFront":"https://rukminim1.flixcart.com/image/832/832/xif0q/waistcoat/d/e/2/m-premium-waistcoats-lorex-original-imagkpxhj6hzgck7.jpeg?q=70" }
-, {"imageFront":"https://rukminim1.flixcart.com/image/832/832/xif0q/waistcoat/r/c/h/m-premium-waistcoats-lorex-original-imagkpxhvgpafxej.jpeg?q=70"} ,
-{"imageFront":"https://rukminim1.flixcart.com/image/832/832/xif0q/waistcoat/k/l/v/m-premium-waistcoats-lorex-original-imagkpxhyq5pejka.jpeg?q=70"} ] , 
-
-"mainImage":"https://rukminim1.flixcart.com/image/832/832/xif0q/waistcoat/d/e/2/m-premium-waistcoats-lorex-original-imagkpxhj6hzgck7.jpeg?q=70"
-},
-
-{
-"id":12 ,
-"rating": 3  , 
-"categories": "coatpant",
-"title": "Self Design Men Waistcoat",
-"price": 249,
-"realPrice": 549 , 
-"brand" :"lorex" , 
-"description": "Premium jackets wear by bran LOREX in with ROYALE quality for rich class looks best for weddings and parties , read size chart before order :- Your Chest must be between 32-36 inches & Your waist must be between 28-32 inches . best for boys with age of 18-25, WITH DETAILED STICHING",
-"color": "blue",
-"discount": "1",
-"reviews" : ["Great Product" , "Value for money" ] , 
-"Images": [  {"imageFront":"https://rukminim1.flixcart.com/image/832/832/xif0q/waistcoat/n/6/a/m-premium-waistcoats-lorex-original-imagkpxhvfjpvgea.jpeg?q=70" }
-, {"imageFront":"https://rukminim1.flixcart.com/image/832/832/xif0q/waistcoat/q/n/j/m-premium-waistcoats-lorex-original-imagkpxhakyfj54p.jpeg?q=70"} ,
-{"imageFront":"https://rukminim1.flixcart.com/image/832/832/xif0q/waistcoat/x/l/5/m-premium-waistcoats-lorex-original-imagkpxhktbzatzh.jpeg?q=70"} ] , 
-
-"mainImage":"https://rukminim1.flixcart.com/image/832/832/xif0q/waistcoat/n/6/a/m-premium-waistcoats-lorex-original-imagkpxhvfjpvgea.jpeg?q=70"
-},
-
-{
-"id":13 ,
-"rating": 4  , 
-"categories": "tshirts",
-"title": "Striped Men Round Neck T-Shirt Men Striped Round Neck Grey T-Shirt",
-"price": 699,
-"realPrice":999 , 
-"brand" :"redcloth" , 
-"description": "Striped Men Round Neck T-Shirt Men Striped Round Neck Grey T-Shirt",
-"color": "white",
-"discount": "1",
-"reviews" : ["Great Product" , "Value for money" ] , 
-"Images": [  {"imageFront":"https://rukminim1.flixcart.com/image/832/832/kz5vwy80/t-shirt/d/b/2/l-gray-103-red-cloth-original-imagb8khdpbgsj87.jpeg?q=70" }
-, {"imageFront":"https://rukminim1.flixcart.com/image/832/832/kz5vwy80/t-shirt/y/7/b/l-gray-103-red-cloth-original-imagb8kh57efec8d.jpeg?q=70"} ,
-{"imageFront":"https://rukminim1.flixcart.com/image/832/832/kz5vwy80/t-shirt/b/s/8/l-gray-103-red-cloth-original-imagb8khsptuwbqm.jpeg?q=70"} ] , 
-
-"mainImage":"https://rukminim1.flixcart.com/image/832/832/kz5vwy80/t-shirt/d/b/2/l-gray-103-red-cloth-original-imagb8khdpbgsj87.jpeg?q=70"
-},
-
-{
-"id":14 ,
-"rating": 5  , 
-"categories": "tshirts",
-"title": "Men Striped Round Neck White T-Shirt",
-"price": 699,
-"realPrice":900 , 
-"brand" :"redcloth" , 
-"description": "Men Striped Round Neck White T-Shirt",
-"color": "white",
-"discount": "1",
-"reviews" : ["Great Product" , "Value for money" ] , 
-"Images": [  {"imageFront":"https://rukminim1.flixcart.com/image/832/832/kz5vwy80/t-shirt/t/d/0/m-white-103-red-cloth-original-imagb8jytaqvytup.jpeg?q=70" }
-, {"imageFront":"https://rukminim1.flixcart.com/image/832/832/kz5vwy80/t-shirt/l/s/6/m-white-103-red-cloth-original-imagb8jyrfuaghpg.jpeg?q=70"} ,
-{"imageFront":"https://rukminim1.flixcart.com/image/832/832/kz5vwy80/t-shirt/e/f/s/l-white-103-red-cloth-original-imagb8jyyadf6ku6.jpeg?q=70"} ] , 
-
-"mainImage":"https://rukminim1.flixcart.com/image/832/832/kz5vwy80/t-shirt/t/d/0/m-white-103-red-cloth-original-imagb8jytaqvytup.jpeg?q=70"
-},
-
-{
-"id":15 ,
-"rating": 5  , 
-"categories":"tshirts",
-"title": "Men Solid Round Neck Black T-Shirt",
-"price": 600,
-"realPrice":650 , 
-"brand" :"redcloth" , 
-"description": "Men Solid Round Neck Black T-Shirt",
-"color": "black",
-"discount": "1",
-"reviews" : ["Great Product" , "Value for money" ] , 
-"Images": [  {"imageFront":"https://rukminim1.flixcart.com/image/832/832/kz5vwy80/t-shirt/q/u/y/l-blue-103-red-cloth-original-imagb8kbfdetazqz.jpeg?q=70" }
-, {"imageFront":"https://rukminim1.flixcart.com/image/832/832/kz5vwy80/t-shirt/x/9/f/l-blue-103-red-cloth-original-imagb8kbbktm7kbr.jpeg?q=70"} ,
-{"imageFront":"https://rukminim1.flixcart.com/image/832/832/kz5vwy80/t-shirt/m/t/h/l-blue-103-red-cloth-original-imagb8kbnw5vehjn.jpeg?q=70"} ] , 
-
-"mainImage":"https://rukminim1.flixcart.com/image/832/832/kz5vwy80/t-shirt/q/u/y/l-blue-103-red-cloth-original-imagb8kbfdetazqz.jpeg?q=70"
-},
-
-{
-"id":16 ,
-"rating": 4  , 
-"categories": "shirts",
-"title": "Unstitched Polycotton Shirt Fabric Printed",
-"price": 300,
-"realPrice":600 , 
-"brand" :"citystyle" , 
-"description": "Comfortable and soft printed shirt fabric for men with high quality material. we always Launching creative and unique designs for festive season and functions they can change in your personality. It's Skin friendly and breathable fabric. Color may slightly vary due to display brightness setting.",
-"color": "black",
-"discount": "1",
-"reviews" : ["Great Product" , "Value for money" ] , 
-"Images": [  {"imageFront":"https://rukminim1.flixcart.com/image/832/832/l2arp8w0/fabric/n/5/w/no-2-35-m-unstitched-na-premium-quality-shirt-fabric-mom-dad-original-imagdzc4fyqbg9yz.jpeg?q=70" }
-, {"imageFront":"https://rukminim1.flixcart.com/image/832/832/l2arp8w0/fabric/a/m/l/no-2-35-m-unstitched-na-premium-quality-shirt-fabric-mom-dad-original-imagdzc4ab9ngfah.jpeg?q=70"} ,
-{"imageFront":"https://rukminim1.flixcart.com/image/832/832/l2arp8w0/fabric/n/5/w/no-2-35-m-unstitched-na-premium-quality-shirt-fabric-mom-dad-original-imagdzc4fyqbg9yz.jpeg?q=70"} ] , 
-
-"mainImage":"https://rukminim1.flixcart.com/image/832/832/l2arp8w0/fabric/n/5/w/no-2-35-m-unstitched-na-premium-quality-shirt-fabric-mom-dad-original-imagdzc4fyqbg9yz.jpeg?q=70"
-},
-
-{
-"id":17 ,
-"rating": 3  , 
-"categories": "shirts",
-"title": "Unstitched Polycotton Shirt Fabric Printed",
-"price": 99,
-"realPrice":200 , 
-"brand" :"citystyle" , 
-"description": "Comfortable and soft printed shirt fabric for men with high quality material. we always Launching creative and unique designs for festive season and functions they can change in your personality. It's Skin friendly and breathable fabric. Color may slightly vary due to display brightness setting.",
-"color": "red",
-"discount": "1",
-"reviews" : ["Great Product" , "Value for money" ] , 
-"Images": [  {"imageFront":"https://rukminim1.flixcart.com/image/832/832/l0pm3680/fabric/w/l/h/no-2-35-m-unstitched-na-premium-quality-shirt-fabric-design-original-imagcgyffwdxaesn.jpeg?q=70" }
-, {"imageFront":"https://rukminim1.flixcart.com/image/832/832/l0pm3680/fabric/l/s/z/no-2-35-m-unstitched-na-premium-quality-shirt-fabric-design-original-imagcgyfzgsf2ndg.jpeg?q=70"} ,
-{"imageFront":"https://rukminim1.flixcart.com/image/832/832/l0pm3680/fabric/w/l/h/no-2-35-m-unstitched-na-premium-quality-shirt-fabric-design-original-imagcgyffwdxaesn.jpeg?q=70"} ] , 
-
-"mainImage":"https://rukminim1.flixcart.com/image/832/832/l0pm3680/fabric/w/l/h/no-2-35-m-unstitched-na-premium-quality-shirt-fabric-design-original-imagcgyffwdxaesn.jpeg?q=70"
-},
-
-{
-"id":18 ,
-"rating": 2  , 
-"categories": "shirts",
-"title": "Unstitched Polycotton Shirt Fabric Printed",
-"price": 599,
-"realPrice":899 , 
-"brand" :"citystyle" , 
-"description": "Comfortable and soft printed shirt fabric for men with high quality material. we always Launching creative and unique designs for festive season and functions they can change in your personality. It's Skin friendly and breathable fabric. Color may slightly vary due to display brightness setting.",
-"color": "red",
-"discount": "1",
-"reviews" : ["Great Product" , "Value for money" ] , 
-"Images": [  {"imageFront":"https://rukminim1.flixcart.com/image/832/832/l4ssfww0/fabric/x/9/o/no-2-35-m-unstitched-na-premium-quality-shirt-fabric-couple-original-imagfm9zd83gurd6.jpeg?q=70" }
-, {"imageFront":"https://rukminim1.flixcart.com/image/832/832/l4ssfww0/fabric/s/g/b/no-2-35-m-unstitched-na-premium-quality-shirt-fabric-couple-original-imagfm9z9qymhv9y.jpeg?q=70"} ,
-{"imageFront":"https://rukminim1.flixcart.com/image/832/832/l4ssfww0/fabric/x/9/o/no-2-35-m-unstitched-na-premium-quality-shirt-fabric-couple-original-imagfm9zd83gurd6.jpeg?q=70"} ] , 
-
-"mainImage":"https://rukminim1.flixcart.com/image/832/832/l4ssfww0/fabric/x/9/o/no-2-35-m-unstitched-na-premium-quality-shirt-fabric-couple-original-imagfm9zd83gurd6.jpeg?q=70"
-},
-
-{
-"id":19 ,
-"rating": 2  , 
-"categories": "jacket",
-"title": "Men Solid Casual Jacket",
-"price": 399,
-"realPrice":600 , 
-"brand" :"derbenny" , 
-"description": "Comfortable mens jacket gives you protection from harsh cold weather,cotton blend gives you extra comfort",
-"color": "grey",
-"discount": "1",
-"reviews" : ["Great Product" , "Value for money" ] , 
-"Images": [  {"imageFront":"https://rukminim1.flixcart.com/image/832/832/ksoz53k0/jacket/l/g/w/xl-no-greyjacketmen6-r-d-trading-original-imag678wt7kkmpeb.jpeg?q=70" }
-, {"imageFront":"https://rukminim1.flixcart.com/image/832/832/ksoz53k0/jacket/4/v/l/xl-no-greyjacketmen6-r-d-trading-original-imag678wgz3zggz2.jpeg?q=70"} ,
-{"imageFront":"https://rukminim1.flixcart.com/image/832/832/ksoz53k0/jacket/k/8/h/xl-no-greyjacketmen6-r-d-trading-original-imag678wgmztjcb2.jpeg?q=70"} ] , 
-
-"mainImage":"https://rukminim1.flixcart.com/image/832/832/ksoz53k0/jacket/l/g/w/xl-no-greyjacketmen6-r-d-trading-original-imag678wt7kkmpeb.jpeg?q=70"
-},
-
-{
-"id":20 ,
-"rating": 4  , 
-"categories": "jacket",
-"title": "Men Solid Bomber Jacket",
-"price": 400,
-"realPrice":500 , 
-"brand" :"derbenny" , 
-"description": "Stay warm this winter while you wear this light weight Grey coloured TPU bomber jacket from the house of MASONIC. Tailored in Regular fit for extreme comfort and softness. This light weight bomber jacket can be paired with denims and a pair of casual shoes to give a stylish look.",
-"color": "grey",
-"discount": "1",
-"reviews" : ["Great Product" , "Value for money" ] , 
-"Images": [  {"imageFront":"https://rukminim1.flixcart.com/image/832/832/kh2b4i80/jacket/v/g/n/l-bomber-tpu-derbenny-original-imafx64wzqrhmfap.jpeg?q=70" }
-, {"imageFront":"https://rukminim1.flixcart.com/image/832/832/kh2b4i80/jacket/v/g/n/xl-bomber-tpu-derbenny-original-imafx64wdgwtyehw.jpeg?q=70"} ,
-{"imageFront":"https://rukminim1.flixcart.com/image/832/832/kh2b4i80/jacket/v/g/n/xxl-bomber-tpu-derbenny-original-imafx64wjazjg9yt.jpeg?q=70"} ] , 
-
-"mainImage":"https://rukminim1.flixcart.com/image/832/832/kh2b4i80/jacket/v/g/n/l-bomber-tpu-derbenny-original-imafx64wzqrhmfap.jpeg?q=70"
-},
-
-{
-"id":21 ,
-"rating": 4  , 
-"categories": "jacket",
-"title": "Men Solid Casual Jacket",
-"price": 700,
-"realPrice":900 , 
-"brand" :"derbenny" , 
-"description": "Standard Quality Cloths material Stylish one .made for winter purpose.",
-"color": "blue",
-"discount": "1",
-"reviews" : ["Great Product" , "Value for money" ] , 
-"Images": [  {"imageFront":"https://rukminim1.flixcart.com/image/832/832/ksoz53k0/jacket/w/w/n/xl-no-bluejacketmen2-r-d-trading-original-imag676zyqhqzmf7.jpeg?q=70" }
-, {"imageFront":"https://rukminim1.flixcart.com/image/832/832/ksoz53k0/jacket/b/g/g/xl-no-bluejacketmen2-r-d-trading-original-imag676z6mqud55b.jpeg?q=70"} ,
-{"imageFront":"https://rukminim1.flixcart.com/image/832/832/ksoz53k0/jacket/j/u/t/xl-no-bluejacketmen2-r-d-trading-original-imag676zrd2hqgty.jpeg?q=70"} ] , 
-
-"mainImage":"https://rukminim1.flixcart.com/image/832/832/ksoz53k0/jacket/w/w/n/xl-no-bluejacketmen2-r-d-trading-original-imag676zyqhqzmf7.jpeg?q=70"
-}
-
-]
-
+  "mens": [
+    {
+      "id": 1,
+      "rating": 3,
+      "categories": "shirts",
+      "title": "Men Regular Fit Solid Cut Away Collar Casual Shirt",
+      "price": 399,
+      "realPrice": 600,
+      "brand": "CarbonnCloth",
+      "description": "Carbonn Cloth presents to you a new range of stylish and cool new Shirts yet which are affordable for everyone .These comes in different sizes and colors, for everybody's taste",
+      "color": "black",
+      "discount": "42",
+      "reviews": [
+        "Great Product",
+        "Value for money"
+      ],
+      "Images": [
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/xif0q/shirt/g/3/w/s-crc-den-01-carbonn-cloth-original-imag3uyxer7hbwcj-bb.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/kpmy8i80/shirt/9/v/3/s-crc-den-01-carbonn-cloth-original-imag3uyx2crqr6me.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/kpmy8i80/shirt/b/c/t/s-crc-den-01-carbonn-cloth-original-imag3uyxgrrxxyrq.jpeg?q=70"
+        }
+      ],
+      "mainImage": "https://rukminim1.flixcart.com/image/832/832/xif0q/shirt/g/3/w/s-crc-den-01-carbonn-cloth-original-imag3uyxer7hbwcj-bb.jpeg?q=70"
+    },
+    {
+      "id": 2,
+      "rating": 4,
+      "categories": "shirts",
+      "title": "Men Regular Fit Solid Cut Away Collar Casual Shirt",
+      "price": 500,
+      "realPrice": 700,
+      "brand": "CarbonnCloth",
+      "description": "This shirt is made from premium quality material. Durable quality with a stylish look makes it a must have on your shelves.",
+      "color": "blue",
+      "discount": "1",
+      "reviews": [
+        "Great Product",
+        "Value for money"
+      ],
+      "Images": [
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/xif0q/shirt/h/3/j/m-crc-den-01-carbonn-blue-original-imafv2h7g7bvgfdz-bb.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/ked56kw0-0/shirt/a/s/l/m-crc-den-01-carbonn-blue-original-imafv2h82unperfz.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/ked56kw0-0/shirt/v/b/j/m-crc-den-01-carbonn-blue-original-imafv2h7zbhxnuna.jpeg?q=70"
+        }
+      ],
+      "mainImage": "https://rukminim1.flixcart.com/image/832/832/xif0q/shirt/h/3/j/m-crc-den-01-carbonn-blue-original-imafv2h7g7bvgfdz-bb.jpeg?q=70"
+    },
+    {
+      "id": 3,
+      "rating": 3,
+      "categories": "shirts",
+      "title": "Men Regular Fit Solid Cut Away Collar Casual Shirt",
+      "price": 299,
+      "realPrice": 600,
+      "brand": "CarbonnCloth",
+      "description": "This shirt is made from premium quality material. Durable quality with a stylish look makes it a must have on your shelves.",
+      "color": "grey",
+      "discount": "1",
+      "reviews": [
+        "Great Product",
+        "Value for money"
+      ],
+      "Images": [
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/xif0q/shirt/n/n/y/s-crc-den-01-carbonn-cloth-original-imag3uyxtxa2j5r2-bb.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/kpmy8i80/shirt/w/8/r/s-crc-den-01-carbonn-cloth-original-imag3uyx6k9jwjfa.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/kpmy8i80/shirt/1/r/g/s-crc-den-01-carbonn-cloth-original-imag3uyx5m67cj3q.jpeg?q=70"
+        }
+      ],
+      "mainImage": "https://rukminim1.flixcart.com/image/832/832/xif0q/shirt/n/n/y/s-crc-den-01-carbonn-cloth-original-imag3uyxtxa2j5r2-bb.jpeg?q=70"
+    },
+    {
+      "id": 4,
+      "rating": 5,
+      "categories": "shirts",
+      "title": "Men Regular Fit Self Design Sports Shirt",
+      "price": 499,
+      "realPrice": 790,
+      "brand": "CarbonnCloth",
+      "description": "This shirt is made from premium quality material. Durable quality with a stylish look makes it a must have on your shelves.",
+      "color": "black",
+      "discount": "1",
+      "reviews": [
+        "Great Product",
+        "Value for money"
+      ],
+      "Images": [
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/xif0q/shirt/1/4/5/l-crc-ch-01-carbonn-cloth-original-imag3uyxrg7azzhh-bb.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/kpmy8i80/shirt/m/h/c/l-crc-ch-01-carbonn-cloth-original-imag3uyx5gkvdgtt.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/kpmy8i80/shirt/2/g/u/l-crc-ch-01-carbonn-cloth-original-imag3uyxdvcq5zhp.jpeg?q=70"
+        }
+      ],
+      "mainImage": "https://rukminim1.flixcart.com/image/832/832/xif0q/shirt/1/4/5/l-crc-ch-01-carbonn-cloth-original-imag3uyxrg7azzhh-bb.jpeg?q=70"
+    },
+    {
+      "id": 5,
+      "rating": 3,
+      "categories": "jacket",
+      "title": "Men Full Sleeve Printed Hooded Sweatshirt",
+      "price": 350,
+      "realPrice": 550,
+      "brand": "caveofcloths",
+      "description": "88% premium cotton which is breathable and comfortable. No color fading. Minimal shrinkage with a guarantee that it will not lose the original shape and size. 2 times softer. 4 times stronger.",
+      "color": "black",
+      "discount": "1",
+      "reviews": [
+        "Great Product",
+        "Value for money"
+      ],
+      "Images": [
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/xif0q/sweatshirt/a/n/g/l-coc0149b-cave-of-cloths-original-imaghd7hbszcpuxq.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/xif0q/sweatshirt/u/t/l/l-coc0149b-cave-of-cloths-original-imaghd7hhnhvy23f.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/xif0q/sweatshirt/3/h/x/m-coc0002hab-cave-of-cloths-original-imaggxa2vscjwvkn.jpeg?q=70"
+        }
+      ],
+      "mainImage": "https://rukminim1.flixcart.com/image/832/832/xif0q/sweatshirt/a/n/g/l-coc0149b-cave-of-cloths-original-imaghd7hbszcpuxq.jpeg?q=70"
+    },
+    {
+      "id": 6,
+      "rating": 2,
+      "categories": "jacket",
+      "title": "Men Full Sleeve Printed Hooded Sweatshirt",
+      "price": 99,
+      "realPrice": 190,
+      "brand": "caveofcloths",
+      "description": "88% premium cotton which is breathable and comfortable. No color fading. Minimal shrinkage with a guarantee that it will not lose the original shape and size. 2 times softer. 4 times stronger.",
+      "color": "white",
+      "discount": "1",
+      "reviews": [
+        "Great Product",
+        "Value for money"
+      ],
+      "Images": [
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/xif0q/sweatshirt/r/3/q/xxl-coc0151w-cave-of-cloths-original-imaghfheycshhm4s.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/xif0q/sweatshirt/4/1/s/l-coc0143haw-cave-of-cloths-original-imagh6gxfxxrkfmx.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/xif0q/sweatshirt/i/n/p/xl-coc0151b-cave-of-cloths-original-imaghfh5nnudjezx.jpeg?q=70"
+        }
+      ],
+      "mainImage": "https://rukminim1.flixcart.com/image/832/832/xif0q/sweatshirt/r/3/q/xxl-coc0151w-cave-of-cloths-original-imaghfheycshhm4s.jpeg?q=70"
+    },
+    {
+      "id": 7,
+      "rating": 5,
+      "categories": "coatpant",
+      "title": "Unstitched Viscose Rayon Suit Fabric Solid",
+      "price": 899,
+      "realPrice": 999,
+      "brand": "lorex",
+      "description": "CAN USE IN 5 STYLES WITH FASHION, PANTS , WAISTCOAT, PANT-WAISTCOAT, 2 PIECE ,3PIECE",
+      "color": "blue",
+      "discount": "1",
+      "reviews": [
+        "Great Product",
+        "Value for money"
+      ],
+      "Images": [
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/l5h2xe80/fabric/c/e/b/no-3-m-unstitched-na-3pieceblacksuit-lorex-original-imagg4wzdrhzfvcn.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/xif0q/fabric/d/l/u/no-3-m-unstitched-na-3pieceblacksuit-lorex-original-imaghn7yzz3x6vu6.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/xif0q/fabric/9/p/l/no-3-m-unstitched-na-3piece-lorex-original-imagkn5g2mq5nhxv.jpeg?q=70"
+        }
+      ],
+      "mainImage": "https://rukminim1.flixcart.com/image/832/832/l5h2xe80/fabric/c/e/b/no-3-m-unstitched-na-3pieceblacksuit-lorex-original-imagg4wzdrhzfvcn.jpeg?q=70"
+    },
+    {
+      "id": 8,
+      "rating": 5,
+      "categories": "coatpant",
+      "title": "Unstitched Viscose Rayon Suit Fabric Self Design",
+      "price": 109,
+      "realPrice": 400,
+      "brand": "lorex",
+      "description": "COMES IN CARDBOARD PACKING, GOOD FOR GIFTING ALSO, CAN USE BLAZER & PANTS SPERATELY AFTER STICHING",
+      "color": "black",
+      "discount": "1",
+      "reviews": [
+        "Great Product",
+        "Value for money"
+      ],
+      "Images": [
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/xif0q/fabric/k/p/n/no-2-m-unstitched-na-black-suit-fabric-lorex-original-imaghhy9uf3xpvmc.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/l4zxn680/fabric/2/x/b/no-1-m-unstitched-na-blackwaistcoat-lorex-original-imagfs5chvgnmjwz.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/xif0q/fabric/q/d/h/no-1-70-m-unstitched-na-blacklycrauit-fabric-lorex-original-imagkd4krv6mhj8t.jpeg?q=70"
+        }
+      ],
+      "mainImage": "https://rukminim1.flixcart.com/image/832/832/xif0q/fabric/k/p/n/no-2-m-unstitched-na-black-suit-fabric-lorex-original-imaghhy9uf3xpvmc.jpeg?q=70"
+    },
+    {
+      "id": 9,
+      "rating": 4,
+      "categories": "coatpant",
+      "title": "Unstitched Polycotton Suit Fabric Solid",
+      "price": 199,
+      "realPrice": 200,
+      "brand": "lorex",
+      "description": "Lorex brands which deals in best quality of fabrics , we deals in finest quality of plain slub textured fabric for an ideal suit an MEN's FASHION DESIRE which comes in an3.00 meters pack contains 1.8meter for blazer or coat & 1.2 meters for pants or trouser.it is suitable for 6.5feet person & upto 42 size , content of fabric ( POLY VISCOSE ) which is best in the market with its smooth & shiny lusture and gives the soft feel after wearing, which is suitable in every season. color of the fabric is PURE BLACK which may Slightly Vary Due to Photographic Effect Lorex fabrics always gives u an stunning look and branded feeling, The Fabric is best for personal use as well as gifting in wedding , parties ,anniversary etc. with best human satisfaction.",
+      "color": "black",
+      "discount": "1",
+      "reviews": [
+        "Great Product",
+        "Value for money"
+      ],
+      "Images": [
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/l5fnhjk0/fabric/t/2/j/no-1-80-m-unstitched-na-blacksuitsb-lorex-original-imagg4a5vanbmwnx.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/l4zxn680/fabric/2/x/b/no-1-m-unstitched-na-blackwaistcoat-lorex-original-imagfs5chvgnmjwz.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/l4zxn680/fabric/s/9/f/no-1-m-unstitched-na-blackwaistcoat-lorex-original-imagfs5cgsrs4szm.jpeg?q=70"
+        }
+      ],
+      "mainImage": "https://rukminim1.flixcart.com/image/832/832/l5fnhjk0/fabric/t/2/j/no-1-80-m-unstitched-na-blacksuitsb-lorex-original-imagg4a5vanbmwnx.jpeg?q=70"
+    },
+    {
+      "id": 10,
+      "rating": 5,
+      "categories": "coatpant",
+      "title": "Unstitched Viscose Rayon Suit Fabric Solid",
+      "price": 500,
+      "realPrice": 600,
+      "brand": "lorex",
+      "description": "Lorex brands which deals in best quality of fabrics , we deals in finest quality of plain slub textured fabric for an ideal suit an MEN's FASHION DESIRE which comes in an3.00 meters pack contains 1.8meter for blazer or coat & 1.2 meters for pants or trouser.it is suitable for 6.5feet person & upto 42 size , content of fabric ( POLY VISCOSE ) which is best in the market with its smooth & shiny lusture and gives the soft feel after wearing, which is suitable in every season. color of the fabric is SKY BLUE which may Slightly Vary Due to Photographic Effect Lorex fabrics always gives u an stunning look and branded feeling, The Fabric is best for personal use as well as gifting in wedding , parties ,anniversary etc. with best human satisfaction.",
+      "color": "blue",
+      "discount": "1",
+      "reviews": [
+        "Great Product",
+        "Value for money"
+      ],
+      "Images": [
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/l4oi4cw0/fabric/f/b/y/no-1-70-m-unstitched-na-sky-blue-suit-fabric-lorex-original-imagcum7tawzfpdx.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/xif0q/fabric/g/x/t/no-2-m-unstitched-na-sky-blue-suit-fabric-lorex-original-imagkrqqfuzzhdyp.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/xif0q/fabric/u/f/p/no-2-m-unstitched-na-sky-blue-suit-fabric-lorex-original-imagkrqqwy2jxjzn.jpeg?q=70"
+        }
+      ],
+      "mainImage": "https://rukminim1.flixcart.com/image/832/832/l4oi4cw0/fabric/f/b/y/no-1-70-m-unstitched-na-sky-blue-suit-fabric-lorex-original-imagcum7tawzfpdx.jpeg?q=70"
+    },
+    {
+      "id": 11,
+      "rating": 3,
+      "categories": "coatpant",
+      "title": "Self Design Men Waistcoat",
+      "price": 399,
+      "realPrice": 600,
+      "brand": "lorex",
+      "description": "Premium jackets wear by bran LOREX in with ROYALE quality for rich class looks best for weddings and parties , read size chart before order :- Your Chest must be between 32-36 inches & Your waist must be between 28-32 inches . best for boys with age of 18-25, WITH DETAILED STICHING",
+      "color": "blue",
+      "discount": "1",
+      "reviews": [
+        "Great Product",
+        "Value for money"
+      ],
+      "Images": [
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/xif0q/waistcoat/d/e/2/m-premium-waistcoats-lorex-original-imagkpxhj6hzgck7.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/xif0q/waistcoat/r/c/h/m-premium-waistcoats-lorex-original-imagkpxhvgpafxej.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/xif0q/waistcoat/k/l/v/m-premium-waistcoats-lorex-original-imagkpxhyq5pejka.jpeg?q=70"
+        }
+      ],
+      "mainImage": "https://rukminim1.flixcart.com/image/832/832/xif0q/waistcoat/d/e/2/m-premium-waistcoats-lorex-original-imagkpxhj6hzgck7.jpeg?q=70"
+    },
+    {
+      "id": 12,
+      "rating": 3,
+      "categories": "coatpant",
+      "title": "Self Design Men Waistcoat",
+      "price": 249,
+      "realPrice": 549,
+      "brand": "lorex",
+      "description": "Premium jackets wear by bran LOREX in with ROYALE quality for rich class looks best for weddings and parties , read size chart before order :- Your Chest must be between 32-36 inches & Your waist must be between 28-32 inches . best for boys with age of 18-25, WITH DETAILED STICHING",
+      "color": "blue",
+      "discount": "1",
+      "reviews": [
+        "Great Product",
+        "Value for money"
+      ],
+      "Images": [
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/xif0q/waistcoat/n/6/a/m-premium-waistcoats-lorex-original-imagkpxhvfjpvgea.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/xif0q/waistcoat/q/n/j/m-premium-waistcoats-lorex-original-imagkpxhakyfj54p.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/xif0q/waistcoat/x/l/5/m-premium-waistcoats-lorex-original-imagkpxhktbzatzh.jpeg?q=70"
+        }
+      ],
+      "mainImage": "https://rukminim1.flixcart.com/image/832/832/xif0q/waistcoat/n/6/a/m-premium-waistcoats-lorex-original-imagkpxhvfjpvgea.jpeg?q=70"
+    },
+    {
+      "id": 13,
+      "rating": 4,
+      "categories": "tshirts",
+      "title": "Striped Men Round Neck T-Shirt Men Striped Round Neck Grey T-Shirt",
+      "price": 699,
+      "realPrice": 999,
+      "brand": "redcloth",
+      "description": "Striped Men Round Neck T-Shirt Men Striped Round Neck Grey T-Shirt",
+      "color": "white",
+      "discount": "1",
+      "reviews": [
+        "Great Product",
+        "Value for money"
+      ],
+      "Images": [
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/kz5vwy80/t-shirt/d/b/2/l-gray-103-red-cloth-original-imagb8khdpbgsj87.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/kz5vwy80/t-shirt/y/7/b/l-gray-103-red-cloth-original-imagb8kh57efec8d.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/kz5vwy80/t-shirt/b/s/8/l-gray-103-red-cloth-original-imagb8khsptuwbqm.jpeg?q=70"
+        }
+      ],
+      "mainImage": "https://rukminim1.flixcart.com/image/832/832/kz5vwy80/t-shirt/d/b/2/l-gray-103-red-cloth-original-imagb8khdpbgsj87.jpeg?q=70"
+    },
+    {
+      "id": 14,
+      "rating": 5,
+      "categories": "tshirts",
+      "title": "Men Striped Round Neck White T-Shirt",
+      "price": 699,
+      "realPrice": 900,
+      "brand": "redcloth",
+      "description": "Men Striped Round Neck White T-Shirt",
+      "color": "white",
+      "discount": "1",
+      "reviews": [
+        "Great Product",
+        "Value for money"
+      ],
+      "Images": [
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/kz5vwy80/t-shirt/t/d/0/m-white-103-red-cloth-original-imagb8jytaqvytup.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/kz5vwy80/t-shirt/l/s/6/m-white-103-red-cloth-original-imagb8jyrfuaghpg.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/kz5vwy80/t-shirt/e/f/s/l-white-103-red-cloth-original-imagb8jyyadf6ku6.jpeg?q=70"
+        }
+      ],
+      "mainImage": "https://rukminim1.flixcart.com/image/832/832/kz5vwy80/t-shirt/t/d/0/m-white-103-red-cloth-original-imagb8jytaqvytup.jpeg?q=70"
+    },
+    {
+      "id": 15,
+      "rating": 5,
+      "categories": "tshirts",
+      "title": "Men Solid Round Neck Black T-Shirt",
+      "price": 600,
+      "realPrice": 650,
+      "brand": "redcloth",
+      "description": "Men Solid Round Neck Black T-Shirt",
+      "color": "black",
+      "discount": "1",
+      "reviews": [
+        "Great Product",
+        "Value for money"
+      ],
+      "Images": [
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/kz5vwy80/t-shirt/q/u/y/l-blue-103-red-cloth-original-imagb8kbfdetazqz.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/kz5vwy80/t-shirt/x/9/f/l-blue-103-red-cloth-original-imagb8kbbktm7kbr.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/kz5vwy80/t-shirt/m/t/h/l-blue-103-red-cloth-original-imagb8kbnw5vehjn.jpeg?q=70"
+        }
+      ],
+      "mainImage": "https://rukminim1.flixcart.com/image/832/832/kz5vwy80/t-shirt/q/u/y/l-blue-103-red-cloth-original-imagb8kbfdetazqz.jpeg?q=70"
+    },
+    {
+      "id": 16,
+      "rating": 4,
+      "categories": "shirts",
+      "title": "Unstitched Polycotton Shirt Fabric Printed",
+      "price": 300,
+      "realPrice": 600,
+      "brand": "citystyle",
+      "description": "Comfortable and soft printed shirt fabric for men with high quality material. we always Launching creative and unique designs for festive season and functions they can change in your personality. It's Skin friendly and breathable fabric. Color may slightly vary due to display brightness setting.",
+      "color": "black",
+      "discount": "1",
+      "reviews": [
+        "Great Product",
+        "Value for money"
+      ],
+      "Images": [
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/l2arp8w0/fabric/n/5/w/no-2-35-m-unstitched-na-premium-quality-shirt-fabric-mom-dad-original-imagdzc4fyqbg9yz.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/l2arp8w0/fabric/a/m/l/no-2-35-m-unstitched-na-premium-quality-shirt-fabric-mom-dad-original-imagdzc4ab9ngfah.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/l2arp8w0/fabric/n/5/w/no-2-35-m-unstitched-na-premium-quality-shirt-fabric-mom-dad-original-imagdzc4fyqbg9yz.jpeg?q=70"
+        }
+      ],
+      "mainImage": "https://rukminim1.flixcart.com/image/832/832/l2arp8w0/fabric/n/5/w/no-2-35-m-unstitched-na-premium-quality-shirt-fabric-mom-dad-original-imagdzc4fyqbg9yz.jpeg?q=70"
+    },
+    {
+      "id": 17,
+      "rating": 3,
+      "categories": "shirts",
+      "title": "Unstitched Polycotton Shirt Fabric Printed",
+      "price": 99,
+      "realPrice": 200,
+      "brand": "citystyle",
+      "description": "Comfortable and soft printed shirt fabric for men with high quality material. we always Launching creative and unique designs for festive season and functions they can change in your personality. It's Skin friendly and breathable fabric. Color may slightly vary due to display brightness setting.",
+      "color": "red",
+      "discount": "1",
+      "reviews": [
+        "Great Product",
+        "Value for money"
+      ],
+      "Images": [
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/l0pm3680/fabric/w/l/h/no-2-35-m-unstitched-na-premium-quality-shirt-fabric-design-original-imagcgyffwdxaesn.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/l0pm3680/fabric/l/s/z/no-2-35-m-unstitched-na-premium-quality-shirt-fabric-design-original-imagcgyfzgsf2ndg.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/l0pm3680/fabric/w/l/h/no-2-35-m-unstitched-na-premium-quality-shirt-fabric-design-original-imagcgyffwdxaesn.jpeg?q=70"
+        }
+      ],
+      "mainImage": "https://rukminim1.flixcart.com/image/832/832/l0pm3680/fabric/w/l/h/no-2-35-m-unstitched-na-premium-quality-shirt-fabric-design-original-imagcgyffwdxaesn.jpeg?q=70"
+    },
+    {
+      "id": 18,
+      "rating": 2,
+      "categories": "shirts",
+      "title": "Unstitched Polycotton Shirt Fabric Printed",
+      "price": 599,
+      "realPrice": 899,
+      "brand": "citystyle",
+      "description": "Comfortable and soft printed shirt fabric for men with high quality material. we always Launching creative and unique designs for festive season and functions they can change in your personality. It's Skin friendly and breathable fabric. Color may slightly vary due to display brightness setting.",
+      "color": "red",
+      "discount": "1",
+      "reviews": [
+        "Great Product",
+        "Value for money"
+      ],
+      "Images": [
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/l4ssfww0/fabric/x/9/o/no-2-35-m-unstitched-na-premium-quality-shirt-fabric-couple-original-imagfm9zd83gurd6.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/l4ssfww0/fabric/s/g/b/no-2-35-m-unstitched-na-premium-quality-shirt-fabric-couple-original-imagfm9z9qymhv9y.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/l4ssfww0/fabric/x/9/o/no-2-35-m-unstitched-na-premium-quality-shirt-fabric-couple-original-imagfm9zd83gurd6.jpeg?q=70"
+        }
+      ],
+      "mainImage": "https://rukminim1.flixcart.com/image/832/832/l4ssfww0/fabric/x/9/o/no-2-35-m-unstitched-na-premium-quality-shirt-fabric-couple-original-imagfm9zd83gurd6.jpeg?q=70"
+    },
+    {
+      "id": 19,
+      "rating": 2,
+      "categories": "jacket",
+      "title": "Men Solid Casual Jacket",
+      "price": 399,
+      "realPrice": 600,
+      "brand": "derbenny",
+      "description": "Comfortable mens jacket gives you protection from harsh cold weather,cotton blend gives you extra comfort",
+      "color": "grey",
+      "discount": "1",
+      "reviews": [
+        "Great Product",
+        "Value for money"
+      ],
+      "Images": [
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/ksoz53k0/jacket/l/g/w/xl-no-greyjacketmen6-r-d-trading-original-imag678wt7kkmpeb.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/ksoz53k0/jacket/4/v/l/xl-no-greyjacketmen6-r-d-trading-original-imag678wgz3zggz2.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/ksoz53k0/jacket/k/8/h/xl-no-greyjacketmen6-r-d-trading-original-imag678wgmztjcb2.jpeg?q=70"
+        }
+      ],
+      "mainImage": "https://rukminim1.flixcart.com/image/832/832/ksoz53k0/jacket/l/g/w/xl-no-greyjacketmen6-r-d-trading-original-imag678wt7kkmpeb.jpeg?q=70"
+    },
+    {
+      "id": 20,
+      "rating": 4,
+      "categories": "jacket",
+      "title": "Men Solid Bomber Jacket",
+      "price": 400,
+      "realPrice": 500,
+      "brand": "derbenny",
+      "description": "Stay warm this winter while you wear this light weight Grey coloured TPU bomber jacket from the house of MASONIC. Tailored in Regular fit for extreme comfort and softness. This light weight bomber jacket can be paired with denims and a pair of casual shoes to give a stylish look.",
+      "color": "grey",
+      "discount": "1",
+      "reviews": [
+        "Great Product",
+        "Value for money"
+      ],
+      "Images": [
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/kh2b4i80/jacket/v/g/n/l-bomber-tpu-derbenny-original-imafx64wzqrhmfap.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/kh2b4i80/jacket/v/g/n/xl-bomber-tpu-derbenny-original-imafx64wdgwtyehw.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/kh2b4i80/jacket/v/g/n/xxl-bomber-tpu-derbenny-original-imafx64wjazjg9yt.jpeg?q=70"
+        }
+      ],
+      "mainImage": "https://rukminim1.flixcart.com/image/832/832/kh2b4i80/jacket/v/g/n/l-bomber-tpu-derbenny-original-imafx64wzqrhmfap.jpeg?q=70"
+    },
+    {
+      "id": 21,
+      "rating": 4,
+      "categories": "jacket",
+      "title": "Men Solid Casual Jacket",
+      "price": 700,
+      "realPrice": 900,
+      "brand": "derbenny",
+      "description": "Standard Quality Cloths material Stylish one .made for winter purpose.",
+      "color": "blue",
+      "discount": "1",
+      "reviews": [
+        "Great Product",
+        "Value for money"
+      ],
+      "Images": [
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/ksoz53k0/jacket/w/w/n/xl-no-bluejacketmen2-r-d-trading-original-imag676zyqhqzmf7.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/ksoz53k0/jacket/b/g/g/xl-no-bluejacketmen2-r-d-trading-original-imag676z6mqud55b.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/ksoz53k0/jacket/j/u/t/xl-no-bluejacketmen2-r-d-trading-original-imag676zrd2hqgty.jpeg?q=70"
+        }
+      ],
+      "mainImage": "https://rukminim1.flixcart.com/image/832/832/ksoz53k0/jacket/w/w/n/xl-no-bluejacketmen2-r-d-trading-original-imag676zyqhqzmf7.jpeg?q=70"
+    }
+  ],
+  "cart": [
+    {
+      "id": 2,
+      "rating": 4,
+      "categories": "shirts",
+      "title": "Men Regular Fit Solid Cut Away Collar Casual Shirt",
+      "price": 500,
+      "realPrice": 700,
+      "brand": "CarbonnCloth",
+      "description": "This shirt is made from premium quality material. Durable quality with a stylish look makes it a must have on your shelves.",
+      "color": "blue",
+      "discount": "1",
+      "reviews": [
+        "Great Product",
+        "Value for money"
+      ],
+      "Images": [
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/xif0q/shirt/h/3/j/m-crc-den-01-carbonn-blue-original-imafv2h7g7bvgfdz-bb.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/ked56kw0-0/shirt/a/s/l/m-crc-den-01-carbonn-blue-original-imafv2h82unperfz.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/ked56kw0-0/shirt/v/b/j/m-crc-den-01-carbonn-blue-original-imafv2h7zbhxnuna.jpeg?q=70"
+        }
+      ],
+      "mainImage": "https://rukminim1.flixcart.com/image/832/832/xif0q/shirt/h/3/j/m-crc-den-01-carbonn-blue-original-imafv2h7g7bvgfdz-bb.jpeg?q=70"
+    },
+    {
+      "id": 1,
+      "rating": 3,
+      "categories": "shirts",
+      "title": "Men Regular Fit Solid Cut Away Collar Casual Shirt",
+      "price": 399,
+      "realPrice": 600,
+      "brand": "CarbonnCloth",
+      "description": "Carbonn Cloth presents to you a new range of stylish and cool new Shirts yet which are affordable for everyone .These comes in different sizes and colors, for everybody's taste",
+      "color": "black",
+      "discount": "42",
+      "reviews": [
+        "Great Product",
+        "Value for money"
+      ],
+      "Images": [
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/xif0q/shirt/g/3/w/s-crc-den-01-carbonn-cloth-original-imag3uyxer7hbwcj-bb.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/kpmy8i80/shirt/9/v/3/s-crc-den-01-carbonn-cloth-original-imag3uyx2crqr6me.jpeg?q=70"
+        },
+        {
+          "imageFront": "https://rukminim1.flixcart.com/image/832/832/kpmy8i80/shirt/b/c/t/s-crc-den-01-carbonn-cloth-original-imag3uyxgrrxxyrq.jpeg?q=70"
+        }
+      ],
+      "mainImage": "https://rukminim1.flixcart.com/image/832/832/xif0q/shirt/g/3/w/s-crc-den-01-carbonn-cloth-original-imag3uyxer7hbwcj-bb.jpeg?q=70"
+    }
+  ]
 }
