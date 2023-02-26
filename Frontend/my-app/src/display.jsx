@@ -12,8 +12,8 @@ const DisplayJavascript = () => {
 
 
       {/*  Durgesh -code--- */}
-      {/* <AllRoutes /> */}
-      <MainHomePage />
+      <AllRoutes />
+      
     </div>
   )
 }
