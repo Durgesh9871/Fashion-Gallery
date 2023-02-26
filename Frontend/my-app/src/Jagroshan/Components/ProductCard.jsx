@@ -14,16 +14,31 @@ import {
 import { Rating } from './Rating'
 import { PriceTag } from './PriceTag'
 // import { Product } from './_data'
+import React from 'react'
+import axios from 'axios'
 
-interface Props {
-  product: any
-}
 
-export const ProductCard = (props: Props) => {
+export const ProductCard = (props) => {
+  const cartRef=React.useRef(null)
   const { product } = props
   const { title, mainImage, realPrice, price, rating } = product
+
+  const addToCart=()=>{
+    if(cartRef.current)
+    {
+       cartRef.current.setAttribute("disabled", "disabled");
+       cartRef.current.innerText='Added'
+    }
+    axios({
+      method:'POST',
+      url:`${process.env.REACT_APP_URL}/cart`,
+      data:product
+    })
+    .then(res=>console.log(res))
+    .catch(err=>console.log(err))
+  }
   return (
-    <Stack spacing={{ base: '4', md: '5' }} border={'1px'} justifyContent={'space-between'}>
+    <Stack spacing={{ base: '4', md: '5' }} border={'1px'} justifyContent={'space-between'} borderRadius={'5px'}>
       <Box position="relative">
         <AspectRatio ratio={4 / 5}>
           <Image
@@ -44,13 +59,13 @@ export const ProductCard = (props: Props) => {
         </Stack>
         <HStack>
           <Rating defaultValue={rating} size="sm" />
-          <Text fontSize="sm" color={useColorModeValue('gray.600', 'gray.400')}>
+          {/* <Text fontSize="sm" color={useColorModeValue('gray.600', 'gray.400')}>
             12 Reviews
-          </Text>
+          </Text> */}
         </HStack>
       </Stack>
       <Stack align="center">
-        <Button colorScheme="blue" width="full" onClick={()=>console.log('testing...')}>
+        <Button colorScheme="blue" ref={cartRef} width="full" onClick={()=>addToCart()}>
           Add to cart
         </Button>
       </Stack>

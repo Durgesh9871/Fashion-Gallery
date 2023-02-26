@@ -28,7 +28,7 @@ const Navbar = () => {
       position="fixed"
       zIndex={"9"}
     >
-      <Button
+     {} <Button
         bgColor="white"
         color="#4e8cf3"
         variant="outline"

@@ -10,7 +10,7 @@ const DisplayJavascript = () => {
   return (
     <div>
       {/* <ProductPage/> */}
-      <Navbar/>
+      {/* <Navbar/> */}
       {/* <CartPage/> */}
 
 
