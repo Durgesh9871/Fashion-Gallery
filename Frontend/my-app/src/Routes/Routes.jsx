@@ -1,11 +1,7 @@
 
 import React from 'react'
 import {Routes , Route} from "react-router-dom"
-import { AddProduct } from '../Durgesh_Pages/Admin_Pages/AddProduct'
-import { CustomerPage } from '../Durgesh_Pages/Admin_Pages/customerPage'
-import { DeletePage } from '../Durgesh_Pages/Admin_Pages/DeletePage'
-import { MainAdminPage } from '../Durgesh_Pages/Pages/MainAdminPage'
-import { MainHomePage } from '../Durgesh_Pages/Pages/MainHomePage'
+import { MainHomePage } from '../Durgesh_Folder/Pages/MainHomePage'
 
 
 const AllRoutes = () => {
