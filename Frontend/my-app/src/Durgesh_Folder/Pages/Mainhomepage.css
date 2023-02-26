@@ -1,0 +1,50 @@
+
+#mainImageNav{
+    /* border: 2px solid red; */
+    width: 100%;
+    height: 37vw;
+    background-image: url('https://eddiebauer.scene7.com/is/image/EBContent/230222_hp_high-route_V2?$a8$');
+   background-size: cover;
+   position: relative;
+
+   
+}
+
+#mainImageNav>Button:hover{
+   color: whitesmoke;
+   font-weight: 500;
+   background-color: #333333 ;
+}
+
+#mainImageBoxThree{
+    width: 30%;
+    
+}
+
+@media (min-width:300px) and (max-width:450px) {
+    #mainImageNav{
+       height: 70vw;
+    }
+    #mainImageBoxThree{
+        width: 90%;
+        margin: 10px auto 20px auto;
+
+        
+    }
+}
+
+@media (min-width:451px) and (max-width:750px) {
+    #mainImageNav{
+       height: 57vw;
+    }
+}
+
+
+/*  Particular men button Hover */
+
+#mensButtonHover:hover{
+    color: black;
+    background-color: whitesmoke;
+    border: 2px solid black;
+
+}
