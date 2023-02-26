@@ -8,12 +8,23 @@ import {
     Stack,
     useColorModeValue as mode,
   } from '@chakra-ui/react'
-import { cartData } from '../Components/_data'
+// import { cartData } from '../Components/_data'
 import { CartItem } from '../Components/CartItem'
 import { CartOrderSummary } from '../Components/CartOrderSummary'
+import axios from 'axios'
 
 
 export const CartPage = () => {
+  const [cartdata,setcartdata]=React.useState([])
+  React.useEffect(()=>{
+    axios({
+      method:'get',
+      url:`${process.env.REACT_APP_URL}/Cart`
+    })
+    .then(res=>setcartdata(res.data))
+    .catch(err=>console.log(err))
+  },[])
+  // console.log(cartdata)
   return (
     <div>
         <Box
@@ -29,12 +40,12 @@ export const CartPage = () => {
     >
       <Stack spacing={{ base: '8', md: '10' }} flex="2">
         <Heading fontSize="2xl" fontWeight="extrabold">
-          Shopping Cart (3 items)
+          Shopping Cart
         </Heading>
 
         <Stack spacing="6">
-          {cartData.map((item) => (
-            <CartItem key={item.id} {...item} />
+          {cartdata?.map((item,index) => (
+            <CartItem key={index} {...item} />
           ))}
         </Stack>
       </Stack>
