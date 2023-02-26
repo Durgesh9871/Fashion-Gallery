@@ -46,7 +46,7 @@ const OtpPage = ({ page, setPage, onClose, setForgotPage, setOtpComp }) => {
   };
   const sendOtpAgain = async () => {
     try {
-      let res = await axios.post("http://localhost:8080/users/sendOtp", {
+      let res = await axios.post(`${process.env.REACT_APP_URL}/users/sendOtp`, {
         email: data.email,
       });
       console.log(res);
@@ -63,7 +63,7 @@ const OtpPage = ({ page, setPage, onClose, setForgotPage, setOtpComp }) => {
     setLoad(true)
     console.log(otp)
     try {
-      let res = await axios.post("http://localhost:8080/users/verifyOtp", data);
+      let res = await axios.post(`${process.env.REACT_APP_URL}/users/verifyOtp`, data);
       console.log(res);
       setLoad(false)
       toast({
@@ -76,9 +76,40 @@ const OtpPage = ({ page, setPage, onClose, setForgotPage, setOtpComp }) => {
         isClosable: true,
         onCloseComplete: () => setIsNewPass(true),
       });
-    } catch (err) {
+    } catch (e) {
       setLoad(false)
-      console.log(err.response.data);
+      console.log(e.response.data);
+      if (e.response.data === "Invalid OTP") {
+        toast({
+          position: "top",
+          title: "Wrong OTP",
+          description:
+            "Incorrect Password. Please try again or click on Forgot Password to reset it",
+          status: "error",
+          duration: 9000,
+          isClosable: true,
+        });
+      } else if (e.response.data === "User not found") {
+        toast({
+          position: "top",
+          title: "Wrong Email",
+          description:
+            "Sorry, we couldn't find an account associated with that email.",
+          status: "error",
+          duration: 9000,
+          isClosable: true,
+        });
+      } 
+      else {
+        toast({
+          position: "top",
+          title: "Something Went Wrong",
+          description: "Please fill in your email and password correctly.",
+          status: "error",
+          duration: 9000,
+          isClosable: true,
+        });
+      }
     }
   };
 

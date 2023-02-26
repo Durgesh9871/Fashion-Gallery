@@ -20,6 +20,9 @@ import {
 } from "@chakra-ui/react";
 import "./Reg.css";
 
+
+
+
 import FgLogo from "../img/fg-logo.png";
 
 import { Link as RouteLink } from "react-router-dom";
@@ -32,6 +35,7 @@ import { BsFillExclamationTriangleFill } from "react-icons/bs";
 import { ImCross } from "react-icons/im";
 import { FaCheck } from "react-icons/fa";
 import axios from "axios";
+
 
 const EMAIL_REGEX = /^[\w]+@([\w-]+\.)+[\w-]{3}$/g;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -85,7 +89,7 @@ const Reg = ({ page, setPage }) => {
     setLoad(true);
     try {
       // logic for regester api
-      await axios.post("http://localhost:8080/users/register",{
+      await axios.post(`${process.env.REACT_APP_URL}/users/register`,{
         name,
         email,
         password:pwd,

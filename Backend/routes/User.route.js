@@ -12,6 +12,17 @@ const {
 
 const userRouter = express.Router();
 
+//get all users
+userRouter.get('/',async(req,res)=>{
+  try{
+    let users=await UserModel.find();
+    res.send(users);
+  }catch(err){
+    res.send(err)
+  }
+});
+
+
 //register router
 userRouter.post("/register", async (req, res) => {
   const { name, email, password,gender } =

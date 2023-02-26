@@ -38,7 +38,7 @@ const Login = ({ setPage, onClose }) => {
   const handleLogin = async () => {
     setLoad(true);
     try {
-      let res=await axios.post("http://localhost:8080/users/login",{
+      let res=await axios.post(`${process.env.REACT_APP_URL}/users/login`,{
         email,
         password:pwd
       });
