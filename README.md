@@ -48,13 +48,16 @@ https://fashion-gallary.vercel.app/
 
 ## Home Page
 <img src="./screenshot/home.png">
+
 ## Mens Page
 <img src="./screenshot/menspage.png">
 
 ## Signup Page
 
 <img src="./screenshot/signup.png">
+
 ## Admin Page
 
 <img src="./screenshot/admin.png">
+
 ### Thanks for reading
