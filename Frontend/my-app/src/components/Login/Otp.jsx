@@ -22,6 +22,7 @@ import NewPassword from "./NewPass";
 
 const OtpPage = ({ page, setPage, onClose, setForgotPage, setOtpComp }) => {
   const [load, setLoad] = useState(false);
+  const [otpLoad,setOtpLoad]=useState(false)
   const [otp, setOtp] = useState("");
   const [timer, setTimer] = useState(120);
   const [intervalId, setIntervalId] = useState(null);
@@ -32,40 +33,62 @@ const OtpPage = ({ page, setPage, onClose, setForgotPage, setOtpComp }) => {
   const toast = useToast();
 
   useEffect(() => {
-    otpExpireIn();
+    const newIntervalId = setInterval(() => {
+      setTimer((prev) => Math.max(prev - 1, 0));
+    }, 1000);
+    setIntervalId(newIntervalId);
+    return () => clearInterval(newIntervalId);
   }, []);
 
-  const otpExpireIn = () => {
-    clearInterval(intervalId);
-    if (timer > 0) {
-      const newIntervalId = setInterval(() => {
-        setTimer((prev) => prev - 1);
-      }, 1000);
-      setIntervalId(newIntervalId);
-    }
-  };
   const sendOtpAgain = async () => {
+    setOtpLoad(true)
     try {
-      let res = await axios.post(`${process.env.REACT_APP_URL}/users/sendOtp`, {
-        email: data.email,
-      });
+      const res = await axios.post(
+        `${process.env.REACT_APP_URL}/users/sendOtp`,
+        {
+          email: data.email,
+        }
+      );
+      setOtpLoad(false)
       console.log(res);
       setTimer(120);
-      otpExpireIn();
+      toast({
+        position:'top',
+        title: 'Email Sent Successful',
+        description: "Password reset OTP sent! Please check your email for further instructions.",
+        status: 'success',
+        duration: 9000,
+        isClosable: true,
+        onCloseComplete: () => setOtpComp(true)
+      })
       localStorage.setItem("otpDetails", JSON.stringify(res.data));
     } catch (err) {
+      setOtpLoad(false)
       console.log(err);
+      if(err.response.data==="Email is not registered"){
+        toast({
+          position:'top',
+          title: 'Wrong Email',
+          description: "Sorry, we couldn't find an account associated with that email.",
+          status: 'error',
+          duration: 9000,
+          isClosable: true,
+        })
+      }
     }
   };
 
   data.otp = otp;
   const handleOtpVerify = async () => {
-    setLoad(true)
-    console.log(otp)
+    setLoad(true);
+    console.log(otp);
     try {
-      let res = await axios.post(`${process.env.REACT_APP_URL}/users/verifyOtp`, data);
+      const res = await axios.post(
+        `${process.env.REACT_APP_URL}/users/verifyOtp`,
+        data
+      );
       console.log(res);
-      setLoad(false)
+      setLoad(false);
       toast({
         position: "top",
         title: "OTP verified successfully",
@@ -77,34 +100,32 @@ const OtpPage = ({ page, setPage, onClose, setForgotPage, setOtpComp }) => {
         onCloseComplete: () => setIsNewPass(true),
       });
     } catch (e) {
-      setLoad(false)
+      setLoad(false);
       console.log(e.response.data);
       if (e.response.data === "Invalid OTP") {
         toast({
           position: "top",
-          title: "Wrong OTP",
+          title: "Invalid OTP",
           description:
-            "Incorrect Password. Please try again or click on Forgot Password to reset it",
+            "The OTP you entered is incorrect. Please check and try again.",
           status: "error",
           duration: 9000,
           isClosable: true,
         });
-      } else if (e.response.data === "User not found") {
+      } else if (e.response.data === "OTP expired") {
         toast({
           position: "top",
-          title: "Wrong Email",
-          description:
-            "Sorry, we couldn't find an account associated with that email.",
+          title: "OTP expired",
+          description: "Sorry, your OTP has expired. Please request a new one.",
           status: "error",
           duration: 9000,
           isClosable: true,
         });
-      } 
-      else {
+      } else {
         toast({
           position: "top",
           title: "Something Went Wrong",
-          description: "Please fill in your email and password correctly.",
+          description: "OTP not sent yet",
           status: "error",
           duration: 9000,
           isClosable: true,
@@ -114,7 +135,11 @@ const OtpPage = ({ page, setPage, onClose, setForgotPage, setOtpComp }) => {
   };
 
   return isNewPass ? (
-    <NewPassword setOtpComp={setOtpComp} setForgotPage={setForgotPage} setIsNewPass={setIsNewPass} />
+    <NewPassword
+      setOtpComp={setOtpComp}
+      setForgotPage={setForgotPage}
+      setIsNewPass={setIsNewPass}
+    />
   ) : (
     <>
       <ModalOverlay />
@@ -173,66 +198,42 @@ const OtpPage = ({ page, setPage, onClose, setForgotPage, setOtpComp }) => {
                     </Text>
                   </Box>
                 ) : (
-                  <Text
-                    color={"blue.500"}
-                    display={"flex"}
-                    gap={1}
-                    justifyContent="center"
-                    cursor={"pointer"}
-                    onClick={sendOtpAgain}
-                  >
-                    Send OTP
-                  </Text>
+                  <HStack justify={"center"} mt={5}>
+                    <Text fontSize={{ base: "sm", sm: "md" }}>
+                      Didn't receive the code?{" "}
+                    </Text>
+                    <Button
+                      size="sm"
+                      variant="link"
+                      onClick={sendOtpAgain}
+                      isDisabled={timer > 0}
+                      isLoading={otpLoad}
+                      loadingText="Sending OTP..."
+                    >
+                      Send again
+                    </Button>
+                  </HStack>
                 )}
               </Center>
-              <FormControl>
-                <Center>
-                  <HStack>
-                    <PinInput>
-                      <PinInputField
-                        onChange={(value) =>
-                          setOtp((p) => p + value.nativeEvent.data)
-                        }
-                        onKeyDown={(e) => {
-                          if (e.key === "Backspace") {
-                            setOtp((p) => p.slice(0, -1));
-                          }
-                        }}
-                      />
-                      <PinInputField
-                        onChange={(value) =>
-                          setOtp((p) => p + value.nativeEvent.data)
-                        }
-                        onKeyDown={(e) => {
-                          if (e.key === "Backspace") {
-                            setOtp((p) => p.slice(0, -1));
-                          }
-                        }}
-                      />
-                      <PinInputField
-                        onChange={(value) =>
-                          setOtp((p) => p + value.nativeEvent.data)
-                        }
-                        onKeyDown={(e) => {
-                          if (e.key === "Backspace") {
-                            setOtp((p) => p.slice(0, -1));
-                          }
-                        }}
-                      />
-                      <PinInputField
-                        onChange={(value) =>
-                          setOtp((p) => p + value.nativeEvent.data)
-                        }
-                        onKeyDown={(e) => {
-                          if (e.key === "Backspace") {
-                            setOtp((p) => p.slice(0, -1));
-                          }
-                        }}
-                      />
-                    </PinInput>
-                  </HStack>
-                </Center>
-              </FormControl>
+              <Box textAlign={"center"}>
+                <FormControl>
+                  <PinInput
+                    isDisabled={timer <= 0}
+                    focusBorderColor="brand.500"
+                    size="lg"
+                    type="number"
+                    otp={otp}
+                    onChange={(value) => {
+                      setOtp(value);
+                    }}
+                  >
+                    <PinInputField />
+                    <PinInputField />
+                    <PinInputField />
+                    <PinInputField />
+                  </PinInput>
+                </FormControl>
+              </Box>
               <Stack spacing={6}>
                 <Button
                   bg={"blue.400"}
@@ -242,9 +243,9 @@ const OtpPage = ({ page, setPage, onClose, setForgotPage, setOtpComp }) => {
                   }}
                   onClick={handleOtpVerify}
                   isLoading={load}
-                    loadingText="Verifying..."
+                  loadingText="Verifying..."
                 >
-                  Verify
+                  Verify OTP
                 </Button>
               </Stack>
               <Box

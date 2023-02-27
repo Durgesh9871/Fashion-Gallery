@@ -20,9 +20,6 @@ import {
 } from "@chakra-ui/react";
 import "./Reg.css";
 
-
-
-
 import FgLogo from "../img/fg-logo.png";
 
 import { Link as RouteLink } from "react-router-dom";
@@ -35,7 +32,6 @@ import { BsFillExclamationTriangleFill } from "react-icons/bs";
 import { ImCross } from "react-icons/im";
 import { FaCheck } from "react-icons/fa";
 import axios from "axios";
-
 
 const EMAIL_REGEX = /^[\w]+@([\w-]+\.)+[\w-]{3}$/g;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -89,12 +85,12 @@ const Reg = ({ page, setPage }) => {
     setLoad(true);
     try {
       // logic for regester api
-      await axios.post(`${process.env.REACT_APP_URL}/users/register`,{
+      await axios.post(`${process.env.REACT_APP_URL}/users/register`, {
         name,
         email,
-        password:pwd,
-        gender
-      })
+        password: pwd,
+        gender,
+      });
       setLoad(false);
       toast({
         position: "top",
@@ -122,14 +118,19 @@ const Reg = ({ page, setPage }) => {
       <ModalOverlay />
       <ModalContent>
         <Box className="container">
-          <Box className="left_col">
+          <Box
+            className="left_col"
+            display={"flex"}
+            flexDirection="column"
+            alignItems={"center"}
+          >
             <Box display={"flex"} flexDirection="column" gap={"10px"}>
               <Heading>Looks like you're new here!</Heading>
               <Text color={"#d7d8dc"} fontWeight="500">
                 Sign up with your email address to get started
               </Text>
             </Box>
-            <Box display="grid" alignItems={"end"}>
+            <Box>
               <Image src={FgLogo}></Image>
             </Box>
           </Box>
@@ -193,7 +194,12 @@ const Reg = ({ page, setPage }) => {
                   The email address format is invalid.
                 </Text>
               </FormControl>
-              <RadioGroup mt={"10px"} mb="10px" onChange={setGender} value={gender}>
+              <RadioGroup
+                mt={"10px"}
+                mb="10px"
+                onChange={setGender}
+                value={gender}
+              >
                 <Box fontWeight={"500"} fontSize="l">
                   Gender
                 </Box>
@@ -289,7 +295,7 @@ const Reg = ({ page, setPage }) => {
                   Password does not match the confirm password.
                 </Text>
               </FormControl>
-             
+
               <Stack mt={"10px"} spacing={3}>
                 <Stack
                   direction={{ base: "column", sm: "row" }}

@@ -14,18 +14,29 @@ import {
   FormLabel,
   InputGroup,
   InputRightElement,
+  useToast,
 } from "@chakra-ui/react";
 import "./Login.css";
-import '../Registration/Reg.css'
-import FgLogo from '../img/fg-logo.png';
+import "../Registration/Reg.css";
+import FgLogo from "../img/fg-logo.png";
 import { FaCheck } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 import { BsFillExclamationTriangleFill } from "react-icons/bs";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
+import axios from "axios";
 
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
-const NewPassword = ({ page, setPage, onClose,setForgotPage,setIsNewPass,setOtpComp }) => {
+const NewPassword = ({
+  page,
+  setPage,
+  onClose,
+  setForgotPage,
+  setIsNewPass,
+  setOtpComp,
+}) => {
+  const [load, setLoad] = useState(false);
+  const toast = useToast();
 
   const [pwd, setPwd] = useState("");
   const [validPwd, setValidPwd] = useState(false);
@@ -38,6 +49,8 @@ const NewPassword = ({ page, setPage, onClose,setForgotPage,setIsNewPass,setOtpC
   const [validMatch, setValidMatch] = useState(false);
   const [matchFocus, setMatchFocus] = useState(false);
 
+  const data = JSON.parse(localStorage.getItem("otpDetails"));
+
   useEffect(() => {
     const result = PWD_REGEX.test(pwd);
     // console.log(result);
@@ -45,8 +58,44 @@ const NewPassword = ({ page, setPage, onClose,setForgotPage,setIsNewPass,setOtpC
     setValidMatch(pwd === matchPwd);
   }, [pwd, matchPwd]);
 
-  const handleForgotPass = () => {
-    
+  const handleNewPass = async () => {
+    setLoad(true);
+    try {
+      let res = await axios.post(
+        `${process.env.REACT_APP_URL}/users/updatePassword`,
+        {
+          email: data.email,
+          newPassword: pwd,
+        }
+      );
+      console.log(res);
+      setLoad(false);
+      toast({
+        position: "top",
+        title: "Password reset successful!",
+        description:
+          "Your new password has been saved. You can now log in to your account.",
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+        onCloseComplete: () => {
+          setForgotPage(false);
+          setIsNewPass(false);
+          setOtpComp(false);
+        },
+      });
+    } catch (err) {
+      setLoad(false);
+      toast({
+        position: "top",
+        title: "Something Went Wrong",
+        description:
+          "Password update failed. Please check your inputs and try again.",
+        status: "error",
+        duration: 9000,
+        isClosable: true,
+      });
+    }
   };
 
   return (
@@ -56,9 +105,9 @@ const NewPassword = ({ page, setPage, onClose,setForgotPage,setIsNewPass,setOtpC
         <Box className="container">
           <Box className="left_col">
             <Box display={"flex"} flexDirection="column" gap={"10px"}>
-              <Heading>Reset your Password</Heading>
+              <Heading>New Password</Heading>
               <Text color={"#d7d8dc"} fontWeight="500">
-                Unlock your account with a new password
+                Secure Your Account with a New Password
               </Text>
             </Box>
             <Box display="grid" alignItems={"end"}>
@@ -76,13 +125,13 @@ const NewPassword = ({ page, setPage, onClose,setForgotPage,setIsNewPass,setOtpC
               p={"20px 40px"}
             >
               <Heading lineHeight={1.1} fontSize={{ base: "2xl", md: "3xl" }}>
-                Forgot your password?
+                Password Reset
               </Heading>
               <Text
                 fontSize={{ base: "sm", sm: "md" }}
                 color={useColorModeValue("gray.800", "gray.400")}
               >
-                You&apos;ll get an email with a reset OTP
+                Please enter your new password below.
               </Text>
               <FormControl id="password">
                 <FormLabel display={"flex"} alignItems="center">
@@ -178,16 +227,31 @@ const NewPassword = ({ page, setPage, onClose,setForgotPage,setIsNewPass,setOtpC
                   _hover={{
                     bg: "blue.500",
                   }}
-                  onClick={handleForgotPass}
+                  onClick={handleNewPass}
+                  isLoading={load}
+                  loadingText="Saving Password..."
                 >
-                  Request Reset
+                  Save Password
                 </Button>
               </Stack>
-              <Box color={"blue.500"} display={"flex"} gap={1} justifyContent="center" cursor={'pointer'}>
-        
-              <Text onClick={()=>setForgotPage(false)} _hover={{textDecoration:"underline"}}>Click here to login</Text>
-
-          </Box>
+              <Box
+                color={"blue.500"}
+                display={"flex"}
+                gap={1}
+                justifyContent="center"
+                cursor={"pointer"}
+              >
+                <Text
+                  onClick={() => {
+                    setForgotPage(false);
+                    setIsNewPass(false);
+                    setOtpComp(false);
+                  }}
+                  _hover={{ textDecoration: "underline" }}
+                >
+                  Click here to login
+                </Text>
+              </Box>
             </Box>
           </Box>
         </Box>

@@ -15,8 +15,7 @@ const userRouter = express.Router();
 
 //register router
 userRouter.post("/register", async (req, res) => {
-  const { name, email, password,gender } =
-    req.body;
+  const { name, email, password,gender } = req.body;
   try {
     const alreadyUser = await UserModel.findOne({ email });
     if (alreadyUser) res.status(400).send("User already exist, please login");

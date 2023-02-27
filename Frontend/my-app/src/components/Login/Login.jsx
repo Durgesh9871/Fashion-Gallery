@@ -44,6 +44,7 @@ const Login = ({ setPage, onClose }) => {
       });
       console.log(res)
       setLoad(false);
+      localStorage.setItem('token',JSON.stringify(res.data.token));
       toast({
         position: "top",
         title: "Login Successful.",
@@ -180,8 +181,8 @@ const Login = ({ setPage, onClose }) => {
                 <Button
                   w={"full"}
                   maxW={"md"}
-                  isLoading={load}
-                  loadingText="Signing in with Google..."
+                  // isLoading={load}
+                  // loadingText="Signing in with Google..."
                   variant={"outline"}
                   leftIcon={<FcGoogle />}
                   onClick={signInWithGoogle}
