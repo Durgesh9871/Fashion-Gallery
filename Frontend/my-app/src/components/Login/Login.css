@@ -24,7 +24,7 @@
 @media only screen and (max-width:500px){
     .container{
         display: grid;
-        height: 1000px;
+        height: 1300px;
     }
     .left_col{
         width: 100%;        

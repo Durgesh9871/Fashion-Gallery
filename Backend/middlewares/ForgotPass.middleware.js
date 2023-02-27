@@ -72,9 +72,7 @@ const verifyOtp = async (req, res, next) => {
 
 //update password
 const updatePassword = async (req, res) => {
-  console.log(req.session);
-  const { email } = req.session;
-  const { newPassword } = req.body;
+  const {email, newPassword } = req.body;
 
   let user = await UserModel.findOne({ email });
 

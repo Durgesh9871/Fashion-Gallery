@@ -5,10 +5,12 @@ const ProductsRoute = require("express").Router();
 //CREATE ,  Only Admin Authorised middleware(verifyTokenAndAdmin)
 
 ProductsRoute.post("/add",verifyTokenAndAdmin, async (req, res) => {
-  const newProduct = new ProductModel(req.body);
+  // console.log(req.body)
+  // const newProduct = new ProductModel(req.body);
   try {
-    const savedProduct = await newProduct.save();
-    res.status(200).send(savedProduct);
+    // const savedProduct = await newProduct.save();
+    await ProductModel.insertMany(req.body);
+    res.status(200).send("Products Added");
   } catch (err) {
     res.status(500).send(err);
   }
