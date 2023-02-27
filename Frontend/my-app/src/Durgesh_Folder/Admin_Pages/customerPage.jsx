@@ -55,6 +55,7 @@ const userImage ={
         {/*  Loop starts from here ------------------- */}
 
       {customerData.length > 0 && customerData.map((item,i)=>{
+        console.log(item)
         return (
           <Tr key={i}>
           <Td>      
@@ -63,7 +64,7 @@ const userImage ={
             <Td>{item.firstNamee}</Td>
           <Td>{item.email}</Td>
           <Td>{item.gender}</Td>
-          <Td color={item.active == "true" ? "#31ae33" : "red"}>{item.active == "true" ? "Active" :"Last seen"}</Td>
+          <Td color={item.isActive == true ? "#31ae33" : "red"}>{item.isActive == true ? "Active" :`Last seen ${item.signUpTime}`}</Td>
         </Tr>
         )
       })}

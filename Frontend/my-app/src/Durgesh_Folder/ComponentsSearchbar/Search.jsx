@@ -29,8 +29,8 @@ const Search = () => {
 	// console.log(post)
 	
 	return (
-		<Box className="container">
-			<Box className="input">
+		<Box className="" display="block">
+			<Box className="inputTag" >
 				<SearchIcon fontSize="20px" position="relative" left="30px" color="#fff"  />
 				<Input
 					shadow="sm"
@@ -75,11 +75,11 @@ const Search = () => {
 								}
 							})
 							.map((item) => {
+								console.log(item)
 								return (
-									
 										<DisplayProductMainData
-											key={item.id}
-											id={item.id}
+											key={item._id}
+											id={item._id}
 											src={item.Images}
                                             mainImage={item.mainImage}
 											name={item.title}
