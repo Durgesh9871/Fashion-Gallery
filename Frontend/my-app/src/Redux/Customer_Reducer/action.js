@@ -4,7 +4,7 @@ import axios from "axios"
 
 const getCustomerData = (dispatch)=>{
    dispatch({type: GET_CUSTOMER_DATA_REQUEST })
-   return axios.get('http://localhost:8080/customerData')
+   return axios.get('https://joyous-tick-sweatsuit.cyclic.app/users')
    .then((res) => dispatch({type:GET_CUSTOMER_DATA_SUCCESS , payload:res.data}))
    .catch((err)=> dispatch({type:GET_CUSTOMER_DATA_FAILURE}))
 }
