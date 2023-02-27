@@ -44,6 +44,14 @@ https://fashion-gallary.vercel.app/
   <li>Filtering products by category including Men,Women and Kids</li>
 </ul>
 
+
+<h1>Contributors</h1>
+Sumit Pokhriyal <br/>
+Durgesh Singh<br/>
+Gautam Sonkar<br/>
+ jagroshan singh<br/>
+<br/>
+
 ## Some screenshots of the project
 
 ## Home Page
@@ -58,6 +66,6 @@ https://fashion-gallary.vercel.app/
 
 ## Admin Page
 
-<img src="https://drive.google.com/file/d/1mRQrUWX-2Di25W-OObpIuU7xStleoyXf/view?usp=share_link"/>
+<img src="./screenshot/admin.png"/>
 
 ### Thanks for reading
