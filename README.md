@@ -47,7 +47,7 @@ https://fashion-gallary.vercel.app/
 ## Some screenshots of the project
 
 ## Home Page
-<img src="screenshot/home.png"/>
+<img src="./screenshot/home.png"/>
 
 ## Mens Page
 <img src="./screenshot/menspage.png"/>
@@ -58,6 +58,6 @@ https://fashion-gallary.vercel.app/
 
 ## Admin Page
 
-<img src="./screenshot/admin.png"/>
+<img src="https://drive.google.com/file/d/1mRQrUWX-2Di25W-OObpIuU7xStleoyXf/view?usp=share_link"/>
 
 ### Thanks for reading
