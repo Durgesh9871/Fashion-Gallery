@@ -7,14 +7,7 @@ This is the photos of the fashion gallary website. Fashion Gallary is an online 
 https://fashion-gallary.vercel.app/
 
 ## Built with
-<p align="left" display="flex" gap="20%">
-  <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer" margin="10%">
-    <img src="https://media4.giphy.com/media/XAxylRMCdpbEWUAvr8/giphy.gif?cid=6c09b9526hk9dkomtbxffssgc0c0smge4bzrnbaemr7oduk4&rid=giphy.gif&ct=s" alt="html5" width="80" height="80"/>
-  </a> 
-  <a href="https://www.w3schools.com/css/" target="_blank" rel="next"> 
-    <img src="https://media1.giphy.com/media/w7j1Bivh2hvIbhDYO8/giphy.gif?cid=ecf05e471nwzn4ecgimh8u4xqucdt7sm4rtnuz505w12j83k&rid=giphy.gif&ct=ts" alt="css3" width="80" height="80"/>
-  </a>
-   
+
   <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> 
     <img src="https://media2.giphy.com/media/GZu3NtMoA6Lp2alLKk/giphy.gif?cid=ecf05e47tp0nkt4tb1gv672e4o78ng85oohqz2vc5wejojq7&rid=giphy.gif&ct=s" alt="javascript" width="80" height="80"/>
   </a>
@@ -53,8 +46,15 @@ https://fashion-gallary.vercel.app/
 
 ## Some screenshots of the project
 
+## Home Page
 <img src="./screenshot/home.png">
+## Mens Page
 <img src="./screenshot/menspage.png">
+
+## Signup Page
+
 <img src="./screenshot/signup.png">
+## Admin Page
+
 <img src="./screenshot/admin.png">
 ### Thanks for reading
