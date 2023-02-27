@@ -61,6 +61,7 @@ ProductsRoute.get("/:id", async (req, res) => {
 
 ProductsRoute.get("/", async (req, res) => {
   const qNew = req.query.new;
+  console.log({qNew})
   const qCategory = req.query.category;
   console.log({qCategory})
   try {
