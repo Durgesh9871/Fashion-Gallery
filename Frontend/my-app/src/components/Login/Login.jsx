@@ -42,9 +42,10 @@ const Login = ({ setPage, onClose }) => {
         email,
         password:pwd
       });
-      console.log(res)
+      console.log(res.data)
       setLoad(false);
       localStorage.setItem('token',JSON.stringify(res.data.token));
+      localStorage.setItem("isAdmin",JSON.stringify(res.data.isAdmin));
       toast({
         position: "top",
         title: "Login Successful.",

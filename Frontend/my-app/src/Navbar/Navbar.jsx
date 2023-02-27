@@ -14,99 +14,150 @@ import {
   useColorModeValue,
   useDisclosure,
   Image,
-  
-} from '@chakra-ui/react';
-import {BsFillBagFill} from "react-icons/bs"
+  Modal,
+} from "@chakra-ui/react";
+import { BsFillBagFill } from "react-icons/bs";
 import {
   HamburgerIcon,
   CloseIcon,
   ChevronDownIcon,
   ChevronRightIcon,
-} from '@chakra-ui/icons';
-import image from "./4.png"
+} from "@chakra-ui/icons";
+import image from "./4.png";
+import { useState } from "react";
+import axios from "axios";
+import Reg from "../components/Registration/Reg";
+import Login from "../components/Login/Login";
 export default function MainNavbar() {
   const { isOpen, onToggle } = useDisclosure();
+  const isAdmin = JSON.parse(localStorage.getItem("isAdmin"));
+
+  let token = JSON.parse(localStorage.getItem("token")) || null;
+
+  const [page, setPage] = useState(false);
+
+  // manage modal useDisclosure
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const openModal = () => setModalIsOpen(true);
+  const closeModal = () => setModalIsOpen(false);
+
+  const handleLogout = async () => {
+    try {
+      await axios.get(`${process.env.REACT_APP_URL}/users/logout`);
+      localStorage.removeItem("token");
+      openModal();
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
-    <Box boxSizing="border-box" background={"transparent"} maxW="98vw" m="auto" zIndex={"2"}>
+    <Box
+      boxSizing="border-box"
+      background={"transparent"}
+      maxW="98vw"
+      m="auto"
+      zIndex={"2"}
+    >
       <Flex
-        bg={useColorModeValue('white', 'gray.800')}
-        color={useColorModeValue('gray.600', 'white')}
-        minH={'60px'}
+        bg={useColorModeValue("white", "gray.800")}
+        color={useColorModeValue("gray.600", "white")}
+        minH={"60px"}
         py={{ base: 2 }}
         pr={{ base: 4 }}
         borderBottom={1}
-        borderStyle={'solid'}
-        borderColor={useColorModeValue('gray.200', 'gray.900')}
-        align={'center'}>
+        borderStyle={"solid"}
+        borderColor={useColorModeValue("gray.200", "gray.900")}
+        align={"center"}
+      >
         <Flex
-          flex={{ base: 1, md: 'auto' }}
+          flex={{ base: 1, md: "auto" }}
           ml={{ base: -2 }}
-          display={{ base: 'flex', md: 'none' }}>
+          display={{ base: "flex", md: "none" }}
+        >
           <IconButton
             onClick={onToggle}
             icon={
               isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
             }
-            variant={'ghost'}
-            aria-label={'Toggle Navigation'}
+            variant={"ghost"}
+            aria-label={"Toggle Navigation"}
           />
         </Flex>
-        <Flex justify={{ base: 'center', md: 'center' }} >
-        <Link href='/'>
-          <Image src={image}
-          h="50px"w="60px"
-          borderRadius={"50%"}
-          ></Image>
-        </Link>
+        <Flex justify={{ base: "center", md: "center" }}>
+          <Link href="/">
+            <Image src={image} h="50px" w="60px" borderRadius={"50%"}></Image>
+          </Link>
         </Flex>
-        <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'center' }}>
-         
-
-          <Flex display={{ base: 'none', md: 'flex' }} ml={5}
-          align="center"
-          justify={"center"}
+        <Flex flex={{ base: 1 }} justify={{ base: "center", md: "center" }}>
+          <Flex
+            display={{ base: "none", md: "flex" }}
+            ml={5}
+            align="center"
+            justify={"center"}
           >
             <DesktopNav />
           </Flex>
-          
         </Flex>
+        <Flex align="center" mr={"20px"}>
+          <Link href="/cart">
+            <BsFillBagFill />
+          </Link>
+        </Flex>
+        {token && (
+  <>
+    {isAdmin ? (
+      <Box>
+        <Button
+          as="a"
+          href="/adminPage"
+          bgColor="white"
+          color="#4e8cf3"
+          variant="outline"
+          fontWeight="bold"
+        >
+          Admin
+        </Button>
+      </Box>
+    ) : null}
+    <Button
+      bgColor="white"
+      color="#4e8cf3"
+      variant="outline"
+      onClick={handleLogout}
+      fontWeight="bold"
+    >
+      Logout
+    </Button>
+  </>
+)}
+{!token && (
+  <Stack
+    flex={{ base: 1, md: 0 }}
+    justify="flex-end"
+    direction="row"
+    spacing={6}
+  >
+    <Button
+      fontSize="sm"
+      fontWeight={400}
+      variant="link"
+      onClick={openModal}
+    >
+      Sign In
+    </Button>
+  </Stack>
+)}
 
-        <Stack
-          flex={{ base: 1, md: 0 }}
-          justify={'flex-end'}
-          direction={'row'}
-          spacing={6}>
-               <Flex
-            align="center">
-            <Link href="/cart">
-            <BsFillBagFill/>
-            </Link>
-          </Flex>
-          <Button
-            as={'a'}
-            fontSize={'sm'}
-            fontWeight={400}
-            variant={'link'}
-            href={'/signin'}>
-            Sign In
-          </Button>
-          <Button
-            as={'a'}
-            display={{ base: 'none', md: 'inline-flex' }}
-            fontSize={'sm'}
-            fontWeight={600}
-            color={'white'}
-            bg={'teal.400'}
-            href={'/signup'}
-            _hover={{
-              bg: 'pink.300',
-            }}>
-            Sign Up
-          </Button>
-          
-        </Stack>
       </Flex>
+      {/* login modal */}
+      <Modal size="4xl" isOpen={modalIsOpen} onClose={closeModal}>
+        {page ? (
+          <Reg page={page} setPage={setPage} />
+        ) : (
+          <Login onClose={closeModal} page={page} setPage={setPage} />
+        )}
+      </Modal>
 
       <Collapse in={isOpen} animateOpacity>
         <MobileNav />
@@ -116,26 +167,27 @@ export default function MainNavbar() {
 }
 
 const DesktopNav = () => {
-  const linkColor = useColorModeValue('gray.600', 'gray.200');
-  const linkHoverColor = useColorModeValue('gray.800', 'white');
-  const popoverContentBgColor = useColorModeValue('white', 'gray.800');
+  const linkColor = useColorModeValue("gray.600", "gray.200");
+  const linkHoverColor = useColorModeValue("gray.800", "white");
+  const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
   return (
-    <Stack direction={'row'} spacing={4} align="center">
+    <Stack direction={"row"} spacing={4} align="center">
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
-          <Popover trigger={'hover'} placement={'bottom-start'}>
+          <Popover trigger={"hover"} placement={"bottom-start"}>
             <PopoverTrigger>
               <Link
-              //   p={2}
-                href={navItem.href ?? '#'}
-                fontSize={'sm'}
+                //   p={2}
+                href={navItem.href ?? "#"}
+                fontSize={"sm"}
                 fontWeight={500}
                 color={linkColor}
                 _hover={{
-                  textDecoration: 'none',
+                  textDecoration: "none",
                   color: linkHoverColor,
-                }}>
+                }}
+              >
                 {navItem.label}
               </Link>
             </PopoverTrigger>
@@ -143,11 +195,12 @@ const DesktopNav = () => {
             {navItem.children && (
               <PopoverContent
                 border={0}
-                boxShadow={'xl'}
+                boxShadow={"xl"}
                 bg={popoverContentBgColor}
                 p={4}
-                rounded={'xl'}
-                minW={'sm'}>
+                rounded={"xl"}
+                minW={"sm"}
+              >
                 <Stack>
                   {navItem.children.map((child) => (
                     <DesktopSubNav key={child.label} {...child} />
@@ -166,30 +219,33 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
   return (
     <Link
       href={href}
-      role={'group'}
-      display={'block'}
+      role={"group"}
+      display={"block"}
       p={2}
-      rounded={'md'}
-      _hover={{ bg: useColorModeValue('pink.50', 'gray.900') }}>
-      <Stack direction={'row'} align={'center'}>
+      rounded={"md"}
+      _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
+    >
+      <Stack direction={"row"} align={"center"}>
         <Box>
           <Text
-            transition={'all .3s ease'}
-            _groupHover={{ color: 'pink.400' }}
-            fontWeight={500}>
+            transition={"all .3s ease"}
+            _groupHover={{ color: "pink.400" }}
+            fontWeight={500}
+          >
             {label}
           </Text>
-          <Text fontSize={'sm'}>{subLabel}</Text>
+          <Text fontSize={"sm"}>{subLabel}</Text>
         </Box>
         <Flex
-          transition={'all .3s ease'}
-          transform={'translateX(-10px)'}
+          transition={"all .3s ease"}
+          transform={"translateX(-10px)"}
           opacity={0}
-          _groupHover={{ opacity: '100%', transform: 'translateX(0)' }}
-          justify={'flex-end'}
-          align={'center'}
-          flex={1}>
-          <Icon color={'pink.400'} w={5} h={5} as={ChevronRightIcon} />
+          _groupHover={{ opacity: "100%", transform: "translateX(0)" }}
+          justify={"flex-end"}
+          align={"center"}
+          flex={1}
+        >
+          <Icon color={"pink.400"} w={5} h={5} as={ChevronRightIcon} />
         </Flex>
       </Stack>
     </Link>
@@ -199,9 +255,10 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
 const MobileNav = () => {
   return (
     <Stack
-      bg={useColorModeValue('white', 'gray.800')}
+      bg={useColorModeValue("white", "gray.800")}
       p={4}
-      display={{ md: 'none' }}>
+      display={{ md: "none" }}
+    >
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
@@ -217,37 +274,39 @@ const MobileNavItem = ({ label, children, href }) => {
       <Flex
         py={2}
         as={Link}
-        href={href ?? '#'}
-        justify={'space-between'}
-        align={'center'}
+        href={href ?? "#"}
+        justify={"space-between"}
+        align={"center"}
         _hover={{
-          textDecoration: 'none',
-        }}>
+          textDecoration: "none",
+        }}
+      >
         <Text
           fontWeight={600}
-          color={useColorModeValue('gray.600', 'gray.200')}>
+          color={useColorModeValue("gray.600", "gray.200")}
+        >
           {label}
         </Text>
         {children && (
           <Icon
             as={ChevronDownIcon}
-            transition={'all .25s ease-in-out'}
-            transform={isOpen ? 'rotate(180deg)' : ''}
+            transition={"all .25s ease-in-out"}
+            transform={isOpen ? "rotate(180deg)" : ""}
             w={6}
             h={6}
           />
         )}
       </Flex>
 
-      <Collapse in={isOpen} animateOpacity style={{ marginTop: '0!important' }}>
+      <Collapse in={isOpen} animateOpacity style={{ marginTop: "0!important" }}>
         <Stack
-
           mt={2}
           pl={4}
           borderLeft={1}
-          borderStyle={'solid'}
-          borderColor={useColorModeValue('gray.200', 'gray.700')}
-          align={'start'}>
+          borderStyle={"solid"}
+          borderColor={useColorModeValue("gray.200", "gray.700")}
+          align={"start"}
+        >
           {children &&
             children.map((child) => (
               <Link key={child.label} py={2} href={child.href}>
@@ -260,152 +319,146 @@ const MobileNavItem = ({ label, children, href }) => {
   );
 };
 
-
-
 const NAV_ITEMS = [
   {
-    label: 'NEW!',
+    label: "NEW!",
     children: [
       {
-        label: 'FEATURED',
-        href: '#',
+        label: "FEATURED",
+        href: "/products",
       },
       {
-        label: 'SHOP BY CATEGORY',
-        href: '#',
+        label: "SHOP BY CATEGORY",
+        href: "/products",
       },
     ],
   },
-  
+
   {
-    label: 'WOMEN',
+    label: "WOMEN",
     children: [
       {
-        label: 'TOPS',
-        href: '#',
+        label: "TOPS",
+        href: "/products",
       },
       {
-        label: 'BOTTOMS',
-        href: '#',
+        label: "BOTTOMS",
+        href: "/products",
       },
       {
-        label: 'OUTERWEAR',
-        href: '#',
+        label: "OUTERWEAR",
+        href: "/products",
       },
       {
-        label: 'ACCESSORIES',
-        href: '#',
+        label: "ACCESSORIES",
+        href: "/products",
       },
       {
-        label: 'FLEECE',
-        href: '#',
+        label: "FLEECE",
+        href: "/products",
       },
       {
-        label: 'COZY',
-        href: '#',
-      },
-    ],
-  },
-  {
-    label: 'MEN',
-    children: [
-      {
-        label: 'TOPS',
-        href: '#',
-      },
-      {
-        label: 'BOTTOMS',
-        href: '#',
-      },
-      {
-        label: 'OUTERWEAR',
-        href: '#',
-      },
-      {
-        label: 'ACCESSORIES',
-        href: '#',
-      },
-      {
-        label: 'FLEECE',
-        href: '#',
-      },
-      {
-        label: 'FOOTWEAR',
-        href: '#',
+        label: "COZY",
+        href: "/products",
       },
     ],
   },
   {
-    label: 'KIDS',
+    label: "MEN",
     children: [
       {
-        label: 'BOYS',
-        href: '#',
+        label: "TOPS",
+        href: "/products",
       },
       {
-        label: 'GIRLS',
-        href: '#',
+        label: "BOTTOMS",
+        href: "/products",
       },
       {
-        label: 'INFANT & TODDLER',
-        href: '#',
+        label: "OUTERWEAR",
+        href: "/products",
       },
-      
+      {
+        label: "ACCESSORIES",
+        href: "/products",
+      },
+      {
+        label: "FLEECE",
+        href: "/products",
+      },
+      {
+        label: "FOOTWEAR",
+        href: "/products",
+      },
     ],
   },
   {
-    label: 'OUTERWEAR',
+    label: "KIDS",
     children: [
       {
-        label: 'WOMEN',
-        href: '#',
+        label: "BOYS",
+        href: "/products",
       },
       {
-        label: 'MEN',
-        href: '#',
+        label: "GIRLS",
+        href: "/products",
       },
       {
-        label: 'KIDS',
-        href: '#',
+        label: "INFANT & TODDLER",
+        href: "/products",
       },
-      
     ],
   },
   {
-    label: 'GEAR',
+    label: "OUTERWEAR",
     children: [
       {
-        label: 'PACKS & LUGGAGE',
-        href: '#',
+        label: "WOMEN",
+        href: "/products",
       },
       {
-        label: 'COMPING',
-        href: '#',
+        label: "MEN",
+        href: "/products",
       },
       {
-        label: 'HYDRATION',
-        href: '#',
+        label: "KIDS",
+        href: "/products",
       },
-      
-      {
-        label: 'PETS',
-        href: '#',
-      },
-      
     ],
   },
   {
-    label: 'FOOTWEAR',
+    label: "GEAR",
     children: [
       {
-        label: 'WOMEN',
-        href: '#',
+        label: "PACKS & LUGGAGE",
+        href: "/products",
       },
       {
-        label: 'MEN',
-        href: '#',
+        label: "COMPING",
+        href: "/products",
       },
-      
+      {
+        label: "HYDRATION",
+        href: "/products",
+      },
+
+      {
+        label: "PETS",
+        href: "/products",
+      },
+    ],
+  },
+  {
+    label: "FOOTWEAR",
+    children: [
+      {
+        label: "WOMEN",
+        href: "/products",
+      },
+      {
+        label: "MEN",
+        href: "/products",
+      },
     ],
   },
   // {
@@ -413,88 +466,84 @@ const NAV_ITEMS = [
   //   children: [
   //     {
   //       label: 'BLANKETS & THROWS',
-  //       href: '#',
+  //       href: '/products',
   //     },
   //     {
   //       label: 'SHEETS & PIlLLOWCASES',
-  //       href: '#',
+  //       href: '/products',
   //     },
   //     {
   //       label: 'DUVET COVERS & SHAMsS',
-  //       href: '#',
+  //       href: '/products',
   //     },
   //     {
   //       label: 'COMFORTERS',
-  //       href: '#',
+  //       href: '/products',
   //     },
   //     {
   //       label: 'PILLOWS',
-  //       href: '#',
+  //       href: '/products',
   //     },
-      
+
   //   ],
   // },
   {
-    label: 'SALE',
+    label: "SALE",
     children: [
       {
-        label: 'WOMEN',
-        href: '#',
+        label: "WOMEN",
+        href: "/products",
       },
       {
-        label: 'MEN',
-        href: '#',
+        label: "MEN",
+        href: "/products",
       },
       {
-        label: 'KIDS',
-        href: '#',
+        label: "KIDS",
+        href: "/products",
       },
-      
     ],
   },
   {
-    label: 'RESALE',
+    label: "RESALE",
     children: [
       {
-        label: 'WOMEN',
-        href: '#',
+        label: "WOMEN",
+        href: "/products",
       },
       {
-        label: 'MEN',
-        href: '#',
+        label: "MEN",
+        href: "/products",
       },
       {
-        label: 'KIDS',
-        href: '#',
+        label: "KIDS",
+        href: "/products",
       },
       {
-        label: 'HOME',
-        href: '#',
+        label: "HOME",
+        href: "/products",
       },
-      
     ],
   },
   {
-    label: 'GUIDEPOST',
+    label: "GUIDEPOST",
     children: [
       {
-        label: 'ABOUT',
-        href: '#',
+        label: "ABOUT",
+        href: "/products",
       },
       {
-        label: 'PARTNERS',
-        href: '#',
+        label: "PARTNERS",
+        href: "/products",
       },
       {
-        label: 'STORIES',
-        href: '#',
+        label: "STORIES",
+        href: "/products",
       },
       {
-        label: 'HOME',
-        href: '#',
+        label: "HOME",
+        href: "/products",
       },
-      
     ],
   },
-  
 ];

@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "./Mainhomepage.css"
-import MainNavbar from "../../Navbar/Navbar"
-import NavbarTop from '../../components/Navbar/Navbar';
 
 
 
@@ -311,9 +309,7 @@ const MainHomePage = () => {
        <NavbarTop />
        </Box> */}
 
-       <Box >
-      <MainNavbar  />
-      </Box>
+    
 
       {/*  Main Code started from here ---------------------- */}
          

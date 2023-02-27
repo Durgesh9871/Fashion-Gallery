@@ -47,17 +47,17 @@ https://fashion-gallary.vercel.app/
 ## Some screenshots of the project
 
 ## Home Page
-<img src="./screenshot/home.png">
+<img src="./screenshot/home.png"/>
 
 ## Mens Page
-<img src="./screenshot/menspage.png">
+<img src="./screenshot/menspage.png"/>
 
 ## Signup Page
 
-<img src="./screenshot/signup.png">
+<img src="./screenshot/signup.png"/>
 
 ## Admin Page
 
-<img src="./screenshot/admin.png">
+<img src="./screenshot/admin.png"/>
 
 ### Thanks for reading
