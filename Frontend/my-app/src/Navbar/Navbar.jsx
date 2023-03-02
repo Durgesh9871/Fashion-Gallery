@@ -24,13 +24,21 @@ import {
   ChevronRightIcon,
 } from "@chakra-ui/icons";
 import image from "./4.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import Reg from "../components/Registration/Reg";
 import Login from "../components/Login/Login";
+import { useLocation } from "react-router-dom";
+
+
+
+
+
+
 export default function MainNavbar() {
   const { isOpen, onToggle } = useDisclosure();
   const isAdmin = JSON.parse(localStorage.getItem("isAdmin"));
+
 
   let token = JSON.parse(localStorage.getItem("token")) || null;
 
@@ -40,6 +48,7 @@ export default function MainNavbar() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const openModal = () => setModalIsOpen(true);
   const closeModal = () => setModalIsOpen(false);
+   
 
   const handleLogout = async () => {
     try {
@@ -51,6 +60,10 @@ export default function MainNavbar() {
     }
   };
 
+   const location = useLocation()
+ 
+   
+
   return (
     <Box
       boxSizing="border-box"
@@ -58,6 +71,9 @@ export default function MainNavbar() {
       maxW="98vw"
       m="auto"
       zIndex={"2"}
+      // position="fixed"
+    
+     
     >
       <Flex
         bg={useColorModeValue("white", "gray.800")}
@@ -69,6 +85,7 @@ export default function MainNavbar() {
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
         align={"center"}
+        background={(location.pathname == "/adminPage" || location.pathname == "/customerPageAdmin" || location.pathname == "/deltePageAdmin" || location.pathname == "/stat") ? "#171923" : "#ffffff"}
       >
         <Flex
           flex={{ base: 1, md: "auto" }}
@@ -82,6 +99,7 @@ export default function MainNavbar() {
             }
             variant={"ghost"}
             aria-label={"Toggle Navigation"}
+            // border="2px solid red"
           />
         </Flex>
         <Flex justify={{ base: "center", md: "center" }}>
@@ -170,6 +188,9 @@ const DesktopNav = () => {
   const linkColor = useColorModeValue("gray.600", "gray.200");
   const linkHoverColor = useColorModeValue("gray.800", "white");
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
+  const location = useLocation()
+ 
+
 
   return (
     <Stack direction={"row"} spacing={4} align="center">
@@ -182,10 +203,11 @@ const DesktopNav = () => {
                 href={navItem.href ?? "#"}
                 fontSize={"sm"}
                 fontWeight={500}
-                color={linkColor}
+                color={ location.pathname === "/adminPage" ? "#ffff" : linkColor}
+                
                 _hover={{
                   textDecoration: "none",
-                  color: linkHoverColor,
+                  color: "#a49288" ,
                 }}
               >
                 {navItem.label}

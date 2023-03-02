@@ -7,6 +7,7 @@ import styled from "styled-components";
 import { Box, Menu, MenuButton, MenuItem, MenuList, Text , Button  , Image} from "@chakra-ui/react";
 import {ChevronDownIcon} from "@chakra-ui/icons"
 import "./styles.css"
+import {GoGraph} from "react-icons/go"
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +20,8 @@ const Sidebar = () => {
 
   return (
     <>
-       <Box background="#171923" height="10vh"  borderBottom="1px solid white" display="flex" justifyContent="space-between" alignItems="center" padding="0px 6%" >
+    {/*  Responsive */}
+       <Box background="#171923" height="10vh"  borderBottom="1px  white" display="flex" justifyContent="space-between" alignItems="center" padding="0px 6%" >
       
        <Box display={{ base: "block", sm: "block", md: "block", lg: "block" , xl:  "none" , '2xl': "none" }}>
         <Menu  >
@@ -33,7 +35,6 @@ const Sidebar = () => {
       <Link to="/adminPage">  <MenuItem background="#171923"  color="#fff">Dashboard</MenuItem></Link>
       <Link to="/customerPageAdmin">  <MenuItem background="#171923"  color="#fff">  <FaUserAlt style={{marginRight:"6px"}}  /> Customer</MenuItem> </Link>
       <Link to="/deltePageAdmin">  <MenuItem background="#171923"  color="#fff">  <AiFillDelete style={{marginRight:"6px"}}  /> Delete Products</MenuItem> </Link>
-
       
       </MenuList> 
       
@@ -44,26 +45,27 @@ const Sidebar = () => {
 
 {/*  This Box for empty space ------------ */}
 <Box></Box>
-
+<Box></Box>
 
 {/* --------------------------------------- */}
 {/*  Second option  */}
-<Menu >
+
+{/* <Menu >
   {({ isOpen }) => (
     <> 
     <Box display="flex" alignItems="center">
       <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX7hUxA0hBjTCU1gDqz8RoPeOScEcwN-oq0idlRExLh-TXNIrDs7YPQzlticXdn-b02ExMDKkXGik&usqp=CAU&ec=48600112" width="35px" borderRadius="100%" border="2px solid white" />
       <MenuButton   color="#fff" mr="2px" ml="10px" fontSize="20px">   Durgesh  </MenuButton>
-      {/* <AiOutlineCaretDown  color="#fff" fontSize="10px" style={{marginTop:"10px"}} /> */}
+      <AiOutlineCaretDown  color="#fff" fontSize="10px" style={{marginTop:"10px"}} />
       </Box>
-      {/* <MenuList background="#171923" border="1px solid #fff" padding="10px">
+      <MenuList background="#171923" border="1px solid #fff" padding="10px">
         <MenuItem background="#171923"  color="#fff">Download</MenuItem>
         <MenuItem background="#171923"  color="#fff" >Create a Copy</MenuItem>
-      </MenuList>  */}
+      </MenuList> 
       
     </>
   )}
-</Menu>
+</Menu> */}
 
        </Box>
        {/*  Side Bar is here ------------- */}
@@ -79,6 +81,7 @@ const Sidebar = () => {
           <Link to="/customerPageAdmin"> <SidebarLink> <FaUserAlt style={{marginRight:"6px"}}  /> Customers</SidebarLink> </Link>
           <Link to="/addPageAdmin"> <SidebarLink> <HiShoppingCart style={{marginRight:"6px"}}  /> Add Products</SidebarLink> </Link>
           <Link to="/deltePageAdmin"> <SidebarLink> <AiFillDelete style={{marginRight:"6px"}}  /> Delete Products</SidebarLink> </Link>
+          <Link to="/stat"> <SidebarLink> <GoGraph style={{marginRight:"6px"}}  /> Statistics</SidebarLink> </Link>
 
 
           

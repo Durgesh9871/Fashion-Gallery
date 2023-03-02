@@ -83,7 +83,7 @@ const CustomerPage = () => {
 
                 {customerData.length > 0 &&
                   customerData.map((item, i) => {
-                    console.log(item);
+                    // console.log(item.signUpTime.slice(0,16));
                     return (
                       <Tr key={i}>
                         <Td>
@@ -104,7 +104,7 @@ const CustomerPage = () => {
                         <Td color={item.isActive == true ? "#31ae33" : "red"}>
                           {item.isActive == true
                             ? "Active"
-                            : `Last seen ${item.signUpTime}`}
+                            : `Last seen ${item.signUpTime.slice(0,16)}`}
                         </Td>
                       </Tr>
                     );
