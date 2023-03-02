@@ -35,11 +35,8 @@ import { useLocation } from "react-router-dom";
 
 
 
-
-
 export default function MainNavbar() {
   const { isOpen, onToggle } = useDisclosure();
-  const [valueColor , setValueColor] = useState(false)
   const isAdmin = JSON.parse(localStorage.getItem("isAdmin"));
 
 
@@ -65,20 +62,7 @@ export default function MainNavbar() {
 
    const location = useLocation()
  
-   useEffect(()=>{
-    if(location.pathname == "/adminPage"){
-      setValueColor(true)
-    }
-    else{
-      setValueColor(false)
-    }
-     
-   },[valueColor])
-  //  console.log(location.pathname == "/product")
-  console.log(valueColor)
-
-
-
+   
 
   return (
     <Box
@@ -100,7 +84,7 @@ export default function MainNavbar() {
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
         align={"center"}
-        background={valueColor == 'true' ? "#171923" : "#ffffff"}
+        background={location.pathname == "/adminPage" ? "#171923" : "#ffffff"}
       >
         <Flex
           flex={{ base: 1, md: "auto" }}
@@ -203,6 +187,9 @@ const DesktopNav = () => {
   const linkColor = useColorModeValue("gray.600", "gray.200");
   const linkHoverColor = useColorModeValue("gray.800", "white");
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
+  const location = useLocation()
+ 
+
 
   return (
     <Stack direction={"row"} spacing={4} align="center">
@@ -215,7 +202,7 @@ const DesktopNav = () => {
                 href={navItem.href ?? "#"}
                 fontSize={"sm"}
                 fontWeight={500}
-                color={linkColor}
+                color={ location.pathname === "/adminPage" ? "#ffff" : linkColor}
                 
                 _hover={{
                   textDecoration: "none",
