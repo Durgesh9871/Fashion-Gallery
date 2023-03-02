@@ -206,7 +206,7 @@ const DesktopNav = () => {
                 
                 _hover={{
                   textDecoration: "none",
-                  color: linkHoverColor,
+                  color: "#a49288" ,
                 }}
               >
                 {navItem.label}
