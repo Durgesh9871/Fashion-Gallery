@@ -10,14 +10,14 @@ import { useState } from "react";
 
 export default function PriceSlider({setprice}) {
   const [sliderValue, setSliderValue] = useState(50);
-    
+  // console.log(sliderValue)  
   return (
     <>
       <Box pt={6} pb={2}>
         <Slider
           aria-label="slider-ex-6"
           onChange={(val) => setSliderValue(val)}
-          onChangeEnd={() => setprice(sliderValue * 48)}
+          onChangeEnd={() => setprice(sliderValue * 10)}
         >
           <SliderMark
             value={sliderValue}
@@ -28,7 +28,7 @@ export default function PriceSlider({setprice}) {
             ml="-5"
             w="12"
           >
-            {sliderValue * 48}
+            {sliderValue * 10}
           </SliderMark>
           <SliderTrack>
             <SliderFilledTrack />

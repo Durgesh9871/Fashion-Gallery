@@ -10,10 +10,10 @@ export const Sort = ({setOrder,orderval}) => {
             <h3>Sort</h3>
             <div onChange={handleRadio}>
                 <input type='radio' name='sort' value="asc" defaultChecked={orderval=='asc'}/>
-                <label> High to Low</label>
+                <label> Low to High</label>
                 <br/>
                 <input type='radio' name='sort' value="desc" defaultChecked={orderval=='desc'}/>
-                <label> Low to High</label>
+                <label> High to Low</label>
             </div>
         </>
     )

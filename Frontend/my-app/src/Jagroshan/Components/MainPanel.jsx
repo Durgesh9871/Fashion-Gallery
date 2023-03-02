@@ -14,14 +14,14 @@ export const MainPanel = () => {
   const allproducts=useSelector((store)=>store.productReducer.product)
   const [searchParams] = useSearchParams();
   const location = useLocation();
-
+  // console.log(searchParams.get('price'))
   React.useEffect(() => {
     let order = searchParams.get("order");
     let objParams = {
       categories: searchParams.getAll("categories"),
-      colors: searchParams.getAll("color"),
-      _sort: order,
-      _order: order,
+      color: searchParams.getAll("color"),
+      order: order,
+      price:searchParams.get("price")
     };
     dispatch(getProducts(objParams))
   }, [location.search]);
