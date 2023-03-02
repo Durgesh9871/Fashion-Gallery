@@ -38,13 +38,16 @@ useEffect(()=>{
     <>
 
   {/*  Main Admin Page Started from here ---------- */}
-   <Box backgroundColor="#171923" border="2px   red" height="100%">
    <Sidebar />
-     
+   <Box backgroundColor="#171923" border="2px   red" height="100vh">
+       
+       {/*  Started from here ------- */}
+   <Box width={{ base: "100%", sm: "100%", md: "100%", lg: "100%", xl: "81%", '2xl': "81%" }} border="1px  red" height="auto" marginLeft="auto" >
+
   
-
+  
      
-
+   </Box>
 
       
 
