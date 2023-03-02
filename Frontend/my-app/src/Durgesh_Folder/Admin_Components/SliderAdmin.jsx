@@ -7,6 +7,7 @@ import styled from "styled-components";
 import { Box, Menu, MenuButton, MenuItem, MenuList, Text , Button  , Image} from "@chakra-ui/react";
 import {ChevronDownIcon} from "@chakra-ui/icons"
 import "./styles.css"
+import {GoGraph} from "react-icons/go"
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,6 +20,7 @@ const Sidebar = () => {
 
   return (
     <>
+    {/*  Responsive */}
        <Box background="#171923" height="10vh"  borderBottom="1px  white" display="flex" justifyContent="space-between" alignItems="center" padding="0px 6%" >
       
        <Box display={{ base: "block", sm: "block", md: "block", lg: "block" , xl:  "none" , '2xl': "none" }}>
@@ -33,7 +35,6 @@ const Sidebar = () => {
       <Link to="/adminPage">  <MenuItem background="#171923"  color="#fff">Dashboard</MenuItem></Link>
       <Link to="/customerPageAdmin">  <MenuItem background="#171923"  color="#fff">  <FaUserAlt style={{marginRight:"6px"}}  /> Customer</MenuItem> </Link>
       <Link to="/deltePageAdmin">  <MenuItem background="#171923"  color="#fff">  <AiFillDelete style={{marginRight:"6px"}}  /> Delete Products</MenuItem> </Link>
-
       
       </MenuList> 
       
@@ -80,6 +81,7 @@ const Sidebar = () => {
           <Link to="/customerPageAdmin"> <SidebarLink> <FaUserAlt style={{marginRight:"6px"}}  /> Customers</SidebarLink> </Link>
           <Link to="/addPageAdmin"> <SidebarLink> <HiShoppingCart style={{marginRight:"6px"}}  /> Add Products</SidebarLink> </Link>
           <Link to="/deltePageAdmin"> <SidebarLink> <AiFillDelete style={{marginRight:"6px"}}  /> Delete Products</SidebarLink> </Link>
+          <Link to="/stat"> <SidebarLink> <GoGraph style={{marginRight:"6px"}}  /> Statistics</SidebarLink> </Link>
 
 
           
