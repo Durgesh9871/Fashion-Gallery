@@ -71,6 +71,7 @@ export default function MainNavbar() {
       maxW="98vw"
       m="auto"
       zIndex={"2"}
+      // position="fixed"
     
      
     >
