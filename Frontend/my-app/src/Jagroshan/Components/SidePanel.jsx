@@ -10,7 +10,8 @@ import { Sort } from "./Sort";
 
 export const SidePanel = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [price, setprice] = React.useState("2000");
+  const [price, setprice] = React.useState("500");
+  // console.log(price)
 
   let initial = searchParams.getAll("categories");
   const [categories, setCategory] = React.useState(initial || []);
@@ -46,11 +47,12 @@ export const SidePanel = () => {
   React.useEffect(() => {
     const params = {
       categories,
-      color
+      color,
+      price
     };
     order && (params.order = order);
     setSearchParams(params);
-  }, [categories, order, color]);
+  }, [categories, order, color, price]);
 
   return (
     <div>
@@ -96,7 +98,7 @@ export const SidePanel = () => {
           <label>  T-Shirt</label>
         </div>
 
-        <Text>Price</Text>
+        <Text>Price $</Text>
         <Container flexDirection={"row"}>
           <PriceSlider setprice={setprice} />
         </Container>
