@@ -62,7 +62,7 @@ ADMIN SIDE>>>>>>>>>>
 1. GET:
        1. "/all" (return all the orders of all user which are ordered)
 2. PATCH:
-        1. "/update/:id" 
+        1. "/update/:id" (can update user order status(pending or not))
 
        
 
