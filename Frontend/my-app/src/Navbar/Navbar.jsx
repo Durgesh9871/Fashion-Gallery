@@ -24,10 +24,11 @@ import {
   ChevronRightIcon,
 } from "@chakra-ui/icons";
 import image from "./4.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import Reg from "../components/Registration/Reg";
 import Login from "../components/Login/Login";
+import { useLocation } from "react-router-dom";
 
 
 
@@ -38,7 +39,9 @@ import Login from "../components/Login/Login";
 
 export default function MainNavbar() {
   const { isOpen, onToggle } = useDisclosure();
+  const [valueColor , setValueColor] = useState(false)
   const isAdmin = JSON.parse(localStorage.getItem("isAdmin"));
+
 
   let token = JSON.parse(localStorage.getItem("token")) || null;
 
@@ -48,7 +51,7 @@ export default function MainNavbar() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const openModal = () => setModalIsOpen(true);
   const closeModal = () => setModalIsOpen(false);
-
+   
 
   const handleLogout = async () => {
     try {
@@ -60,6 +63,23 @@ export default function MainNavbar() {
     }
   };
 
+   const location = useLocation()
+ 
+   useEffect(()=>{
+    if(location.pathname == "/adminPage"){
+      setValueColor(true)
+    }
+    else{
+      setValueColor(false)
+    }
+     
+   },[valueColor])
+  //  console.log(location.pathname == "/product")
+  console.log(valueColor)
+
+
+
+
   return (
     <Box
       boxSizing="border-box"
@@ -67,6 +87,8 @@ export default function MainNavbar() {
       maxW="98vw"
       m="auto"
       zIndex={"2"}
+    
+     
     >
       <Flex
         bg={useColorModeValue("white", "gray.800")}
@@ -78,6 +100,7 @@ export default function MainNavbar() {
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
         align={"center"}
+        background={valueColor == 'true' ? "#171923" : "#ffffff"}
       >
         <Flex
           flex={{ base: 1, md: "auto" }}
@@ -91,6 +114,7 @@ export default function MainNavbar() {
             }
             variant={"ghost"}
             aria-label={"Toggle Navigation"}
+            // border="2px solid red"
           />
         </Flex>
         <Flex justify={{ base: "center", md: "center" }}>
@@ -192,6 +216,7 @@ const DesktopNav = () => {
                 fontSize={"sm"}
                 fontWeight={500}
                 color={linkColor}
+                
                 _hover={{
                   textDecoration: "none",
                   color: linkHoverColor,
