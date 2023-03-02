@@ -28,6 +28,14 @@ import { useState } from "react";
 import axios from "axios";
 import Reg from "../components/Registration/Reg";
 import Login from "../components/Login/Login";
+
+
+
+
+
+
+
+
 export default function MainNavbar() {
   const { isOpen, onToggle } = useDisclosure();
   const isAdmin = JSON.parse(localStorage.getItem("isAdmin"));
@@ -40,6 +48,7 @@ export default function MainNavbar() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const openModal = () => setModalIsOpen(true);
   const closeModal = () => setModalIsOpen(false);
+
 
   const handleLogout = async () => {
     try {
