@@ -85,7 +85,7 @@ export default function MainNavbar() {
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
         align={"center"}
-        background={location.pathname == "/adminPage" ? "#171923" : "#ffffff"}
+        background={(location.pathname == "/adminPage" || location.pathname == "/customerPageAdmin" || location.pathname == "/deltePageAdmin" || location.pathname == "/stat") ? "#171923" : "#ffffff"}
       >
         <Flex
           flex={{ base: 1, md: "auto" }}
