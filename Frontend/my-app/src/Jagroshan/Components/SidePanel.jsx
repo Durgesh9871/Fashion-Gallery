@@ -1,8 +1,4 @@
-import {
-  Container,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
+import { Box, Container, Heading, Text, VStack } from "@chakra-ui/react";
 import React from "react";
 import PriceSlider from "./PriceSlider";
 import { useSearchParams } from "react-router-dom";
@@ -22,33 +18,31 @@ export const SidePanel = () => {
   let initialOrder = searchParams.get("order");
   const [order, setOrder] = React.useState(initialOrder || []);
 
-  const handleCheckbox=(el)=>{
-    let updateCategory=[...categories]
-    if(updateCategory.includes(el.target.value)){
-        updateCategory.splice(updateCategory.indexOf(el.target.value),1);
+  const handleCheckbox = (el) => {
+    let updateCategory = [...categories];
+    if (updateCategory.includes(el.target.value)) {
+      updateCategory.splice(updateCategory.indexOf(el.target.value), 1);
+    } else {
+      updateCategory.push(el.target.value);
     }
-    else{
-        updateCategory.push(el.target.value);
-    }
-    setCategory(updateCategory)
-}
+    setCategory(updateCategory);
+  };
 
-  const handleColors=(el)=>{
-    let updateColor=[...color]
-    if(updateColor.includes(el.target.value)){
-        updateColor.splice(updateColor.indexOf(el.target.value),1);
+  const handleColors = (el) => {
+    let updateColor = [...color];
+    if (updateColor.includes(el.target.value)) {
+      updateColor.splice(updateColor.indexOf(el.target.value), 1);
+    } else {
+      updateColor.push(el.target.value);
     }
-    else{
-        updateColor.push(el.target.value);
-    }
-    setColor(updateColor)
-  }
+    setColor(updateColor);
+  };
 
   React.useEffect(() => {
     const params = {
       categories,
       color,
-      price
+      price,
     };
     order && (params.order = order);
     setSearchParams(params);
@@ -56,11 +50,11 @@ export const SidePanel = () => {
 
   return (
     <div>
-      <VStack border={"0px"} alignItems={"start"} paddingX={"3"}>
-
+      <VStack border={"0px"} alignItems={"start"} paddingX={6}>
         <Sort setOrder={setOrder} orderval={order} />
 
-        <h3>Category</h3>
+        <Heading size={"sm"}>Category</Heading>
+        <Box paddingLeft={3}>
         <div>
           <input
             type="checkbox"
@@ -68,7 +62,7 @@ export const SidePanel = () => {
             onChange={handleCheckbox}
             checked={categories.includes("shirts")}
           />
-          <label>  Shirt</label>
+          <label> Shirt</label>
         </div>
         <div>
           <input
@@ -77,7 +71,7 @@ export const SidePanel = () => {
             onChange={handleCheckbox}
             checked={categories.includes("jacket")}
           />
-          <label>  Jacket</label>
+          <label> Jacket</label>
         </div>
         <div>
           <input
@@ -86,7 +80,7 @@ export const SidePanel = () => {
             onChange={handleCheckbox}
             checked={categories.includes("coatpant")}
           />
-          <label>  Coat-Pant</label>
+          <label> Coat-Pant</label>
         </div>
         <div>
           <input
@@ -95,15 +89,16 @@ export const SidePanel = () => {
             onChange={handleCheckbox}
             checked={categories.includes("tshirts")}
           />
-          <label>  T-Shirt</label>
+          <label> T-Shirt</label>
         </div>
-
-        <Text>Price $</Text>
+        </Box>
+        <Heading size={"sm"}>Price $</Heading>
         <Container flexDirection={"row"}>
           <PriceSlider setprice={setprice} />
         </Container>
 
-        <h3>Color</h3>
+        <Heading size={"sm"}>Color</Heading>
+        <Box paddingLeft={3}>
         <div>
           <input
             type="checkbox"
@@ -111,7 +106,7 @@ export const SidePanel = () => {
             onChange={handleColors}
             checked={color.includes("black")}
           />
-          <label>  Black</label>
+          <label> Black</label>
         </div>
         <div>
           <input
@@ -120,7 +115,7 @@ export const SidePanel = () => {
             onChange={handleColors}
             checked={color.includes("blue")}
           />
-          <label>  Blue</label>
+          <label> Blue</label>
         </div>
         <div>
           <input
@@ -129,7 +124,7 @@ export const SidePanel = () => {
             onChange={handleColors}
             checked={color.includes("grey")}
           />
-          <label>  Grey</label>
+          <label> Grey</label>
         </div>
         <div>
           <input
@@ -138,7 +133,7 @@ export const SidePanel = () => {
             onChange={handleColors}
             checked={color.includes("white")}
           />
-          <label>  White</label>
+          <label> White</label>
         </div>
         <div>
           <input
@@ -147,8 +142,9 @@ export const SidePanel = () => {
             onChange={handleColors}
             checked={color.includes("red")}
           />
-          <label>  Red</label>
+          <label> Red</label>
         </div>
+        </Box>
       </VStack>
     </div>
   );

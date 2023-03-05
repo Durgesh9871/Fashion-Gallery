@@ -1,35 +1,35 @@
-const {CartModel} = require("../models/CartModel");
-const {activeCartModel}=require("../models/activeCart.model")
-const {verifyTokenAndAdmin}=require("../middlewares/VerifyTokenAndAdmin")
-const {AddUserIdInCart}=require("../middlewares/AddUserIdInCart")
+const { CartModel } = require("../models/CartModel");
+const { activeCartModel } = require("../models/activeCart.model");
+const { verifyTokenAndAdmin } = require("../middlewares/VerifyTokenAndAdmin");
+const { AddUserIdInCart } = require("../middlewares/AddUserIdInCart");
 
 const Cartrouter = require("express").Router();
 
 //CREATE  Only logged user middleware verifyToken,
 
-Cartrouter.post("/add",  AddUserIdInCart,async (req, res) => {
-  const userId=req.userId
-  console.log({userId})
+Cartrouter.post("/add", AddUserIdInCart, async (req, res) => {
+  const userId = req.body.userId;
+  // console.log({userId})
 
-  const productId=req.body.productId
-  const newCart = new CartModel({userId,productId});
-  const existProduct=await CartModel.find({$and:[{productId},{userId}]})
-  const existuser=await activeCartModel.find({userId})
-  console.log({existuser})
+  const productId = req.body.productId;
+  const newCart = new CartModel({ userId, productId });
+  const existProduct = await CartModel.find({
+    $and: [{ productId }, { userId }],
+  });
+  const existuser = await activeCartModel.find({ userId });
+  // console.log({existuser})
 
-  
+  // console.log(req.body);
   try {
-    if(existuser.length<=0){
-       await activeCartModel({userId}).save()
-      }
-    if(existProduct.length>0){
-      res.status(200).send("Item already present in cart") 
+    if (existuser.length <= 0) {
+      await activeCartModel({ userId }).save();
     }
-    else{const savedCart = await newCart.save();
-    res.status(200).send({
-      msg:"item added in your cart",
-      item:savedCart
-    })};
+    if (existProduct.length > 0) {
+      res.status(200).send(false);
+    } else {
+      const savedCart = await newCart.save();
+      res.status(200).send(true);
+    }
   } catch (err) {
     res.status(500).send(err);
   }
@@ -37,8 +37,8 @@ Cartrouter.post("/add",  AddUserIdInCart,async (req, res) => {
 
 //UPDATE   Only logged user and own cart --> middleware --> verifyTokenAndAuthorization
 Cartrouter.patch("/update/:id", async (req, res) => {
-  const quantity=req.body.quantity
-  console.log({cart:req.body})
+  const quantity = req.body.quantity;
+  console.log({ cart: req.body });
   try {
     const updatedCart = await CartModel.findByIdAndUpdate(
       req.params.id,
@@ -55,9 +55,9 @@ Cartrouter.patch("/update/:id", async (req, res) => {
 
 //DELETE  Only logged user and own cart --> middleware --> verifyTokenAndAuthorization
 
-Cartrouter.delete("/delete/:id",  async (req, res) => {
+Cartrouter.delete("/delete/:id", async (req, res) => {
   try {
-    await CartModel.findByIdAndDelete(req.params.id)
+    await CartModel.findByIdAndDelete(req.params.id);
     res.status(200).send("Cart has been deleted...");
   } catch (err) {
     res.status(500).send(err.message);
@@ -65,12 +65,15 @@ Cartrouter.delete("/delete/:id",  async (req, res) => {
 });
 
 //GET USER CART Only logged user --> middleware --> verifyTo(/cart/userid)
-Cartrouter.get("/usercart",AddUserIdInCart,  async (req, res) => {
-  const id=req.userId
+Cartrouter.get("/usercart", AddUserIdInCart, async (req, res) => {
+  const id = req.headers.authorization;
   try {
+    // console.log(req.headers.authorization)
     const cart = await CartModel.find({ userId: id });
-    console.log({cart})
-    cart.length>0?res.status(200).send(cart):res.status(200).send("No items in your cart")
+    // console.log({ cart });
+    cart.length > 0
+      ? res.status(200).send(cart)
+      : res.status(200).send("No items in your cart");
   } catch (err) {
     res.status(500).send(err.message);
   }
@@ -78,7 +81,7 @@ Cartrouter.get("/usercart",AddUserIdInCart,  async (req, res) => {
 
 // //GET ALL cart items--> only Admin middleware--> verifyTokenAndAdmin
 
-Cartrouter.get("/all", verifyTokenAndAdmin,async (req, res) => {
+Cartrouter.get("/all", verifyTokenAndAdmin, async (req, res) => {
   try {
     const carts = await CartModel.find();
     res.status(200).send(carts);
@@ -87,20 +90,17 @@ Cartrouter.get("/all", verifyTokenAndAdmin,async (req, res) => {
   }
 });
 
-Cartrouter.get("/alluser",verifyTokenAndAdmin,async(req,res)=>{
-  try{
-    const allcart=await activeCartModel.find()
-   allcart.length>0? res.status(200).send(allcart):
-   res.status(200).send("Nobody user have items in own cart")
+Cartrouter.get("/alluser", verifyTokenAndAdmin, async (req, res) => {
+  try {
+    const allcart = await activeCartModel.find();
+    allcart.length > 0
+      ? res.status(200).send(allcart)
+      : res.status(200).send("Nobody user have items in own cart");
+  } catch (err) {
+    res.status(500).send(err.message);
   }
-  catch(err){
-    res.status(500).send(err.message)
-  }
+});
 
-})
+module.exports = { Cartrouter };
 
-module.exports = {Cartrouter};
-
-
-
-// 
+//

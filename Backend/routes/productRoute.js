@@ -4,6 +4,16 @@ const ProductsRoute = require("express").Router();
 
 //CREATE ,  Only Admin Authorised middleware(verifyTokenAndAdmin)
 
+ProductsRoute.get("/findit",async(req,res)=>{
+  // console.log(req.headers.productid)
+  try {
+    const ans=await ProductModel.findById({_id:req.headers.productid})
+    res.status(200).send(ans)
+  } catch (error) {
+    console.log(error)
+  }
+})
+
 ProductsRoute.post("/add",verifyTokenAndAdmin, async (req, res) => {
   // console.log(req.body)
   const newProduct = new ProductModel(req.body);
@@ -68,9 +78,8 @@ ProductsRoute.get("/", async (req, res) => {
   let color=req.query.color||["black","grey","white","red","blue"]
   let  order=req.query.order=="asc"?1:-1 ||1
   let price=req.query.price||5000
-
+  // console.log(req.query)
   try {
-  
     // const d=await ProductModel.find({},{categories,color})
     const d=await ProductModel.find({color:{$in:color},price:{$lte:price},categories:{$in:categories}}).sort({price:order})
     d.length>0?res.status(200).send(d):res.status(200).send({
@@ -82,5 +91,6 @@ ProductsRoute.get("/", async (req, res) => {
     res.status(500).send(err);
   }
 });
+
 
 module.exports = {ProductsRoute};

@@ -37,8 +37,8 @@ import { useLocation } from "react-router-dom";
 
 export default function MainNavbar() {
   const { isOpen, onToggle } = useDisclosure();
-  const isAdmin = JSON.parse(localStorage.getItem("isAdmin"));
-
+  // const isAdmin = JSON.parse(localStorage.getItem("isAdmin"));
+const isAdmin=true
 
   let token = JSON.parse(localStorage.getItem("token")) || null;
 
@@ -71,8 +71,8 @@ export default function MainNavbar() {
       maxW="98vw"
       m="auto"
       zIndex={"2"}
-      // position="fixed"
-    
+      position="sticky"
+      top={'0px'}
      
     >
       <Flex

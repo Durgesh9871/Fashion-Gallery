@@ -10,35 +10,45 @@ import {
   StackProps,
   Text,
   useColorModeValue,
-} from '@chakra-ui/react'
-import { Rating } from './Rating'
-import { PriceTag } from './PriceTag'
+  useToast,
+} from "@chakra-ui/react";
+import { Rating } from "./Rating";
+import { PriceTag } from "./PriceTag";
 // import { Product } from './_data'
-import React from 'react'
-import axios from 'axios'
-
+import React from "react";
+import axios from "axios";
 
 export const ProductCard = (props) => {
-  const cartRef=React.useRef(null)
-  const { product } = props
-  const { title, mainImage, realPrice, price, rating } = product
+  const toast=useToast()
+  const { product } = props;
+  const { title, mainImage, realPrice, price, rating, _id } = product;
 
-  const addToCart=()=>{
-    if(cartRef.current)
-    {
-       cartRef.current.setAttribute("disabled", "disabled");
-       cartRef.current.innerText='Added'
-    }
+  const addToCart = () => {
     axios({
-      method:'POST',
-      url:`${process.env.REACT_APP_URL}/cart`,
-      data:product
+      method: "POST",
+      url: `${process.env.REACT_APP_URL}/carts/add`,
+      data: {productId:_id,userId:JSON.parse(localStorage.getItem('token'))},
+      headers:{
+        authorization:JSON.parse(localStorage.getItem('token'))
+      }
     })
-    .then(res=>console.log(res))
-    .catch(err=>console.log(err))
-  }
+      .then((res) => toast({
+        position: "top",
+        title: res.data?"Item added to cart":"Item already present in the cart",
+        status: res.data?"success":"warning",
+        duration: 3000,
+        isClosable: true,
+      }))
+      .catch((err) => console.log(err));
+  };
   return (
-    <Stack spacing={{ base: '4', md: '5' }} border={'1px'} justifyContent={'space-between'} borderRadius={'5px'}>
+    <Stack
+      spacing={{ base: "4", md: "5" }}
+      border={"0px solid gray"}
+      justifyContent={"space-between"}
+      borderRadius={"5px"}
+      boxShadow={'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px'}
+    >
       <Box position="relative">
         <AspectRatio ratio={4 / 5}>
           <Image
@@ -50,25 +60,29 @@ export const ProductCard = (props) => {
           />
         </AspectRatio>
       </Box>
-      <Stack>
+      <Stack paddingX={2}>
         <Stack spacing="1">
-          <Text fontWeight="medium" color={useColorModeValue('gray.700', 'gray.400')}>
+          <Text
+            fontWeight="medium"
+            color={useColorModeValue("gray.700", "gray.400")}
+          >
             {title}
           </Text>
           <PriceTag price={realPrice} salePrice={price} currency="USD" />
         </Stack>
         <HStack>
           <Rating defaultValue={rating} size="sm" />
-          {/* <Text fontSize="sm" color={useColorModeValue('gray.600', 'gray.400')}>
-            12 Reviews
-          </Text> */}
         </HStack>
       </Stack>
       <Stack align="center">
-        <Button colorScheme="blue" ref={cartRef} width="full" onClick={()=>addToCart()}>
+        <Button
+          colorScheme="blue"
+          width="full"
+          onClick={() => addToCart()}
+        >
           Add to cart
         </Button>
       </Stack>
     </Stack>
-  )
-}
+  );
+};
