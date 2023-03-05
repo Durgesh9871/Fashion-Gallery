@@ -41,7 +41,15 @@ export const CartItem = (props) => {
   }
 
   const onClickDelete=()=>{
-
+    axios({
+      method:'DELETE',
+      url:`${process.env.REACT_APP_URL}/carts/delete/${productId}`,
+      headers:{
+        authorization:JSON.parse(localStorage.getItem('token'))
+      }
+    })
+    .then(res=>console.log(res.data))
+    .catch(err=>console.log(err))
   }
 
   React.useEffect(()=>{

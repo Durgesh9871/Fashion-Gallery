@@ -56,9 +56,10 @@ Cartrouter.patch("/update/:id", async (req, res) => {
 //DELETE  Only logged user and own cart --> middleware --> verifyTokenAndAuthorization
 
 Cartrouter.delete("/delete/:id", async (req, res) => {
+  // res.send(req.params)
   try {
-    await CartModel.findByIdAndDelete(req.params.id);
-    res.status(200).send("Cart has been deleted...");
+    let ans=await CartModel.findOneAndDelete({'productId':req.params.id});
+    res.status(200).send(ans);
   } catch (err) {
     res.status(500).send(err.message);
   }

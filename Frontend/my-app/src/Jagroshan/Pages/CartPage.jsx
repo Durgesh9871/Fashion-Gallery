@@ -12,9 +12,11 @@ import {
 import { CartItem } from '../Components/CartItem'
 import { CartOrderSummary } from '../Components/CartOrderSummary'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 
 export const CartPage = () => {
+  const navigate=useNavigate()
   const [cartdata,setcartdata]=React.useState([])
   const [total,settotal]=React.useState(0)
   // console.log(total)
@@ -29,7 +31,7 @@ export const CartPage = () => {
     })
     .then(res=>setcartdata(res.data))
     .catch(err=>console.log(err))
-  },[])
+  },[cartdata])
   // console.log(cartdata)
   return (
     <div>
@@ -60,7 +62,7 @@ export const CartPage = () => {
         <CartOrderSummary total={total}/>
         <HStack mt="6" fontWeight="semibold">
           <p>or</p>
-          <Link color={mode('blue.500', 'blue.200')}>Continue shopping</Link>
+          <Link href='/products' color={mode('blue.500', 'blue.200')}>Continue shopping</Link>
         </HStack>
       </Flex>
     </Stack>
