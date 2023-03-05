@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Heading, Skeleton } from "@chakra-ui/react";
 import React from "react";
 import { ProductCard } from "./ProductCard";
 import { ProductGrid } from "./ProductGrid";
@@ -11,17 +11,19 @@ import { getProducts } from "../../Redux/Product_Reducer/action";
 
 export const MainPanel = () => {
   const dispatch=useDispatch()
-  const allproducts=useSelector((store)=>store.productReducer.product)
+  const {product,isLoading}=useSelector((store)=>store.productReducer)
   const [searchParams] = useSearchParams();
   const location = useLocation();
-  // console.log(searchParams.get('price'))
+
   React.useEffect(() => {
+    // console.log(searchParams.get('price'))
     let order = searchParams.get("order");
+    let price=searchParams.get("price")
     let objParams = {
       categories: searchParams.getAll("categories"),
       color: searchParams.getAll("color"),
       order: order,
-      price:searchParams.get("price")
+      price: price
     };
     dispatch(getProducts(objParams))
   }, [location.search]);
@@ -32,11 +34,18 @@ export const MainPanel = () => {
         py={{ base: "6", md: "8", lg: "12" }}
         border="0px"
       >
+        {isLoading?<ProductGrid>
+          {product?.map((product , i) => (
+            <Skeleton><ProductCard key={i} product={product} /></Skeleton>
+          ))}
+        </ProductGrid>
+        :
         <ProductGrid>
-          {allproducts.map((product , i) => (
+          {product?.map((product , i) => (
             <ProductCard key={i} product={product} />
           ))}
         </ProductGrid>
+}
       </Box>
     </div>
   );

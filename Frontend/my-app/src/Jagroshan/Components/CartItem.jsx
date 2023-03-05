@@ -7,6 +7,9 @@ import {
 } from "@chakra-ui/react";
 import { PriceTag } from "./PriceTag";
 import { CartProductMeta } from "./CartProductMeta";
+import axios from "axios";
+import React from "react";
+
 const QuantitySelect = (props) => {
   return (
     <Select
@@ -24,24 +27,37 @@ const QuantitySelect = (props) => {
 };
 
 export const CartItem = (props) => {
-  const {
-    brand,
-    title,
-    // quantity,
-    mainImage,
-    price,
-    // onChangeQuantity,
-    // onClickDelete,
+  // console.log(props)
+  let {
+    productId,
+    settotal
   } = props;
+
+  const [pro,setpro]=React.useState([])
+  const {brand,title,mainImage,price}=pro
+  // console.log(price)
   const onChangeQuantity=()=>{
 
   }
 
   const onClickDelete=()=>{
 
-
   }
 
+  React.useEffect(()=>{
+    axios({
+      method:'GET',
+      url:`${process.env.REACT_APP_URL}/products/findit`,
+      headers:{
+        authorization:JSON.parse(localStorage.getItem('token')),
+        productId
+      }
+    })
+    .then(res=>{setpro(res.data); settotal(pre=>pre+res.data.price)})
+    .catch(err=>console.log(err))
+  },[])
+
+  // console.log(pro)
   return (
     <Flex
       direction={{

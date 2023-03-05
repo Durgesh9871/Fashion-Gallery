@@ -13,7 +13,8 @@ const authenticate = (req, res, next) => {
       res.send("Please Login First");
     }
   } else {
-    res.send("Please Login First");
+    res.send("Please Login irst");
+    // next()
   }
 };
 

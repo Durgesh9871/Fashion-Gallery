@@ -16,10 +16,16 @@ import axios from 'axios'
 
 export const CartPage = () => {
   const [cartdata,setcartdata]=React.useState([])
+  const [total,settotal]=React.useState(0)
+  // console.log(total)
   React.useEffect(()=>{
     axios({
-      method:'get',
-      url:`${process.env.REACT_APP_URL}/Cart`
+      method:'GET',
+      url:`${process.env.REACT_APP_URL}/carts/usercart`,
+      // data: {userId:JSON.parse(localStorage.getItem('token'))},
+      headers:{
+        authorization:JSON.parse(localStorage.getItem('token'))
+      }
     })
     .then(res=>setcartdata(res.data))
     .catch(err=>console.log(err))
@@ -45,13 +51,13 @@ export const CartPage = () => {
 
         <Stack spacing="6">
           {cartdata?.map((item,index) => (
-            <CartItem key={index} {...item} />
+            <CartItem key={index} {...item} settotal={settotal}/>
           ))}
         </Stack>
       </Stack>
 
       <Flex direction="column" align="center" flex="1">
-        <CartOrderSummary />
+        <CartOrderSummary total={total}/>
         <HStack mt="6" fontWeight="semibold">
           <p>or</p>
           <Link color={mode('blue.500', 'blue.200')}>Continue shopping</Link>
