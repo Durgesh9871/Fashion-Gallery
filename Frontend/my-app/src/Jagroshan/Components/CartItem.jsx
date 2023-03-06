@@ -1,69 +1,63 @@
 import {
+  Button,
   CloseButton,
   Flex,
   Link,
   Select,
   useColorModeValue,
+  useToast,
 } from "@chakra-ui/react";
 import { PriceTag } from "./PriceTag";
 import { CartProductMeta } from "./CartProductMeta";
 import axios from "axios";
 import React from "react";
 
-const QuantitySelect = (props) => {
-  return (
-    <Select
-      maxW="64px"
-      aria-label="Select quantity"
-      focusBorderColor={useColorModeValue("blue.500", "blue.200")}
-      {...props}
-    >
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-    </Select>
-  );
-};
-
 export const CartItem = (props) => {
+  const toast = useToast();
   // console.log(props)
-  let {
-    productId,
-    settotal
-  } = props;
+  let { productId, settotal } = props;
 
-  const [pro,setpro]=React.useState([])
-  const {brand,title,mainImage,price}=pro
+  const [pro, setpro] = React.useState([]);
+  const { brand, title, mainImage, price } = pro;
   // console.log(price)
-  const onChangeQuantity=()=>{
 
-  }
-
-  const onClickDelete=()=>{
+  const onClickDelete = () => {
     axios({
-      method:'DELETE',
-      url:`${process.env.REACT_APP_URL}/carts/delete/${productId}`,
-      headers:{
-        authorization:JSON.parse(localStorage.getItem('token'))
-      }
+      method: "DELETE",
+      url: `${process.env.REACT_APP_URL}/carts/delete/${productId}`,
+      headers: {
+        authorization: JSON.parse(localStorage.getItem("token")),
+      },
     })
-    .then(res=>console.log(res.data))
-    .catch(err=>console.log(err))
-  }
+      .then((res) => {
+        toast({
+          position: "top",
+          title: "Item removed from cart",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+        // settotal((pre)=>pre-price)
+        console.log(res.data)
+      })
+      .catch((err) => console.log(err));
+  };
 
-  React.useEffect(()=>{
+  React.useEffect(() => {
     axios({
-      method:'GET',
-      url:`${process.env.REACT_APP_URL}/products/findit`,
-      headers:{
-        authorization:JSON.parse(localStorage.getItem('token')),
-        productId
-      }
+      method: "GET",
+      url: `${process.env.REACT_APP_URL}/products/findit`,
+      headers: {
+        authorization: JSON.parse(localStorage.getItem("token")),
+        productId,
+      },
     })
-    .then(res=>{setpro(res.data); settotal(pre=>pre+res.data.price)})
-    .catch(err=>console.log(err))
-  },[])
+      .then((res) => {
+        setpro(res.data);
+        settotal((pre) => pre + res.data.price);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   // console.log(pro)
   return (
@@ -75,11 +69,7 @@ export const CartItem = (props) => {
       justify="space-between"
       align="center"
     >
-      <CartProductMeta
-        name={brand}
-        title={title}
-        image={mainImage}
-      />
+      <CartProductMeta name={brand} title={title} image={mainImage} />
 
       {/* Desktop */}
       <Flex
@@ -90,12 +80,7 @@ export const CartItem = (props) => {
           md: "flex",
         }}
       >
-        {/* <QuantitySelect
-          value={quantity}
-          onChange={(e) => {
-            onChangeQuantity?.(+e.currentTarget.value);
-          }}
-        /> */}
+        
         <PriceTag price={price} />
         <CloseButton
           aria-label={`Delete ${brand} from cart`}
@@ -114,15 +99,9 @@ export const CartItem = (props) => {
           md: "none",
         }}
       >
-        <Link fontSize="sm" textDecor="underline">
+        <Button colorScheme={"red"} onClick={onClickDelete} size={"xs"}>
           Delete
-        </Link>
-        {/* <QuantitySelect
-          value={quantity}
-          onChange={(e) => {
-            onChangeQuantity?.(+e.currentTarget.value);
-          }}
-        /> */}
+        </Button>
         <PriceTag price={price} />
       </Flex>
     </Flex>
