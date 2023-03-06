@@ -16,7 +16,7 @@ import { useNavigate } from 'react-router-dom'
 
 
 export const CartPage = () => {
-  const navigate=useNavigate()
+
   const [cartdata,setcartdata]=React.useState([])
   const [total,settotal]=React.useState(0)
   // console.log(total)
@@ -24,13 +24,14 @@ export const CartPage = () => {
     axios({
       method:'GET',
       url:`${process.env.REACT_APP_URL}/carts/usercart`,
-      // data: {userId:JSON.parse(localStorage.getItem('token'))},
       headers:{
         authorization:JSON.parse(localStorage.getItem('token'))
       }
     })
     .then(res=>setcartdata(res.data))
     .catch(err=>console.log(err))
+
+    // console.log(total)
   },[cartdata])
   // console.log(cartdata)
   return (
