@@ -2,6 +2,7 @@ const { CartModel } = require("../models/CartModel");
 const { activeCartModel } = require("../models/activeCart.model");
 const { verifyTokenAndAdmin } = require("../middlewares/VerifyTokenAndAdmin");
 const { AddUserIdInCart } = require("../middlewares/AddUserIdInCart");
+const { ProductModel }=require("../models/ProductsModel")
 
 const Cartrouter = require("express").Router();
 
@@ -58,6 +59,7 @@ Cartrouter.patch("/update/:id", async (req, res) => {
 Cartrouter.delete("/delete/:id", async (req, res) => {
   // res.send(req.params)
   try {
+    // let see=await ProductModel.findById({'_id':req.params.id})
     let ans=await CartModel.findOneAndDelete({'productId':req.params.id});
     res.status(200).send(ans);
   } catch (err) {
