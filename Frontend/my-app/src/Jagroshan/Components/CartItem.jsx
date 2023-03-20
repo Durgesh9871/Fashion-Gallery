@@ -15,16 +15,12 @@ import React from "react";
 export const CartItem = (props) => {
   const toast = useToast();
   // console.log(props)
-  let { productId, settotal } = props;
-
-  const [pro, setpro] = React.useState([]);
-  const { brand, title, mainImage, price } = pro;
-  // console.log(price)
+  let { brand, title, mainImage, price, _id, settrigger } = props;
 
   const onClickDelete = () => {
     axios({
       method: "DELETE",
-      url: `${process.env.REACT_APP_URL}/carts/delete/${productId}`,
+      url: `${process.env.REACT_APP_URL}/carts/delete/${_id}`,
       headers: {
         authorization: JSON.parse(localStorage.getItem("token")),
       },
@@ -37,29 +33,11 @@ export const CartItem = (props) => {
           duration: 3000,
           isClosable: true,
         });
-        // settotal((pre)=>pre-price)
-        console.log(res.data)
+        settrigger((past)=>!past)
       })
       .catch((err) => console.log(err));
   };
 
-  React.useEffect(() => {
-    axios({
-      method: "GET",
-      url: `${process.env.REACT_APP_URL}/products/findit`,
-      headers: {
-        authorization: JSON.parse(localStorage.getItem("token")),
-        productId,
-      },
-    })
-      .then((res) => {
-        setpro(res.data);
-        settotal((pre) => pre + res.data.price);
-      })
-      .catch((err) => console.log(err));
-  }, []);
-
-  // console.log(pro)
   return (
     <Flex
       direction={{
@@ -84,7 +62,7 @@ export const CartItem = (props) => {
         <PriceTag price={price} />
         <CloseButton
           aria-label={`Delete ${brand} from cart`}
-          onClick={onClickDelete}
+          onClick={()=>onClickDelete()}
         />
       </Flex>
 
@@ -99,7 +77,7 @@ export const CartItem = (props) => {
           md: "none",
         }}
       >
-        <Button colorScheme={"red"} onClick={onClickDelete} size={"xs"}>
+        <Button colorScheme={"red"} onClick={()=>onClickDelete()} size={"xs"}>
           Delete
         </Button>
         <PriceTag price={price} />

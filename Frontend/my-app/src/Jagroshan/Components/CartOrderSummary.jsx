@@ -32,14 +32,14 @@ export const CartOrderSummary = ({total}) => {
           Free
         </OrderSummaryItem>
         <OrderSummaryItem label="Discount">
-          $4
+          {total==0?'$0':'$4'}
         </OrderSummaryItem>
         <Flex justify="space-between">
           <Text fontSize="lg" fontWeight="semibold">
             Total
           </Text>
           <Text fontSize="xl" fontWeight="extrabold">
-            {formatPrice(total-4)}
+            {total==0?formatPrice(total):formatPrice(total-4)}
           </Text>
         </Flex>
       </Stack>

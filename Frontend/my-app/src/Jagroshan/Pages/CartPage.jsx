@@ -1,73 +1,110 @@
-import React from 'react'
+import React from "react";
 import {
-    Box,
-    Flex,
-    Heading,
-    HStack,
-    Link,
-    Stack,
-    useColorModeValue as mode,
-  } from '@chakra-ui/react'
+  Box,
+  Flex,
+  Heading,
+  HStack,
+  Link,
+  Stack,
+  useColorModeValue as mode,
+  VStack,
+} from "@chakra-ui/react";
 // import { cartData } from '../Components/_data'
-import { CartItem } from '../Components/CartItem'
-import { CartOrderSummary } from '../Components/CartOrderSummary'
-import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
-
+import { CartItem } from "../Components/CartItem";
+import { CartOrderSummary } from "../Components/CartOrderSummary";
+import axios from "axios";
 
 export const CartPage = () => {
-
-  const [cartdata,setcartdata]=React.useState([])
-  const [total,settotal]=React.useState(0)
+  const [cdata, setcdata] = React.useState([]);
+  // console.log(cdata)
+  const [total, settotal] = React.useState(0);
   // console.log(total)
-  React.useEffect(()=>{
+  const [trigger,settrigger]=React.useState(true)
+  // console.log(trigger)
+  React.useEffect(() => {
     axios({
-      method:'GET',
-      url:`${process.env.REACT_APP_URL}/carts/usercart`,
-      headers:{
-        authorization:JSON.parse(localStorage.getItem('token'))
-      }
+      method: "GET",
+      url: `${process.env.REACT_APP_URL}/carts/usercart`,
+      headers: {
+        authorization: JSON.parse(localStorage.getItem("token")),
+      },
     })
-    .then(res=>setcartdata(res.data))
-    .catch(err=>console.log(err))
-
-    // console.log(total)
-  },[cartdata])
-  // console.log(cartdata)
+      .then((res) =>{ 
+        setcdata([])
+        settotal(0)
+        res.data.map((each)=>{
+          axios({
+            method: "GET",
+            url: `${process.env.REACT_APP_URL}/products/findit`,
+            headers: {
+              authorization: JSON.parse(localStorage.getItem("token")),
+              productId:each.productId,
+            },
+          })
+            .then((res) => {
+              setcdata((prev)=>[...prev,res.data])
+              settotal((pre) => pre + res.data.price);
+            })
+            .catch((err) => console.log(err));
+        })
+      })
+      .catch((err) => console.log(err));
+  }, [trigger]);
   return (
     <div>
-        <Box
-    maxW={{ base: '3xl', lg: '7xl' }}
-    mx="auto"
-    px={{ base: '4', md: '8', lg: '12' }}
-    py={{ base: '6', md: '8', lg: '12' }}
-  >
-    <Stack
-      direction={{ base: 'column', lg: 'row' }}
-      align={{ lg: 'flex-start' }}
-      spacing={{ base: '8', md: '16' }}
-    >
-      <Stack spacing={{ base: '8', md: '10' }} flex="2">
-        <Heading fontSize="2xl" fontWeight="extrabold">
-          Shopping Cart
-        </Heading>
+      <Box
+        maxW={{ base: "3xl", lg: "7xl" }}
+        mx="auto"
+        px={{ base: "4", md: "8", lg: "12" }}
+        py={{ base: "6", md: "8", lg: "12" }}
+      >
+        <Stack
+          direction={{ base: "column", lg: "row" }}
+          align={{ lg: "flex-start" }}
+          spacing={{ base: "8", md: "16" }}
+        >
+          <Stack spacing={{ base: "8", md: "10" }} flex="2">
+            <Heading fontSize="2xl" fontWeight="extrabold">
+              Shopping Cart
+            </Heading>
 
-        <Stack spacing="6">
-          {cartdata?.map((item,index) => (
-            <CartItem key={index} {...item} settotal={settotal}/>
-          ))}
+            <Stack spacing="6">
+              {cdata == "No items in your cart" ? (
+                <Box
+                  border={"0px"}
+                  height={"50vh"}
+                  display={"flex"}
+                  alignItems={"center"}
+                  justifyContent={"center"}
+                >
+                  <VStack>
+                    <Heading size={"md"}>Your Cart is Empty</Heading>
+                    <Link href="/products" color={mode("blue.500", "blue.200")}>
+                      Try latest trends
+                    </Link>
+                  </VStack>
+                </Box>
+              ) : 
+              (
+                cdata.map((item,index)=>
+                <CartItem key={index} {...item} settrigger={settrigger}/>
+                )
+              )
+              }
+            </Stack>
+          </Stack>
+
+          <Flex direction="column" align="center" flex="1">
+            <CartOrderSummary total={total} />
+            <HStack mt="6" fontWeight="semibold">
+              <p>or</p>
+              <Link href="/products" color={mode("blue.500", "blue.200")}>
+                Continue shopping
+              </Link>
+            </HStack>
+          </Flex>
         </Stack>
-      </Stack>
-
-      <Flex direction="column" align="center" flex="1">
-        <CartOrderSummary total={total}/>
-        <HStack mt="6" fontWeight="semibold">
-          <p>or</p>
-          <Link href='/products' color={mode('blue.500', 'blue.200')}>Continue shopping</Link>
-        </HStack>
-      </Flex>
-    </Stack>
-  </Box>
+      </Box>
     </div>
-  )
-}
+  );
+};
