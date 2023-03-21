@@ -32,6 +32,8 @@ export const CartPage = () => {
       .then((res) =>{ 
         setcdata([])
         settotal(0)
+        if(res.data!='No items in your cart')
+        {
         res.data.map((each)=>{
           axios({
             method: "GET",
@@ -47,9 +49,11 @@ export const CartPage = () => {
             })
             .catch((err) => console.log(err));
         })
+      }
       })
       .catch((err) => console.log(err));
   }, [trigger]);
+  
   return (
     <div>
       <Box
@@ -69,7 +73,7 @@ export const CartPage = () => {
             </Heading>
 
             <Stack spacing="6">
-              {cdata == "No items in your cart" ? (
+              {cdata.length==0 ? (
                 <Box
                   border={"0px"}
                   height={"50vh"}
