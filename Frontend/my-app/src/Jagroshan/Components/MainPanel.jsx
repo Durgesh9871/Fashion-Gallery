@@ -12,11 +12,11 @@ import { getProducts } from "../../Redux/Product_Reducer/action";
 export const MainPanel = () => {
   const dispatch=useDispatch()
   const {product,isLoading}=useSelector((store)=>store.productReducer)
+  // console.log(product)
   const [searchParams] = useSearchParams();
   const location = useLocation();
 
   React.useEffect(() => {
-    // console.log(searchParams.get('price'))
     let order = searchParams.get("order");
     let price=searchParams.get("price")
     let objParams = {
@@ -36,13 +36,13 @@ export const MainPanel = () => {
       >
         {isLoading?<ProductGrid>
           {product?.map((product , i) => (
-            <Skeleton><ProductCard key={i} product={product} /></Skeleton>
+            <Skeleton key={i}><ProductCard key={product.id} product={product} /></Skeleton>
           ))}
         </ProductGrid>
         :
         <ProductGrid>
           {product?.map((product , i) => (
-            <ProductCard key={i} product={product} />
+            <ProductCard key={product.id} product={product} />
           ))}
         </ProductGrid>
 }
