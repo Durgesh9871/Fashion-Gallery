@@ -7,7 +7,6 @@ import {
   Stack,
   Collapse,
   Icon,
-  Link,
   Popover,
   PopoverTrigger,
   PopoverContent,
@@ -15,6 +14,7 @@ import {
   useDisclosure,
   Image,
   Modal,
+  useToast,
 } from "@chakra-ui/react";
 import { BsFillBagFill } from "react-icons/bs";
 import {
@@ -29,7 +29,7 @@ import axios from "axios";
 import Reg from "../components/Registration/Reg";
 import Login from "../components/Login/Login";
 import { useLocation } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 
 
 
@@ -37,6 +37,7 @@ import { useLocation } from "react-router-dom";
 
 export default function MainNavbar() {
   const { isOpen, onToggle } = useDisclosure();
+  const toast=useToast()
   // const isAdmin = JSON.parse(localStorage.getItem("isAdmin"));
 const isAdmin=true
 
@@ -62,7 +63,18 @@ const isAdmin=true
 
    const location = useLocation()
  
-   
+   const checking=()=>{
+    if(!token)
+    {
+      toast({
+        position: "top",
+        title: "Kindly Sign-In/Sign-UP first",
+        status: "warning",
+        duration: 3000,
+        isClosable: true,
+      })
+    }
+   }
 
   return (
     <Box
@@ -103,7 +115,7 @@ const isAdmin=true
           />
         </Flex>
         <Flex justify={{ base: "center", md: "center" }}>
-          <Link href="/">
+          <Link to="/">
             <Image src={image} h="50px" w="60px" borderRadius={"50%"}></Image>
           </Link>
         </Flex>
@@ -118,7 +130,7 @@ const isAdmin=true
           </Flex>
         </Flex>
         <Flex align="center" mr={"20px"}>
-          <Link href="/cart">
+          <Link to={token?"/cart":null} onClick={()=>checking()}>
             <BsFillBagFill />
           </Link>
         </Flex>
@@ -200,7 +212,7 @@ const DesktopNav = () => {
             <PopoverTrigger>
               <Link
                 //   p={2}
-                href={navItem.href ?? "#"}
+                to="/products"
                 fontSize={"sm"}
                 fontWeight={500}
                 color={ location.pathname === "/adminPage" ? "#ffff" : linkColor}
@@ -240,7 +252,7 @@ const DesktopNav = () => {
 const DesktopSubNav = ({ label, href, subLabel }) => {
   return (
     <Link
-      href={href}
+      to={href}
       role={"group"}
       display={"block"}
       p={2}
@@ -331,7 +343,7 @@ const MobileNavItem = ({ label, children, href }) => {
         >
           {children &&
             children.map((child) => (
-              <Link key={child.label} py={2} href={child.href}>
+              <Link key={child.label} py={2} to={child.href}>
                 {child.label}
               </Link>
             ))}

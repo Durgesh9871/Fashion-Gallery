@@ -22,8 +22,11 @@ export const ProductCard = (props) => {
   const toast=useToast()
   const { product } = props;
   const { title, mainImage, realPrice, price, rating, _id } = product;
+  let token = JSON.parse(localStorage.getItem("token")) || null;
 
   const addToCart = () => {
+    if(token)
+    {
     axios({
       method: "POST",
       url: `${process.env.REACT_APP_URL}/carts/add`,
@@ -40,6 +43,17 @@ export const ProductCard = (props) => {
         isClosable: true,
       }))
       .catch((err) => console.log(err));
+    }
+    else
+    {
+      toast({
+        position: "top",
+        title: "Kindly Sign-In/Sign-UP first",
+        status: "warning",
+        duration: 3000,
+        isClosable: true,
+      })
+    }
   };
   return (
     <Stack

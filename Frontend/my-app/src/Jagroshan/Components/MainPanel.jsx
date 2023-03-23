@@ -15,6 +15,7 @@ export const MainPanel = () => {
   // console.log(product)
   const [searchParams] = useSearchParams();
   const location = useLocation();
+  const pro=[1,2,3,4,5,1,2,3,4,5,1,2,3,4,5]
 
   React.useEffect(() => {
     let order = searchParams.get("order");
@@ -35,14 +36,14 @@ export const MainPanel = () => {
         border="0px"
       >
         {isLoading?<ProductGrid>
-          {product?.map((product , i) => (
-            <Skeleton key={i}><ProductCard key={product.id} product={product} /></Skeleton>
+          {pro?.map((product , i) => (
+            <Skeleton key={i}><ProductCard key={i} product={product} /></Skeleton>
           ))}
         </ProductGrid>
         :
         <ProductGrid>
           {product?.map((product , i) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard key={i} product={product} />
           ))}
         </ProductGrid>
 }
