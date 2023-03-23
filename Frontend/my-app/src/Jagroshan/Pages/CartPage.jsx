@@ -4,7 +4,6 @@ import {
   Flex,
   Heading,
   HStack,
-  Link,
   Stack,
   useColorModeValue as mode,
   VStack,
@@ -13,6 +12,7 @@ import {
 import { CartItem } from "../Components/CartItem";
 import { CartOrderSummary } from "../Components/CartOrderSummary";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export const CartPage = () => {
   const [cdata, setcdata] = React.useState([]);
@@ -83,7 +83,7 @@ export const CartPage = () => {
                 >
                   <VStack>
                     <Heading size={"md"}>Your Cart is Empty</Heading>
-                    <Link href="/products" color={mode("blue.500", "blue.200")}>
+                    <Link to="/products" color={mode("blue.500", "blue.200")}>
                       Try latest trends
                     </Link>
                   </VStack>
@@ -102,7 +102,7 @@ export const CartPage = () => {
             <CartOrderSummary total={total} />
             <HStack mt="6" fontWeight="semibold">
               <p>or</p>
-              <Link href="/products" color={mode("blue.500", "blue.200")}>
+              <Link to="/products" color={mode("blue.500", "blue.200")}>
                 Continue shopping
               </Link>
             </HStack>
