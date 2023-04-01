@@ -21,6 +21,7 @@ const initialState = {
   sideImage:"",
 }
 
+
 const reducer = (state , action)=>{
      switch(action.type){
 
