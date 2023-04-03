@@ -80,8 +80,38 @@ const view = {
 
     </Box>
 
+{/* for update products ------------- second box --- */}
+    <Box border="1px  yellow" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
+     
+    <Text style={style}>Update Products</Text> 
+    <Text style={secondStyle}>34</Text> 
 
-    <Box border="1px solid yellow" height="170px" width="280px" >1</Box>
+      <Divider orientation='horizontal' style={{margin:"10px 0px" }}  />
+    <Box display="flex" justifyContent="space-between" alignItems="center" >
+   
+    {/* for adding products  */}
+    <Link to="/addPageAdmin"> <Box display="flex" alignItems="center" cursor="pointer">
+      <Text fontSize="18px" color="lightgreen">Add</Text>
+      <AiFillCaretRight style={{color:"lightgreen"  , fontSize:"20px"}} />
+      </Box></Link>
+
+       {/* for edit products  */}
+     <Box display="flex" alignItems="center">
+      <Text style={view}>Edit</Text>
+      <AiFillCaretRight style={{color:"#ffff"  , fontSize:"20px"}} />
+      </Box>
+
+       {/* for Delete products  */}
+       <Link to="/deltePageAdmin"><Box display="flex" alignItems="center" cursor="pointer">
+      <Text fontSize="18px" color="red">Delete</Text>
+      <AiFillCaretRight style={{color:"red"  , fontSize:"20px"}} />
+      </Box></Link>
+
+    </Box> 
+
+    </Box>
+
+
     <Box border="1px solid yellow" height="170px" width="280px" >1</Box>
     <Box border="1px solid yellow" height="170px" width="280px" >1</Box>
 
