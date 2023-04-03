@@ -112,7 +112,22 @@ const view = {
     </Box>
 
 
-    <Box border="1px solid yellow" height="170px" width="280px" >1</Box>
+   {/*  for statistic --------------------- */}
+    <Box border="1px solid yellow" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
+      
+    <Text style={style}>Statistics</Text> 
+    <Text style={secondStyle}>...</Text> 
+
+      <Divider orientation='horizontal' style={{margin:"10px 0px" }}  />
+  <Link to="/stat">  <Box display="flex" justifyContent="space-between" alignItems="center" cursor="pointer">
+      <Text style={view}>View Details</Text>
+      <AiFillCaretRight style={{color:"#ffff"  , fontSize:"20px"}} />
+    </Box> </Link>
+
+    </Box>
+
+
+{/*  last one --------------------- */}
     <Box border="1px solid yellow" height="170px" width="280px" >1</Box>
 
    </Box>
