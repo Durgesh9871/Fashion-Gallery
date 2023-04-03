@@ -145,6 +145,7 @@ const isAdmin=true
           color="#4e8cf3"
           variant="outline"
           fontWeight="bold"
+          mr="7px"
         >
           Admin
         </Button>
