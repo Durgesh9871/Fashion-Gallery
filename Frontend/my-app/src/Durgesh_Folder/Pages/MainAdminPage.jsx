@@ -73,10 +73,10 @@ const view = {
     <Text style={secondStyle}>34</Text> 
 
       <Divider orientation='horizontal' style={{margin:"10px 0px" }}  />
-    <Box display="flex" justifyContent="space-between" alignItems="center" cursor="pointer">
+  <Link to="/customerPageAdmin">  <Box display="flex" justifyContent="space-between" alignItems="center" cursor="pointer">
       <Text style={view}>View Details</Text>
       <AiFillCaretRight style={{color:"#ffff"  , fontSize:"20px"}} />
-    </Box>
+    </Box> </Link>
 
     </Box>
 
