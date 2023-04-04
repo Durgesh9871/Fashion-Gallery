@@ -28,6 +28,49 @@
     -->
     <title>Fashion Gallary</title>
   </head>
+
+  <!--  chat bot code ------- -->
+     
+   <!-- <script src="//code.tidio.co/iawp6gjccdr5pdj2iep4dtsrbk1q1g2n.js" async></script> -->
+  <!-- <script>
+  (function() {
+    
+    // modify whitelisted urls here
+    var whitelistedUrls = [
+      'http://localhost:3000',
+    ];
+    // do not modify script after this line   
+    
+    
+    var shouldShowWidget = (function isCurrentUrlWhitelisted() {
+      var currentUrl = window.location.href;
+      var isWhitelisted = false;
+      whitelistedUrls.forEach(url => {
+        if (currentUrl.indexOf(url) > -1) {
+          isWhitelisted = true;
+        }
+      })
+      return isWhitelisted;
+    })();
+
+    function onTidioChatApiReady() {
+      if (shouldShowWidget) {
+        window.tidioChatApi.show();
+      }
+		else {
+      window.tidioChatApi.hide();
+}
+    }
+    if (window.tidioChatApi) {
+      window.tidioChatApi.on('ready', onTidioChatApiReady)
+    } 
+    else {
+      document.addEventListener('tidioChat-ready', onTidioChatApiReady);
+    }
+  })();
+</script> -->
+
+  <!-- code end ---------- -->
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>

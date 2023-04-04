@@ -94,6 +94,7 @@ const Search = () => {
 								);
 							})}
 				</SimpleGrid>
+				
 			</Box>
 		</Box>
 	);
