@@ -96,10 +96,11 @@ const view = {
       </Box></Link>
 
        {/* for edit products  */}
-     <Box display="flex" alignItems="center">
+     {/* <Box display="flex" alignItems="center">
       <Text style={view}>Edit</Text>
       <AiFillCaretRight style={{color:"#ffff"  , fontSize:"20px"}} />
-      </Box>
+      </Box> */}
+
 
        {/* for Delete products  */}
        <Link to="/deltePageAdmin"><Box display="flex" alignItems="center" cursor="pointer">
