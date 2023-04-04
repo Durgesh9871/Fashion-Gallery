@@ -112,6 +112,7 @@ const view = {
     </Box>
 
 
+
    {/*  for statistic --------------------- */}
     <Box border="1px  white" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
       
