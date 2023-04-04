@@ -101,6 +101,7 @@ const view = {
       <AiFillCaretRight style={{color:"#ffff"  , fontSize:"20px"}} />
       </Box> */}
 
+
        {/* for Delete products  */}
        <Link to="/deltePageAdmin"><Box display="flex" alignItems="center" cursor="pointer">
       <Text fontSize="18px" color="red">Delete</Text>
