@@ -8,7 +8,6 @@ import { Box, Menu, MenuButton, MenuItem, MenuList, Text , Button  , Image} from
 import {ChevronDownIcon} from "@chakra-ui/icons"
 import "./styles.css"
 import {GoGraph} from "react-icons/go"
-import {MdModeEditOutline} from "react-icons/md"
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -81,8 +80,6 @@ const Sidebar = () => {
       <Link to="/">  <SidebarLink> <AiFillHome style={{marginRight:"6px"}} /> Home </SidebarLink> </Link>  
           <Link to="/customerPageAdmin"> <SidebarLink> <FaUserAlt style={{marginRight:"6px"}}  /> Customers</SidebarLink> </Link>
           <Link to="/addPageAdmin"> <SidebarLink> <HiShoppingCart style={{marginRight:"6px"}}  /> Add Products</SidebarLink> </Link>
-          <Link to="/editPageAdmin"> <SidebarLink> <MdModeEditOutline style={{marginRight:"6px"}}  /> Edit Products</SidebarLink> </Link>
-
           <Link to="/deltePageAdmin"> <SidebarLink> <AiFillDelete style={{marginRight:"6px"}}  /> Delete Products</SidebarLink> </Link>
           <Link to="/stat"> <SidebarLink> <GoGraph style={{marginRight:"6px"}}  /> Statistics</SidebarLink> </Link>
 
