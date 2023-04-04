@@ -129,7 +129,7 @@ const view = {
 
 
 {/*  last one --------------------- */}
-    <Box border="1px solid yellow" height="170px" width="280px" >1</Box>
+    {/* <Box border="1px solid yellow" height="170px" width="280px" >1</Box> */}
 
    </Box>
   
