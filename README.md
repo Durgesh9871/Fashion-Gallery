@@ -1,7 +1,12 @@
 # Fashion Gallary 
 
+<ul>
+Fashion Gallery is a premier online destination for men's fashion, featuring a carefully curated selection of clothing, shoes, and accessories from top brands.
 
-This is the photos of the fashion gallary website. Fashion Gallary is an online Ecommerce Website which is providing high quality products. From this website, users can Order Mens products.
+With a focus on quality and style, Fashion Gallery offers a unique shopping experience that caters to the modern man's fashion needs, whether it's for everyday wear or special occasions.
+
+<li> From classic to contemporary, Fashion Gallery has something for every taste and budget, making it the go-to destination for men who want to look their best.</li>
+</ul>
 
 **To see the live site click the below link.**
 
