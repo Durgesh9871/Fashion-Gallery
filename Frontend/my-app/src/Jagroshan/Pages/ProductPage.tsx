@@ -7,7 +7,7 @@ import { SidePanel } from "../Components/SidePanel";
 export const ProductPage = () => {
   return (
     <div>
-      <HStack>
+      {/* <HStack> */}
         <Box
           width={"20vw"}
           alignSelf={"start"}
@@ -23,7 +23,7 @@ export const ProductPage = () => {
           <MainPanel />
           {/* <Pagination/> */}
         </Box>
-      </HStack>
+      {/* </HStack> */}
     </div>
   );
 };
