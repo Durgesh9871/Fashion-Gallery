@@ -31,22 +31,18 @@ export const MainPanel = () => {
   return (
     <div>
       <Box
-        px={{ base: "4", md: "8", lg: "12" }}
-        py={{ base: "6", md: "8", lg: "12" }}
+        // px={{ base: "4", md: "8", lg: "12" }}
+        // py={{ base: "6", md: "8", lg: "12" }}
         border="0px"
+        p="15px"
       >
-        {isLoading?<ProductGrid>
-          {pro?.map((product , i) => (
-            <Skeleton key={i}><ProductCard key={i} product={product} /></Skeleton>
-          ))}
-        </ProductGrid>
-        :
+        
         <ProductGrid>
           {product?.map((product , i) => (
             <ProductCard key={i} product={product} />
           ))}
         </ProductGrid>
-}
+
       </Box>
     </div>
   );
