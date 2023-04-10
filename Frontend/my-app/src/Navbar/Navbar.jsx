@@ -370,35 +370,6 @@ const NAV_ITEMS = [
   },
 
   {
-    label: "WOMEN",
-    children: [
-      {
-        label: "TOPS",
-        href: "/products",
-      },
-      {
-        label: "BOTTOMS",
-        href: "/products",
-      },
-      {
-        label: "OUTERWEAR",
-        href: "/products",
-      },
-      {
-        label: "ACCESSORIES",
-        href: "/products",
-      },
-      {
-        label: "FLEECE",
-        href: "/products",
-      },
-      {
-        label: "COZY",
-        href: "/products",
-      },
-    ],
-  },
-  {
     label: "MEN",
     children: [
       {
@@ -461,41 +432,7 @@ const NAV_ITEMS = [
       },
     ],
   },
-  {
-    label: "GEAR",
-    children: [
-      {
-        label: "PACKS & LUGGAGE",
-        href: "/products",
-      },
-      {
-        label: "COMPING",
-        href: "/products",
-      },
-      {
-        label: "HYDRATION",
-        href: "/products",
-      },
-
-      {
-        label: "PETS",
-        href: "/products",
-      },
-    ],
-  },
-  {
-    label: "FOOTWEAR",
-    children: [
-      {
-        label: "WOMEN",
-        href: "/products",
-      },
-      {
-        label: "MEN",
-        href: "/products",
-      },
-    ],
-  },
+  
   // {
   //   label: 'HOME',
   //   children: [
@@ -522,44 +459,8 @@ const NAV_ITEMS = [
 
   //   ],
   // },
-  {
-    label: "SALE",
-    children: [
-      {
-        label: "WOMEN",
-        href: "/products",
-      },
-      {
-        label: "MEN",
-        href: "/products",
-      },
-      {
-        label: "KIDS",
-        href: "/products",
-      },
-    ],
-  },
-  {
-    label: "RESALE",
-    children: [
-      {
-        label: "WOMEN",
-        href: "/products",
-      },
-      {
-        label: "MEN",
-        href: "/products",
-      },
-      {
-        label: "KIDS",
-        href: "/products",
-      },
-      {
-        label: "HOME",
-        href: "/products",
-      },
-    ],
-  },
+ 
+  
   {
     label: "GUIDEPOST",
     children: [

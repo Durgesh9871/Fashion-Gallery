@@ -32,7 +32,7 @@ export const ProductCard = ({product ,isLoading}) => {
   const [effect , setEffect] = useState(false)
   const [wishlistColor , setWishlistColor] = useState(false)
 
-console.log(isLoading ,"isLoading" , product)
+// console.log(isLoading ,"isLoading" , product)
   const toast=useToast()
 
   const { title, mainImage, realPrice, price, rating, _id  , brand } = product;
