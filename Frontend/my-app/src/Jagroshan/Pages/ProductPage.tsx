@@ -15,7 +15,7 @@ export const ProductPage = () => {
           top={"17vh"}
           height="80vh"
           // borderRight={"1px"}
-          display={{base:"none",md:"block"}}
+          display={{base:"none",sm:"block" , md:"block"}}
           border="2px solid #f0f2f5"
           borderRadius="8px"
           shadow="md"
@@ -25,7 +25,7 @@ export const ProductPage = () => {
           <SidePanel />
         </Box>
 
-        <Box width={{base:"100vw",md:"80vw" ,lg: "55%",xl: "36%",'2xl': "75vw"}}  border="2px solid #f0f2f5"  
+        <Box width={{base:"100vw",sm: "57vw" , md:"70vw" ,lg: "75vw",xl: "75vw",'2xl': "75vw"}}  border="2px  #f0f2f5"  
           background="#ffff">
           <MainPanel />
           {/* <Pagination/> */}

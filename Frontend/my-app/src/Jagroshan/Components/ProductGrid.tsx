@@ -6,7 +6,7 @@ export const ProductGrid = (props: SimpleGridProps) => {
     const count = Children.toArray(props.children).filter(isValidElement).length
     return {
       base: Math.min(1, count),
-      sm: Math.min(2,count),
+      sm: Math.min(1,count),
       md: Math.min(2, count),
       lg: Math.min(3, count),
       xl: Math.min(3, count),
