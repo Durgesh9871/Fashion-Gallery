@@ -26,9 +26,10 @@ export const ProductCard = (props) => {
 
   const toast=useToast()
   const { product } = props;
-  const { title, mainImage, realPrice, price, rating, _id } = product;
+  const { title, mainImage, realPrice, price, rating, _id  , brand} = product;
   let token = JSON.parse(localStorage.getItem("token")) || null;
 
+console.log(props ,"props")
 
   const addToCart = () => {
     if(token)
@@ -151,7 +152,8 @@ const total = Math.floor(+(realPrice) * 100 )
         
         {effect && <Box style={{display:"flex" ,justifyContent:"space-between" }}>
          <Box>
-         <Heading fontSize="15.5px" fontWeight="600" color="#303030" textAlign="left">hello</Heading>
+         {/* <Rating defaultValue={rating} size="sm" /> */}
+         <Heading fontSize="15.5px" fontWeight="600" color="#303030" textAlign="left">{brand}</Heading>
          </Box>
 
          </Box> }
@@ -159,8 +161,8 @@ const total = Math.floor(+(realPrice) * 100 )
          {/*  Ends here hover ------------------------------------ */}
 
 
-         {!effect &&  <Heading fontSize="15.5px" fontWeight="600" color="#303030" textAlign="left">work</Heading> }
-        {!effect && <Text fontSize='14px' className='control' fontWeight="500" color="#727272" textAlign="left"  >rule</Text> }
+         {!effect &&  <Heading fontSize="15.5px" fontWeight="600" color="#303030" textAlign="left">{brand}</Heading> }
+        {!effect && <Text fontSize='14px' className='control' fontWeight="500" color="#727272" textAlign="left"  >{title}</Text> }
          
 
           {/* price box --- */}
