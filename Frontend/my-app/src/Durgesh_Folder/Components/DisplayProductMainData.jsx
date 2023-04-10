@@ -122,7 +122,7 @@ const closeProductHover = ()=>{
           {/*  wishlist on hover---------------------------------------- */}
     { effect && (<Box onClick={()=>handleDeleteProduct(id)}  style={{border:"2px solid #EBECEE" , width:"60%" , margin:"auto" , display:"flex" ,justifyContent:"center" , alignItems:"center" ,padding:"2px" , color:"#fff" }}>{wishlistColor ? <AiFillHeart color="red"  /> : <AiFillDelete /> } <Text ml={2}>Delete</Text> </Box> )}
 
-      {/*  reviws star on hover ----------------------------------------------- */}
+      {/*   start on hover ----------------------------------------------- */}
      {effect && <Box style={{display:"flex" ,justifyContent:"space-between" }}>
          <Box>
          <Heading fontSize="15.5px" fontWeight="600" color="#303030" textAlign="left">{model}</Heading>

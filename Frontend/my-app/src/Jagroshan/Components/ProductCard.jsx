@@ -10,7 +10,7 @@ import {
   StackProps,
   Text,
   useColorModeValue,
-  useToast,Heading 
+  useToast,Heading, SkeletonText 
 } from "@chakra-ui/react";
 import { Rating } from "./Rating";
 import { PriceTag } from "./PriceTag";
@@ -18,17 +18,28 @@ import { PriceTag } from "./PriceTag";
 import React, { useState } from "react";
 import axios from "axios";
 import {AiFillDelete, AiFillHeart} from "react-icons/ai" ;
+import { BsFillCartFill } from "react-icons/bs";
+import "./magnify.css"
 
-export const ProductCard = (props) => {
+
+
+
+
+
+
+
+export const ProductCard = ({product ,isLoading}) => {
   const [effect , setEffect] = useState(false)
   const [wishlistColor , setWishlistColor] = useState(false)
 
-
+// console.log(isLoading ,"isLoading" , product)
   const toast=useToast()
-  const { product } = props;
-  const { title, mainImage, realPrice, price, rating, _id } = product;
+
+  const { title, mainImage, realPrice, price, rating, _id  , brand } = product;
+  // const { title, mainImage, realPrice, price, rating, _id  , brand} = product;
   let token = JSON.parse(localStorage.getItem("token")) || null;
 
+// console.log(props ,"props")
 
   const addToCart = () => {
     if(token)
@@ -61,6 +72,7 @@ export const ProductCard = (props) => {
       })
     }
   }
+  
 
 //   price calculate ------------
 const total = Math.floor(+(realPrice) * 100 )
@@ -137,30 +149,32 @@ const total = Math.floor(+(realPrice) * 100 )
       <Box border="2px  red" shadow="base" w={{base:"80vw", sm: "55vw", md: "32vw", lg: "23vw" ,xl: "23vw",'2xl': "23vw",}} h={{base:"375px", sm: "375px", md: "385px", lg: "385px" ,xl: "385px",'2xl': "385px",}} style={style}>
 
         {/* Image box -------------------- */}
-        <Box>
-        <Image src={mainImage} alt={title} height="240px"  width="235px" margin="auto"  />
+        <Skeleton isLoaded={!isLoading}>  <Box className="image">
+        <Image className="img" src={mainImage} alt={title} height="255px"  width="235px" margin="auto"  />
         </Box>
+        </Skeleton>
 
 
         {/* product details  */}
-
+        <SkeletonText mt='4' noOfLines={3} spacing='5' skeletonHeight='4'  isLoaded={!isLoading} animation="none">
         <Box id='productDataDesc' position="absolute" bottom="20px" onMouseOut={closeProductHover} onMouseOver={handleProductHover}  style={{border:"2px   #EBECEE" ,height:"auto" , padding:"10px 10px 10px 10px" ,cursor:'pointer'  }}w={{base:"79vw", sm: "54vw", md: "31vw", lg: "22vw" ,xl: "22vw",'2xl': "22vw",}}>
         
         {/* on hover  */}
-        { effect && (<Box   style={{border:"2px solid #EBECEE" , width:"60%" , margin:"auto" , display:"flex" ,justifyContent:"center" , alignItems:"center" ,padding:"2px" , color:"red"  }}> <Text ml={2}>ADD TO CART</Text> </Box> )}
+        { effect && (<Box   onClick={() => addToCart()}  style={{border:"2px solid #EBECEE" , width:"60%" , margin:"auto" , display:"flex" ,justifyContent:"center" , alignItems:"center" ,padding:"2px" , color:"#f75045"  }}> <BsFillCartFill /> <Text ml={2} fontWeight="500" >ADD TO CART</Text> </Box> )}
         
         {effect && <Box style={{display:"flex" ,justifyContent:"space-between" }}>
          <Box>
-         <Heading fontSize="15.5px" fontWeight="600" color="#303030" textAlign="left">hello</Heading>
+         {/* <Rating defaultValue={rating} size="sm" /> */}
+         <Heading fontSize="15.5px" fontWeight="600" color="#303030" textAlign="left">{brand}</Heading>
          </Box>
 
          </Box> }
 
          {/*  Ends here hover ------------------------------------ */}
 
-
-         {!effect &&  <Heading fontSize="15.5px" fontWeight="600" color="#303030" textAlign="left">work</Heading> }
-        {!effect && <Text fontSize='14px' className='control' fontWeight="500" color="#727272" textAlign="left"  >rule</Text> }
+        
+         {!effect &&   <Heading fontSize="15.5px" fontWeight="600" color="#303030" textAlign="left">{brand}</Heading> }
+        {!effect && <Text fontSize='14px' className='control' fontWeight="500" color="#727272" textAlign="left"  >{title}</Text> }
          
 
           {/* price box --- */}
@@ -170,8 +184,8 @@ const total = Math.floor(+(realPrice) * 100 )
           <Text  fontSize='14px' className='control' mt={1.5} ml={2} fontWeight="600" color="#e1a26f" textAlign="left">({ans}% off)</Text>
           </Box>
         </Box>
-  
-
+        </SkeletonText>
+       
         {/* details end here ------------ */}
       </Box>
 
