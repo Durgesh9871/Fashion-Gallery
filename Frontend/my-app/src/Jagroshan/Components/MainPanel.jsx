@@ -34,7 +34,7 @@ export const MainPanel = () => {
         // px={{ base: "4", md: "8", lg: "12" }}
         // py={{ base: "6", md: "8", lg: "12" }}
         border="0px"
-        p="15px"
+        p="16px"
       >
         
         <ProductGrid>
