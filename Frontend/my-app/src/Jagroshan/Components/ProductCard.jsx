@@ -19,6 +19,14 @@ import React, { useState } from "react";
 import axios from "axios";
 import {AiFillDelete, AiFillHeart} from "react-icons/ai" ;
 import { BsFillCartFill } from "react-icons/bs";
+import "./magnify.css"
+
+
+
+
+
+
+
 
 export const ProductCard = (props) => {
   const [effect , setEffect] = useState(false)
@@ -139,8 +147,8 @@ const total = Math.floor(+(realPrice) * 100 )
       <Box border="2px  red" shadow="base" w={{base:"80vw", sm: "55vw", md: "32vw", lg: "23vw" ,xl: "23vw",'2xl': "23vw",}} h={{base:"375px", sm: "375px", md: "385px", lg: "385px" ,xl: "385px",'2xl': "385px",}} style={style}>
 
         {/* Image box -------------------- */}
-        <Box>
-        <Image src={mainImage} alt={title} height="255px"  width="235px" margin="auto"  />
+        <Box className="image">
+        <Image className="img" src={mainImage} alt={title} height="255px"  width="235px" margin="auto"  />
         </Box>
 
 
