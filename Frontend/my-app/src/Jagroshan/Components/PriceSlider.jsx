@@ -18,12 +18,14 @@ export default function PriceSlider({setprice}) {
           aria-label="slider-ex-6"
           onChange={(val) => setSliderValue(val)}
           onChangeEnd={() => setprice(sliderValue * 10)}
+          color="red"
         >
           <SliderMark
             value={sliderValue}
             textAlign="center"
-            bg="blue.500"
-            color="white"
+            bg="#ffff"
+            color="#3b464c"
+            fontSize="17px" fontWeight="500" 
             mt="-10"
             ml="-5"
             w="12"
