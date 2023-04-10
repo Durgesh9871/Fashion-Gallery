@@ -16,7 +16,7 @@ import {
   Modal,
   useToast,
 } from "@chakra-ui/react";
-import { BsFillBagFill } from "react-icons/bs";
+import {  BsHandbagFill } from "react-icons/bs";
 import {
   HamburgerIcon,
   CloseIcon,
@@ -131,7 +131,7 @@ const isAdmin=true
         </Flex>
         <Flex align="center" mr={"20px"}>
           <Link to={token?"/cart":null} onClick={()=>checking()}>
-            <BsFillBagFill />
+            <BsHandbagFill style={{fontSize:"25px" , color:"#f56902"}} />
           </Link>
         </Flex>
         {token && (
