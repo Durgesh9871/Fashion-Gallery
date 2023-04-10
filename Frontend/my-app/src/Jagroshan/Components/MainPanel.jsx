@@ -39,7 +39,7 @@ export const MainPanel = () => {
         
         <ProductGrid>
           {product?.map((product , i) => (
-            <ProductCard key={i} product={product} />
+            <ProductCard key={i} product={product} isLoading={isLoading}/>
           ))}
         </ProductGrid>
 
