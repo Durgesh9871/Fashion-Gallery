@@ -18,6 +18,7 @@ import { PriceTag } from "./PriceTag";
 import React, { useState } from "react";
 import axios from "axios";
 import {AiFillDelete, AiFillHeart} from "react-icons/ai" ;
+import { BsFillCartFill } from "react-icons/bs";
 
 export const ProductCard = (props) => {
   const [effect , setEffect] = useState(false)
@@ -139,7 +140,7 @@ const total = Math.floor(+(realPrice) * 100 )
 
         {/* Image box -------------------- */}
         <Box>
-        <Image src={mainImage} alt={title} height="240px"  width="235px" margin="auto"  />
+        <Image src={mainImage} alt={title} height="255px"  width="235px" margin="auto"  />
         </Box>
 
 
@@ -148,7 +149,7 @@ const total = Math.floor(+(realPrice) * 100 )
         <Box id='productDataDesc' position="absolute" bottom="20px" onMouseOut={closeProductHover} onMouseOver={handleProductHover}  style={{border:"2px   #EBECEE" ,height:"auto" , padding:"10px 10px 10px 10px" ,cursor:'pointer'  }}w={{base:"79vw", sm: "54vw", md: "31vw", lg: "22vw" ,xl: "22vw",'2xl': "22vw",}}>
         
         {/* on hover  */}
-        { effect && (<Box   style={{border:"2px solid #EBECEE" , width:"60%" , margin:"auto" , display:"flex" ,justifyContent:"center" , alignItems:"center" ,padding:"2px" , color:"red"  }}> <Text ml={2}>ADD TO CART</Text> </Box> )}
+        { effect && (<Box   style={{border:"2px solid #EBECEE" , width:"60%" , margin:"auto" , display:"flex" ,justifyContent:"center" , alignItems:"center" ,padding:"2px" , color:"#f75045"  }}> <BsFillCartFill /> <Text ml={2} fontWeight="500" >ADD TO CART</Text> </Box> )}
         
         {effect && <Box style={{display:"flex" ,justifyContent:"space-between" }}>
          <Box>
