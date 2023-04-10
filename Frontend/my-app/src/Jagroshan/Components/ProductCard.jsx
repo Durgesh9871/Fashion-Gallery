@@ -10,19 +10,25 @@ import {
   StackProps,
   Text,
   useColorModeValue,
-  useToast,
+  useToast,Heading 
 } from "@chakra-ui/react";
 import { Rating } from "./Rating";
 import { PriceTag } from "./PriceTag";
 // import { Product } from './_data'
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
+import {AiFillDelete, AiFillHeart} from "react-icons/ai" ;
 
 export const ProductCard = (props) => {
+  const [effect , setEffect] = useState(false)
+  const [wishlistColor , setWishlistColor] = useState(false)
+
+
   const toast=useToast()
   const { product } = props;
   const { title, mainImage, realPrice, price, rating, _id } = product;
   let token = JSON.parse(localStorage.getItem("token")) || null;
+
 
   const addToCart = () => {
     if(token)
@@ -54,49 +60,123 @@ export const ProductCard = (props) => {
         isClosable: true,
       })
     }
-  };
+  }
+
+//   price calculate ------------
+const total = Math.floor(+(realPrice) * 100 )
+  const spend = Math.floor(+(price) * 100 )
+  const amount =  Math.floor((spend/total)*100)
+  const ans = 100 - amount 
+
+  let style = {
+    position:"relative" , 
+  
+  }
+
+  // hover for adding in cart ------
+  const handleProductHover = ()=>{
+    // console.log(effect)
+    setEffect(true)
+  }
+
+  const closeProductHover = ()=>{
+    // console.log(effect)
+    setEffect(false)
+  }
+
+
   return (
-    <Stack
-      spacing={{ base: "4", md: "5" }}
-      border={"0px solid gray"}
-      justifyContent={"space-between"}
-      borderRadius={"5px"}
-      boxShadow={'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px'}
-    >
-      <Box position="relative">
-        <AspectRatio ratio={4 / 5}>
-          <Image
-            src={mainImage}
-            alt={title}
-            draggable="false"
-            fallback={<Skeleton />}
-            // borderRadius={{ base: 'md', md: 'xl' }}
-          />
-        </AspectRatio>
+    // <Stack
+    //   spacing={{ base: "4", md: "5" }}
+    //   border={"0px solid gray"}
+    //   justifyContent={"space-between"}
+    //   borderRadius={"5px"}
+    //   boxShadow={'rgba(100, 100, 111, 0.2) 0px 7px 29px 0px'}
+    // >
+    //   <Box position="relative">
+    //     <AspectRatio ratio={4 / 5}>
+    //       <Image
+    //         src={mainImage}
+    //         alt={title}
+    //         draggable="false"
+    //         fallback={<Skeleton />}
+    //         // borderRadius={{ base: 'md', md: 'xl' }}
+    //       />
+    //     </AspectRatio>
+    //   </Box>
+    //   <Stack paddingX={2}>
+    //     <Stack spacing="1">
+    //       <Text
+    //         fontWeight="medium"
+    //         color={useColorModeValue("gray.700", "gray.400")}
+    //       >
+    //         {title}
+    //       </Text>
+    //       <PriceTag price={realPrice} salePrice={price} currency="USD" />
+    //     </Stack>
+    //     <HStack>
+    //       <Rating defaultValue={rating} size="sm" />
+    //     </HStack>
+    //   </Stack>
+
+
+    //   {/*  add to cart button  */}
+    //   <Stack align="center">
+    //     <Button
+    //       colorScheme="blue"
+    //       width="full"
+    //       onClick={() => addToCart()}
+    //     >
+    //       Add to cart
+    //     </Button>
+    //   </Stack>
+
+        
+    // </Stack>
+     
+      <Box border="2px  red" shadow="base" w={{base:"80vw", sm: "55vw", md: "32vw", lg: "23vw" ,xl: "23vw",'2xl': "23vw",}} h={{base:"375px", sm: "375px", md: "385px", lg: "385px" ,xl: "385px",'2xl': "385px",}} style={style}>
+
+        {/* Image box -------------------- */}
+        <Box>
+        <Image src={mainImage} alt={title} height="240px"  width="235px" margin="auto"  />
+        </Box>
+
+
+        {/* product details  */}
+
+        <Box id='productDataDesc' position="absolute" bottom="20px" onMouseOut={closeProductHover} onMouseOver={handleProductHover}  style={{border:"2px   #EBECEE" ,height:"auto" , padding:"10px 10px 10px 10px" ,cursor:'pointer'  }}w={{base:"79vw", sm: "54vw", md: "31vw", lg: "22vw" ,xl: "22vw",'2xl': "22vw",}}>
+        
+        {/* on hover  */}
+        { effect && (<Box   style={{border:"2px solid #EBECEE" , width:"60%" , margin:"auto" , display:"flex" ,justifyContent:"center" , alignItems:"center" ,padding:"2px" , color:"red"  }}> <Text ml={2}>ADD TO CART</Text> </Box> )}
+        
+        {effect && <Box style={{display:"flex" ,justifyContent:"space-between" }}>
+         <Box>
+         <Heading fontSize="15.5px" fontWeight="600" color="#303030" textAlign="left">hello</Heading>
+         </Box>
+
+         </Box> }
+
+         {/*  Ends here hover ------------------------------------ */}
+
+
+         {!effect &&  <Heading fontSize="15.5px" fontWeight="600" color="#303030" textAlign="left">work</Heading> }
+        {!effect && <Text fontSize='14px' className='control' fontWeight="500" color="#727272" textAlign="left"  >rule</Text> }
+         
+
+          {/* price box --- */}
+          <Box style={{display:'flex' , alignItems:"center"}}>
+          <Heading fontSize='18px' fontWeight="600" color="#303030" mt={1.5}  textAlign="left">${price}</Heading>
+          <Text as='del' fontSize='18px' className='control' mt={1.5} ml={3} fontWeight="600" color="#727272" textAlign="left">${realPrice}</Text>
+          <Text  fontSize='14px' className='control' mt={1.5} ml={2} fontWeight="600" color="#e1a26f" textAlign="left">({ans}% off)</Text>
+          </Box>
+        </Box>
+  
+
+        {/* details end here ------------ */}
       </Box>
-      <Stack paddingX={2}>
-        <Stack spacing="1">
-          <Text
-            fontWeight="medium"
-            color={useColorModeValue("gray.700", "gray.400")}
-          >
-            {title}
-          </Text>
-          <PriceTag price={realPrice} salePrice={price} currency="USD" />
-        </Stack>
-        <HStack>
-          <Rating defaultValue={rating} size="sm" />
-        </HStack>
-      </Stack>
-      <Stack align="center">
-        <Button
-          colorScheme="blue"
-          width="full"
-          onClick={() => addToCart()}
-        >
-          Add to cart
-        </Button>
-      </Stack>
-    </Stack>
+
+    
+
+
   );
 };

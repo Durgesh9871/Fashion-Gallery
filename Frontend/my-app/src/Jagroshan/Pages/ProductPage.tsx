@@ -13,6 +13,7 @@ export const ProductPage = () => {
           alignSelf={"start"}
           position={"sticky"}
           top={"17vh"}
+          height="80vh"
           // borderRight={"1px"}
           display={{base:"none",md:"block"}}
           border="2px solid #f0f2f5"
@@ -24,8 +25,9 @@ export const ProductPage = () => {
           <SidePanel />
         </Box>
 
-        <Box width={{base:"100vw",md:"80vw" ,lg: "55%",xl: "36%",'2xl': "75vw"}}  border="2px   red"     background="#ffff">
-          {/* <MainPanel /> */}
+        <Box width={{base:"100vw",md:"80vw" ,lg: "55%",xl: "36%",'2xl': "75vw"}}  border="2px solid #f0f2f5"  
+          background="#ffff">
+          <MainPanel />
           {/* <Pagination/> */}
         </Box>
       {/* </HStack> */}

@@ -53,7 +53,7 @@ export const SidePanel = () => {
       <VStack border={"0px"} alignItems={"start"} paddingX={6}>
         <Sort setOrder={setOrder} orderval={order} />
 
-        <Heading size={"sm"}>Category</Heading>
+        <Text fontSize="17px" fontWeight="500" mt="25px" color="#3b464c">Category</Text>
         <Box paddingLeft={3}>
         <div>
           <input
@@ -62,7 +62,7 @@ export const SidePanel = () => {
             onChange={handleCheckbox}
             checked={categories.includes("shirts")}
           />
-          <label> Shirt</label>
+          <label style={{color:"#646878"}}> Shirt</label>
         </div>
         <div>
           <input
@@ -71,7 +71,7 @@ export const SidePanel = () => {
             onChange={handleCheckbox}
             checked={categories.includes("jacket")}
           />
-          <label> Jacket</label>
+          <label style={{color:"#646878"}}> Jacket</label>
         </div>
         <div>
           <input
@@ -80,7 +80,7 @@ export const SidePanel = () => {
             onChange={handleCheckbox}
             checked={categories.includes("coatpant")}
           />
-          <label> Coat-Pant</label>
+          <label style={{color:"#646878"}}> Coat-Pant</label>
         </div>
         <div>
           <input
@@ -89,15 +89,17 @@ export const SidePanel = () => {
             onChange={handleCheckbox}
             checked={categories.includes("tshirts")}
           />
-          <label> T-Shirt</label>
+          <label style={{color:"#646878"}}> T-Shirt</label>
         </div>
         </Box>
-        <Heading size={"sm"}>Price $</Heading>
+
+
+        <Text fontSize="17px" fontWeight="500" pt="15px" color="#3b464c" >Price $</Text>
         <Container flexDirection={"row"}>
           <PriceSlider setprice={setprice} />
         </Container>
 
-        <Heading size={"sm"}>Color</Heading>
+        <Text fontSize="17px" fontWeight="500" mt="25px" color="#3b464c">Color</Text>
         <Box paddingLeft={3}>
         <div>
           <input
@@ -106,7 +108,7 @@ export const SidePanel = () => {
             onChange={handleColors}
             checked={color.includes("black")}
           />
-          <label> Black</label>
+          <label style={{color:"#646878"}}> Black</label>
         </div>
         <div>
           <input
@@ -115,7 +117,7 @@ export const SidePanel = () => {
             onChange={handleColors}
             checked={color.includes("blue")}
           />
-          <label> Blue</label>
+          <label style={{color:"#646878"}}> Blue</label>
         </div>
         <div>
           <input
@@ -124,7 +126,7 @@ export const SidePanel = () => {
             onChange={handleColors}
             checked={color.includes("grey")}
           />
-          <label> Grey</label>
+          <label style={{color:"#646878"}} > Grey</label>
         </div>
         <div>
           <input
@@ -133,7 +135,7 @@ export const SidePanel = () => {
             onChange={handleColors}
             checked={color.includes("white")}
           />
-          <label> White</label>
+          <label style={{color:"#646878"}}> White</label>
         </div>
         <div>
           <input
@@ -142,7 +144,7 @@ export const SidePanel = () => {
             onChange={handleColors}
             checked={color.includes("red")}
           />
-          <label> Red</label>
+          <label style={{color:"#646878"}} > Red</label>
         </div>
         </Box>
       </VStack>
