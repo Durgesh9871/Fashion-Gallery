@@ -72,6 +72,7 @@ export const ProductCard = ({product ,isLoading}) => {
       })
     }
   }
+  
 
 //   price calculate ------------
 const total = Math.floor(+(realPrice) * 100 )
