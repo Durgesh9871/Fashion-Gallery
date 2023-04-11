@@ -29,10 +29,12 @@ Tech Stack
 
 ## Features
 <ul>
-  <li>Signup</li>
-  <li>Login</li>
-    <li>Sorting</li>
-  <li>Filtering products by category including Men,Women and Kids</li>
+  <li>Chatbot for customer support and query resolution</li>
+  <li>Forgot password and authentication functionality for user accounts</li>
+    <li>Advanced filtering and sorting options for products</li>
+  <li>Pagination to easily navigate through product listings</li>
+    <li>Responsive design for optimal viewing experience across devices</li>
+   <li>As part of my website development expertise, We have designed an intuitive and user-friendly admin panel that offers easy tracking of sales, orders, and statistics. Additionally, I have incorporated functionalities such as pagination, search bar, and the ability to add or delete products, to ensure smooth and efficient management of product listings.</li>
 </ul>
 
 
