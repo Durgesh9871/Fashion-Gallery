@@ -39,7 +39,7 @@ export const CartItem = (props) => {
   };
 
   return (
-    <Flex
+    <Flex borderBottom="2px solid #f5f7fa" p="10px" 
       direction={{
         base: "column",
         md: "row",

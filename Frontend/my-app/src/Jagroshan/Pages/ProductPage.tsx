@@ -3,10 +3,12 @@ import React from "react";
 import { MainPanel } from "../Components/MainPanel";
 import { Pagination } from "../Components/Pagination";
 import { SidePanel } from "../Components/SidePanel";
+import Footer from "../../footer/Footer";
 
 export const ProductPage = () => {
   return (
-    <Box style={{display:"flex" , justifyContent:"space-between"}}    p="10px" >
+    <Box>
+    <Box style={{display:"flex" , justifyContent:"space-between"}}    p="10px"  mb="30px">
       {/* <HStack> */}
         <Box
            width={{base:"20vw",sm: "35vw" , md:"20vw" ,lg: "20vw",xl: "20vw",'2xl': "20vw"}}
@@ -32,5 +34,7 @@ export const ProductPage = () => {
         </Box>
       {/* </HStack> */}
     </Box>
+      <Footer />
+      </Box>
   );
 };
