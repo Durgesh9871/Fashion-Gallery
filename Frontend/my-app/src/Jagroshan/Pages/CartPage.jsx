@@ -13,6 +13,7 @@ import { CartItem } from "../Components/CartItem";
 import { CartOrderSummary } from "../Components/CartOrderSummary";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Footer from "../../footer/Footer";
 
 export const CartPage = () => {
   const [cdata, setcdata] = React.useState([]);
@@ -110,6 +111,7 @@ export const CartPage = () => {
           </Flex>
         </Stack>
       </Box>
+      <Footer />
     </div>
   );
 };
