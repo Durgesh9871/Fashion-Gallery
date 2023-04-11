@@ -6,7 +6,7 @@ import {
   HStack,
   Stack,
   useColorModeValue as mode,
-  VStack,
+  VStack, Text
 } from "@chakra-ui/react";
 // import { cartData } from '../Components/_data'
 import { CartItem } from "../Components/CartItem";
@@ -68,11 +68,11 @@ export const CartPage = () => {
           spacing={{ base: "8", md: "16" }}
         >
           <Stack spacing={{ base: "8", md: "10" }} flex="2">
-            <Heading fontSize="2xl" fontWeight="extrabold">
+            <Text fontSize="24px" fontWeight="500" color="#646878">
               Shopping Cart
-            </Heading>
+            </Text>
 
-            <Stack spacing="6">
+            <Stack spacing="6" border="2px  grey" padding="10px" shadow="md">
               {cdata.length==0 ? (
                 <Box
                   border={"0px"}
@@ -80,6 +80,7 @@ export const CartPage = () => {
                   display={"flex"}
                   alignItems={"center"}
                   justifyContent={"center"}
+                  // border="2px solid red"
                 >
                   <VStack>
                     <Heading size={"md"}>Your Cart is Empty</Heading>
