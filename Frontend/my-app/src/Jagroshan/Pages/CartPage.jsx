@@ -104,9 +104,9 @@ export const CartPage = () => {
             <CartOrderSummary total={total} />
             <HStack mt="6" fontWeight="semibold">
               <p>or</p>
-              <Link to="/products" color={mode("blue.500", "blue.200")}>
-                Continue shopping
-              </Link>
+              <Link to="/products">  <Text color="#4e93f5" fontSize='15px'  fontWeight="500" > Continue shopping</Text> </Link>
+                
+            
             </HStack>
           </Flex>
         </Stack>

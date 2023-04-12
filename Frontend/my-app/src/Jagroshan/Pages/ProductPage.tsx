@@ -31,9 +31,7 @@ export const ProductPage = () => {
           background="#ffff">
           <MainPanel />
 
-          {/*  pagination ------------------ */}
-          <Pagination/>
-          
+         
         </Box>
       {/* </HStack> */}
     </Box>

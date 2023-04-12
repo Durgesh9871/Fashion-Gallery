@@ -17,7 +17,7 @@ const OrderSummaryItem = (props) => {
   const { label, value, children } = props
   return (
     <Flex justify="space-between" fontSize="sm">
-      <Text fontWeight="medium" color={mode('gray.600', 'gray.400')}>
+      <Text fontWeight="500" color={mode('gray.600', 'gray.400')}>
         {label}
       </Text>
       {value ? <Text fontWeight="medium">{value}</Text> : children}
@@ -32,7 +32,7 @@ export const CartOrderSummary = ({total}) => {
 
       <Stack spacing="6">
         <OrderSummaryItem label="Subtotal" value={formatPrice(total)} />
-        <OrderSummaryItem label="Shipping + Tax">
+        <OrderSummaryItem label="Shipping + Tax"  >
           Free
         </OrderSummaryItem>
         <OrderSummaryItem label="Discount">
@@ -47,7 +47,7 @@ export const CartOrderSummary = ({total}) => {
           </Text>
         </Flex>
       </Stack>
-      <Button colorScheme="blue" size="lg" fontSize="md" rightIcon={<AiFillCaretRight />} >
+      <Button colorScheme="blue" size="lg" fontSize="18px" rightIcon={<AiFillCaretRight style={{color:"ffff" , fontSize:"18px"}} /> }  >
         Checkout
       </Button>
     </Stack>
