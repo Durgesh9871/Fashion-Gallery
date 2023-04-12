@@ -33,7 +33,7 @@ export const CartItem = (props) => {
           duration: 3000,
           isClosable: true,
         });
-        settrigger((past)=>!past)
+        settrigger(false)
       })
       .catch((err) => console.log(err));
   };
