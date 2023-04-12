@@ -48,19 +48,30 @@ jagroshan singh<br/>
 
 ## Some screenshots of the project
 
-## Home Page
-<img src="./screenshot/home.png"/>
-
-## Mens Page
-<img src="./screenshot/menspage.png"/>
 
 ## Signup Page
 
 <img src="./screenshot/signup.png"/>
 
-## Admin Page
 
-<img src="./screenshot/admin.png"/>
+## Home Page
+![Screenshot (7)](https://github.com/Durgesh9871/ReadmeImages/blob/main/Fashion_Gallery/Screenshot%20(130).png?raw=true)
+![Screenshot (8)](https://github.com/Durgesh9871/ReadmeImages/blob/main/Fashion_Gallery/Screenshot%20(131).png?raw=true)
+
+
+## Admin Page
+![Screenshot (8)](https://github.com/Durgesh9871/ReadmeImages/blob/main/Fashion_Gallery/Screenshot%20(134).png?raw=true)
+![Screenshot (8)](https://github.com/Durgesh9871/ReadmeImages/blob/main/Fashion_Gallery/Screenshot%20(133).png?raw=true)
+
+
+## Mens Page
+![Screenshot (8)](https://github.com/Durgesh9871/ReadmeImages/blob/main/Fashion_Gallery/Screenshot%20(128).png?raw=true)
+
+
+## Cart Page 
+![Screenshot (8)](https://github.com/Durgesh9871/ReadmeImages/blob/main/Fashion_Gallery/Screenshot%20(132).png?raw=true)
+
+
 
 
 ### Thanks for reading
