@@ -12,7 +12,7 @@ const [paginationData , setPaginationData] = useState([])
 
 //  GET ALL DATA FOR PAGINATION FOR SETTING DISABLE BUTTON 
 const PaginationFunction = ()=>{
-  axios.get(`https://long-pear-giraffe-gown.cyclic.app/api/mens`)
+  axios.get(`${process.env.REACT_APP_URL}/products`)
   .then((res)=> setPaginationData(res.data))
 }
 
