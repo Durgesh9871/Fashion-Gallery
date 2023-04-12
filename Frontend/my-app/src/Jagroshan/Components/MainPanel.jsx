@@ -7,6 +7,7 @@ import axios from "axios";
 import { useLocation, useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import { getProducts } from "../../Redux/Product_Reducer/action";
+import { Pagination } from "./Pagination";
 
 
 export const MainPanel = () => {
@@ -42,6 +43,10 @@ export const MainPanel = () => {
             <ProductCard key={i} product={product} isLoading={isLoading}/>
           ))}
         </ProductGrid>
+
+         {/*  pagination ------------------ */}
+       {product.length !== 0 &&   <Pagination />}
+          
 
       </Box>
     </div>
