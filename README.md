@@ -56,11 +56,15 @@ jagroshan singh<br/>
 
 ## Home Page
 ![Screenshot (7)](https://github.com/Durgesh9871/ReadmeImages/blob/main/Fashion_Gallery/Screenshot%20(130).png?raw=true)
+
+
 ![Screenshot (8)](https://github.com/Durgesh9871/ReadmeImages/blob/main/Fashion_Gallery/Screenshot%20(131).png?raw=true)
 
 
 ## Admin Page
 ![Screenshot (8)](https://github.com/Durgesh9871/ReadmeImages/blob/main/Fashion_Gallery/Screenshot%20(134).png?raw=true)
+
+
 ![Screenshot (8)](https://github.com/Durgesh9871/ReadmeImages/blob/main/Fashion_Gallery/Screenshot%20(133).png?raw=true)
 
 
