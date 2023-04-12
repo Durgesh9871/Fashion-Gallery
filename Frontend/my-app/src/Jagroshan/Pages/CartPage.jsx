@@ -73,7 +73,7 @@ export const CartPage = () => {
               Shopping Cart
             </Text>
 
-            <Stack spacing="6" border="2px  grey" padding="10px" shadow="md" width={{base:"46vw"}}>
+            <Stack spacing="6" border="2px  grey" padding="10px" shadow="md" width={{base:"90%" , sm:"90vw" ,md:"76vw",lg:"60vw",xl:"46vw" , "2xl":"46vw"}}>
               {cdata.length==0 ? (
                 <Box
                   border={"0px"}

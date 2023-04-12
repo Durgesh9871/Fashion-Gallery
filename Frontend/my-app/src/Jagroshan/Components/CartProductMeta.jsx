@@ -14,7 +14,7 @@ export const CartProductMeta = (props) => {
   return (
     <Box border="2px   red" width="50vw" justifyContent="space-between" display="flex">
     <Stack direction="row" spacing="5" width="full">
-      <Box width="100px"  height="100px" padding="5px">
+      <Box width={{base:"80%" , sm:"100px" ,md:"100px",lg:"100px",xl:"100px" , "2xl":"100px"}} height={{base:"80%" , sm:"100px" ,md:"100px",lg:"100px",xl:"100px" , "2xl":"100px"}} padding="5px">
       <Image border="1px  grey"
         width="100%"
         height="100%"
