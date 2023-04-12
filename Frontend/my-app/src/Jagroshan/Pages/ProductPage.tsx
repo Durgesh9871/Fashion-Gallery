@@ -33,6 +33,7 @@ export const ProductPage = () => {
 
           {/*  pagination ------------------ */}
           <Pagination/>
+          
         </Box>
       {/* </HStack> */}
     </Box>
