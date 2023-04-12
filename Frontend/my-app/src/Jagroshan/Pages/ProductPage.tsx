@@ -30,7 +30,9 @@ export const ProductPage = () => {
         <Box width={{base:"100vw",sm: "57vw" , md:"70vw" ,lg: "75vw",xl: "75vw",'2xl': "75vw"}}  border="2px solid  #f0f2f5"   mt="20px"
           background="#ffff">
           <MainPanel />
-          {/* <Pagination/> */}
+
+          {/*  pagination ------------------ */}
+          <Pagination/>
         </Box>
       {/* </HStack> */}
     </Box>
