@@ -9,6 +9,7 @@ import { MainAdminPage } from '../Durgesh_Folder/Pages/MainAdminPage'
 import { MainHomePage } from '../Durgesh_Folder/Pages/MainHomePage' ; 
 import { CartPage } from '../Jagroshan/Pages/CartPage'
 import { ProductPage } from '../Jagroshan/Pages/ProductPage'
+import { OrderPage } from '../Durgesh_Folder/Admin_Pages/OrderPage'
 
 
 const AllRoutes = () => {
@@ -19,6 +20,7 @@ const AllRoutes = () => {
       <Route path="/customerPageAdmin" element={<CustomerPage />}></Route>
       <Route path="/deltePageAdmin" element={<DeletePage />}></Route>
       <Route path="/addPageAdmin" element={<AddProduct />}></Route>
+      <Route path="/orderPageAdmin" element={<OrderPage />}></Route>
       <Route path="/stat" element={<Stats />}></Route>
       <Route path="/products" element={<ProductPage/>}/>
       <Route path="/cart" element={<CartPage/>}/>
