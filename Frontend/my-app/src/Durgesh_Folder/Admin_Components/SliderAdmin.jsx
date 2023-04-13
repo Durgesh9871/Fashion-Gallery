@@ -24,7 +24,7 @@ const Sidebar = () => {
        <Box background="#171923" height="10vh"  borderBottom="1px  white" display="flex" justifyContent="space-between" alignItems="center" padding="0px 6%" >
       
        <Box display={{ base: "block", sm: "block", md: "block", lg: "block" , xl:  "none" , '2xl': "none" }}>
-        <Menu  >
+        {/* <Menu  >
   {({ isOpen }) => (
     <> 
     <Box display="flex" alignItems="center">
@@ -40,7 +40,7 @@ const Sidebar = () => {
       
     </>
   )}
-</Menu>
+</Menu> */}
 </Box>  
 
 {/*  This Box for empty space ------------ */}
