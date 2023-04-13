@@ -5,7 +5,7 @@ import axios from "axios"
 
 const getDataProduct = (dispatch)=>{
         dispatch({type:GETPRODUCTLAPTOPDATA_REQUEST}) 
-        return axios.get(`https://joyous-tick-sweatsuit.cyclic.app/products`)
+        return axios.get(`${process.env.REACT_APP_URL}/products`)
         .then((res)=> dispatch({type:GETPRODUCTLAPTOPDATA_SUCCESS , payload:res.data})) 
         .catch(()=> dispatch({type:GETPRODUCTLAPTOPDATA_FAILURE}))
 }
@@ -15,8 +15,8 @@ const getDataProduct = (dispatch)=>{
 
 const DeleteProductData =(id)=> (dispatch)=>{
         dispatch({type:"GET_DELETE_REQUEST"}) 
-        return axios.delete(`https://joyous-tick-sweatsuit.cyclic.app/products/${id}`)
-        .then((res)=> dispatch(getDataProduct)) 
+        return axios.delete(`${process.env.REACT_APP_URL}/products/${id}`)
+        .then((res)=> dispatch(getDataProduct) ) 
         .catch((err)=> console.log(err , "Error in Deleting the data") )
 }
 
@@ -24,7 +24,7 @@ const DeleteProductData =(id)=> (dispatch)=>{
 
 const sendProductData = (data)=>(dispatch)=>{
         dispatch({type:"SEND_PRODUCT_REQUEST"})
-        return axios.post(`https://joyous-tick-sweatsuit.cyclic.app/products` , data)
+        return axios.post(`${process.env.REACT_APP_URL}/products` , data)
         .then()
         .catch((err)=>console.log(err , "ERROR IN DATA SENDING"))
 }
