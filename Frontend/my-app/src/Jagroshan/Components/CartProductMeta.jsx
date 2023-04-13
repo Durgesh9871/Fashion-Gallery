@@ -12,7 +12,7 @@ import {
 export const CartProductMeta = (props) => {
   const {image, name, title } = props
   return (
-    <Box border="2px   red" width="50vw" justifyContent="space-between" display="flex">
+    <Box border="2px   red" width={{base:"65vw" , sm:"50vw" ,md:"50vw",lg:"50vw",xl:"50vw" , "2xl":"50vw"}} justifyContent="space-between" display="flex">
     <Stack direction="row" spacing="5" width="full">
       <Box width={{base:"80%" , sm:"100px" ,md:"100px",lg:"100px",xl:"100px" , "2xl":"100px"}} height={{base:"80%" , sm:"100px" ,md:"100px",lg:"100px",xl:"100px" , "2xl":"100px"}} padding="5px">
       <Image border="1px  grey"
