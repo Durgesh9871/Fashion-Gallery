@@ -81,7 +81,7 @@ const view = {
     </Box>
 
 {/* for update products ------------- second box --- */}
-    <Box border="1px  yellow" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
+    <Box border="1px solid white" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
      
     <Text style={style}>Update Products</Text> 
     <Text style={secondStyle}>34</Text> 
@@ -124,7 +124,7 @@ const view = {
 
 
 {/*  last one --------------------- */}
-    <Box border="1px solid yellow" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
+    <Box border="1px solid white" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
   
     <Text style={style}>Order Details</Text> 
     <Text style={secondStyle}>& Status...</Text> 
