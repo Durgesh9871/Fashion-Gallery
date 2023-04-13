@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {AiFillDelete, AiFillHome, AiOutlineCaretDown} from "react-icons/ai";
 import {HiShoppingCart} from "react-icons/hi"
-import {FaUserAlt} from "react-icons/fa"
+import {FaSellsy, FaUserAlt} from "react-icons/fa"
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Box, Menu, MenuButton, MenuItem, MenuList, Text , Button  , Image} from "@chakra-ui/react";
@@ -81,7 +81,9 @@ const Sidebar = () => {
           <Link to="/customerPageAdmin"> <SidebarLink> <FaUserAlt style={{marginRight:"6px"}}  /> Customers</SidebarLink> </Link>
           <Link to="/addPageAdmin"> <SidebarLink> <HiShoppingCart style={{marginRight:"6px"}}  /> Add Products</SidebarLink> </Link>
           <Link to="/deltePageAdmin"> <SidebarLink> <AiFillDelete style={{marginRight:"6px"}}  /> Delete Products</SidebarLink> </Link>
+          <Link to="/orderPageAdmin"> <SidebarLink> <FaSellsy style={{marginRight:"6px"}}  /> Order Details</SidebarLink> </Link>
           <Link to="/stat"> <SidebarLink> <GoGraph style={{marginRight:"6px"}}  /> Statistics</SidebarLink> </Link>
+
 
 
           
