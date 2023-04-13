@@ -45,9 +45,9 @@ const CustomerPage = () => {
       <Sidebar />
 
       {/*  Customer Page Started from here --------- */}
-      <Box background="#171923" height="100%">
+      <Box background="#171923" height="100%" mt='-50px'>
         {/*  Main box of customer  */}
-        <Box
+        <Box 
           width={{
             base: "100%",
             sm: "100%",
