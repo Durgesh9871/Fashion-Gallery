@@ -56,10 +56,10 @@ const view = {
    <Box backgroundColor="#171923" border="2px   red" height="100vh">
        
        {/*  Started from here ------- */}
-   <Box width={{ base: "100%", sm: "100%", md: "100%", lg: "100%", xl: "81%", '2xl': "81%" }} border="1px   red" height="500px" marginLeft="auto" padding="20px" mt="-60px" >
+   <Box width={{ base: "100%", sm: "100%", md: "100%", lg: "100%", xl: "81%", '2xl': "81%" }} border="1px   white" height="500px" marginLeft="auto" padding="20px" mt="-60px" >
      <Text color="#ffffff" textAlign="center" fontSize="29px" fontWeight={500} >Admin <span style={{color:"greenyellow"}}>Dashboard</span></Text>
    
-   <Box background="#2e2e2e" width="100%" height="150px" mt="30px" p="10px" >
+   <Box background="#2e2e2e" width="100%" height="150px" mt="30px" p="10px" border="1px  white" borderRadius="10px" >
     <Text textAlign="center" fontWeight={500} color="greenyellow" fontSize="40px" >Total Sale</Text>
        <Text textAlign="center" fontWeight={500} color="black" fontSize="38px">$ 500</Text>
    </Box>
@@ -68,7 +68,7 @@ const view = {
    <Box border="1px  red" display="flex" justifyContent="space-between" mt="30px">
 
 {/*  for customers --- first box  */}
-    <Box border="1px  yellow"  background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px"> 
+    <Box border="1px solid  white"  background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px"> 
     <Text style={style}>Customers</Text> 
     <Text style={secondStyle}>34</Text> 
 
