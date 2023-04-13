@@ -95,12 +95,6 @@ const view = {
       <AiFillCaretRight style={{color:"lightgreen"  , fontSize:"20px"}} />
       </Box></Link>
 
-       {/* for edit products  */}
-     {/* <Box display="flex" alignItems="center">
-      <Text style={view}>Edit</Text>
-      <AiFillCaretRight style={{color:"#ffff"  , fontSize:"20px"}} />
-      </Box> */}
-
 
        {/* for Delete products  */}
        <Link to="/deltePageAdmin"><Box display="flex" alignItems="center" cursor="pointer">
@@ -130,8 +124,22 @@ const view = {
 
 
 {/*  last one --------------------- */}
-    {/* <Box border="1px solid yellow" height="170px" width="280px" >1</Box> */}
+    <Box border="1px solid yellow" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
+  
+    <Text style={style}>Order Details</Text> 
+    <Text style={secondStyle}>& Status...</Text> 
 
+      <Divider orientation='horizontal' style={{margin:"10px 0px" }}  />
+  <Link to="/stat">  <Box display="flex" justifyContent="space-between" alignItems="center" cursor="pointer">
+      <Text style={view}>View Details</Text>
+      <AiFillCaretRight style={{color:"#ffff"  , fontSize:"20px"}} />
+    </Box> </Link>
+
+    </Box>
+   
+    
+
+   {/* four box end here ------- */}
    </Box>
   
      
