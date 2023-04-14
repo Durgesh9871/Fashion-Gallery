@@ -5,8 +5,8 @@ import axios from 'axios'
 
 export const Pagination = ({handleNextPage ,handlePreviosPage,pagePre ,pageNext ,page ,nextPageDisable}) => {
 
-
   // console.log(nextPageDisable)
+
 
   return (
     <Box style={{display:"flex" }}  padding="60px 0px" justifyContent={{base:"center" , sm:"right" , md:"right" ,lg:"right" , xl:"right" , "2xl" :"right"}} >
