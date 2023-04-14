@@ -38,7 +38,7 @@ const Search = () => {
 		}
 	})   
 
-	
+
   const dispatch = useDispatch()
 	useEffect(() => {
 		PaginationFunction()
@@ -46,6 +46,23 @@ const Search = () => {
 	}, []);
    
 	// console.log(post)
+
+	 //  pagination --
+	 const handleNextPage = (data)=>{
+		setPageNext(true)
+		setPage(page+data)
+		setTimeout(()=>{
+		  setPageNext(false)
+		},400)
+		
+	   }
+	   const handlePreviosPage = (data)=>{
+		setPagePre(true)
+		setPage(page+data)
+		setTimeout(()=>{
+		  setPagePre(false)
+		},400)
+	   }
 	
 	return (
 		<Box className="" display="block">
