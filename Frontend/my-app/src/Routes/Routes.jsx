@@ -10,6 +10,10 @@ import { MainHomePage } from '../Durgesh_Folder/Pages/MainHomePage' ;
 import { CartPage } from '../Jagroshan/Pages/CartPage'
 import { ProductPage } from '../Jagroshan/Pages/ProductPage'
 import { OrderPage } from '../Durgesh_Folder/Admin_Pages/OrderPage'
+import CheckoutPage from '../Jagroshan/Pages/CheckoutPage'
+import PaymentsPage from '../Jagroshan/Pages/PaymentsPage'
+import SuccessPayment from '../Jagroshan/Pages/SuccessPayment'
+import LoaderPage from '../Jagroshan/Pages/LoaderPage'
 
 
 const AllRoutes = () => {
@@ -24,6 +28,10 @@ const AllRoutes = () => {
       <Route path="/stat" element={<Stats />}></Route>
       <Route path="/products" element={<ProductPage/>}/>
       <Route path="/cart" element={<CartPage/>}/>
+      <Route path="/checkout" element={<CheckoutPage/>}/>
+      <Route path="/payment" element={<PaymentsPage/>}/>
+      <Route path="/loader" element={<LoaderPage/>}/>
+      <Route path="/successPayment" element={<SuccessPayment/>}/>
     </Routes>
 
   )

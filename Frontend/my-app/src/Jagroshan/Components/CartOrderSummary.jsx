@@ -26,6 +26,9 @@ const OrderSummaryItem = (props) => {
 }
 
 export const CartOrderSummary = ({total}) => {
+  const handleCheckout=()=>{
+    localStorage.setItem('purchase',total)
+  }
   return (
     <Stack spacing="8" borderWidth="1px" rounded="lg" padding="8" width="full" shadow="md">
       <Heading fontSize="22px" fontWeight="600" color="#303030" >Order Summary</Heading>
@@ -47,7 +50,7 @@ export const CartOrderSummary = ({total}) => {
           </Text>
         </Flex>
       </Stack>
-      <Button colorScheme="blue" size="lg" fontSize="18px" rightIcon={<AiFillCaretRight style={{color:"ffff" , fontSize:"18px"}} /> }  >
+      <Button colorScheme="blue" size="lg" fontSize="18px" rightIcon={<AiFillCaretRight style={{color:"ffff" , fontSize:"18px"}} onClick={handleCheckout}/> }  >
         Checkout
       </Button>
     </Stack>
