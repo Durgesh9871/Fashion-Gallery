@@ -8,11 +8,6 @@ export const Pagination = ({handleNextPage ,handlePreviosPage,pagePre ,pageNext 
 
 
 
-
-
-
-
-
   return (
     <Box style={{display:"flex" }}  padding="60px 0px" justifyContent={{base:"center" , sm:"right" , md:"right" ,lg:"right" , xl:"right" , "2xl" :"right"}} >
 
