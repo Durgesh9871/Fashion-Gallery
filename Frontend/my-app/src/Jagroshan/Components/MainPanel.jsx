@@ -26,7 +26,12 @@ const [paginationData , setPaginationData] = useState([])
 
 //  GET ALL DATA FOR PAGINATION FOR SETTING DISABLE BUTTON 
 const PaginationFunction = (objParams)=>{
-  axios.get(`${process.env.REACT_APP_URL}/products` ,objParams)
+  // objParams
+  axios({
+    method:'get',
+    url:`${process.env.REACT_APP_URL}/products`,
+    params:objParams
+})
   .then((res)=> setPaginationData(res.data))
 }
 
@@ -43,8 +48,8 @@ const nextPageDisable = Math.ceil(paginationData.length/8)
       order: order,
       price: price
     };
-    dispatch(getProducts(objParams , page))
     PaginationFunction(objParams)
+    dispatch(getProducts(objParams , page))
   }, [location.search , page]);
 
   // console.log(product ,"product")
