@@ -7,26 +7,63 @@ import { SearchIcon } from '@chakra-ui/icons';
 import { LoadingIndicator } from './LoadingIndicator';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDataProduct } from '../../Redux/Laptop_reducer/action';
+import { Pagination } from '../../Jagroshan/Components/Pagination';
 
 
 const Search = () => {
-	// const [loading, setLoading] = useState(false);
-	// const [post, setPost] = useState([]);
 	const [searchTitle, setSearchTitle] = useState('');
-    
-	const {isError ,loading,post} = useSelector((state) => {
-		return {
-			loading: state.LaptopReducer.loading ,
+
+	 //  pagination 
+	 const [page , setPage] = useState(1)
+	 const [pageNext , setPageNext] = useState(false)
+   const [pagePre , setPagePre] = useState(false)
+   const [paginationData , setPaginationData] = useState([])
+
+
+   const PaginationFunction = ()=>{
+	axios({
+	  method:'get',
+	  url:`${process.env.REACT_APP_URL}/products`,
+  })
+	.then((res)=> setPaginationData(res.data))
+  }
+  
+  const nextPageDisable = Math.ceil(paginationData.length/8)
+  
+  const {isError ,loading,post} = useSelector((state) => {
+	  return {
+		  loading: state.LaptopReducer.loading ,
 		  post:state.LaptopReducer.post ,
 		  isError :state.LaptopReducer.isError ,
 		}
 	})   
-  const dispatch = useDispatch()
+	
+	
+	const dispatch = useDispatch()
+	
 	useEffect(() => {
-	    dispatch(getDataProduct)
-	}, []);
+		PaginationFunction()
+		dispatch(getDataProduct(page))
+	}, [page]);
    
 	// console.log(post)
+
+	 //  pagination --
+	 const handleNextPage = (data)=>{
+		setPageNext(true)
+		setPage(page+data)
+		setTimeout(()=>{
+		  setPageNext(false)
+		},400)
+		
+	   }
+	   const handlePreviosPage = (data)=>{
+		setPagePre(true)
+		setPage(page+data)
+		setTimeout(()=>{
+		  setPagePre(false)
+		},400)
+	   }
 	
 	return (
 		<Box className="" display="block">
@@ -75,7 +112,7 @@ const Search = () => {
 								}
 							})
 							.map((item) => {
-								console.log(item)
+								// console.log(item)
 								return (
 										<DisplayProductMainData
 											key={item._id}
@@ -96,6 +133,7 @@ const Search = () => {
 				</SimpleGrid>
 				
 			</Box>
+			<Pagination handleNextPage={handleNextPage} handlePreviosPage={handlePreviosPage} page={page} pageNext={pageNext} pagePre={pagePre} nextPageDisable={nextPageDisable} /> 
 		</Box>
 	);
 };

@@ -1,5 +1,5 @@
 import { Box, Heading, Skeleton } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import { ProductCard } from "./ProductCard";
 import { ProductGrid } from "./ProductGrid";
 import { products } from "./_data";
@@ -16,7 +16,28 @@ export const MainPanel = () => {
   // console.log(product)
   const [searchParams] = useSearchParams();
   const location = useLocation();
-  const pro=[1,2,3,4,5,1,2,3,4,5,1,2,3,4,5]
+
+  //  pagination 
+  const [page , setPage] = useState(1)
+  const [pageNext , setPageNext] = useState(false)
+const [pagePre , setPagePre] = useState(false)
+const [paginationData , setPaginationData] = useState([])
+
+
+//  GET ALL DATA FOR PAGINATION FOR SETTING DISABLE BUTTON 
+const PaginationFunction = (objParams)=>{
+  // objParams
+  axios({
+    method:'get',
+    url:`${process.env.REACT_APP_URL}/products`,
+    params:objParams
+})
+  .then((res)=> setPaginationData(res.data))
+}
+
+const nextPageDisable = Math.ceil(paginationData.length/8)
+
+
 
   React.useEffect(() => {
     let order = searchParams.get("order");
@@ -27,10 +48,30 @@ export const MainPanel = () => {
       order: order,
       price: price
     };
-    dispatch(getProducts(objParams))
-  }, [location.search]);
+    PaginationFunction(objParams)
+    dispatch(getProducts(objParams , page))
+  }, [location.search , page]);
 
   // console.log(product ,"product")
+  //  pagination --
+  const handleNextPage = (data)=>{
+    setPageNext(true)
+    setPage(page+data)
+    setTimeout(()=>{
+      setPageNext(false)
+    },400)
+    
+   }
+   const handlePreviosPage = (data)=>{
+    setPagePre(true)
+    setPage(page+data)
+    setTimeout(()=>{
+      setPagePre(false)
+    },400)
+   }
+
+
+
   return (
     <div>
       <Box
@@ -47,7 +88,7 @@ export const MainPanel = () => {
         </ProductGrid>
 
          {/*  pagination ------------------ */}
-       {product.length !== 0 &&   <Pagination />}
+       {product.length !== 0 &&   <Pagination  handleNextPage={handleNextPage} handlePreviosPage={handlePreviosPage} page={page} pageNext={pageNext} pagePre={pagePre} nextPageDisable={nextPageDisable} />}
           
 
       </Box>

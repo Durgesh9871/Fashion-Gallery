@@ -15,11 +15,11 @@ function getProductFailure(){
 
 export {getProductFailure,getProductRequest,getProductSuccess}
 
-export const getProducts=(objParams)=>(dispatch)=>{
+export const getProducts=(objParams , page)=>(dispatch)=>{
     dispatch(getProductRequest())
     axios({
         method:'get',
-        url:`${process.env.REACT_APP_URL}/products`,
+        url:`${process.env.REACT_APP_URL}/products?page=${page}&limit=8`,
         params:objParams
     })
     .then((res)=>{
