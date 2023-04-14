@@ -7,12 +7,19 @@ import { SearchIcon } from '@chakra-ui/icons';
 import { LoadingIndicator } from './LoadingIndicator';
 import { useDispatch, useSelector } from 'react-redux';
 import { getDataProduct } from '../../Redux/Laptop_reducer/action';
+import { Pagination } from '../../Jagroshan/Components/Pagination';
 
 
 const Search = () => {
-	// const [loading, setLoading] = useState(false);
-	// const [post, setPost] = useState([]);
 	const [searchTitle, setSearchTitle] = useState('');
+
+	 //  pagination 
+	 const [page , setPage] = useState(1)
+	 const [pageNext , setPageNext] = useState(false)
+   const [pagePre , setPagePre] = useState(false)
+   const [paginationData , setPaginationData] = useState([])
+
+   
     
 	const {isError ,loading,post} = useSelector((state) => {
 		return {
@@ -96,6 +103,7 @@ const Search = () => {
 				</SimpleGrid>
 				
 			</Box>
+			<Pagination />
 		</Box>
 	);
 };
