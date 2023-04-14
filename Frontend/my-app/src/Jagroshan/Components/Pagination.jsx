@@ -3,25 +3,14 @@ import { Box, Button, Heading, HStack , Text } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
-export const Pagination = ({handleNextPage ,handlePreviosPage,pagePre ,pageNext ,page}) => {
-const [paginationData , setPaginationData] = useState([])
-
-
-//  GET ALL DATA FOR PAGINATION FOR SETTING DISABLE BUTTON 
-const PaginationFunction = (props)=>{
-  axios.get(`${process.env.REACT_APP_URL}/products`)
-  .then((res)=> setPaginationData(res.data))
-}
-
-useEffect(()=>{
-  PaginationFunction()
-},[])
-  
+export const Pagination = ({handleNextPage ,handlePreviosPage,pagePre ,pageNext ,page ,nextPageDisable}) => {
 
 
 
 
- const nextPageDisable = Math.ceil(paginationData.length/9)
+
+
+
 
 
   return (

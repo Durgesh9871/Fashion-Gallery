@@ -21,6 +21,16 @@ export const MainPanel = () => {
   const [page , setPage] = useState(1)
   const [pageNext , setPageNext] = useState(false)
 const [pagePre , setPagePre] = useState(false)
+const [paginationData , setPaginationData] = useState([])
+
+
+//  GET ALL DATA FOR PAGINATION FOR SETTING DISABLE BUTTON 
+const PaginationFunction = (objParams)=>{
+  axios.get(`${process.env.REACT_APP_URL}/products` ,objParams)
+  .then((res)=> setPaginationData(res.data))
+}
+
+const nextPageDisable = Math.ceil(paginationData.length/8)
 
 
 
@@ -34,6 +44,7 @@ const [pagePre , setPagePre] = useState(false)
       price: price
     };
     dispatch(getProducts(objParams , page))
+    PaginationFunction(objParams)
   }, [location.search , page]);
 
   // console.log(product ,"product")
@@ -72,7 +83,7 @@ const [pagePre , setPagePre] = useState(false)
         </ProductGrid>
 
          {/*  pagination ------------------ */}
-       {product.length !== 0 &&   <Pagination  handleNextPage={handleNextPage} handlePreviosPage={handlePreviosPage} page={page} pageNext={pageNext} pagePre={pagePre} />}
+       {product.length !== 0 &&   <Pagination  handleNextPage={handleNextPage} handlePreviosPage={handlePreviosPage} page={page} pageNext={pageNext} pagePre={pagePre} nextPageDisable={nextPageDisable} />}
           
 
       </Box>
