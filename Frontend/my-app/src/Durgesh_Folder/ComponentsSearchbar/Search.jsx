@@ -19,7 +19,16 @@ const Search = () => {
    const [pagePre , setPagePre] = useState(false)
    const [paginationData , setPaginationData] = useState([])
 
-   
+
+   const PaginationFunction = ()=>{
+	axios({
+	  method:'get',
+	  url:`${process.env.REACT_APP_URL}/products`,
+  })
+	.then((res)=> setPaginationData(res.data))
+  }
+  
+  const nextPageDisable = Math.ceil(paginationData.length/8)
     
 	const {isError ,loading,post} = useSelector((state) => {
 		return {
@@ -28,8 +37,11 @@ const Search = () => {
 		  isError :state.LaptopReducer.isError ,
 		}
 	})   
+
+	
   const dispatch = useDispatch()
 	useEffect(() => {
+		PaginationFunction()
 	    dispatch(getDataProduct)
 	}, []);
    
