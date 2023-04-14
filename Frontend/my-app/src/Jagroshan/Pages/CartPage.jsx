@@ -26,53 +26,53 @@ export const CartPage = () => {
 
 
   // jagroshan code -------------
-  React.useEffect(() => {
-    axios({
-      method: "GET",
-      url: `${process.env.REACT_APP_URL}/carts/usercart`,
-      headers: {
-        authorization: JSON.parse(localStorage.getItem("token")),
-      },
-    })
-      .then((res) =>{ 
-        setcdata([])
-        settotal(0)
-        if(res.data!='No items in your cart')
-        {
-        res.data.map((each)=>{
-          axios({
-            method: "GET",
-            url: `${process.env.REACT_APP_URL}/products/findit`,
-            headers: {
-              authorization: JSON.parse(localStorage.getItem("token")),
-              productId:each.productId,
-            },
-          })
-            .then((res) => {
-              setcdata((prev)=>[...prev,res.data])
-              settotal((pre) => pre + res.data.price);
-            })
-            .catch((err) => console.log(err));
-        })
-      }
-      })
-      .catch((err) => console.log(err));
-  }, [trigger]);
+  // React.useEffect(() => {
+  //   axios({
+  //     method: "GET",
+  //     url: `${process.env.REACT_APP_URL}/carts/usercart`,
+  //     headers: {
+  //       authorization: JSON.parse(localStorage.getItem("token")),
+  //     },
+  //   })
+  //     .then((res) =>{ 
+  //       setcdata([])
+  //       settotal(0)
+  //       if(res.data!='No items in your cart')
+  //       {
+  //       res.data.map((each)=>{
+  //         axios({
+  //           method: "GET",
+  //           url: `${process.env.REACT_APP_URL}/products/findit`,
+  //           headers: {
+  //             authorization: JSON.parse(localStorage.getItem("token")),
+  //             productId:each.productId,
+  //           },
+  //         })
+  //           .then((res) => {
+  //             setcdata((prev)=>[...prev,res.data])
+  //             settotal((pre) => pre + res.data.price);
+  //           })
+  //           .catch((err) => console.log(err));
+  //       })
+  //     }
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, [trigger]);
 
   // Durgesh code
-  //  const getCartData = () =>{
-  //   axios.get(`${process.env.REACT_APP_URL}/carts/usercart` , {
-  //     headers: {
-  //             authorization: JSON.parse(localStorage.getItem("token")),
-  //           }
-  //   })
-  //   .then((res)=> setCartData(res.data))
-  //  }
-  //  console.log(cartData , "cartData")
+   const getCartData = () =>{
+    axios.get(`${process.env.REACT_APP_URL}/cart/` , {
+      headers: {
+              authorization: JSON.parse(localStorage.getItem("token")),
+            }
+    })
+    .then((res)=> setCartData(res.data))
+   }
+   console.log(cartData , "cartData")
 
-  //  useEffect(()=>{
-  //   getCartData()
-  //  },[])
+   useEffect(()=>{
+    getCartData()
+   },[])
 
   
   return (

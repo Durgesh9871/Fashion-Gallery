@@ -29,6 +29,8 @@ export const MainPanel = () => {
     };
     dispatch(getProducts(objParams))
   }, [location.search]);
+
+  // console.log(product ,"product")
   return (
     <div>
       <Box
