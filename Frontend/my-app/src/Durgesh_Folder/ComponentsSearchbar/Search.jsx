@@ -27,6 +27,7 @@ const Search = () => {
   })
 	.then((res)=> setPaginationData(res.data))
   }
+  PaginationFunction()
   
   const nextPageDisable = Math.ceil(paginationData.length/8)
     
@@ -41,9 +42,8 @@ const Search = () => {
 
   const dispatch = useDispatch()
 	useEffect(() => {
-		PaginationFunction()
-	    dispatch(getDataProduct)
-	}, []);
+	    dispatch(getDataProduct(page))
+	}, [page]);
    
 	// console.log(post)
 
@@ -132,7 +132,7 @@ const Search = () => {
 				</SimpleGrid>
 				
 			</Box>
-			<Pagination />
+			<Pagination handleNextPage={handleNextPage} handlePreviosPage={handlePreviosPage} page={page} pageNext={pageNext} pagePre={pagePre} nextPageDisable={nextPageDisable} /> 
 		</Box>
 	);
 };

@@ -3,9 +3,9 @@ import {GETPRODUCTLAPTOPDATA_REQUEST ,GETPRODUCTLAPTOPDATA_SUCCESS,GETPRODUCTLAP
 import axios from "axios"
 
 
-const getDataProduct = (dispatch)=>{
+const getDataProduct = (page)=>(dispatch)=>{
         dispatch({type:GETPRODUCTLAPTOPDATA_REQUEST}) 
-        return axios.get(`${process.env.REACT_APP_URL}/products?page=1&limit=8`)
+        return axios.get(`${process.env.REACT_APP_URL}/products?page=${page}&limit=8`)
         .then((res)=> dispatch({type:GETPRODUCTLAPTOPDATA_SUCCESS , payload:res.data})) 
         .catch(()=> dispatch({type:GETPRODUCTLAPTOPDATA_FAILURE}))
 }
