@@ -27,22 +27,23 @@ const Search = () => {
   })
 	.then((res)=> setPaginationData(res.data))
   }
-  PaginationFunction()
   
   const nextPageDisable = Math.ceil(paginationData.length/8)
-    
-	const {isError ,loading,post} = useSelector((state) => {
-		return {
-			loading: state.LaptopReducer.loading ,
+  
+  const {isError ,loading,post} = useSelector((state) => {
+	  return {
+		  loading: state.LaptopReducer.loading ,
 		  post:state.LaptopReducer.post ,
 		  isError :state.LaptopReducer.isError ,
 		}
 	})   
-
-
-  const dispatch = useDispatch()
+	
+	
+	const dispatch = useDispatch()
+	
 	useEffect(() => {
-	    dispatch(getDataProduct(page))
+		PaginationFunction()
+		dispatch(getDataProduct(page))
 	}, [page]);
    
 	// console.log(post)
@@ -111,7 +112,7 @@ const Search = () => {
 								}
 							})
 							.map((item) => {
-								console.log(item)
+								// console.log(item)
 								return (
 										<DisplayProductMainData
 											key={item._id}
