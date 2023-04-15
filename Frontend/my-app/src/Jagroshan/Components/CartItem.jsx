@@ -18,7 +18,7 @@ export const CartItem = (props) => {
   // console.log(props)
   const {_id} = props
   let { brand, title, mainImage, price, settrigger } = props.productId ;
-console.log(props , "props")
+// console.log(props , "props")
 
   const onClickDelete = (_id) => {
     // console.log(_id , "id")
