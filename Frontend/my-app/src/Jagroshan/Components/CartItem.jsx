@@ -25,7 +25,6 @@ export const CartItem = (props) => {
  const dispatch = useDispatch()
 
   const onClickDelete = (_id) => {
-    // console.log(_id , "id")
     // axios({
     //   method: "DELETE",
     //   url: `${process.env.REACT_APP_URL}/cart/${_id}`,

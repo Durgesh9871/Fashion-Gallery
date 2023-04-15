@@ -14,7 +14,11 @@ const getCartData = (dispatch)=>{
 
 //  delete cart request -----------------
 const getCartDelete = (id)=>(dispatch)=>{
-    axios.delete(`${process.env.REACT_APP_URL}/cart/${id}`)
+    axios.delete(`${process.env.REACT_APP_URL}/cart/${id}` ,{
+        headers: {
+                authorization: JSON.parse(localStorage.getItem("token")),
+              }
+    })
     .then((res)=>  dispatch(getCartData))
 
 }
