@@ -12,15 +12,19 @@ import { CartProductMeta } from "./CartProductMeta";
 import axios from "axios";
 import React from "react";
 
+
 export const CartItem = (props) => {
   const toast = useToast();
   // console.log(props)
-  let { brand, title, mainImage, price, _id, settrigger } = props;
+  const {_id} = props
+  let { brand, title, mainImage, price, settrigger } = props.productId ;
+console.log(props , "props")
 
   const onClickDelete = () => {
+    // console.log(_id , "id")
     axios({
       method: "DELETE",
-      url: `${process.env.REACT_APP_URL}/carts/delete/${_id}`,
+      url: `${process.env.REACT_APP_URL}/cart/${_id}`,
       headers: {
         authorization: JSON.parse(localStorage.getItem("token")),
       },

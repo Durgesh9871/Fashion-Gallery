@@ -63,18 +63,18 @@ export const CartPage = () => {
    const getCartData = () =>{
     axios({
           method: "GET",
-          url: `${process.env.REACT_APP_URL}/alluser/`,
+          url: `${process.env.REACT_APP_URL}/cart`,
           headers: {
             authorization: JSON.parse(localStorage.getItem("token")),
           },
         })
     .then((res)=> setCartData(res.data))
    }
-   console.log(cartData , "cartData")
+  //  console.log(cartData , "cartData")
 
    useEffect(()=>{
     getCartData()
-   },[])
+   },[trigger])
 
   
   return (
@@ -96,7 +96,7 @@ export const CartPage = () => {
             </Text>
 
             <Stack spacing="6" border="2px  grey" padding="10px" shadow="md" width={{base:"90%" , sm:"90vw" ,md:"76vw",lg:"60vw",xl:"46vw" , "2xl":"46vw"}}>
-              {cdata.length==0 ? (
+              {cartData.length==0 ? (
                 <Box
                   border={"0px"}
                   height={"50vh"}
@@ -114,8 +114,9 @@ export const CartPage = () => {
                 </Box>
               ) : 
               (
-                cdata.map((item,index)=>
-                <CartItem key={index} {...item} settrigger={settrigger}/>
+                cartData.map((item,index)=>
+                //  console.log('hello')
+                <CartItem key={index} {...item} settrigger={settrigger} />
                 )
               )
               }

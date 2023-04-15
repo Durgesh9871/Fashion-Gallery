@@ -85,7 +85,7 @@ const Reg = ({ page, setPage }) => {
     setLoad(true);
     try {
       // logic for regester api
-      await axios.post(`${process.env.REACT_APP_URL}/users/register`, {
+      await axios.post(`${process.env.REACT_APP_URL}/user/register`, {
         name,
         email,
         password: pwd,

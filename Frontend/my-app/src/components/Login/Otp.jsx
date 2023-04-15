@@ -44,7 +44,7 @@ const OtpPage = ({ page, setPage, onClose, setForgotPage, setOtpComp }) => {
     setOtpLoad(true)
     try {
       const res = await axios.post(
-        `${process.env.REACT_APP_URL}/users/sendOtp`,
+        `${process.env.REACT_APP_URL}/user/sendOtp`,
         {
           email: data.email,
         }
@@ -84,7 +84,7 @@ const OtpPage = ({ page, setPage, onClose, setForgotPage, setOtpComp }) => {
     console.log(otp);
     try {
       const res = await axios.post(
-        `${process.env.REACT_APP_URL}/users/verifyOtp`,
+        `${process.env.REACT_APP_URL}/user/verifyOtp`,
         data
       );
       console.log(res);

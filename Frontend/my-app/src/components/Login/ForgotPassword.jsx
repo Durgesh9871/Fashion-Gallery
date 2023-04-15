@@ -29,7 +29,7 @@ const ForgotPassword = ({ page, setPage, onClose,setForgotPage }) => {
   const handleForgotPass = async() => {
     setLoad(true)
     try{
-      let res=await axios.post(`${process.env.REACT_APP_URL}/users/sendOtp`,{
+      let res=await axios.post(`${process.env.REACT_APP_URL}/user/sendOtp`,{
         email
       })
       setLoad(false)

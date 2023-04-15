@@ -62,7 +62,7 @@ const NewPassword = ({
     setLoad(true);
     try {
       let res = await axios.post(
-        `${process.env.REACT_APP_URL}/users/updatePassword`,
+        `${process.env.REACT_APP_URL}/user/updatePassword`,
         {
           email: data.email,
           newPassword: pwd,
