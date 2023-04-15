@@ -19,7 +19,6 @@ import { getCartData } from "../../Redux/Cart_Reducer/action";
 
 export const CartPage = () => {
   const [total, settotal] = React.useState(0);
-  // console.log(total)
   const [trigger,settrigger]=React.useState(true)
 
   
