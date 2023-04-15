@@ -46,7 +46,7 @@ export const ProductCard = ({product ,isLoading}) => {
     {
     axios({
       method: "POST",
-      url: `${process.env.REACT_APP_URL}/carts/add`,
+      url: `${process.env.REACT_APP_URL}/cart`,
       data: {productId:_id,userId:JSON.parse(localStorage.getItem('token'))},
       headers:{
         authorization:JSON.parse(localStorage.getItem('token'))

@@ -53,7 +53,7 @@ const isAdmin=true
 
   const handleLogout = async () => {
     try {
-      await axios.get(`${process.env.REACT_APP_URL}/users/logout`);
+      await axios.get(`${process.env.REACT_APP_URL}/user/logout`);
       localStorage.removeItem("token");
       openModal();
     } catch (err) {

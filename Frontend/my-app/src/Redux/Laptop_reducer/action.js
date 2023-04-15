@@ -16,7 +16,7 @@ const getDataProduct = (page)=>(dispatch)=>{
 const DeleteProductData =(id)=> (dispatch)=>{
         dispatch({type:"GET_DELETE_REQUEST"}) 
         return axios.delete(`${process.env.REACT_APP_URL}/products/${id}`)
-        .then((res)=> dispatch(getDataProduct) ) 
+        .then((res)=> dispatch(getDataProduct(1)) ) 
         .catch((err)=> console.log(err , "Error in Deleting the data") )
 }
 
