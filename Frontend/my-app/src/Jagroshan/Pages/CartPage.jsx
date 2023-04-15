@@ -23,8 +23,6 @@ export const CartPage = () => {
   const [total, settotal] = React.useState(0);
   // console.log(total)
   const [trigger,settrigger]=React.useState(true)
-  // console.log(trigger)
-
 
   // jagroshan code -------------
   // React.useEffect(() => {
