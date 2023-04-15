@@ -14,7 +14,8 @@ import { CartOrderSummary } from "../Components/CartOrderSummary";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Footer from "../../footer/Footer";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getCartData } from "../../Redux/Cart_Reducer/action";
 
 export const CartPage = () => {
   const [cdata, setcdata] = React.useState([]);
@@ -23,7 +24,6 @@ export const CartPage = () => {
   // console.log(total)
   const [trigger,settrigger]=React.useState(true)
   // console.log(trigger)
-  const [cartData , setCartData] = useState([])
 
 
   // jagroshan code -------------
@@ -72,6 +72,8 @@ export const CartPage = () => {
   //   .then((res)=> setCartData(res.data))
   //  }
   //  console.log(cartData[0] , "cartData")
+
+  const {cartData} = useSelector()
     
    const dispatch = useDispatch()
 
