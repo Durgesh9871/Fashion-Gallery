@@ -70,11 +70,11 @@ export const CartPage = () => {
         })
     .then((res)=> setCartData(res.data))
    }
-  //  console.log(cartData , "cartData")
+   console.log(cartData[0] , "cartData")
 
    useEffect(()=>{
     getCartData()
-   },[trigger])
+   },[])
 
   
   return (
@@ -96,7 +96,7 @@ export const CartPage = () => {
             </Text>
 
             <Stack spacing="6" border="2px  grey" padding="10px" shadow="md" width={{base:"90%" , sm:"90vw" ,md:"76vw",lg:"60vw",xl:"46vw" , "2xl":"46vw"}}>
-              {cartData.length==0 ? (
+              { cartData[0] == "N"  ? (
                 <Box
                   border={"0px"}
                   height={"50vh"}
@@ -113,9 +113,8 @@ export const CartPage = () => {
                   </VStack>
                 </Box>
               ) : 
-              (
-                cartData.map((item,index)=>
-                //  console.log('hello')
+              (cartData[0] !== "N"  && 
+                cartData?.map((item,index)=>
                 <CartItem key={index} {...item} settrigger={settrigger} />
                 )
               )

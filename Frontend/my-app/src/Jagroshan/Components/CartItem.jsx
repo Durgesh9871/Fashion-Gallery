@@ -20,7 +20,7 @@ export const CartItem = (props) => {
   let { brand, title, mainImage, price, settrigger } = props.productId ;
 console.log(props , "props")
 
-  const onClickDelete = () => {
+  const onClickDelete = (_id) => {
     // console.log(_id , "id")
     axios({
       method: "DELETE",
@@ -37,7 +37,6 @@ console.log(props , "props")
           duration: 3000,
           isClosable: true,
         });
-        settrigger(false)
       })
       .catch((err) => console.log(err));
   };
@@ -66,7 +65,7 @@ console.log(props , "props")
         <PriceTag price={price} />
         <CloseButton
           aria-label={`Delete ${brand} from cart`}
-          onClick={()=>onClickDelete()}
+          onClick={()=>onClickDelete(_id)}
         />
       </Flex>
 
