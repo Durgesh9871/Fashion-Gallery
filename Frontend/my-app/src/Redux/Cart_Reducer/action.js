@@ -12,4 +12,12 @@ const getCartData = (dispatch)=>{
 }
 
 
-export {getCartData}
+//  delete cart request -----------------
+const getCartDelete = (id)=>(dispatch)=>{
+    axios.delete(`${process.env.REACT_APP_URL}/cart/${id}`)
+    .then((res)=>  dispatch(getCartData))
+
+}
+
+
+export {getCartData , getCartDelete}
