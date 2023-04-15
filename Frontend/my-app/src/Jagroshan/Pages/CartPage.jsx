@@ -18,7 +18,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCartData } from "../../Redux/Cart_Reducer/action";
 
 export const CartPage = () => {
- const [total , setTototal] = useState(0)
+ var total  = 0
   // console.log(total ,"total" ,1)
 
   
@@ -30,7 +30,11 @@ export const CartPage = () => {
     }
   })
     // console.log('cartData' ,cartData)
-
+    if(cartData[0] != "N"){
+    cartData.map((ele)=>{
+      total +=  ele.productId.price
+    })
+  }
    const dispatch = useDispatch()
 
    useEffect(()=>{
