@@ -46,7 +46,7 @@ const Search = () => {
 		dispatch(getDataProduct(page))
 	}, [page]);
    
-	// console.log(post)
+	console.log(post)
 
 	 //  pagination --
 	 const handleNextPage = (data)=>{
