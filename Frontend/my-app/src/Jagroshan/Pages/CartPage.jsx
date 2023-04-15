@@ -61,11 +61,13 @@ export const CartPage = () => {
 
   // Durgesh code
    const getCartData = () =>{
-    axios.get(`${process.env.REACT_APP_URL}/cart/` , {
-      headers: {
-              authorization: JSON.parse(localStorage.getItem("token")),
-            }
-    })
+    axios({
+          method: "GET",
+          url: `${process.env.REACT_APP_URL}/alluser/`,
+          headers: {
+            authorization: JSON.parse(localStorage.getItem("token")),
+          },
+        })
     .then((res)=> setCartData(res.data))
    }
    console.log(cartData , "cartData")
