@@ -29,6 +29,7 @@ const Search = () => {
   }
   
   const nextPageDisable = Math.ceil(paginationData.length/8)
+//   console.log(nextPageDisable ,"nextPageDisable")
   
   const {isError ,loading,post} = useSelector((state) => {
 	  return {
@@ -46,7 +47,7 @@ const Search = () => {
 		dispatch(getDataProduct(page))
 	}, [page]);
    
-	console.log(post)
+	// console.log(post)
 
 	 //  pagination --
 	 const handleNextPage = (data)=>{
