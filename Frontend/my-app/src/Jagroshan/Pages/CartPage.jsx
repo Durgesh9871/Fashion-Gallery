@@ -19,7 +19,6 @@ import { getCartData } from "../../Redux/Cart_Reducer/action";
 
 export const CartPage = () => {
   const [total, settotal] = React.useState(0);
-  const [trigger,settrigger]=React.useState(true)
 
   
   // durgesh code -------
@@ -77,7 +76,7 @@ export const CartPage = () => {
 
            { (cartData[0] !== "N"  && 
                 cartData?.map((item,index)=>
-                <CartItem key={index} {...item} settrigger={settrigger} />
+                <CartItem key={index} {...item}  />
                 )
               )
               }

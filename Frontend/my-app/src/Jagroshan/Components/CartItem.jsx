@@ -17,7 +17,7 @@ export const CartItem = (props) => {
   const toast = useToast();
   // console.log(props)
   const {_id} = props
-  let { brand, title, mainImage, price, settrigger } = props.productId ;
+  let { brand, title, mainImage, price } = props.productId ;
 // console.log(props , "props")
 
   const onClickDelete = (_id) => {
