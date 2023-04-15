@@ -76,8 +76,8 @@ export const CartPage = () => {
       cartData:state.CartReducer.cartData
     }
   })
-    console.log('cartData' ,cartData)
-    
+    // console.log('cartData' ,cartData)
+
    const dispatch = useDispatch()
 
    useEffect(()=>{
