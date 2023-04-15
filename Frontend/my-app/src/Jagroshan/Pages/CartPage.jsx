@@ -14,6 +14,7 @@ import { CartOrderSummary } from "../Components/CartOrderSummary";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Footer from "../../footer/Footer";
+import { useDispatch } from "react-redux";
 
 export const CartPage = () => {
   const [cdata, setcdata] = React.useState([]);
@@ -60,20 +61,22 @@ export const CartPage = () => {
   // }, [trigger]);
 
   // Durgesh code
-   const getCartData = () =>{
-    axios({
-          method: "GET",
-          url: `${process.env.REACT_APP_URL}/cart`,
-          headers: {
-            authorization: JSON.parse(localStorage.getItem("token")),
-          },
-        })
-    .then((res)=> setCartData(res.data))
-   }
-   console.log(cartData[0] , "cartData")
+  //  const getCartData = () =>{
+  //   axios({
+  //         method: "GET",
+  //         url: `${process.env.REACT_APP_URL}/cart`,
+  //         headers: {
+  //           authorization: JSON.parse(localStorage.getItem("token")),
+  //         },
+  //       })
+  //   .then((res)=> setCartData(res.data))
+  //  }
+  //  console.log(cartData[0] , "cartData")
+    
+   const dispatch = useDispatch()
 
    useEffect(()=>{
-    getCartData()
+      dispatch(getCartData)
    },[])
 
   
