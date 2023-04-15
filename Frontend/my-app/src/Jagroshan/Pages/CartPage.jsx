@@ -18,7 +18,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCartData } from "../../Redux/Cart_Reducer/action";
 
 export const CartPage = () => {
-  const [total, settotal] = React.useState(0);
+  var total = 0
+  // console.log(total ,"total" ,1)
 
   
   // durgesh code -------
@@ -76,7 +77,11 @@ export const CartPage = () => {
 
            { (cartData[0] !== "N"  && 
                 cartData?.map((item,index)=>
+                <div key={index}>
+                { total += Number(item.productId.price) }
+          
                 <CartItem key={index} {...item}  />
+                </div>
                 )
               )
               }
