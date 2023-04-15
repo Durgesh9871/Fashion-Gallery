@@ -3,7 +3,7 @@ import {GETPRODUCTLAPTOPDATA_REQUEST ,GETPRODUCTLAPTOPDATA_SUCCESS,GETPRODUCTLAP
 import axios from "axios"
 
 
-const getDataProduct = (page=1)=>(dispatch)=>{
+const getDataProduct = (page)=>(dispatch)=>{
         dispatch({type:GETPRODUCTLAPTOPDATA_REQUEST}) 
         return axios.get(`${process.env.REACT_APP_URL}/products?page=${page}&limit=8`)
         .then((res)=> dispatch({type:GETPRODUCTLAPTOPDATA_SUCCESS , payload:res.data})) 
@@ -16,7 +16,7 @@ const getDataProduct = (page=1)=>(dispatch)=>{
 const DeleteProductData =(id)=> (dispatch)=>{
         dispatch({type:"GET_DELETE_REQUEST"}) 
         return axios.delete(`${process.env.REACT_APP_URL}/products/${id}`)
-        .then((res)=> dispatch(getDataProduct) ) 
+        .then((res)=> dispatch(getDataProduct(1)) ) 
         .catch((err)=> console.log(err , "Error in Deleting the data") )
 }
 
