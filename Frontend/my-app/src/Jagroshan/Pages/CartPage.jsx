@@ -71,7 +71,12 @@ export const CartPage = () => {
   //  }
   //  console.log(cartData[0] , "cartData")
 
-  const {cartData} = useSelector()
+  const {cartData} = useSelector((state)=>{
+    return {
+      cartData:state.CartReducer.cartData
+    }
+  })
+    console.log('cartData' ,cartData)
     
    const dispatch = useDispatch()
 
