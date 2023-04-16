@@ -95,32 +95,37 @@ const view = {
 
     </Box>
 
-{/* for update products ------------- second box --- */}
+
+{/* Box for adding product */}
     <Box border="1px solid white" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
-     
-    <Text style={style}>Update Products</Text> 
-    <Text style={secondStyle}>Products - 34</Text> 
+  
+  <Text style={style}>Add Product</Text> 
+  <Text style={secondStyle}>Products - {cartData.length}</Text> 
 
-      <Divider orientation='horizontal' style={{margin:"10px 0px" }}  />
-    <Box display="flex" justifyContent="space-between" alignItems="center" >
-   
-    {/* for adding products  */}
-    <Link to="/addPageAdmin"> <Box display="flex" alignItems="center" cursor="pointer">
-      <Text fontSize="18px" color="lightgreen">Add</Text>
-      <AiFillCaretRight style={{color:"lightgreen"  , fontSize:"20px"}} />
-      </Box></Link>
+    <Divider orientation='horizontal' style={{margin:"10px 0px" }}  />
+<Link to="/addPageAdmin">  <Box display="flex" justifyContent="space-between" alignItems="center" cursor="pointer">
+    <Text style={view}>View Details</Text>
+    <AiFillCaretRight style={{color:"#ffff"  , fontSize:"20px"}} />
+  </Box> </Link>
+
+  </Box>
+  {/* add end */}
 
 
-       {/* for Delete products  */}
-       <Link to="/deltePageAdmin"><Box display="flex" alignItems="center" cursor="pointer">
-      <Text fontSize="18px" color="red">Delete</Text>
-      <AiFillCaretRight style={{color:"red"  , fontSize:"20px"}} />
-      </Box></Link>
+{/* box for deleting product */}
+<Box border="1px solid white" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
+  
+  <Text style={style}>Delete Product</Text> 
+  <Text style={secondStyle}>Products - {cartData.length}</Text> 
 
-    </Box> 
+    <Divider orientation='horizontal' style={{margin:"10px 0px" }}  />
+<Link to="/deltePageAdmin">  <Box display="flex" justifyContent="space-between" alignItems="center" cursor="pointer">
+    <Text style={view}>View Details</Text>
+    <AiFillCaretRight style={{color:"#ffff"  , fontSize:"20px"}} />
+  </Box> </Link>
 
-    </Box>
-
+  </Box>
+  {/* del end */}
 
 
 
@@ -140,7 +145,20 @@ const view = {
  {/* third box end here ------- */}
 
 
-{/*  order  one --------------------- */}
+
+   
+    
+
+   </Box>
+
+
+   {/* Four box end here first line ------ */}
+   {/*  second line box --- */}
+
+   <Box  border="1px  red" display="flex" justifyContent="space-between" mt="30px" >
+
+
+    {/*  order  one --------------------- */}
     <Box border="1px solid white" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
   
     <Text style={style}>Order Details</Text> 
@@ -153,17 +171,9 @@ const view = {
     </Box> </Link>
 
     </Box>
-   {/* third box end here ------- */}
-   
-    
-
-   </Box>
+   {/* order box end here ------- */}
 
 
-   {/* Four box end here first line ------ */}
-   {/*  second line box --- */}
-
-   <Box  border="1px  red" display="flex" justifyContent="space-between" mt="30px" >
       {/*  for statistic --------------------- */}
       <Box border="1px solid white" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
       
