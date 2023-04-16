@@ -41,7 +41,7 @@ color:"white" ,textAlign:"center"  , fontSize:"28px" , fontWeight:"500"
 }
 
 const secondStyle={
- color:"greenyellow" ,textAlign:"center" , fontSize:"28px" , fontWeight:"500" 
+ color:"greenyellow" ,textAlign:"center" , fontSize:"22px" , fontWeight:"500"  , marginBottom:"30px"
 }
 
 const view = {
@@ -70,7 +70,7 @@ const view = {
 {/*  for customers --- first box  */}
     <Box border="1px solid  white"  background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px"> 
     <Text style={style}>Customers</Text> 
-    <Text style={secondStyle}>34</Text> 
+    <Text style={secondStyle}>Users - 34</Text> 
 
       <Divider orientation='horizontal' style={{margin:"10px 0px" }}  />
   <Link to="/customerPageAdmin">  <Box display="flex" justifyContent="space-between" alignItems="center" cursor="pointer">
@@ -84,7 +84,7 @@ const view = {
     <Box border="1px solid white" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
      
     <Text style={style}>Update Products</Text> 
-    <Text style={secondStyle}>34</Text> 
+    <Text style={secondStyle}>Products - 34</Text> 
 
       <Divider orientation='horizontal' style={{margin:"10px 0px" }}  />
     <Box display="flex" justifyContent="space-between" alignItems="center" >
@@ -112,8 +112,8 @@ const view = {
 {/*  cart  one --------------------- */}
 <Box border="1px solid white" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
   
-  <Text style={style}>Order Details</Text> 
-  <Text style={secondStyle}>& Status...</Text> 
+  <Text style={style}>Cart Details</Text> 
+  <Text style={secondStyle}>Items - 32</Text> 
 
     <Divider orientation='horizontal' style={{margin:"10px 0px" }}  />
 <Link to="/stat">  <Box display="flex" justifyContent="space-between" alignItems="center" cursor="pointer">
