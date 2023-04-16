@@ -118,6 +118,7 @@ export default function CheckoutPage() {
       })
 
     })
+    
   };
 
   const dispatch = useDispatch()
