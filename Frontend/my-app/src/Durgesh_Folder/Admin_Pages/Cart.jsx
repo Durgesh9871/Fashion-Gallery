@@ -58,6 +58,7 @@ const CartPageAdmin = () => {
               <TableCaption placement="top" fontSize="22px" mb="15px">All Users Cart Data </TableCaption>
               <Thead>
                 <Tr>
+                <Th>SR No.</Th>
                 <Th>Name</Th>
                  <Th>Photo</Th>
                   <Th>User Id</Th>
@@ -76,6 +77,8 @@ const CartPageAdmin = () => {
                     // console.log(item.signUpTime.slice(0,16));
                     return (
                       <Tr key={i}>
+                  <Td >{i+1}</Td>
+
                             <Td>
                           <Image
                             src={
