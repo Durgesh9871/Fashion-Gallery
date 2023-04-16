@@ -20,6 +20,7 @@ import React, { useEffect } from "react";
 import Alert from "../Components/Alert";
 import { getCartData } from "../../Redux/Cart_Reducer/action";
 import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 
 let state = [
   "Andhra Pradesh",
@@ -80,23 +81,9 @@ export default function CheckoutPage() {
   };
 
   const [detail, setdetail] = React.useState(initialdetails);
-  console.log(detail)
+  // console.log(detail)
   const navigate = useNavigate();
  
-
-  const handlebooking = () => {
-    let flag=false;
-    for(let key in detail)
-    {
-      if(detail[key]=="")
-      { 
-        toast(Alert(alertdata))
-        flag=true;
-        break
-      }
-    }
-    if(!flag) navigate("/payment");
-  };
 
   const handleChange = (el) => {
     setdetail({ ...detail, [el.target.name]: el.target.value });
@@ -109,6 +96,13 @@ export default function CheckoutPage() {
       cartData:state.CartReducer.cartData
     }
   })
+  
+  //  send all cart data to order ------------------------------------
+  const handlebooking = () => {
+    cartData.map((ele)=>{
+      axios.post(``)
+    })
+  };
 
   const dispatch = useDispatch()
   var totalprice = 0 
