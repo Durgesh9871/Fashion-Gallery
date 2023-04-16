@@ -29,7 +29,7 @@ export const CartPage = () => {
       cartData:state.CartReducer.cartData
     }
   })
-    // console.log('cartData' ,cartData)
+    // console.log('cartData' ,cartData[1])
     if(cartData[0] != "N"){
     cartData.map((ele)=>{
       total +=  ele.productId.price
