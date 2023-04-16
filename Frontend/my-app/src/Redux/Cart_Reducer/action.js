@@ -2,7 +2,7 @@ import axios from "axios"
 
 const getCartData = (dispatch)=>{
     dispatch({type:"CART_LOADING"})
-    axios.get(`${process.env.REACT_APP_URL}/cart`,{
+   return axios.get(`${process.env.REACT_APP_URL}/cart`,{
         headers: {
             authorization: JSON.parse(localStorage.getItem("token")),
           },
@@ -14,7 +14,7 @@ const getCartData = (dispatch)=>{
 
 //  delete cart request -----------------
 const getCartDelete = (id)=>(dispatch)=>{
-    axios.delete(`${process.env.REACT_APP_URL}/cart/${id}` ,{
+   return axios.delete(`${process.env.REACT_APP_URL}/cart/${id}` ,{
         headers: {
                 authorization: JSON.parse(localStorage.getItem("token")),
               }

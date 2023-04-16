@@ -17,7 +17,7 @@ const DeleteProductData =(id)=> (dispatch)=>{
         dispatch({type:"GET_DELETE_REQUEST"}) 
         return axios.delete(`${process.env.REACT_APP_URL}/products/${id}` ,{
                 headers:{
-                        authorization:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiI2NDNhODE3NTZjYmM2ODE5NmI5Y2FlNTAiLCJpYXQiOjE2ODE1NTU4ODB9.Zhf4uStQPuaqcpLRYLxEcY7vO0vrwSSdSI20f__fLCA"
+                        authorization:JSON.parse(localStorage.getItem("token"))
                 }
         })
         .then((res)=> console.log('helo') ) 

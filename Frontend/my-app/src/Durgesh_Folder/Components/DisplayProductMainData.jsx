@@ -15,7 +15,7 @@ import { DeleteProductData } from '../../Redux/Laptop_reducer/action'
 
 
 
-const DisplayProductMainData = ({ src ,uniqueId, name  ,price ,model , review ,realPrice ,isLaptopLoading ,mainImage , id})=>{
+const DisplayProductMainData = ({allData, src ,uniqueId, name  ,price ,model , review ,realPrice ,isLaptopLoading ,mainImage , id})=>{
    
   
   let style = {
@@ -26,7 +26,7 @@ const DisplayProductMainData = ({ src ,uniqueId, name  ,price ,model , review ,r
     const [effect , setEffect] = useState(false)
     const [wishlistColor , setWishlistColor] = useState(false)
     
-
+// console.log(allData ,"allData")
 
    
     //  here is carousel is started---------------------------------------------
