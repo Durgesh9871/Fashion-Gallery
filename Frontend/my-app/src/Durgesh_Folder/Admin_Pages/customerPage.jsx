@@ -81,7 +81,7 @@ const CustomerPage = () => {
               <Tbody>
                 {/*  Loop starts from here ------------------- */}
 
-                {customerData.length > 0 && 0 === 1 && 
+                {customerData.length > 0 && 
                   customerData.map((item, i) => {
                     // console.log(item.signUpTime.slice(0,16));
                     return (

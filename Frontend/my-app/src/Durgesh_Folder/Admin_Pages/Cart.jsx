@@ -1,4 +1,4 @@
-import { Box, Heading } from '@chakra-ui/react'
+import { Box, Heading, Table, TableCaption, TableContainer, Tbody, Td, Th, Thead, Tr , Image} from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { Sidebar } from '../Admin_Components/SliderAdmin'
 import axios from 'axios'
@@ -31,8 +31,47 @@ const CartPageAdmin = () => {
             <Box width={{ base: "100%", sm: "100%", md: "100%", lg: "100%", xl: "81%", '2xl': "81%" }} border="1px   red" height="auto" marginLeft="auto"  p="2%" mt="-60px">
              
             <Heading color="#fff" fontWeight="500">
-            Cart Details 
+            Cart Details  
           </Heading>
+
+          {/*  table  */}
+          <TableContainer color="#fff">
+            <Table variant="simple">
+              <TableCaption placement="top">Users Data </TableCaption>
+              <Thead>
+                <Tr>
+                 <Th>Photo</Th>
+                  <Th>User Id</Th>
+                  <Th>ProductId</Th>
+                  <Th>created At</Th>
+                  <Th>updated At</Th>
+                  <Th>quantity</Th>
+                </Tr>
+              </Thead>
+              <Tbody>
+                {/*  Loop starts from here ------------------- */}
+
+                {cartData?.length > 0 && 
+                  cartData?.map((item, i) => {
+                    // console.log(item.signUpTime.slice(0,16));
+                    return (
+                      <Tr key={i}>
+                            <Td>
+                          <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOnyqrxK4zSTIzWLbCQSBMxYgT2B4U0jv6JMJ-Aezj-kkKqSl7GShdy8jPY0HowqY6KibmsWomG6k&usqp=CAU&ec=48600112"
+                            width="35px"
+                            borderRadius="100%"
+                            border="2px solid white"
+                          />
+                        </Td>
+                        <Td>{item._id}</Td>
+                        <Td>{item.productId._id}</Td>
+                        <Td>{item._id}</Td>
+                      </Tr>
+                    );
+                  })}
+              </Tbody>
+            </Table>
+          </TableContainer>
 
             </Box>
           </Box>
