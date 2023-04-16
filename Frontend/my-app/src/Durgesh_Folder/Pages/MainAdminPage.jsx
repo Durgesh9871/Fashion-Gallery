@@ -155,11 +155,11 @@ const view = {
    {/* Four box end here first line ------ */}
    {/*  second line box --- */}
 
-   <Box  border="1px  red" display="flex" justifyContent="space-between" mt="30px" >
+   <Box  border="1px  red" display="flex" justifyContent="" mt="30px" >
 
 
     {/*  order  one --------------------- */}
-    <Box border="1px solid white" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
+    <Box border="1px solid white" mr="22px" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
   
     <Text style={style}>Order Details</Text> 
     <Text style={secondStyle}>& Status...</Text> 
