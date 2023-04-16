@@ -2,14 +2,13 @@ import {
   Button,
   Flex,
   Heading,
-  Link,
   Stack,
   Text,
   useColorModeValue as mode,
 } from '@chakra-ui/react'
 import { formatPrice } from './PriceTag'
 import { AiFillCaretRight } from 'react-icons/ai'
-
+import { Link } from 'react-router-dom'
 
 
 
@@ -26,9 +25,8 @@ const OrderSummaryItem = (props) => {
 }
 
 export const CartOrderSummary = ({total}) => {
-  const handleCheckout=()=>{
-    localStorage.setItem('purchase',total)
-  }
+ 
+  
   return (
     <Stack spacing="8" borderWidth="1px" rounded="lg" padding="8" width="full" shadow="md">
       <Heading fontSize="22px" fontWeight="600" color="#303030" >Order Summary</Heading>
@@ -50,9 +48,9 @@ export const CartOrderSummary = ({total}) => {
           </Text>
         </Flex>
       </Stack>
-      <Button colorScheme="blue" size="lg" fontSize="18px" rightIcon={<AiFillCaretRight style={{color:"ffff" , fontSize:"18px"}} onClick={handleCheckout}/> }  >
+    <Link to="/checkout">  <Button colorScheme="blue" width="100%" fontSize="18px" rightIcon={<AiFillCaretRight style={{color:"ffff" , fontSize:"18px"}} /> }  >
         Checkout
-      </Button>
+      </Button> </Link>
     </Stack>
   )
 }
