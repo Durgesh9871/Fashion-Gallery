@@ -77,16 +77,16 @@ const closeProductHover = ()=>{
 
     const handleDeleteProduct= (id)=>{
       console.log(id)
-          dispatch(DeleteProductData(id))
-          .then(()=>{
-            toast({
-              title: 'Account created.',
-              description: "Product Deleted",
-              status: 'success',
-              duration: 3000,
-              isClosable: true,
-            })
-          })
+          // dispatch(DeleteProductData(id))
+          // .then(()=>{
+          //   toast({
+          //     title: 'Account created.',
+          //     description: "Product Deleted",
+          //     status: 'success',
+          //     duration: 3000,
+          //     isClosable: true,
+          //   })
+          // })
        
     }
  
