@@ -108,6 +108,23 @@ const view = {
 
 
 
+
+{/*  cart  one --------------------- */}
+<Box border="1px solid white" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
+  
+  <Text style={style}>Order Details</Text> 
+  <Text style={secondStyle}>& Status...</Text> 
+
+    <Divider orientation='horizontal' style={{margin:"10px 0px" }}  />
+<Link to="/stat">  <Box display="flex" justifyContent="space-between" alignItems="center" cursor="pointer">
+    <Text style={view}>View Details</Text>
+    <AiFillCaretRight style={{color:"#ffff"  , fontSize:"20px"}} />
+  </Box> </Link>
+
+  </Box>
+ {/* third box end here ------- */}
+
+
 {/*  order  one --------------------- */}
     <Box border="1px solid white" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
   
@@ -122,13 +139,18 @@ const view = {
 
     </Box>
    {/* third box end here ------- */}
+   
+    
+
+   </Box>
 
 
+   {/* Four box end here first line ------ */}
+   {/*  second line box --- */}
 
-
-
-     {/*  for statistic --------------------- */}
-     <Box border="1px solid white" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
+   <Box  border="1px  red" display="flex" justifyContent="space-between" mt="30px" >
+      {/*  for statistic --------------------- */}
+      <Box border="1px solid white" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
       
       <Text style={style}>Statistics</Text> 
       <Text style={secondStyle}>...</Text> 
@@ -142,9 +164,6 @@ const view = {
       </Box>
 
       {/* stats end here ---------------- */}
-   
-    
-
    </Box>
   
      
