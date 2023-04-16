@@ -6,29 +6,44 @@ import { getCustomerData } from '../../Redux/Customer_Reducer/action'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import Chart from "react-apexcharts"
 import { AiFillCaretRight } from 'react-icons/ai'
+import axios from 'axios'
+
+
+
 
 const MainAdminPage = () => {
-  let activeCount = 0 
+  const [cartData , setCartData] = useState([])
 
 
+
+  // for all cart data
+  const getCartData = ()=>{
+      axios.get(`${process.env.REACT_APP_URL}/cart/alluser` ,{
+          headers:{
+              authorization:JSON.parse(localStorage.getItem("token"))
+          }
+      })
+      .then((res)=> setCartData(res.data))
+      .catch((err)=> console.log(err))
+  }
+
+
+  //  for customer data ------------------------
   const dispatch = useDispatch() 
-
   const {customerData ,isLoadind,isError} = useSelector((state) => {
     return {
       customerData: state.CustomerReducer.customerData ,
       isLoadind:state.CustomerReducer.isLoadind ,
       isError :state.CustomerReducer.isError ,
     }
-},shallowEqual )   
- 
-if(customerData.length > 0 ){
-  for(var i=0 ; i<customerData.length ; i++){
-        if(customerData[i].active == "true"){
-          activeCount++
-        }
-  }
-}
+},shallowEqual )  
 
+  useEffect(()=>{
+      getCartData()
+  },[])
+
+  
+ 
 
 
 useEffect(()=>{
@@ -113,10 +128,10 @@ const view = {
 <Box border="1px solid white" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
   
   <Text style={style}>Cart Details</Text> 
-  <Text style={secondStyle}>Items - 32</Text> 
+  <Text style={secondStyle}>Items - {cartData.length}</Text> 
 
     <Divider orientation='horizontal' style={{margin:"10px 0px" }}  />
-<Link to="/stat">  <Box display="flex" justifyContent="space-between" alignItems="center" cursor="pointer">
+<Link to="/cartPageAdmin">  <Box display="flex" justifyContent="space-between" alignItems="center" cursor="pointer">
     <Text style={view}>View Details</Text>
     <AiFillCaretRight style={{color:"#ffff"  , fontSize:"20px"}} />
   </Box> </Link>
@@ -132,7 +147,7 @@ const view = {
     <Text style={secondStyle}>& Status...</Text> 
 
       <Divider orientation='horizontal' style={{margin:"10px 0px" }}  />
-  <Link to="/stat">  <Box display="flex" justifyContent="space-between" alignItems="center" cursor="pointer">
+  <Link to="/orderPageAdmin">  <Box display="flex" justifyContent="space-between" alignItems="center" cursor="pointer">
       <Text style={view}>View Details</Text>
       <AiFillCaretRight style={{color:"#ffff"  , fontSize:"20px"}} />
     </Box> </Link>
