@@ -20,6 +20,12 @@ const CartPageAdmin = () => {
     useEffect(()=>{
         getCartData()
     },[])
+
+    const userImage = {
+        female: "https://cdn-icons-png.flaticon.com/128/6997/6997662.png",
+        male: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOnyqrxK4zSTIzWLbCQSBMxYgT2B4U0jv6JMJ-Aezj-kkKqSl7GShdy8jPY0HowqY6KibmsWomG6k&usqp=CAU&ec=48600112",
+      };
+      
     console.log(cartData ,"cartData")
 
   return (
@@ -42,9 +48,9 @@ const CartPageAdmin = () => {
                 <Tr>
                  <Th>Photo</Th>
                   <Th>User Id</Th>
-                  <Th>ProductId</Th>
                   <Th>created At</Th>
                   <Th>updated At</Th>
+                  <Th>ProductId</Th>
                   <Th>quantity</Th>
                 </Tr>
               </Thead>
@@ -63,9 +69,11 @@ const CartPageAdmin = () => {
                             border="2px solid white"
                           />
                         </Td>
-                        <Td>{item._id}</Td>
+                        <Td>{item.userId._id}</Td>
+                        <Td>{item.createdAt.slice(0,10)}</Td>
+                        <Td>{item.updatedAt.slice(0,10)}</Td>
                         <Td>{item.productId._id}</Td>
-                        <Td>{item._id}</Td>
+                        <Td>{item.quantity}</Td>
                       </Tr>
                     );
                   })}
