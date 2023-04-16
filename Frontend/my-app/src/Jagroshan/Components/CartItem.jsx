@@ -11,34 +11,46 @@ import { PriceTag } from "./PriceTag";
 import { CartProductMeta } from "./CartProductMeta";
 import axios from "axios";
 import React from "react";
+import { getCartDelete } from "../../Redux/Cart_Reducer/action";
+import { useDispatch } from "react-redux";
 
 
 export const CartItem = (props) => {
   const toast = useToast();
   // console.log(props)
   const {_id} = props
-  let { brand, title, mainImage, price, settrigger } = props.productId ;
-console.log(props , "props")
+  let { brand, title, mainImage, price } = props.productId ;
+// console.log(props , "props")
+
+ const dispatch = useDispatch()
 
   const onClickDelete = (_id) => {
-    // console.log(_id , "id")
-    axios({
-      method: "DELETE",
-      url: `${process.env.REACT_APP_URL}/cart/${_id}`,
-      headers: {
-        authorization: JSON.parse(localStorage.getItem("token")),
-      },
-    })
-      .then((res) => {
-        toast({
-          position: "top",
-          title: "Item removed from cart",
-          status: "success",
-          duration: 3000,
-          isClosable: true,
-        });
-      })
-      .catch((err) => console.log(err));
+    // axios({
+    //   method: "DELETE",
+    //   url: `${process.env.REACT_APP_URL}/cart/${_id}`,
+    //   headers: {
+    //     authorization: JSON.parse(localStorage.getItem("token")),
+    //   },
+    // })
+    //   .then((res) => {
+    //     toast({
+    //       position: "top",
+    //       title: "Item removed from cart",
+    //       status: "success",
+    //       duration: 3000,
+    //       isClosable: true,
+    //     });
+    //   })
+    //   .catch((err) => console.log(err));
+
+    dispatch(getCartDelete(_id))
+    toast({
+            position: "top",
+            title: "Item removed from cart",
+            status: "success",
+            duration: 3000,
+            isClosable: true,
+          });
   };
 
   return (

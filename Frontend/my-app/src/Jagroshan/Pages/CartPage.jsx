@@ -14,66 +14,31 @@ import { CartOrderSummary } from "../Components/CartOrderSummary";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Footer from "../../footer/Footer";
+import { useDispatch, useSelector } from "react-redux";
+import { getCartData } from "../../Redux/Cart_Reducer/action";
 
 export const CartPage = () => {
-  const [cdata, setcdata] = React.useState([]);
-  // console.log(cdata)
-  const [total, settotal] = React.useState(0);
-  // console.log(total)
-  const [trigger,settrigger]=React.useState(true)
-  // console.log(trigger)
-  const [cartData , setCartData] = useState([])
+ var total  = 0
+  // console.log(total ,"total" ,1)
 
+  
+  // durgesh code -------
 
-  // jagroshan code -------------
-  // React.useEffect(() => {
-  //   axios({
-  //     method: "GET",
-  //     url: `${process.env.REACT_APP_URL}/carts/usercart`,
-  //     headers: {
-  //       authorization: JSON.parse(localStorage.getItem("token")),
-  //     },
-  //   })
-  //     .then((res) =>{ 
-  //       setcdata([])
-  //       settotal(0)
-  //       if(res.data!='No items in your cart')
-  //       {
-  //       res.data.map((each)=>{
-  //         axios({
-  //           method: "GET",
-  //           url: `${process.env.REACT_APP_URL}/products/findit`,
-  //           headers: {
-  //             authorization: JSON.parse(localStorage.getItem("token")),
-  //             productId:each.productId,
-  //           },
-  //         })
-  //           .then((res) => {
-  //             setcdata((prev)=>[...prev,res.data])
-  //             settotal((pre) => pre + res.data.price);
-  //           })
-  //           .catch((err) => console.log(err));
-  //       })
-  //     }
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, [trigger]);
-
-  // Durgesh code
-   const getCartData = () =>{
-    axios({
-          method: "GET",
-          url: `${process.env.REACT_APP_URL}/cart`,
-          headers: {
-            authorization: JSON.parse(localStorage.getItem("token")),
-          },
-        })
-    .then((res)=> setCartData(res.data))
-   }
-   console.log(cartData[0] , "cartData")
+  const {cartData} = useSelector((state)=>{
+    return {
+      cartData:state.CartReducer.cartData
+    }
+  })
+    // console.log('cartData' ,cartData[1])
+    if(cartData[0] != "N"){
+    cartData.map((ele)=>{
+      total +=  ele.productId.price
+    })
+  }
+   const dispatch = useDispatch()
 
    useEffect(()=>{
-    getCartData()
+      dispatch(getCartData)
    },[])
 
   
@@ -96,7 +61,7 @@ export const CartPage = () => {
             </Text>
 
             <Stack spacing="6" border="2px  grey" padding="10px" shadow="md" width={{base:"90%" , sm:"90vw" ,md:"76vw",lg:"60vw",xl:"46vw" , "2xl":"46vw"}}>
-              { cartData[0] == "N"  ? (
+              { cartData[0] == "N"  && (
                 <Box
                   border={"0px"}
                   height={"50vh"}
@@ -112,10 +77,13 @@ export const CartPage = () => {
                     </Link>
                   </VStack>
                 </Box>
-              ) : 
-              (cartData[0] !== "N"  && 
+              ) }
+
+           { (cartData[0] !== "N"  && 
                 cartData?.map((item,index)=>
-                <CartItem key={index} {...item} settrigger={settrigger} />
+                <div key={index}>
+                <CartItem key={index} {...item}  />
+                </div>
                 )
               )
               }

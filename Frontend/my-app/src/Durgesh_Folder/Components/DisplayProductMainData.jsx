@@ -15,7 +15,7 @@ import { DeleteProductData } from '../../Redux/Laptop_reducer/action'
 
 
 
-const DisplayProductMainData = ({ src ,uniqueId, name  ,price ,model , review ,realPrice ,isLaptopLoading ,mainImage , id})=>{
+const DisplayProductMainData = ({allData, src ,uniqueId, name  ,price ,model , review ,realPrice ,isLaptopLoading ,mainImage , id})=>{
    
   
   let style = {
@@ -26,7 +26,7 @@ const DisplayProductMainData = ({ src ,uniqueId, name  ,price ,model , review ,r
     const [effect , setEffect] = useState(false)
     const [wishlistColor , setWishlistColor] = useState(false)
     
-
+// console.log(allData ,"allData")
 
    
     //  here is carousel is started---------------------------------------------
@@ -80,7 +80,7 @@ const closeProductHover = ()=>{
           dispatch(DeleteProductData(id))
           .then(()=>{
             toast({
-              title: 'Account created.',
+              title: 'Deleted Successfully',
               description: "Product Deleted",
               status: 'success',
               duration: 3000,
@@ -103,7 +103,7 @@ const closeProductHover = ()=>{
  return (
       
 
-    <Box shadow="base" className='hoverProductDiv' w={{base:"80vw", sm: "55vw", md: "32vw", lg: "23vw" ,xl: "23vw",'2xl': "23vw",}} h={{base:"375px", sm: "375px", md: "385px", lg: "385px" ,xl: "385px",'2xl': "385px",}}  style={style} border="2px  red" >
+    <Box shadow="2xl" className='hoverProductDiv' w={{base:"80vw", sm: "55vw", md: "32vw", lg: "23vw" ,xl: "23vw",'2xl': "23vw",}} h={{base:"375px", sm: "375px", md: "385px", lg: "385px" ,xl: "385px",'2xl': "385px",}}  style={style}  >
       
       {/*  Corousel images are here --------------------------------------------------------- */}
      <Skeleton isLoaded={isLaptopLoading}    >

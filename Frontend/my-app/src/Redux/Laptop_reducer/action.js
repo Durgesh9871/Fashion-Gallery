@@ -15,7 +15,11 @@ const getDataProduct = (page)=>(dispatch)=>{
 
 const DeleteProductData =(id)=> (dispatch)=>{
         dispatch({type:"GET_DELETE_REQUEST"}) 
-        return axios.delete(`${process.env.REACT_APP_URL}/products/${id}`)
+        return axios.delete(`${process.env.REACT_APP_URL}/products/${id}` ,{
+                headers:{
+                        authorization:JSON.parse(localStorage.getItem("token"))
+                }
+        })
         .then((res)=> dispatch(getDataProduct(1)) ) 
         .catch((err)=> console.log(err , "Error in Deleting the data") )
 }
@@ -23,9 +27,14 @@ const DeleteProductData =(id)=> (dispatch)=>{
 
 
 const sendProductData = (data)=>(dispatch)=>{
+        console.log(data)
         dispatch({type:"SEND_PRODUCT_REQUEST"})
-        return axios.post(`${process.env.REACT_APP_URL}/products` , data)
-        .then()
+        return axios.post(`${process.env.REACT_APP_URL}/products` , data ,{
+                headers:{
+                        authorization:JSON.parse(localStorage.getItem("token"))
+                } 
+        })
+        .then((res)=> dispatch(getDataProduct(1)))
         .catch((err)=>console.log(err , "ERROR IN DATA SENDING"))
 }
 

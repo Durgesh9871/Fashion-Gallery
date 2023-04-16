@@ -160,7 +160,7 @@ const total = Math.floor(+(realPrice) * 100 )
         <Box id='productDataDesc' position="absolute" bottom="20px" onMouseOut={closeProductHover} onMouseOver={handleProductHover}  style={{border:"2px   #EBECEE" ,height:"auto" , padding:"10px 10px 10px 10px" ,cursor:'pointer'  }}w={{base:"79vw", sm: "54vw", md: "31vw", lg: "22vw" ,xl: "22vw",'2xl': "22vw",}}>
         
         {/* on hover  */}
-        { effect && (<Box   onClick={() => addToCart()}  style={{border:"2px solid #EBECEE" , width:"60%" , margin:"auto" , display:"flex" ,justifyContent:"center" , alignItems:"center" ,padding:"2px" , color:"#f75045"  }}> <BsFillCartFill /> <Text ml={2} fontWeight="500" >ADD TO CART</Text> </Box> )}
+        { effect && (<Box  width={{base:"60%", sm: "60%", md: "60%", lg: "85%" ,xl: "60%",'2xl': "60%",}}   onClick={() => addToCart()}  style={{border:"2px solid #EBECEE" , margin:"auto" , display:"flex" ,justifyContent:"center" , alignItems:"center" ,padding:"2px" , color:"#f75045"  }}> <BsFillCartFill /> <Text ml={2} fontWeight="500" >ADD TO CART</Text> </Box> )}
         
         {effect && <Box style={{display:"flex" ,justifyContent:"space-between" }}>
          <Box>

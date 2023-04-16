@@ -14,18 +14,23 @@ import CheckoutPage from '../Jagroshan/Pages/CheckoutPage'
 import PaymentsPage from '../Jagroshan/Pages/PaymentsPage'
 import SuccessPayment from '../Jagroshan/Pages/SuccessPayment'
 import LoaderPage from '../Jagroshan/Pages/LoaderPage'
+import { CartPageAdmin } from '../Durgesh_Folder/Admin_Pages/Cart'
 
 
 const AllRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<MainHomePage />}></Route>
+
       <Route path="/adminPage" element={<MainAdminPage />}></Route>
       <Route path="/customerPageAdmin" element={<CustomerPage />}></Route>
       <Route path="/deltePageAdmin" element={<DeletePage />}></Route>
       <Route path="/addPageAdmin" element={<AddProduct />}></Route>
       <Route path="/orderPageAdmin" element={<OrderPage />}></Route>
+      <Route path="/cartPageAdmin" element={<CartPageAdmin />}></Route>
       <Route path="/stat" element={<Stats />}></Route>
+
+      
       <Route path="/products" element={<ProductPage/>}/>
       <Route path="/cart" element={<CartPage/>}/>
       <Route path="/checkout" element={<CheckoutPage/>}/>
