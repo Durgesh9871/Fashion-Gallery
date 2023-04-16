@@ -20,16 +20,21 @@ const DeleteProductData =(id)=> (dispatch)=>{
                         authorization:JSON.parse(localStorage.getItem("token"))
                 }
         })
-        .then((res)=> console.log('helo') ) 
-        // .catch((err)=> console.log(err , "Error in Deleting the data") )
+        .then((res)=> dispatch(getDataProduct(1)) ) 
+        .catch((err)=> console.log(err , "Error in Deleting the data") )
 }
 
 
 
 const sendProductData = (data)=>(dispatch)=>{
+        console.log(data)
         dispatch({type:"SEND_PRODUCT_REQUEST"})
-        return axios.post(`${process.env.REACT_APP_URL}/products` , data)
-        .then()
+        return axios.post(`${process.env.REACT_APP_URL}/products` , data ,{
+                headers:{
+                        authorization:JSON.parse(localStorage.getItem("token"))
+                } 
+        })
+        .then((res)=> dispatch(getDataProduct(1)))
         .catch((err)=>console.log(err , "ERROR IN DATA SENDING"))
 }
 
