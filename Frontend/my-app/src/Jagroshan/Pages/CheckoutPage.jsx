@@ -116,7 +116,7 @@ export default function CheckoutPage() {
           border="0px solid grey"
           p={4}
         >
-          <Box border="2px solid teal" shadow="base" backgroundColor='teal.400' borderRadius='12px' w={{base:"80vw", sm: "55vw", md: "60%", lg: "60%" ,xl: "40%",'2xl': "40%",}} p="14px" mb="5px" display='grid' alignContent='center'>
+          <Box border="1px solid teal.500" shadow="base" backgroundColor='teal.400' borderRadius='12px' w={{base:"80vw", sm: "55vw", md: "60%", lg: "60%" ,xl: "40%",'2xl': "40%",}} p="14px" mb="5px" display='grid' alignContent='center'>
           <Box>
             <HStack justifyContent="space-around">
               <Heading fontSize="17px" fontWeight="600" color="#303030">Total Amount</Heading>
@@ -144,7 +144,7 @@ export default function CheckoutPage() {
           <Stack textAlign="start" shadow="lg" p="40px">
             <Heading size="md">Delivery Details</Heading>
             <Stack>
-              <Stack direction="row">
+              <Stack direction={{base:"column", sm: "column", md: "row", lg: "row" ,xl: "row",'2xl': "row",}} >
                 <Input
                   type="text"
                   placeholder="First Name"
