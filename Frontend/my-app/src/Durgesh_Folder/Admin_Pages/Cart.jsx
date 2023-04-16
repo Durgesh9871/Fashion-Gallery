@@ -34,11 +34,11 @@ const CartPageAdmin = () => {
         cartData.forEach((item)=>{
             TotalPrice += item.productId.price
        })
-        console.log(TotalPrice ,"val")
+        // console.log(TotalPrice ,"val")
     }
     
 
-    console.log(cartData ,"cartData")
+    // console.log(cartData ,"cartData")
 
   return (
     <Box>
@@ -101,11 +101,11 @@ const CartPageAdmin = () => {
               </Tbody>
 
               {/*  table foot */}
-              <Tfoot>
-         <Tr>
+              <Tfoot >
+         <Tr  >
             <Th></Th>  <Th></Th>  <Th></Th>  <Th></Th>  <Th></Th>  <Th></Th>
-        <Th>Total Price </Th>
-        <Th>{}</Th>
+        <Th fontSize="18px" pt="15px" >Total Price </Th>
+        <Th fontSize="18px" pt="15px" >{TotalPrice}</Th>
        
        </Tr>
        </Tfoot>
