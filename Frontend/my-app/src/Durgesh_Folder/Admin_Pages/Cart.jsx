@@ -2,7 +2,7 @@ import { Box, Heading } from '@chakra-ui/react'
 import React from 'react'
 import { Sidebar } from '../Admin_Components/SliderAdmin'
 
-const CartPage = () => {
+const CartPageAdmin = () => {
   return (
     <Box>
        <Sidebar />
@@ -21,4 +21,4 @@ const CartPage = () => {
   )
 }
 
-export  {CartPage}
+export  {CartPageAdmin}
