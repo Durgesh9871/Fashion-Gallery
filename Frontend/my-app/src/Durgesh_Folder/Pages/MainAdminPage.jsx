@@ -76,7 +76,7 @@ const view = {
    
    <Box background="#2e2e2e" width="100%" height="150px" mt="30px" p="10px" border="1px  white" borderRadius="10px" >
     <Text textAlign="center" fontWeight={500} color="greenyellow" fontSize="40px" >Total Sale</Text>
-       <Text textAlign="center" fontWeight={500} color="black" fontSize="38px">$ 500</Text>
+       <Text textAlign="center" fontWeight={400} color="#ffffff" fontSize="38px">$ 500</Text>
    </Box>
 
 {/*  All four details boxes ------------------------------------ */}
