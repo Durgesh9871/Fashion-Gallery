@@ -16,8 +16,10 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { useNavigate, useParams } from "react-router-dom";
-import React from "react";
+import React, { useEffect } from "react";
 import Alert from "../Components/Alert";
+import { getCartData } from "../../Redux/Cart_Reducer/action";
+import { useDispatch, useSelector } from "react-redux";
 
 let state = [
   "Andhra Pradesh",
@@ -80,6 +82,7 @@ export default function CheckoutPage() {
   const [detail, setdetail] = React.useState(initialdetails);
   console.log(detail)
   const navigate = useNavigate();
+ 
 
   const handlebooking = () => {
     let flag=false;
@@ -98,11 +101,31 @@ export default function CheckoutPage() {
   const handleChange = (el) => {
     setdetail({ ...detail, [el.target.name]: el.target.value });
   };
-  // localStorage.setItem('purchase',4500)
-  let totalprice = JSON.parse(localStorage.getItem("purchase"));
-  let discount = totalprice * (5 / 100);
-  let couponadd = totalprice ? 30 : 0;
-  let payableamount = totalprice - discount - couponadd;
+
+
+  // cart data  
+  const {cartData} = useSelector((state)=>{
+    return {
+      cartData:state.CartReducer.cartData
+    }
+  })
+
+  const dispatch = useDispatch()
+  var totalprice = 0 
+  useEffect(()=>{
+     dispatch(getCartData)
+  },[])
+
+  if(cartData[0] != "N"){
+    cartData.map((ele)=>{
+      totalprice +=  ele.productId.price
+    })
+  }
+
+   
+  let discount = totalprice * (5 / 100)
+  let couponadd =  totalprice ? 30 : 0
+  let payableamount = Math.floor(totalprice - discount - couponadd)
   return (
     <div>
       <Stack
@@ -120,15 +143,15 @@ export default function CheckoutPage() {
           <Box>
             <HStack justifyContent="space-around">
               <Heading fontSize="17px" fontWeight="600" color="#303030">Total Amount</Heading>
-              <Text fontSize='16px'  fontWeight="500" color="#ffffff" >09i</Text>
+              <Text fontSize='16px'  fontWeight="500" color="#ffffff" >{totalprice}</Text>
             </HStack>
             <HStack justifyContent="space-around">
               <Heading fontSize="17px" fontWeight="600" color="#303030">Price Drop</Heading>
-              <Text fontSize='16px'  fontWeight="500" color="#ffffff" >-{discount}</Text>
+              <Text fontSize='16px'  fontWeight="500" color="#ffffff" >- {discount}</Text>
             </HStack>
             <HStack justifyContent="space-around">
               <Heading fontSize="17px" fontWeight="600" color="#303030" >Discount </Heading>
-              <Text fontSize='16px'  fontWeight="500" color="#ffffff" >-{couponadd}</Text>
+              <Text fontSize='16px'  fontWeight="500" color="#ffffff" >- {couponadd}</Text>
             </HStack>
           </Box>
           <Divider border="1px solid #ffffff" m='5px 0px'></Divider>
