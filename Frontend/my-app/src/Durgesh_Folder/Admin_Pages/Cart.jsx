@@ -1,8 +1,22 @@
 import { Box, Heading } from '@chakra-ui/react'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Sidebar } from '../Admin_Components/SliderAdmin'
 
 const CartPageAdmin = () => {
+    const [cartData , setCartData] = useState([])
+
+
+    const getCartData = ()=>{
+        axios.get(`${process.env.REACT_APP_URL}/cart/alluser`)
+        .then((res)=> setCartData(res.data))
+        .catch((err)=> console.log(err))
+    }
+
+    useEffect(()=>{
+        getCartData()
+    },[])
+    console.log(cartData ,"cartData")
+
   return (
     <Box>
        <Sidebar />
