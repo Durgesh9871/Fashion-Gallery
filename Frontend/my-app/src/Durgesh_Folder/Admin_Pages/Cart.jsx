@@ -46,6 +46,7 @@ const CartPageAdmin = () => {
               <TableCaption placement="top">Users Data </TableCaption>
               <Thead>
                 <Tr>
+                <Th>Name</Th>
                  <Th>Photo</Th>
                   <Th>User Id</Th>
                   <Th>created At</Th>
@@ -74,6 +75,7 @@ const CartPageAdmin = () => {
                             border="2px solid white"
                           />
                         </Td>
+                        <Td textTransform="capitalize">{item.userId.name}</Td>
                         <Td>{item.userId._id}</Td>
                         <Td>{item.createdAt.slice(0,10)}</Td>
                         <Td>{item.updatedAt.slice(0,10)}</Td>
