@@ -1,13 +1,18 @@
 import { Box, Heading } from '@chakra-ui/react'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Sidebar } from '../Admin_Components/SliderAdmin'
+import axios from 'axios'
 
 const CartPageAdmin = () => {
     const [cartData , setCartData] = useState([])
 
 
     const getCartData = ()=>{
-        axios.get(`${process.env.REACT_APP_URL}/cart/alluser`)
+        axios.get(`${process.env.REACT_APP_URL}/cart/alluser` ,{
+            headers:{
+                authorization:JSON.parse(localStorage.getItem("token"))
+            }
+        })
         .then((res)=> setCartData(res.data))
         .catch((err)=> console.log(err))
     }
