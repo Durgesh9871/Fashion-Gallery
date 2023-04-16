@@ -74,11 +74,7 @@ export default function CheckoutPage() {
     phone: "",
   };
   const toast = useToast();
-  let alertdata = {
-    title: " Invalid Input",
-    description: "Please fill the details",
-    status: "warning",
-  };
+  
 
   const [detail, setdetail] = React.useState(initialdetails);
   // console.log(detail)
@@ -98,6 +94,7 @@ export default function CheckoutPage() {
   })
   
   //  send all cart data to order ------------------------------------
+  
   const handlebooking = () => {
     cartData.map((ele)=>{
       // console.log(ele)
@@ -111,14 +108,14 @@ export default function CheckoutPage() {
         isCanceled:false
       }
       // console.log(body ,"body")
-      axios.post(`${process.env.REACT_APP_URL}/order/add` ,body , {
-        headers: {
-          authorization: JSON.parse(localStorage.getItem("token")),
-        },
-      })
+      // axios.post(`${process.env.REACT_APP_URL}/order/add` ,body , {
+      //   headers: {
+      //     authorization: JSON.parse(localStorage.getItem("token")),
+      //   },
+      // })
 
     })
-    
+
   };
 
   const dispatch = useDispatch()
@@ -184,12 +181,14 @@ export default function CheckoutPage() {
                   placeholder="First Name"
                   name="firstname"
                   onChange={handleChange}
+                
                 />
                 <Input
                   type="text"
                   placeholder="Last Name"
                   name="lastname"
                   onChange={handleChange}
+                   
                 />
               </Stack>
 
