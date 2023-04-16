@@ -100,7 +100,23 @@ export default function CheckoutPage() {
   //  send all cart data to order ------------------------------------
   const handlebooking = () => {
     cartData.map((ele)=>{
-      axios.post(``)
+      // console.log(ele)
+      const body = {
+        userId:ele.userId ,
+        productId:ele.productId._id , 
+        quantity:ele.quantity ,
+        amount:ele.productId.price , 
+        address:detail ,
+        status:"pending" ,
+        isCanceled:false
+      }
+      // console.log(body ,"body")
+      axios.post(`${process.env.REACT_APP_URL}/order/add` ,body , {
+        headers: {
+          authorization: JSON.parse(localStorage.getItem("token")),
+        },
+      })
+
     })
   };
 
