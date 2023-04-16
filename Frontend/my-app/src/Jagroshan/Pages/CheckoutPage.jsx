@@ -109,19 +109,18 @@ export default function CheckoutPage() {
         w="60%"
         border={"0px"}
         margin="auto"
-        marginY={"9%"}
-        shadow={'2xl'}
+        // shadow="base"
         p={2}
       >
         <VStack
           border="0px solid grey"
           p={4}
         >
-          <Box border="1px solid grey" backgroundColor={'skyblue'} borderRadius={'5px'} w={'50%'} p={3} display={'grid'} alignContent={'center'}>
+          <Box border="1px solid grey" backgroundColor='' borderRadius={'5px'} w={'50%'} p={3} display={'grid'} alignContent={'center'}>
           <Box>
             <HStack justifyContent="space-around">
-              <Text>Total Amount</Text>
-              <Heading size="md">{totalprice}</Heading>
+              <Heading fontSize="17px" fontWeight="600" color="#303030">Total Amount</Heading>
+              <Text fontSize='16px' className='control' fontWeight="500" color="#727272" >09i</Text>
             </HStack>
             <HStack justifyContent="space-around">
               <Text>Price Drop</Text>
@@ -142,7 +141,7 @@ export default function CheckoutPage() {
           <Text border="0px solid">
             Yay! You just saved {discount + couponadd}$ on this order!
           </Text>
-          <Stack textAlign="start">
+          <Stack textAlign="start" shadow="lg" p="40px">
             <Heading size="md">Delivery Details</Heading>
             <Stack>
               <Stack direction="row">
@@ -209,13 +208,13 @@ export default function CheckoutPage() {
               <FormControl>
                 <FormLabel>Contact Number</FormLabel>
                 <Input placeholder="Mobile Number" type="text" name="phone" onChange={handleChange}/>
-                <FormHelperText>Delivery Agent will use this number to contact for delivery.</FormHelperText>
+                <FormHelperText mb="18px">Delivery Agent will use this number to contact for delivery.</FormHelperText>
               </FormControl>
             </Stack>
-          </Stack>
-          <Button bg="teal.400" onClick={handlebooking}>
+          <Button bg="teal.400" mt="10px" color="#ffff" fontSize="18px" onClick={handlebooking}>
             Complete the purchase
           </Button>
+          </Stack>
         </VStack>
       </Stack>
     </div>
