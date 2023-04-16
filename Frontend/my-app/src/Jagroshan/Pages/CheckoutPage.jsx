@@ -116,29 +116,29 @@ export default function CheckoutPage() {
           border="0px solid grey"
           p={4}
         >
-          <Box border="1px solid grey" backgroundColor='' borderRadius={'5px'} w={'50%'} p={3} display={'grid'} alignContent={'center'}>
+          <Box border="2px solid teal" shadow="base" backgroundColor='teal.400' borderRadius='12px' w={{base:"80vw", sm: "55vw", md: "60%", lg: "60%" ,xl: "40%",'2xl': "40%",}} p="14px" mb="5px" display='grid' alignContent='center'>
           <Box>
             <HStack justifyContent="space-around">
               <Heading fontSize="17px" fontWeight="600" color="#303030">Total Amount</Heading>
-              <Text fontSize='16px' className='control' fontWeight="500" color="#727272" >09i</Text>
+              <Text fontSize='16px'  fontWeight="500" color="#ffffff" >09i</Text>
             </HStack>
             <HStack justifyContent="space-around">
-              <Text>Price Drop</Text>
-              <Heading size="md">-{discount}</Heading>
+              <Heading fontSize="17px" fontWeight="600" color="#303030">Price Drop</Heading>
+              <Text fontSize='16px'  fontWeight="500" color="#ffffff" >-{discount}</Text>
             </HStack>
             <HStack justifyContent="space-around">
-              <Text>Discount </Text>
-              <Heading size="md">-{couponadd}</Heading>
+              <Heading fontSize="17px" fontWeight="600" color="#303030" >Discount </Heading>
+              <Text fontSize='16px'  fontWeight="500" color="#ffffff" >-{couponadd}</Text>
             </HStack>
           </Box>
-          <Divider></Divider>
+          <Divider border="1px solid #ffffff" m='5px 0px'></Divider>
           <HStack justifyContent="space-around">
-            <Text>Payable Amount</Text>
-            <Heading size="md">{payableamount}</Heading>
+            <Heading fontSize="17px" fontWeight="600" color="#303030" >Payable Amount</Heading>
+            <Text fontSize='16px'  fontWeight="500" color="#ffffff" s>{payableamount}</Text>
           </HStack>
         </Box>
-        <Divider></Divider>
-          <Text border="0px solid">
+        <Divider border="1px solid grey.500" ></Divider>
+          <Text border="1px  red" width="80vw" fontSize='17px' className='' fontWeight="500" color="#727272" textAlign="center">
             Yay! You just saved {discount + couponadd}$ on this order!
           </Text>
           <Stack textAlign="start" shadow="lg" p="40px">
