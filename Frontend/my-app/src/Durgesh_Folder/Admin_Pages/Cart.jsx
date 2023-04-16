@@ -42,8 +42,8 @@ const CartPageAdmin = () => {
 
           {/*  table  */}
           <TableContainer color="#fff">
-            <Table variant="simple">
-              <TableCaption placement="top">Users Data </TableCaption>
+            <Table variant="simple" size="sm">
+              <TableCaption placement="top" fontSize="22px" mb="15px">All Users Cart Data </TableCaption>
               <Thead>
                 <Tr>
                 <Th>Name</Th>
@@ -52,6 +52,7 @@ const CartPageAdmin = () => {
                   <Th>created At</Th>
                   <Th>updated At</Th>
                   <Th>ProductId</Th>
+                  <Th>Price</Th>
                   <Th>quantity</Th>
                 </Tr>
               </Thead>
@@ -80,6 +81,7 @@ const CartPageAdmin = () => {
                         <Td>{item.createdAt.slice(0,10)}</Td>
                         <Td>{item.updatedAt.slice(0,10)}</Td>
                         <Td>{item.productId._id}</Td>
+                        <Td>{item.productId.price}</Td>
                         <Td>{item.quantity}</Td>
                       </Tr>
                     );
