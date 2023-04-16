@@ -1,10 +1,11 @@
-import { Box, Heading, Table, TableCaption, TableContainer, Tbody, Td, Th, Thead, Tr , Image} from '@chakra-ui/react'
+import { Box, Heading, Table, TableCaption, TableContainer, Tbody, Td, Th, Thead, Tr , Image, Tfoot} from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { Sidebar } from '../Admin_Components/SliderAdmin'
 import axios from 'axios'
 
 const CartPageAdmin = () => {
     const [cartData , setCartData] = useState([])
+    let TotalPrice = 0 
 
 
     const getCartData = ()=>{
@@ -25,6 +26,17 @@ const CartPageAdmin = () => {
         female: "https://cdn-icons-png.flaticon.com/128/6997/6997662.png",
         male: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOnyqrxK4zSTIzWLbCQSBMxYgT2B4U0jv6JMJ-Aezj-kkKqSl7GShdy8jPY0HowqY6KibmsWomG6k&usqp=CAU&ec=48600112",
       };
+
+
+    //    for cart total ---------------------
+
+    if(cartData.length != 0 && cartData != undefined){
+        cartData.forEach((item)=>{
+            TotalPrice += item.productId.price
+       })
+        console.log(TotalPrice ,"val")
+    }
+    
 
     console.log(cartData ,"cartData")
 
@@ -52,8 +64,8 @@ const CartPageAdmin = () => {
                   <Th>created At</Th>
                   <Th>updated At</Th>
                   <Th>ProductId</Th>
-                  <Th>Price</Th>
                   <Th>quantity</Th>
+                  <Th>Price</Th>
                 </Tr>
               </Thead>
               <Tbody>
@@ -81,12 +93,23 @@ const CartPageAdmin = () => {
                         <Td>{item.createdAt.slice(0,10)}</Td>
                         <Td>{item.updatedAt.slice(0,10)}</Td>
                         <Td>{item.productId._id}</Td>
-                        <Td>{item.productId.price}</Td>
                         <Td>{item.quantity}</Td>
+                        <Td>{item.productId.price}</Td>
                       </Tr>
                     );
                   })}
               </Tbody>
+
+              {/*  table foot */}
+              <Tfoot>
+         <Tr>
+            <Th></Th>  <Th></Th>  <Th></Th>  <Th></Th>  <Th></Th>  <Th></Th>
+        <Th>Total Price </Th>
+        <Th>{}</Th>
+       
+       </Tr>
+       </Tfoot>
+
             </Table>
           </TableContainer>
 
