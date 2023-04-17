@@ -94,7 +94,17 @@ export default function CheckoutPage() {
   })
   
   //  send all cart data to order ------------------------------------
-  
+  function  callToast(){
+    toast({
+      position: "top",
+      title: 'Preparing Your Order',
+      description: "Your order is being prepared, please wait a moment.",
+      status: 'warning',
+      duration: 5000,
+      isClosable: true,
+    })
+  }
+
   const handlebooking = () => {
     cartData.map((ele)=>{
       // console.log(ele)
@@ -115,6 +125,15 @@ export default function CheckoutPage() {
       // })
 
     })
+   
+    callToast()
+    navigate("/payment")
+     
+
+   
+    
+
+  
 
   };
 
