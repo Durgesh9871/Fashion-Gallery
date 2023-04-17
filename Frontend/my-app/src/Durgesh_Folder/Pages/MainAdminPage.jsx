@@ -13,6 +13,7 @@ import axios from 'axios'
 
 const MainAdminPage = () => {
   const [cartData , setCartData] = useState([])
+  const [productsData , setProductData] = useState([])
 
 
 
@@ -27,6 +28,17 @@ const MainAdminPage = () => {
       .catch((err)=> console.log(err))
   }
 
+   // for all product data
+   const getProductData = ()=>{
+    axios.get(`${process.env.REACT_APP_URL}/products` ,{
+        headers:{
+            authorization:JSON.parse(localStorage.getItem("token"))
+        }
+    })
+    .then((res)=> setProductData(res.data))
+    .catch((err)=> console.log(err))
+}
+
 
   //  for customer data ------------------------
   const dispatch = useDispatch() 
@@ -36,10 +48,13 @@ const MainAdminPage = () => {
       isLoadind:state.CustomerReducer.isLoadind ,
       isError :state.CustomerReducer.isError ,
     }
-},shallowEqual )  
+})  
+
+
 
   useEffect(()=>{
       getCartData()
+      getProductData()
   },[])
 
   
@@ -100,7 +115,7 @@ const view = {
     <Box border="1px solid white" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
   
   <Text style={style}>Add Product</Text> 
-  <Text style={secondStyle}>Products - {cartData.length}</Text> 
+  <Text style={secondStyle}>Products - {productsData.length}</Text> 
 
     <Divider orientation='horizontal' style={{margin:"10px 0px" }}  />
 <Link to="/addPageAdmin">  <Box display="flex" justifyContent="space-between" alignItems="center" cursor="pointer">
@@ -116,7 +131,7 @@ const view = {
 <Box border="1px solid white" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
   
   <Text style={style}>Delete Product</Text> 
-  <Text style={secondStyle}>Products - {cartData.length}</Text> 
+  <Text style={secondStyle}>Products - {productsData.length}</Text> 
 
     <Divider orientation='horizontal' style={{margin:"10px 0px" }}  />
 <Link to="/deltePageAdmin">  <Box display="flex" justifyContent="space-between" alignItems="center" cursor="pointer">
