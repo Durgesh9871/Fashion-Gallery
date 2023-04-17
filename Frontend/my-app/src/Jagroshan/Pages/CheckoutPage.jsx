@@ -105,7 +105,7 @@ export default function CheckoutPage() {
     })
   }
 
-  const handlebooking = () => {
+  const handlebookingData = () => {
     cartData.map((ele)=>{
       // console.log(ele)
       const body = {
@@ -128,14 +128,32 @@ export default function CheckoutPage() {
    
     callToast()
     navigate("/payment")
-     
-
-   
-    
-
-  
 
   };
+
+ const handlebooking = ()=>{
+  let value = true  
+
+  for(let k in detail){
+   if(detail[k] == ""){
+     value = false 
+     break 
+   }
+  }
+  if(value === false){
+    toast({
+      position: "top",
+      title: 'Fill All Details',
+      description: "Fill all details Correctly",
+      status: 'warning',
+      duration: 3000,
+      isClosable: true,
+    })
+  }
+  else{
+    handlebookingData()
+  }
+}
 
   const dispatch = useDispatch()
   var totalprice = 0 
