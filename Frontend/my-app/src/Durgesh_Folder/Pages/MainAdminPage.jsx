@@ -13,7 +13,9 @@ import axios from 'axios'
 
 const MainAdminPage = () => {
   const [cartData , setCartData] = useState([])
-
+  const [productsData , setProductData] = useState([])
+  const [order , setOrder] = useState([])
+  var totalPriceSale = 0 
 
 
   // for all cart data
@@ -27,6 +29,29 @@ const MainAdminPage = () => {
       .catch((err)=> console.log(err))
   }
 
+   // for all product data
+   const getProductData = ()=>{
+    axios.get(`${process.env.REACT_APP_URL}/products` ,{
+        headers:{
+            authorization:JSON.parse(localStorage.getItem("token"))
+        }
+    })
+    .then((res)=> setProductData(res.data))
+    .catch((err)=> console.log(err))
+}
+
+//  all order data ---
+const getOrderData = ()=>{
+  axios.get(`${process.env.REACT_APP_URL}/order` ,{
+      headers:{
+          authorization:JSON.parse(localStorage.getItem("token"))
+      }
+  })
+  .then((res)=> setOrder(res.data))
+  .catch((err)=> console.log(err))
+}
+// console.log(order ,"order")
+
 
   //  for customer data ------------------------
   const dispatch = useDispatch() 
@@ -36,19 +61,25 @@ const MainAdminPage = () => {
       isLoadind:state.CustomerReducer.isLoadind ,
       isError :state.CustomerReducer.isError ,
     }
-},shallowEqual )  
+})  
+
+
 
   useEffect(()=>{
+    getOrderData()
       getCartData()
+      getProductData()
   },[])
 
-  
- 
+  if(order.length > 0){
+    order?.map((ele)=>{
+     if(ele.status == "success"){
+      totalPriceSale += ele.amount
+     }
+    })
+  }
 
 
-useEffect(()=>{
-   dispatch(getCustomerData)
-},[])
 
 //  style ==
 const style={
@@ -76,14 +107,14 @@ const view = {
    
    <Box background="#2e2e2e" width="100%" height="150px" mt="30px" p="10px" border="1px  white" borderRadius="10px" >
     <Text textAlign="center" fontWeight={500} color="greenyellow" fontSize="40px" >Total Sale</Text>
-       <Text textAlign="center" fontWeight={400} color="#ffffff" fontSize="38px">$ 500</Text>
+       <Text textAlign="center" fontWeight={400} color="#ffffff" fontSize="38px">{order.length == 0 ? "No Sale" :`$ ${totalPriceSale}`}</Text>
    </Box>
 
 {/*  All four details boxes ------------------------------------ */}
    <Box border="1px  red" display="flex" justifyContent="space-between" mt="30px">
 
 {/*  for customers --- first box  */}
-    <Box border="1px solid  white"  background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px"> 
+    {/* <Box border="1px solid  white"  background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px"> 
     <Text style={style}>Customers</Text> 
     <Text style={secondStyle}>Users - 34</Text> 
 
@@ -93,14 +124,14 @@ const view = {
       <AiFillCaretRight style={{color:"#ffff"  , fontSize:"20px"}} />
     </Box> </Link>
 
-    </Box>
+    </Box> */}
 
 
 {/* Box for adding product */}
     <Box border="1px solid white" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
   
   <Text style={style}>Add Product</Text> 
-  <Text style={secondStyle}>Products - {cartData.length}</Text> 
+  <Text style={secondStyle}>Products - {productsData.length}</Text> 
 
     <Divider orientation='horizontal' style={{margin:"10px 0px" }}  />
 <Link to="/addPageAdmin">  <Box display="flex" justifyContent="space-between" alignItems="center" cursor="pointer">
@@ -116,7 +147,7 @@ const view = {
 <Box border="1px solid white" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
   
   <Text style={style}>Delete Product</Text> 
-  <Text style={secondStyle}>Products - {cartData.length}</Text> 
+  <Text style={secondStyle}>Products - {productsData.length}</Text> 
 
     <Divider orientation='horizontal' style={{margin:"10px 0px" }}  />
 <Link to="/deltePageAdmin">  <Box display="flex" justifyContent="space-between" alignItems="center" cursor="pointer">
@@ -145,6 +176,20 @@ const view = {
  {/* third box end here ------- */}
 
 
+ {/*  order  one -------------------- removed- */}
+ <Box border="1px solid white" mr="22px" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
+  
+  <Text style={style}>Order Details</Text> 
+  <Text style={secondStyle}>{order.length == 0 ?"No Order":order.length}</Text> 
+
+    <Divider orientation='horizontal' style={{margin:"10px 0px" }}  />
+<Link to="/orderPageAdmin">  <Box display="flex" justifyContent="space-between" alignItems="center" cursor="pointer">
+    <Text style={view}>View Details</Text>
+    <AiFillCaretRight style={{color:"#ffff"  , fontSize:"20px"}} />
+  </Box> </Link>
+
+  </Box>
+ {/* order box end here ------- */}
 
    
     
@@ -159,7 +204,7 @@ const view = {
 
 
     {/*  order  one --------------------- */}
-    <Box border="1px solid white" mr="22px" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
+    {/* <Box border="1px solid white" mr="22px" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
   
     <Text style={style}>Order Details</Text> 
     <Text style={secondStyle}>& Status...</Text> 
@@ -170,12 +215,12 @@ const view = {
       <AiFillCaretRight style={{color:"#ffff"  , fontSize:"20px"}} />
     </Box> </Link>
 
-    </Box>
+    </Box> */}
    {/* order box end here ------- */}
 
 
       {/*  for statistic --------------------- */}
-      <Box border="1px solid white" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
+      {/* <Box border="1px solid white" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
       
       <Text style={style}>Statistics</Text> 
       <Text style={secondStyle}>...</Text> 
@@ -186,7 +231,7 @@ const view = {
         <AiFillCaretRight style={{color:"#ffff"  , fontSize:"20px"}} />
       </Box> </Link>
   
-      </Box>
+      </Box> */}
 
       {/* stats end here ---------------- */}
    </Box>

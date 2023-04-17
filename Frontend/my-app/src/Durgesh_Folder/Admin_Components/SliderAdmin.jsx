@@ -79,13 +79,13 @@ const Sidebar = () => {
       
           </NavIcon>
       <Link to="/">  <SidebarLink> <AiFillHome style={{marginRight:"6px"}} /> Home </SidebarLink> </Link>  
-          <Link to="/customerPageAdmin"> <SidebarLink> <FaUserAlt style={{marginRight:"6px"}}  /> Customers</SidebarLink> </Link>
+          {/* <Link to="/customerPageAdmin"> <SidebarLink> <FaUserAlt style={{marginRight:"6px"}}  /> Customers</SidebarLink> </Link> */}
           <Link to="/addPageAdmin"> <SidebarLink> <AiFillFileAdd style={{marginRight:"6px"}}  /> Add Products</SidebarLink> </Link>
           <Link to="/deltePageAdmin"> <SidebarLink> <AiFillDelete style={{marginRight:"6px"}}  /> Delete Products</SidebarLink> </Link>
 
           <Link to="/cartPageAdmin"> <SidebarLink> <BsFillCartFill style={{marginRight:"6px"}}  /> Cart Details</SidebarLink> </Link>
           <Link to="/orderPageAdmin"> <SidebarLink> <FaSellsy style={{marginRight:"6px"}}  /> Order Details</SidebarLink> </Link>
-          <Link to="/stat"> <SidebarLink> <GoGraph style={{marginRight:"6px"}}  /> Statistics</SidebarLink> </Link>
+          {/* <Link to="/stat"> <SidebarLink> <GoGraph style={{marginRight:"6px"}}  /> Statistics</SidebarLink> </Link> */}
 
 
 

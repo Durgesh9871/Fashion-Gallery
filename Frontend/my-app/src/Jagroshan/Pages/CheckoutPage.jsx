@@ -105,7 +105,7 @@ export default function CheckoutPage() {
     })
   }
 
-  const handlebooking = () => {
+  const handlebookingData = () => {
     cartData.map((ele)=>{
       // console.log(ele)
       const body = {
@@ -114,28 +114,47 @@ export default function CheckoutPage() {
         quantity:ele.quantity ,
         amount:ele.productId.price , 
         address:detail ,
-        status:"pending" ,
+        status:"success" ,
         isCanceled:false
       }
       // console.log(body ,"body")
-      // axios.post(`${process.env.REACT_APP_URL}/order/add` ,body , {
-      //   headers: {
-      //     authorization: JSON.parse(localStorage.getItem("token")),
-      //   },
-      // })
+      axios.post(`${process.env.REACT_APP_URL}/order/add` ,body , {
+        headers: {
+          authorization: JSON.parse(localStorage.getItem("token")),
+        },
+      })
 
     })
    
     callToast()
     navigate("/payment")
-     
-
-   
-    
-
-  
 
   };
+
+ const handlebooking = ()=>{
+  let value = true  
+
+  for(let k in detail){
+   if(detail[k] == ""){
+    // console.log(k ,"xnj")
+     value = false 
+     break 
+   }
+  }
+  if(value === false){
+    toast({
+      position: "top",
+      title: 'Fill All Details',
+      description: "Fill all details Correctly",
+      status: 'warning',
+      duration: 3000,
+      isClosable: true,
+    })
+  }
+  else{
+    handlebookingData()
+  }
+}
 
   const dispatch = useDispatch()
   var totalprice = 0 
@@ -150,8 +169,8 @@ export default function CheckoutPage() {
   }
 
    
-  let discount = totalprice * (5 / 100)
-  let couponadd =  totalprice ? 30 : 0
+  let discount = Math.floor(totalprice * (5 / 100))
+  let couponadd =  Math.floor(totalprice ? 30 : 0)
   let payableamount = Math.floor(totalprice - discount - couponadd)
   return (
     <div>

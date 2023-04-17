@@ -22,6 +22,13 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import Alert from "../Components/Alert";
 import PinModal from "../Components/PinModal";
+import { useDispatch, useSelector } from "react-redux";
+import { getCartData, getCartDelete } from "../../Redux/Cart_Reducer/action";
+
+
+
+
+
 
 export default function PaymentsPage() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -50,6 +57,7 @@ export default function PaymentsPage() {
   };
 
   const handleCash = () => {
+    handleDel()
     let alertdata = {
       title: " Incorrect Capcha",
       description: "Please try again",
@@ -61,6 +69,7 @@ export default function PaymentsPage() {
   };
 
   const handlePayment = (type) => {
+    handleDel()
     if (type == "card") 
     {
       let alertdata = {
@@ -82,6 +91,8 @@ export default function PaymentsPage() {
     {
         onOpen()
     }
+
+   
   };
 
   const handlePin = () => {
@@ -92,7 +103,34 @@ export default function PaymentsPage() {
   const handleCard = (e) => {
     setCard({ ...card, [e.target.name]: e.target.value });
   };
-  console.log(card);
+  // console.log(card);
+ 
+  //  for removing data from cart --------------------
+  const dispatch = useDispatch()
+
+  const {cartData} = useSelector((state)=>{
+    return {
+      cartData:state.CartReducer.cartData
+    }
+  })
+
+ 
+  const handleDel = ()=>{
+    if(cartData?.length > 0){
+      cartData.map((ele)=>{
+        // console.log(ele.productId._id ,"ele")
+        dispatch(getCartDelete(ele._id))
+      })
+    }
+  }
+  
+
+  useEffect(()=>{
+    dispatch(getCartData)
+  },[])
+
+
+
   return (
     <div style={{ margin: "5%" }}>
       <Tabs
