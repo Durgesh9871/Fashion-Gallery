@@ -43,7 +43,7 @@ const CartPageAdmin = () => {
   return (
     <Box>
        <Sidebar />
-        <Box background="#171923" height="100vh">
+        <Box background="#171923" height="100%">
 
             {/* Cart Details  STARTED FROM HERE --------------------- */}
             <Box width={{ base: "100%", sm: "100%", md: "100%", lg: "100%", xl: "81%", '2xl': "81%" }} border="1px   red" height="auto" marginLeft="auto"  p="2%" mt="-60px">
