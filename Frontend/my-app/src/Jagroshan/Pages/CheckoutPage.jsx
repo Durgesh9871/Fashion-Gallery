@@ -16,8 +16,11 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { useNavigate, useParams } from "react-router-dom";
-import React from "react";
+import React, { useEffect } from "react";
 import Alert from "../Components/Alert";
+import { getCartData } from "../../Redux/Cart_Reducer/action";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 
 let state = [
   "Andhra Pradesh",
@@ -71,92 +74,121 @@ export default function CheckoutPage() {
     phone: "",
   };
   const toast = useToast();
-  let alertdata = {
-    title: " Invalid Input",
-    description: "Please fill the details",
-    status: "warning",
-  };
+  
 
   const [detail, setdetail] = React.useState(initialdetails);
-  console.log(detail)
+  // console.log(detail)
   const navigate = useNavigate();
-
-  const handlebooking = () => {
-    let flag=false;
-    for(let key in detail)
-    {
-      if(detail[key]=="")
-      { 
-        toast(Alert(alertdata))
-        flag=true;
-        break
-      }
-    }
-    if(!flag) navigate("/payment");
-  };
+ 
 
   const handleChange = (el) => {
     setdetail({ ...detail, [el.target.name]: el.target.value });
   };
-  // localStorage.setItem('purchase',4500)
-  let totalprice = JSON.parse(localStorage.getItem("purchase"));
-  let discount = totalprice * (5 / 100);
-  let couponadd = totalprice ? 30 : 0;
-  let payableamount = totalprice - discount - couponadd;
+
+
+  // cart data  
+  const {cartData} = useSelector((state)=>{
+    return {
+      cartData:state.CartReducer.cartData
+    }
+  })
+  
+  //  send all cart data to order ------------------------------------
+  
+  const handlebooking = () => {
+    cartData.map((ele)=>{
+      // console.log(ele)
+      const body = {
+        userId:ele.userId ,
+        productId:ele.productId._id , 
+        quantity:ele.quantity ,
+        amount:ele.productId.price , 
+        address:detail ,
+        status:"pending" ,
+        isCanceled:false
+      }
+      // console.log(body ,"body")
+      // axios.post(`${process.env.REACT_APP_URL}/order/add` ,body , {
+      //   headers: {
+      //     authorization: JSON.parse(localStorage.getItem("token")),
+      //   },
+      // })
+
+    })
+
+  };
+
+  const dispatch = useDispatch()
+  var totalprice = 0 
+  useEffect(()=>{
+     dispatch(getCartData)
+  },[])
+
+  if(cartData[0] != "N"){
+    cartData.map((ele)=>{
+      totalprice +=  ele.productId.price
+    })
+  }
+
+   
+  let discount = totalprice * (5 / 100)
+  let couponadd =  totalprice ? 30 : 0
+  let payableamount = Math.floor(totalprice - discount - couponadd)
   return (
     <div>
       <Stack
         w="60%"
         border={"0px"}
         margin="auto"
-        marginY={"9%"}
-        shadow={'2xl'}
+        // shadow="base"
         p={2}
       >
         <VStack
           border="0px solid grey"
           p={4}
         >
-          <Box border="1px solid grey" backgroundColor={'skyblue'} borderRadius={'5px'} w={'50%'} p={3} display={'grid'} alignContent={'center'}>
+          <Box border="1px solid teal.500" shadow="base" backgroundColor='teal.400' borderRadius='12px' w={{base:"80vw", sm: "55vw", md: "60%", lg: "60%" ,xl: "40%",'2xl': "40%",}} p="14px" mb="5px" display='grid' alignContent='center'>
           <Box>
             <HStack justifyContent="space-around">
-              <Text>Total Amount</Text>
-              <Heading size="md">{totalprice}</Heading>
+              <Heading fontSize="17px" fontWeight="600" color="#303030">Total Amount</Heading>
+              <Text fontSize='16px'  fontWeight="500" color="#ffffff" >{totalprice}</Text>
             </HStack>
             <HStack justifyContent="space-around">
-              <Text>Price Drop</Text>
-              <Heading size="md">-{discount}</Heading>
+              <Heading fontSize="17px" fontWeight="600" color="#303030">Price Drop</Heading>
+              <Text fontSize='16px'  fontWeight="500" color="#ffffff" >- {discount}</Text>
             </HStack>
             <HStack justifyContent="space-around">
-              <Text>Discount </Text>
-              <Heading size="md">-{couponadd}</Heading>
+              <Heading fontSize="17px" fontWeight="600" color="#303030" >Discount </Heading>
+              <Text fontSize='16px'  fontWeight="500" color="#ffffff" >- {couponadd}</Text>
             </HStack>
           </Box>
-          <Divider></Divider>
+          <Divider border="1px solid #ffffff" m='5px 0px'></Divider>
           <HStack justifyContent="space-around">
-            <Text>Payable Amount</Text>
-            <Heading size="md">{payableamount}</Heading>
+            <Heading fontSize="17px" fontWeight="600" color="#303030" >Payable Amount</Heading>
+            <Text fontSize='16px'  fontWeight="500" color="#ffffff" s>{payableamount}</Text>
           </HStack>
         </Box>
-        <Divider></Divider>
-          <Text border="0px solid">
+        <Divider border="1px solid grey.500" ></Divider>
+          <Text border="1px  red" width="80vw" fontSize='17px' className='' fontWeight="500" color="#727272" textAlign="center">
             Yay! You just saved {discount + couponadd}$ on this order!
           </Text>
-          <Stack textAlign="start">
+          <Stack textAlign="start" shadow="lg" p="40px">
             <Heading size="md">Delivery Details</Heading>
             <Stack>
-              <Stack direction="row">
+              <Stack direction={{base:"column", sm: "column", md: "row", lg: "row" ,xl: "row",'2xl': "row",}} >
                 <Input
                   type="text"
                   placeholder="First Name"
                   name="firstname"
                   onChange={handleChange}
+                
                 />
                 <Input
                   type="text"
                   placeholder="Last Name"
                   name="lastname"
                   onChange={handleChange}
+                   
                 />
               </Stack>
 
@@ -209,13 +241,13 @@ export default function CheckoutPage() {
               <FormControl>
                 <FormLabel>Contact Number</FormLabel>
                 <Input placeholder="Mobile Number" type="text" name="phone" onChange={handleChange}/>
-                <FormHelperText>Delivery Agent will use this number to contact for delivery.</FormHelperText>
+                <FormHelperText mb="18px">Delivery Agent will use this number to contact for delivery.</FormHelperText>
               </FormControl>
             </Stack>
-          </Stack>
-          <Button bg="teal.400" onClick={handlebooking}>
+          <Button bg="teal.400" mt="10px" color="#ffff" fontSize="18px" onClick={handlebooking}>
             Complete the purchase
           </Button>
+          </Stack>
         </VStack>
       </Stack>
     </div>

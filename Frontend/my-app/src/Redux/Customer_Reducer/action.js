@@ -4,7 +4,7 @@ import axios from "axios"
 
 const getCustomerData = (dispatch)=>{
    dispatch({type: GET_CUSTOMER_DATA_REQUEST })
-   return axios.get(`${process.env.REACT_APP_URL}/user` ,{
+   return axios.get(`${process.env.REACT_APP_URL}/order/all` ,{
       headers:{
          authorization:JSON.parse(localStorage.getItem("token"))
       }

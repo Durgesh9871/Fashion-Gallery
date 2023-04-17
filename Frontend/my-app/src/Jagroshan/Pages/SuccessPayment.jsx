@@ -16,15 +16,16 @@ export default function SuccessPayment() {
     },1000)
 
     return(()=>clearTimeout(cref.current))
-  })
+  },[countdown])
+  
   return (
     <Box textAlign="center"  margin='11% 0%' border={'0px'}>
       <CheckCircleIcon boxSize={'50px'} color={'green.500'} />
       <Heading as="h2" size="xl" mt={6} mb={2}>
-        Booking Confirmed!
+        Order Confirmed!
       </Heading>
       <Text color={'gray.500'}>
-        Booking Details has been send to your email address.
+        Order Details has been send to your email address.
       </Text>
       <Text marginTop={'3%'} fontWeight={'bold'} >
         Redirecting to Homepage in

@@ -6,29 +6,44 @@ import { getCustomerData } from '../../Redux/Customer_Reducer/action'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux'
 import Chart from "react-apexcharts"
 import { AiFillCaretRight } from 'react-icons/ai'
+import axios from 'axios'
+
+
+
 
 const MainAdminPage = () => {
-  let activeCount = 0 
+  const [cartData , setCartData] = useState([])
 
 
+
+  // for all cart data
+  const getCartData = ()=>{
+      axios.get(`${process.env.REACT_APP_URL}/cart/alluser` ,{
+          headers:{
+              authorization:JSON.parse(localStorage.getItem("token"))
+          }
+      })
+      .then((res)=> setCartData(res.data))
+      .catch((err)=> console.log(err))
+  }
+
+
+  //  for customer data ------------------------
   const dispatch = useDispatch() 
-
   const {customerData ,isLoadind,isError} = useSelector((state) => {
     return {
       customerData: state.CustomerReducer.customerData ,
       isLoadind:state.CustomerReducer.isLoadind ,
       isError :state.CustomerReducer.isError ,
     }
-},shallowEqual )   
- 
-if(customerData.length > 0 ){
-  for(var i=0 ; i<customerData.length ; i++){
-        if(customerData[i].active == "true"){
-          activeCount++
-        }
-  }
-}
+},shallowEqual )  
 
+  useEffect(()=>{
+      getCartData()
+  },[])
+
+  
+ 
 
 
 useEffect(()=>{
@@ -61,7 +76,7 @@ const view = {
    
    <Box background="#2e2e2e" width="100%" height="150px" mt="30px" p="10px" border="1px  white" borderRadius="10px" >
     <Text textAlign="center" fontWeight={500} color="greenyellow" fontSize="40px" >Total Sale</Text>
-       <Text textAlign="center" fontWeight={500} color="black" fontSize="38px">$ 500</Text>
+       <Text textAlign="center" fontWeight={400} color="#ffffff" fontSize="38px">$ 500</Text>
    </Box>
 
 {/*  All four details boxes ------------------------------------ */}
@@ -80,32 +95,37 @@ const view = {
 
     </Box>
 
-{/* for update products ------------- second box --- */}
+
+{/* Box for adding product */}
     <Box border="1px solid white" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
-     
-    <Text style={style}>Update Products</Text> 
-    <Text style={secondStyle}>Products - 34</Text> 
+  
+  <Text style={style}>Add Product</Text> 
+  <Text style={secondStyle}>Products - {cartData.length}</Text> 
 
-      <Divider orientation='horizontal' style={{margin:"10px 0px" }}  />
-    <Box display="flex" justifyContent="space-between" alignItems="center" >
-   
-    {/* for adding products  */}
-    <Link to="/addPageAdmin"> <Box display="flex" alignItems="center" cursor="pointer">
-      <Text fontSize="18px" color="lightgreen">Add</Text>
-      <AiFillCaretRight style={{color:"lightgreen"  , fontSize:"20px"}} />
-      </Box></Link>
+    <Divider orientation='horizontal' style={{margin:"10px 0px" }}  />
+<Link to="/addPageAdmin">  <Box display="flex" justifyContent="space-between" alignItems="center" cursor="pointer">
+    <Text style={view}>View Details</Text>
+    <AiFillCaretRight style={{color:"#ffff"  , fontSize:"20px"}} />
+  </Box> </Link>
+
+  </Box>
+  {/* add end */}
 
 
-       {/* for Delete products  */}
-       <Link to="/deltePageAdmin"><Box display="flex" alignItems="center" cursor="pointer">
-      <Text fontSize="18px" color="red">Delete</Text>
-      <AiFillCaretRight style={{color:"red"  , fontSize:"20px"}} />
-      </Box></Link>
+{/* box for deleting product */}
+<Box border="1px solid white" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
+  
+  <Text style={style}>Delete Product</Text> 
+  <Text style={secondStyle}>Products - {cartData.length}</Text> 
 
-    </Box> 
+    <Divider orientation='horizontal' style={{margin:"10px 0px" }}  />
+<Link to="/deltePageAdmin">  <Box display="flex" justifyContent="space-between" alignItems="center" cursor="pointer">
+    <Text style={view}>View Details</Text>
+    <AiFillCaretRight style={{color:"#ffff"  , fontSize:"20px"}} />
+  </Box> </Link>
 
-    </Box>
-
+  </Box>
+  {/* del end */}
 
 
 
@@ -113,10 +133,10 @@ const view = {
 <Box border="1px solid white" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
   
   <Text style={style}>Cart Details</Text> 
-  <Text style={secondStyle}>Items - 32</Text> 
+  <Text style={secondStyle}>Items - {cartData.length}</Text> 
 
     <Divider orientation='horizontal' style={{margin:"10px 0px" }}  />
-<Link to="/stat">  <Box display="flex" justifyContent="space-between" alignItems="center" cursor="pointer">
+<Link to="/cartPageAdmin">  <Box display="flex" justifyContent="space-between" alignItems="center" cursor="pointer">
     <Text style={view}>View Details</Text>
     <AiFillCaretRight style={{color:"#ffff"  , fontSize:"20px"}} />
   </Box> </Link>
@@ -125,20 +145,7 @@ const view = {
  {/* third box end here ------- */}
 
 
-{/*  order  one --------------------- */}
-    <Box border="1px solid white" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
-  
-    <Text style={style}>Order Details</Text> 
-    <Text style={secondStyle}>& Status...</Text> 
 
-      <Divider orientation='horizontal' style={{margin:"10px 0px" }}  />
-  <Link to="/stat">  <Box display="flex" justifyContent="space-between" alignItems="center" cursor="pointer">
-      <Text style={view}>View Details</Text>
-      <AiFillCaretRight style={{color:"#ffff"  , fontSize:"20px"}} />
-    </Box> </Link>
-
-    </Box>
-   {/* third box end here ------- */}
    
     
 
@@ -148,7 +155,25 @@ const view = {
    {/* Four box end here first line ------ */}
    {/*  second line box --- */}
 
-   <Box  border="1px  red" display="flex" justifyContent="space-between" mt="30px" >
+   <Box  border="1px  red" display="flex" justifyContent="" mt="30px" >
+
+
+    {/*  order  one --------------------- */}
+    <Box border="1px solid white" mr="22px" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
+  
+    <Text style={style}>Order Details</Text> 
+    <Text style={secondStyle}>& Status...</Text> 
+
+      <Divider orientation='horizontal' style={{margin:"10px 0px" }}  />
+  <Link to="/orderPageAdmin">  <Box display="flex" justifyContent="space-between" alignItems="center" cursor="pointer">
+      <Text style={view}>View Details</Text>
+      <AiFillCaretRight style={{color:"#ffff"  , fontSize:"20px"}} />
+    </Box> </Link>
+
+    </Box>
+   {/* order box end here ------- */}
+
+
       {/*  for statistic --------------------- */}
       <Box border="1px solid white" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
       
