@@ -316,7 +316,7 @@ const MainHomePage = () => {
          
          <Box height="auto" mb="120px" border="2px  red">
             <Box id='mainImageNav'>
-              <Button color="#4C4C4C" border="1px solid #4C4C4C" borderRadius="2px" p="0px 25px" position="absolute" bottom={{base:"3%", sm: "4%", md: "8%", lg: "8%",xl: "45px",'2xl': "45px"}} left={{base:"10%", sm: "8.4%", md: "5.5%", lg: "5.5%",xl: "85px",'2xl': "85px"}}>SHOP MEN</Button>
+              <Link to="/products"> <Button color="#4C4C4C" border="1px solid #4C4C4C" borderRadius="2px" p="0px 25px" position="absolute" bottom={{base:"3%", sm: "4%", md: "8%", lg: "8%",xl: "45px",'2xl': "45px"}} left={{base:"10%", sm: "8.4%", md: "5.5%", lg: "5.5%",xl: "85px",'2xl': "85px"}}>SHOP MEN</Button> </Link>
             </Box>
           
           {/*  After MAIN IMAGE HEADING ----------------- */}
@@ -333,9 +333,9 @@ performance in unpredictable conditions.</Text>
                 ImageBox.length > 0 && ImageBox.map((item,id)=>{
                   return (
                     <Box id="mainImageBoxThree" border="2px  red"  textAlign="center" key={id}>
-                      <Img src={item.image} width="100%"></Img>
+                     <Link to="/products"><Img src={item.image} width="100%"></Img> </Link>
                       <Text fontWeight="600" color="#343333" fontSize="15px" mt="4px">{item.text}</Text>
-                    </Box>
+                    </Box> 
                   )
                 })
               }
@@ -346,7 +346,7 @@ performance in unpredictable conditions.</Text>
 
             <Box  border="2px   red" height="auto"  textAlign="center" m="4%" >
               {/* <Image src="../Images/sale" m="auto"></Image> */}
-              <Button id="mensButtonHover" color="white" mt="14px" border="1px solid #333333"  backgroundColor="#333333" borderRadius="1px" p="0px 27px" >SHOP MEN</Button>
+            <Link to="/products">  <Button id="mensButtonHover" color="white" mt="14px" border="1px solid #333333"  backgroundColor="#333333" borderRadius="1px" p="0px 27px" >SHOP MEN</Button> </Link>
             </Box>
              
 
