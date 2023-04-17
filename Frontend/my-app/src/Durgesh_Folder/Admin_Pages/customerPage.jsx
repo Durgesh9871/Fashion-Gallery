@@ -29,9 +29,9 @@ const CustomerPage = () => {
     };
   }, shallowEqual);
 
-  useEffect(() => {
-    dispatch(getCustomerData);
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getCustomerData);
+  // }, []);
 
   const userImage = {
     female: "https://cdn-icons-png.flaticon.com/128/6997/6997662.png",

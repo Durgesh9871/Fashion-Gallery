@@ -15,7 +15,7 @@ const MainAdminPage = () => {
   const [cartData , setCartData] = useState([])
   const [productsData , setProductData] = useState([])
   const [order , setOrder] = useState([])
-
+  var totalPriceSale = 0 
 
 
   // for all cart data
@@ -50,7 +50,8 @@ const getOrderData = ()=>{
   .then((res)=> setOrder(res.data))
   .catch((err)=> console.log(err))
 }
-console.log(order ,"order")
+// console.log(order ,"order")
+
 
   //  for customer data ------------------------
   const dispatch = useDispatch() 
@@ -70,13 +71,15 @@ console.log(order ,"order")
       getProductData()
   },[])
 
-  
- 
+  if(order.length > 0){
+    order?.map((ele)=>{
+     if(ele.status == "success"){
+      totalPriceSale += ele.amount
+     }
+    })
+  }
 
 
-useEffect(()=>{
-   dispatch(getCustomerData)
-},[])
 
 //  style ==
 const style={
@@ -104,7 +107,7 @@ const view = {
    
    <Box background="#2e2e2e" width="100%" height="150px" mt="30px" p="10px" border="1px  white" borderRadius="10px" >
     <Text textAlign="center" fontWeight={500} color="greenyellow" fontSize="40px" >Total Sale</Text>
-       <Text textAlign="center" fontWeight={400} color="#ffffff" fontSize="38px">$ 500</Text>
+       <Text textAlign="center" fontWeight={400} color="#ffffff" fontSize="38px">{order.length == 0 ? "No Sale" :`$ ${totalPriceSale}`}</Text>
    </Box>
 
 {/*  All four details boxes ------------------------------------ */}
