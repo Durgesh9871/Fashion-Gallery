@@ -114,7 +114,7 @@ export default function CheckoutPage() {
         quantity:ele.quantity ,
         amount:ele.productId.price , 
         address:detail ,
-        status:"pending" ,
+        status:"success" ,
         isCanceled:false
       }
       // console.log(body ,"body")
