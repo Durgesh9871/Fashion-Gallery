@@ -98,7 +98,7 @@ const view = {
    <Box border="1px  red" display="flex" justifyContent="space-between" mt="30px">
 
 {/*  for customers --- first box  */}
-    <Box border="1px solid  white"  background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px"> 
+    {/* <Box border="1px solid  white"  background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px"> 
     <Text style={style}>Customers</Text> 
     <Text style={secondStyle}>Users - 34</Text> 
 
@@ -108,7 +108,7 @@ const view = {
       <AiFillCaretRight style={{color:"#ffff"  , fontSize:"20px"}} />
     </Box> </Link>
 
-    </Box>
+    </Box> */}
 
 
 {/* Box for adding product */}
@@ -160,6 +160,20 @@ const view = {
  {/* third box end here ------- */}
 
 
+ {/*  order  one -------------------- removed- */}
+ <Box border="1px solid white" mr="22px" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
+  
+  <Text style={style}>Order Details</Text> 
+  <Text style={secondStyle}>& Status...</Text> 
+
+    <Divider orientation='horizontal' style={{margin:"10px 0px" }}  />
+<Link to="/orderPageAdmin">  <Box display="flex" justifyContent="space-between" alignItems="center" cursor="pointer">
+    <Text style={view}>View Details</Text>
+    <AiFillCaretRight style={{color:"#ffff"  , fontSize:"20px"}} />
+  </Box> </Link>
+
+  </Box>
+ {/* order box end here ------- */}
 
    
     
@@ -174,7 +188,7 @@ const view = {
 
 
     {/*  order  one --------------------- */}
-    <Box border="1px solid white" mr="22px" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
+    {/* <Box border="1px solid white" mr="22px" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
   
     <Text style={style}>Order Details</Text> 
     <Text style={secondStyle}>& Status...</Text> 
@@ -185,12 +199,12 @@ const view = {
       <AiFillCaretRight style={{color:"#ffff"  , fontSize:"20px"}} />
     </Box> </Link>
 
-    </Box>
+    </Box> */}
    {/* order box end here ------- */}
 
 
       {/*  for statistic --------------------- */}
-      <Box border="1px solid white" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
+      {/* <Box border="1px solid white" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
       
       <Text style={style}>Statistics</Text> 
       <Text style={secondStyle}>...</Text> 
@@ -201,7 +215,7 @@ const view = {
         <AiFillCaretRight style={{color:"#ffff"  , fontSize:"20px"}} />
       </Box> </Link>
   
-      </Box>
+      </Box> */}
 
       {/* stats end here ---------------- */}
    </Box>
