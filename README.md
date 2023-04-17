@@ -10,7 +10,7 @@
 
 **To see the live site click the below link.**
 
-https://fashion-gallary.vercel.app/
+https://fashion-gallery.vercel.app/
 
 Tech Stack 
 1. HTML,
@@ -68,12 +68,21 @@ jagroshan singh<br/>
 ![Screenshot (8)](https://github.com/Durgesh9871/ReadmeImages/blob/main/Fashion_Gallery/Screenshot%20(133).png?raw=true)
 
 
+![Screenshot (8)](https://github.com/Durgesh9871/ReadmeImages/blob/main/Fashion_Gallery/Screenshot%20(135).png?raw=true)
+
+
+
 ## Mens Page
 ![Screenshot (8)](https://github.com/Durgesh9871/ReadmeImages/blob/main/Fashion_Gallery/Screenshot%20(128).png?raw=true)
 
 
 ## Cart Page 
 ![Screenshot (8)](https://github.com/Durgesh9871/ReadmeImages/blob/main/Fashion_Gallery/Screenshot%20(132).png?raw=true)
+
+
+## Checkout Page 
+
+![Screenshot (8)](https://github.com/Durgesh9871/ReadmeImages/blob/main/Fashion_Gallery/Screenshot%20(136).png?raw=true)
 
 
 
