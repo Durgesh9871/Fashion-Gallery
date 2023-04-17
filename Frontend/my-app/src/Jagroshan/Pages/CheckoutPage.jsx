@@ -118,11 +118,11 @@ export default function CheckoutPage() {
         isCanceled:false
       }
       // console.log(body ,"body")
-      // axios.post(`${process.env.REACT_APP_URL}/order/add` ,body , {
-      //   headers: {
-      //     authorization: JSON.parse(localStorage.getItem("token")),
-      //   },
-      // })
+      axios.post(`${process.env.REACT_APP_URL}/order/add` ,body , {
+        headers: {
+          authorization: JSON.parse(localStorage.getItem("token")),
+        },
+      })
 
     })
    
@@ -136,6 +136,7 @@ export default function CheckoutPage() {
 
   for(let k in detail){
    if(detail[k] == ""){
+    // console.log(k ,"xnj")
      value = false 
      break 
    }
@@ -168,8 +169,8 @@ export default function CheckoutPage() {
   }
 
    
-  let discount = totalprice * (5 / 100)
-  let couponadd =  totalprice ? 30 : 0
+  let discount = Math.floor(totalprice * (5 / 100))
+  let couponadd =  Math.floor(totalprice ? 30 : 0)
   let payableamount = Math.floor(totalprice - discount - couponadd)
   return (
     <div>
