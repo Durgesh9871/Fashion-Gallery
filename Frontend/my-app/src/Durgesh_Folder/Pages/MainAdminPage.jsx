@@ -50,7 +50,7 @@ const getOrderData = ()=>{
   .then((res)=> setOrder(res.data))
   .catch((err)=> console.log(err))
 }
-
+console.log(order ,"order")
 
   //  for customer data ------------------------
   const dispatch = useDispatch() 
@@ -177,7 +177,7 @@ const view = {
  <Box border="1px solid white" mr="22px" background="#2e2e2e" height="170px" width="280px" padding="10px" borderRadius="10px" >
   
   <Text style={style}>Order Details</Text> 
-  <Text style={secondStyle}>& Status...</Text> 
+  <Text style={secondStyle}>{order.length == 0 ?"No Order":order.length}</Text> 
 
     <Divider orientation='horizontal' style={{margin:"10px 0px" }}  />
 <Link to="/orderPageAdmin">  <Box display="flex" justifyContent="space-between" alignItems="center" cursor="pointer">
