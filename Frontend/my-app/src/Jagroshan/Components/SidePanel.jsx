@@ -82,7 +82,7 @@ export const SidePanel = () => {
           />
           <label style={{color:"#646878"}}> Coat-Pant</label>
         </div>
-        <div>
+        {/* <div>
           <input
             type="checkbox"
             value="tshirts"
@@ -90,7 +90,7 @@ export const SidePanel = () => {
             checked={categories.includes("tshirts")}
           />
           <label style={{color:"#646878"}}> T-Shirt</label>
-        </div>
+        </div> */}
         </Box>
 
 
