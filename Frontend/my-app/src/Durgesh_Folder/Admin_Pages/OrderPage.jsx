@@ -33,7 +33,7 @@ const OrderPage = () => {
   return (
     <Box>
        <Sidebar />
-        <Box background="#171923" height="100vh">
+        <Box background="#171923" height="100%">
 
             {/* Order Details  STARTED FROM HERE --------------------- */}
             <Box width={{ base: "100%", sm: "100%", md: "100%", lg: "100%", xl: "81%", '2xl': "81%" }} border="1px   red" height="auto" marginLeft="auto"  p="2%" mt="-60px">
@@ -45,17 +45,16 @@ const OrderPage = () => {
           {/*  table */}
           <TableContainer color="#fff">
             <Table variant="simple" size="sm">
-              <TableCaption placement="top" fontSize="22px" mb="15px">All Users Cart Data </TableCaption>
+              <TableCaption placement="top" fontSize="22px" mb="15px">Users Order Data </TableCaption>
               <Thead>
                 <Tr>
                 <Th>SR No.</Th>
-                <Th>Name</Th>
                  <Th>Photo</Th>
                   <Th>User Id</Th>
                   <Th>created At</Th>
                   <Th>updated At</Th>
                   <Th>ProductId</Th>
-                  <Th>quantity</Th>
+                  <Th>Status</Th>
                   <Th>Price</Th>
                 </Tr>
               </Thead>
@@ -77,13 +76,12 @@ const OrderPage = () => {
                             border="2px solid white"
                           />
                         </Td>
-                        <Td textTransform="capitalize">{item._id}</Td>
-                        <Td>{item._id}</Td>
-                        <Td>{item._id}</Td>
-                        <Td>{item._id}</Td>
-                        <Td>{item._id}</Td>
-                        <Td>{item._id}</Td>
-                        <Td>{item._id}</Td>
+                        <Td>{item.userId}</Td>
+                        <Td >{item.createdAt.slice(0,10) }</Td>
+                        <Td>{item.updatedAt.slice(0,10) }</Td>
+                        <Td>{item.productId._id}</Td>
+                        <Td>{item.status}</Td>
+                        <Td>{item.amount}</Td>
                       </Tr>
                     );
                   })}
