@@ -14,6 +14,7 @@ import axios from 'axios'
 const MainAdminPage = () => {
   const [cartData , setCartData] = useState([])
   const [productsData , setProductData] = useState([])
+  const [order , setOrder] = useState([])
 
 
 
@@ -39,6 +40,17 @@ const MainAdminPage = () => {
     .catch((err)=> console.log(err))
 }
 
+//  all order data ---
+const getOrderData = ()=>{
+  axios.get(`${process.env.REACT_APP_URL}/order` ,{
+      headers:{
+          authorization:JSON.parse(localStorage.getItem("token"))
+      }
+  })
+  .then((res)=> setOrder(res.data))
+  .catch((err)=> console.log(err))
+}
+
 
   //  for customer data ------------------------
   const dispatch = useDispatch() 
@@ -53,6 +65,7 @@ const MainAdminPage = () => {
 
 
   useEffect(()=>{
+    getOrderData()
       getCartData()
       getProductData()
   },[])
