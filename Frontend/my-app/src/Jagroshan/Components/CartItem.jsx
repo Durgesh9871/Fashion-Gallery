@@ -25,24 +25,6 @@ export const CartItem = (props) => {
  const dispatch = useDispatch()
 
   const onClickDelete = (_id) => {
-    // axios({
-    //   method: "DELETE",
-    //   url: `${process.env.REACT_APP_URL}/cart/${_id}`,
-    //   headers: {
-    //     authorization: JSON.parse(localStorage.getItem("token")),
-    //   },
-    // })
-    //   .then((res) => {
-    //     toast({
-    //       position: "top",
-    //       title: "Item removed from cart",
-    //       status: "success",
-    //       duration: 3000,
-    //       isClosable: true,
-    //     });
-    //   })
-    //   .catch((err) => console.log(err));
-
     dispatch(getCartDelete(_id))
     toast({
             position: "top",
@@ -92,7 +74,7 @@ export const CartItem = (props) => {
           md: "none",
         }}
       >
-        <Button colorScheme={"red"} onClick={()=>onClickDelete()} size={"xs"}>
+        <Button colorScheme={"red"} onClick={()=>onClickDelete(_id)} size={"xs"}>
           Delete
         </Button>
         <PriceTag price={price} />
