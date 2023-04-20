@@ -1,6 +1,6 @@
 
 const {ProductModel} = require("../models/ProductModal");
-const {verifyTokenAndAdmin}=require("../middlewares/VerifyTokenAndAdmin");
+
 
 const ProductsRoute = require("express").Router();
 
