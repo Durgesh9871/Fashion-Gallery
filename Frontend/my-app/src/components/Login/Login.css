@@ -1,0 +1,36 @@
+.container{
+    display: flex;
+    height: 700px;
+}
+.left_col{
+    width: 40%;
+    /* border: 2px solid black; */
+    background-color:#2874f0;
+    color: white;
+    padding: 30px;
+    display: grid;
+    justify-content: space-between;
+}
+
+.right_col{
+    width: 60%;
+    /* border: 2px solid red; */
+}
+@media only screen and (max-width:540px){
+    .container{
+        height: 680px;
+    }
+}
+@media only screen and (max-width:500px){
+    .container{
+        display: grid;
+        height: 1300px;
+    }
+    .left_col{
+        width: 100%;        
+    }
+    
+    .right_col{
+        width: 100%;
+    }
+}
