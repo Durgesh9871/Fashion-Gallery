@@ -62,27 +62,6 @@ ProductsRoute.get("/:id", async (req, res) => {
 
 //GET ALL ,Product, Anyone can access
 
-ProductsRoute.get("/", async (req, res) => {
-  let  limit=req.query.limit|| 200
-  const page=req.query.page||1
-  let categories=req.query.categories||["shirts","jacket","coatpant","tshirts"]
-  let color=req.query.color||["black","grey","white","red","blue"]
-  let  order=req.query.order=="asc"?1:-1 ||1
-  let price=req.query.price||1000000
 
-  try {
-  
-    // const d=await ProductModel.find({},{categories,color})
-    const d=await ProductModel.find({color:{$in:color},price:{$lte:price},categories:{$in:categories}}).sort({price:order}).limit(limit).skip(limit*(page-1))
-    // const d=await ProductModel.find()
-    d.length>0?res.status(200).send(d):res.status(200).send({
-      data:[],
-      msg:"No data present as per query"
-    })
-  } catch (err) {
-    
-    res.status(500).send(err.message);
-  }
-});
 
 module.exports = {ProductsRoute}
