@@ -4,12 +4,12 @@ require("dotenv").config()
 port=process.env.port
 const {connection}=require("./configs/db")
 
-const {router}=require("./Router/Products")
+const {ProductsRoute}=require("./routes/Products")
 
 app=express()
 
 app.use(express.json())
-app.use('/products',router)
+app.use('/products',ProductsRoute)
 app.get('/' , (req , res)=>{
 
    res.send('hello from simple server :)')
