@@ -1,0 +1,69 @@
+
+************************Product Page************************
+======>Request===>
+1. GET:
+       1. "/"  anyone can access the product 
+
+2. POST:
+       1. "/add"  Only Admin can add the product
+
+3. PATCH:
+        1. "/update/:id" Only admin can update product
+
+4. DELETE:
+        1. "/delete/:id" only admin can perform the task
+
+
+
+############################# CART PAGE #####################
+
+********************** Request*********************>>
+
+USER SIDE >>>>> 
+Only logged user-->
+
+1. GET:
+       1. "/usercart"  
+
+2. POST:
+       1. "/add"  
+
+3. PATCH:
+        1. "/update/:id" 
+
+4. DELETE:
+        1. "/delete/:id" 
+
+ADMIN SIDE>>>>>>>>>>
+
+1. GET:
+       1. "/all" (return all the cart items of all user which are add the item in own cart)
+       2. "/alluser" (return all the user which are added the item in own cart) 
+
+
+############################# ORDER PAGE #####################
+
+********************** Request*********************>>
+
+USER SIDE >>>>> 
+Only logged user-->
+
+1. GET:
+       1. "/"     
+
+2. POST:
+       1. "/add"  
+
+4. DELETE:
+        1. "/delete/:id" 
+
+ADMIN SIDE>>>>>>>>>>
+
+1. GET:
+       1. "/all" (return all the orders of all user which are ordered)
+2. PATCH:
+        1. "/update/:id" (can update user order status(pending or not))
+
+       
+
+

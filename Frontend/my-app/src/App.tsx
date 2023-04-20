@@ -1,14 +1,14 @@
-import React from 'react';
-import logo from './logo.svg';
+// import React from 'react';
+// import logo from './logo.svg';
 import './App.css';
 import { DisplayJavascript } from './display';
 
 function App() {
  
   return (
-
-    <div className="App">
+    <div>
       <DisplayJavascript />
+      {/* <Footer/> */}
     </div>
   );
 }

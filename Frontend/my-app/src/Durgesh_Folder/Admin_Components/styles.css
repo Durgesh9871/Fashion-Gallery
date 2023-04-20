@@ -1,0 +1,33 @@
+/* Styles for the dropdown container */
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Styles for the dropdown button */
+.dropdown-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+/* Styles for the dropdown content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  z-index: 1;
+  transition: transform 0.3s ease;
+  transform: translateY(-10px);
+}
+
+/* Styles for the dropdown content when it is shown */
+.dropdown-content.show {
+  display: block;
+  transform: translateY(0);
+}
