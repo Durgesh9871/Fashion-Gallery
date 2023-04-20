@@ -4,11 +4,11 @@ require("dotenv").config();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const { authenticate } = require("../middlewares/Authmiddleware");
-// const {
-//   sendOtp,
-//   verifyOtp,
-//   updatePassword,
-// } = require("../middlewares/ForgotPass.middleware");
+const {
+  sendOtp,
+  verifyOtp,
+  updatePassword,
+} = require("../middlewares/ForgotPassmiddleware");
 
 const userRouter = express.Router();
 
