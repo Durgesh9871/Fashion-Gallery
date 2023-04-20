@@ -1,22 +1,24 @@
-const mongoose=require("mongoose")
-
-const schema=mongoose.Schema({
-    title:{type:String,require:true},
-    price:{type:Number,require:true},
-    rating:{type:Number,require:true},
-    reviews:{type:Number,require:true},
-    src:{type:String,require:true},
-    offPrice:{type:Number,require:true},
-    brand:{type:String,require:true},
-    subtitle:{type:String,require:true},
-    
-}
-,{
-    virsionKey:"none"
-})
-
-const PModel=mongoose.model("products",schema)
-
-module.exports={
-    PModel
+const mongoose = require("mongoose");
+const ProductSchema = new mongoose.Schema(
+  {
+    id:{type:Number},
+    rating:{ type: Number, required: true },
+    categories: { type: String },
+    title: { type: String, required: true},
+    price: { type: Number, required: true },
+    realPrice:{ type: Number, required: true },
+    brand:{ type: String, required: true },
+    description: { type: String, required: true, },
+    color: { type: String },
+    discount:{type:String},
+    reviews:{ type: Array},
+    Images: { type: Array },
+    mainImage:{type:String,require:true}
+  },
+  // Time when product was added in DB(createdAt ,updatedAt)
+  { timestamps: true } 
+);
+const ProductModel=mongoose.model("Product", ProductSchema);
+module.exports = {
+    ProductModel,
 }
