@@ -25,4 +25,3 @@ const CartModel=mongoose.model("Cart", CartSchema);
 module.exports = {
     CartModel
 }
-
