@@ -1,6 +1,6 @@
 const { CartModel } = require("../models/ProductsModel");
 const { verifyTokenAndAdmin } = require("../middlewares/VerifyTokenAndAdmin");
-const { AddUserIdInCart } = require("../Middlewares/AddUserIdInCart");
+const { AddUserIdInCart } = require("../middlewares/AddUserIdInCart");
 
 
 const mongoose = require("mongoose");
