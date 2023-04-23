@@ -67,4 +67,23 @@ Cartrouter.get("/", async (req, res) => {
   }
 });
 
+
 module.exports = {Cartrouter};
+
+
+Cartrouter.get("/alluser",verifyTokenAndAdmin, async (req, res) => {
+  try {
+    
+    const allcart=await CartModel.find().populate("userId productId")
+    allcart.length > 0
+      ? res.status(200).send(allcart)
+      : res.status(200).send("Nobody user have items in own cart");
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+});
+
+module.exports = { Cartrouter };
+
+
+
