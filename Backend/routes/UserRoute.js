@@ -8,7 +8,7 @@ const {
   sendOtp,
   verifyOtp,
   updatePassword,
-} = require("../middlewares/ForgotPass.middleware");
+} = require("../middlewares/ForgotPassmiddleware");
 
 const userRouter = express.Router();
 
