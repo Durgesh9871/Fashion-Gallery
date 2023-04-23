@@ -1,32 +1,45 @@
-const {CartModel} = require("../Models/CartModel");
-const {
-    verifyToken,
-    verifyTokenAndAuthorization,
-  } = require("../Middleware/VerifyToken");
-  const {verifyTokenAndAdmin}=require("../Middleware/VerifyTokenAndAdmin")
+const { CartModel } = require("../Modals/CartModal");
+const { verifyTokenAndAdmin } = require("../Middlewares/VerifyTokenAndAdmin");
+const { AddUserIdInCart } = require("../Middlewares/AddUserIdInCart");
+
+
+const mongoose = require("mongoose");
 
 const Cartrouter = require("express").Router();
 
 //CREATE  Only logged user middleware verifyToken,
 
-Cartrouter.post("/",  async (req, res) => {
-  const newCart = new CartModel(req.body);
+Cartrouter.post("/",  AddUserIdInCart,async (req, res) => {
+  const userId=req.userId
+  const productId=req.body.productId
+  const newCart = new CartModel({userId,productId});
+  const existProduct=await CartModel.find({$and:[{productId},{userId}]})
   try {
-    const savedCart = await newCart.save();
-    res.status(200).send(savedCart);
+    if (existProduct.length > 0) {
+      res.status(200).send("Item already present in cart");
+    } else {
+      const savedCart = await newCart.save();
+      res.status(200).send({
+        msg: "item added in your cart",
+        item: savedCart,
+      });
+    }
+
   } catch (err) {
     res.status(500).send(err);
   }
 });
 
+
 //UPDATE   Only logged user and own cart --> middleware --> verifyTokenAndAuthorization
-Cartrouter.put("/:id", async (req, res) => {
+
+Cartrouter.patch("/:id", async (req, res) => {
+  const quantity = req.body.quantity;
+  // console.log({quantity})
   try {
     const updatedCart = await CartModel.findByIdAndUpdate(
       req.params.id,
-      {
-        $set: req.body,
-      },
+      req.body,
       { new: true }
     );
     res.status(200).send(updatedCart);
@@ -37,7 +50,7 @@ Cartrouter.put("/:id", async (req, res) => {
 
 //DELETE  Only logged user and own cart --> middleware --> verifyTokenAndAuthorization
 
-Cartrouter.delete("/:id",  async (req, res) => {
+Cartrouter.delete("/:id", AddUserIdInCart , async (req, res) => {
   try {
     await CartModel.findByIdAndDelete(req.params.id);
     res.status(200).send("Cart has been deleted...");
@@ -47,28 +60,33 @@ Cartrouter.delete("/:id",  async (req, res) => {
 });
 
 //GET USER CART Only logged user --> middleware --> verifyTo(/cart/userid)
-Cartrouter.get("/cart/:userid",  async (req, res) => {
+
+Cartrouter.get("/", AddUserIdInCart, async (req, res) => {
+  const userId =req.userId;
+  var id =new mongoose.Types.ObjectId(userId);
   try {
-    const cart = await CartModel.findOne({ userId: req.params.userId });
-    res.status(200).send(cart);
+
+    const cart=await CartModel.find({userId:id})
+    .populate("productId").select("_id userId productId quantity")
+    cart.length > 0
+      ? res.status(200).send(cart)
+      : res.status(200).send("No items in your cart");
   } catch (err) {
     res.status(500).send(err.message);
   }
 });
 
-// //GET ALL only Admin middleware--> verifyTokenAndAdmin
+// //GET ALL cart items--> only Admin middleware--> verifyTokenAndAdmin
 
-Cartrouter.get("/", async (req, res) => {
+Cartrouter.get("/all", verifyTokenAndAdmin, async (req, res) => {
   try {
-    const carts = await Cart.find();
-    res.status(200).send(carts);
+
+    const cart=await CartModel.find().populate("productId")
+    res.status(200).send(cart);
   } catch (err) {
     res.status(500).send(err);
   }
 });
-
-
-module.exports = {Cartrouter};
 
 
 Cartrouter.get("/alluser",verifyTokenAndAdmin, async (req, res) => {
@@ -84,6 +102,5 @@ Cartrouter.get("/alluser",verifyTokenAndAdmin, async (req, res) => {
 });
 
 module.exports = { Cartrouter };
-
 
 
