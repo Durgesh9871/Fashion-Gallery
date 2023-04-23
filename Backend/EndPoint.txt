@@ -3,15 +3,16 @@
 ======>Request===>
 1. GET:
        1. "/"  anyone can access the product 
+       1. "/:id"  anyone can access the product 
 
 2. POST:
-       1. "/add"  Only Admin can add the product
+       1. "/"  Only Admin can add the product
 
 3. PATCH:
-        1. "/update/:id" Only admin can update product
+        1. "/:id" Only admin can update product
 
 4. DELETE:
-        1. "/delete/:id" only admin can perform the task
+        1. "/:id" only admin can perform the task
 
 
 
@@ -20,19 +21,20 @@
 ********************** Request*********************>>
 
 USER SIDE >>>>> 
+
 Only logged user-->
 
 1. GET:
-       1. "/usercart"  
+       1. "/"  
 
 2. POST:
-       1. "/add"  
+       1. "/"  
 
 3. PATCH:
-        1. "/update/:id" 
+        1. "/:id" 
 
 4. DELETE:
-        1. "/delete/:id" 
+        1. "/:id" 
 
 ADMIN SIDE>>>>>>>>>>
 
