@@ -1,0 +1,38 @@
+.instructions {
+    font-size: 0.75rem;
+    border-radius: 0.5rem;
+    padding: 0.25rem;
+    position: relative;
+    text-align: start;
+    color: red;
+    /* bottom: -10px; */
+  }
+  
+  .instructions > svg {
+    margin-right: 0.25rem;
+  }
+  
+  .offscreen {
+    position: absolute;
+    left: -9999px;
+  }
+  
+  .hide {
+    display: none;
+  }
+  
+  .valid {
+    color: limegreen;
+    margin-left: 0.25rem;
+  }
+  
+  .invalid {
+    color: tomato;
+    margin-left: 0.25rem;
+  }
+
+  .left_col{
+    background-image: url(../img/signup-right-image.png);
+  }
+
+  

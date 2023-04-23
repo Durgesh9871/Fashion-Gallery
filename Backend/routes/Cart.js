@@ -7,6 +7,8 @@ const mongoose = require("mongoose");
 const Cartrouter = require("express").Router();
 
 
+
+
 //CREATE  Only logged user middleware verifyToken,
 
 Cartrouter.post("/",  AddUserIdInCart,async (req, res) => {
@@ -101,6 +103,9 @@ Cartrouter.get("/alluser",verifyTokenAndAdmin, async (req, res) => {
   }
 });
 
-module.exports = { Cartrouter };
+module.exports = {
+  
+  Cartrouter 
+};
 
 
