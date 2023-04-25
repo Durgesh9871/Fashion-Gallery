@@ -41,7 +41,7 @@ OrderRouter.get("/",AddUserIdInCart, async (req, res) => {
 //****************************** UPDATE USER ORDERS  -->only user can update  own order itmes **************************
 
 OrderRouter.patch("/cancel/:id",AddUserIdInCart, async (req, res) => {
-  // console.log(req.params.id)
+  
   try {
     const updatedOrder = await OrderModel.findByIdAndUpdate(
       {_id:req.params.id},
