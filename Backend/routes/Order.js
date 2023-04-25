@@ -82,3 +82,15 @@ OrderRouter.patch("/update/:id", verifyTokenAndAdmin, async (req, res) => {
   }
     
 });
+
+//**************************  DELETE  Only Admin has access to preform  ****************************
+
+OrderRouter.delete("/delete/:id", verifyTokenAndAdmin, async (req, res) => {
+  try {
+    await OrderModel.findByIdAndDelete(req.params.id);
+    res.status(200).send("Order has been deleted...");
+  } 
+  catch (err) {
+    res.status(500).send(err);
+  }
+});
