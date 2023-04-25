@@ -2,8 +2,8 @@
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-const AddUserIdInCart = (req, res, next) => {
 
+const AddUserIdInCart = (req, res, next) => {
   const token = req.headers.authorization;
   
   if (token) {
@@ -29,7 +29,6 @@ const AddUserIdInCart = (req, res, next) => {
     res.send("Please Login First");
   }
 };
-
 
 module.exports = {
   

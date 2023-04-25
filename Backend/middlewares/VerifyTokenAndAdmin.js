@@ -41,5 +41,6 @@ const verifyTokenAndAdmin=async(req,res,next)=>{
 }
 
 module.exports = {
+  
   verifyTokenAndAdmin,
 };
