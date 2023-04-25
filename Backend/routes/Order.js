@@ -42,6 +42,7 @@ OrderRouter.get("/",AddUserIdInCart, async (req, res) => {
 });
 
 //****************************** UPDATE USER ORDERS  -->only user can update  own order itmes **************************
+
 OrderRouter.patch("/cancel/:id",AddUserIdInCart, async (req, res) => {
   // console.log(req.params.id)
   try {
@@ -83,33 +84,6 @@ OrderRouter.patch("/update/:id", verifyTokenAndAdmin, async (req, res) => {
     
 });
 
-//**************************  DELETE  Only Admin has access to preform  ****************************
-
-OrderRouter.delete("/delete/:id", verifyTokenAndAdmin, async (req, res) => {
-  try {
-    await OrderModel.findByIdAndDelete(req.params.id);
-    res.status(200).send("Order has been deleted...");
-  } 
-  catch (err) {
-    res.status(500).send(err);
-  }
-});
-
-/ *******************************GET ALL  (Total order)-->  Only Admin has access to preform  ****************
-
-OrderRouter.get("/all", verifyTokenAndAdmin, async (req, res) => {
-
-  try {
-    const orders = await OrderModel.find()
-    orders.length > 0
-      ? res.status(200).send(cart)
-      : res.status(200).send("No orders placed yet");
-  } 
-  catch (err)
-  {
-    res.status(500).send(err);
-  }
-});
 
 module.exports = {
     
