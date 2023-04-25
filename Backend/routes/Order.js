@@ -83,7 +83,7 @@ OrderRouter.patch("/update/:id", verifyTokenAndAdmin, async (req, res) => {
     
 });
 
-//**************************  DELETE  Only Admin has access to preform  ****************************
+
 
 
 
