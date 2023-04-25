@@ -94,3 +94,19 @@ OrderRouter.delete("/delete/:id", verifyTokenAndAdmin, async (req, res) => {
     res.status(500).send(err);
   }
 });
+
+/ *******************************GET ALL  (Total order)-->  Only Admin has access to preform  ****************
+
+OrderRouter.get("/all", verifyTokenAndAdmin, async (req, res) => {
+
+  try {
+    const orders = await OrderModel.find()
+    orders.length > 0
+      ? res.status(200).send(cart)
+      : res.status(200).send("No orders placed yet");
+  } 
+  catch (err)
+  {
+    res.status(500).send(err);
+  }
+});
