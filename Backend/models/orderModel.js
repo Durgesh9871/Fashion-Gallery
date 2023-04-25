@@ -29,6 +29,12 @@ const OrderSchema = new mongoose.Schema(
       type: String, 
       default: "pending"
      },
+    isCanceled: { 
+      type: Boolean, 
+      default: false 
+    }
+  },
+  { timestamps: true }
     
 );
 
