@@ -2,17 +2,55 @@ const mongoose = require("mongoose");
 
 const ProductSchema = new mongoose.Schema(
   {
-    title: { type: String, required: true, unique: true },
-    desc: { type: String, required: true, },
-    img: { type: String, required: true },
-    categories: { type: Array },
-    size: { type: String },
-    color: { type: String },
-    price: { type: Number, required: true },
-    
+    id:{type:Number},
+    rating:{ 
+      type: Number, 
+      required: true 
+    },
+    categories: {
+       type: String
+      },
+    title: { 
+      type: String, 
+      required: true
+    },
+    price: { 
+      type: Number, 
+      required: true 
+    },
+    realPrice:{ 
+      type: Number, 
+      required: true 
+    },
+    brand:{ 
+      type: String, 
+      required: true 
+    },
+    description: { 
+      type: String, 
+      required: true, 
+    },
+    color: { 
+      type: String 
+    },
+    discount:{
+      type:String
+    },
+    reviews:{ 
+      type: Array
+    },
+    Images: { 
+      type: Array 
+    },
+    mainImage:{
+      type:String,
+      require:true
+    }
   },
   // Time when product was added in DB(createdAt ,updatedAt)
-  { timestamps: true } 
+  { 
+    timestamps: true 
+  } 
 );
 
 const ProductModel=mongoose.model("Product", ProductSchema);
