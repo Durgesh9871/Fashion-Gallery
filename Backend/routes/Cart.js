@@ -9,7 +9,6 @@ const Cartrouter = require("express").Router();
 
 
 
-
 //CREATE  Only logged user middleware verifyToken,
 
 Cartrouter.post("/",  AddUserIdInCart,async (req, res) => {
