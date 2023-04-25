@@ -40,3 +40,22 @@ OrderRouter.get("/",AddUserIdInCart, async (req, res) => {
     res.status(500).send(err);
   }   
 });
+
+OrderRouter.patch("/cancel/:id",AddUserIdInCart, async (req, res) => {
+  // console.log(req.params.id)
+  try {
+    const updatedOrder = await OrderModel.findByIdAndUpdate(
+      {_id:req.params.id},
+      {
+        $set: {isCanceled:true},
+      },
+      { new: true }
+    );
+    res.status(200).send(updatedOrder);
+  } 
+  catch (err)
+  {
+    res.status(500).send(err);
+  }
+    
+});
