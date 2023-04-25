@@ -21,3 +21,22 @@ OrderRouter.post("/add",AddUserIdInCart, async (req, res) => {
     res.status(500).send(err);
   }
 });
+
+//****************************** GET USER ORDERS  --> user can access only own order itmes **************************
+
+OrderRouter.get("/",AddUserIdInCart, async (req, res) => {
+  const id=new mongoose.Types.ObjectId(req.userId)
+  // console.log(req.params.id
+  try {
+     
+    const orders=await OrderModel.find().populate("productId")
+    
+    orders.length>0
+    ?res.status(200).send(orders)
+    :res.status(200).send({msg:"looks like you did't place any order so for"})
+  } 
+  catch (err) 
+  {
+    res.status(500).send(err);
+  }   
+});
