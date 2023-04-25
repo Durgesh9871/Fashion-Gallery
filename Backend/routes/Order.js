@@ -110,3 +110,9 @@ OrderRouter.get("/all", verifyTokenAndAdmin, async (req, res) => {
     res.status(500).send(err);
   }
 });
+
+module.exports = {
+    
+    OrderRouter
+    
+};
