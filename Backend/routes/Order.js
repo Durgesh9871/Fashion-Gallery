@@ -64,7 +64,6 @@ OrderRouter.patch("/cancel/:id",AddUserIdInCart, async (req, res) => {
 // *************  UPDATE --> Only Admin has access*********************
 
 OrderRouter.patch("/update/:id", verifyTokenAndAdmin, async (req, res) => {
- 
   try {
     const updatedOrder = await OrderModel.findByIdAndUpdate(
       {_id:req.params.id},
@@ -77,9 +76,9 @@ OrderRouter.patch("/update/:id", verifyTokenAndAdmin, async (req, res) => {
   } 
   catch (err) {
     res.status(500).send(err);
-  }
-    
-});
+  }   
+}
+);
 
 
 module.exports = {
