@@ -59,6 +59,7 @@ OrderRouter.patch("/cancel/:id",AddUserIdInCart, async (req, res) => {
     
 });
 
+
 //  ADMIN SIDE
 
 // *************  UPDATE --> Only Admin has access*********************
@@ -75,7 +76,7 @@ OrderRouter.patch("/update/:id", verifyTokenAndAdmin, async (req, res) => {
     res.status(200).send(updatedOrder);
   } 
   catch (err) {
-    
+
     res.status(500).send(err);
   }   
 }
