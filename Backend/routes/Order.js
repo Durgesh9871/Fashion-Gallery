@@ -75,6 +75,7 @@ OrderRouter.patch("/update/:id", verifyTokenAndAdmin, async (req, res) => {
     res.status(200).send(updatedOrder);
   } 
   catch (err) {
+    
     res.status(500).send(err);
   }   
 }
