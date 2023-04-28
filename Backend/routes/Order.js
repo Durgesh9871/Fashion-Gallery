@@ -158,6 +158,20 @@ OrderRouter.patch("/cancel/:id",AddUserIdInCart, async (req, res) => {
 
 //  ADMIN SIDE
 
+
+
+//**************************  DELETE  Only Admin has access to preform  ****************************
+
+OrderRouter.delete("/delete/:id", verifyTokenAndAdmin, async (req, res) => {
+  try {
+    await OrderModel.findByIdAndDelete(req.params.id);
+    res.status(200).send("Order has been deleted...");
+  } 
+  catch (err) {
+    res.status(500).send(err);
+  }
+});
+
 // *************  UPDATE --> Only Admin has access*********************
 
 OrderRouter.patch("/update/:id", verifyTokenAndAdmin, async (req, res) => {
