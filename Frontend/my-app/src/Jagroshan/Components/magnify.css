@@ -1,0 +1,15 @@
+
+.image{
+    overflow: hidden;
+    margin: 0 ;
+    cursor: pointer;
+}
+
+.image .img{
+    /* width: 100%; */
+    transition: 0.6s all ease-in-out;
+}
+
+.image .img:hover{
+    transform: scale(1.7) ;
+}

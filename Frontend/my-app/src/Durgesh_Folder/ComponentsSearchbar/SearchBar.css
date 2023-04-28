@@ -1,0 +1,25 @@
+
+/*  Dont change the css ------------------Durgesh singh  */
+
+.inputTag{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    margin-bottom: 80px;
+}
+
+ 
+/*  Code for responsiveness --------------------------------------------------------- */
+
+
+@media  (min-width: 300px) and (max-width: 480px)  {
+      
+    #DisplayDataBox{
+        display: flex;
+        justify-content: right; 
+        padding-right: 30px;
+    }
+
+
+}
