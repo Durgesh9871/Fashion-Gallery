@@ -10,7 +10,6 @@ const OrderRouter = require("express").Router();
 
 //  USER SIDE
 
-
 //********************** CREATE   Logged User only ***************************
 
 OrderRouter.post("/add",AddUserIdInCart, async (req, res) => {
@@ -26,6 +25,7 @@ OrderRouter.post("/add",AddUserIdInCart, async (req, res) => {
     res.status(500).send(err);
   }
 });
+
 
 //****************************** GET USER ORDERS  --> user can access only own order itmes **************************
 
@@ -93,7 +93,7 @@ module.exports = {
     OrderRouter
     
 };
-=======
+
 const {OrderModel }= require("../Modals/OrderModal");
 const {verifyTokenAndAdmin,} = require("../Middlewares/VerifyTokenAndAdmin");
 const {AddUserIdInCart}=require("../Middlewares/AddUserIdInCart")
@@ -214,4 +214,3 @@ module.exports = {
     OrderRouter
     
 };
-
