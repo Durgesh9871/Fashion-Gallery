@@ -1,7 +1,7 @@
 
-const {OrderModel }= require("../Modals/OrderModal");
-const {verifyTokenAndAdmin,} = require("../Middlewares/VerifyTokenAndAdmin");
-const {AddUserIdInCart}=require("../Middlewares/AddUserIdInCart")
+const {OrderModel }= require("../modals/OrderModal");
+const {verifyTokenAndAdmin,} = require("../middlewares/VerifyTokenAndAdmin");
+const {AddUserIdInCart}=require("../middlewares/AddUserIdInCart")
 
 const { mongoose } = require("mongoose");
 
