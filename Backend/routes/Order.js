@@ -10,7 +10,6 @@ const OrderRouter = require("express").Router();
 
 //  USER SIDE
 
-
 //********************** CREATE   Logged User only ***************************
 
 OrderRouter.post("/add",AddUserIdInCart, async (req, res) => {
